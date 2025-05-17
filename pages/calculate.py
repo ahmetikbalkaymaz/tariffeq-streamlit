@@ -119,7 +119,7 @@ st.markdown("""
 
 # Kenar Çubuğu Navigasyonu ve Dil Seçimi
 with st.sidebar:
-    st.image("../logo.png", width=1000)
+    st.image("assets/logo.png", width=1000)
     # st.write(f"### {T['title'][st.session_state.lang]}") # Ana başlık için 'title' kullanılıyor, gerekirse 'calc_title' olarak değiştirilebilir.
     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
     st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang])

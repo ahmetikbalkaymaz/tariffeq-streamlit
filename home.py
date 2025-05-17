@@ -183,7 +183,7 @@ st.markdown("""
 
 # Kenar Çubuğu Navigasyonu
 with st.sidebar:
-    st.image("../logo.png", width=1000)
+    st.image("assets/logo.png", width=1000)
     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
     st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang]) # Navigasyon için session_state.lang kullanın
     
