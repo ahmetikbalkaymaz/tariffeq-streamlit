@@ -490,7 +490,7 @@ else:
 # """, unsafe_allow_html=True)
 
 # Main Content
-st.markdown('<h2 class="section-header">📌 ' + (tr("select_calc")) + '</h2>', unsafe_allow_html=True)
+st.markdown('<h2 class="section-header">📊 ' + (tr("select_calc")) + '</h2>', unsafe_allow_html=True)
 
 # Hesaplama türü seçimi için session_state başlatma (dil-bağımsız anahtar ile)
 if 'active_calc_module' not in st.session_state:
