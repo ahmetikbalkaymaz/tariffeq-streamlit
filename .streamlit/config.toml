@@ -1,0 +1,5 @@
+[theme]
+backgorundColor = "white"
+
+[client]
+showSidebarNavigation = false
