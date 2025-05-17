@@ -69,7 +69,7 @@ st.markdown("""
 
     /* Sidebar arka plan rengi */
     [data-testid="stSidebar"] {
-        background: #039df426;
+        background: #edf7fa;
         display: flex; /* Sidebar'ı da flex container yap */
         flex-direction: column; /* İçeriği dikey sırala */
     }
@@ -108,6 +108,7 @@ st.markdown("""
         font-size: 3.2em;
         margin-bottom: 0.2em;
         font-weight: 700;
+        white-space: nowrap; /* Başlığın alt satıra kaymasını engeller */
     }
 
     /* .header h3 bölümü güncellenecek veya genel h3 kuralı kullanılacak */

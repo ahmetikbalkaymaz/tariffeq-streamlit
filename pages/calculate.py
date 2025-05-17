@@ -6,7 +6,7 @@ from translations import T # YENİ: translations.py dosyasından tr fonksiyonunu
 # ------------------------------------------------------------
 # STREAMLIT CONFIG (must be first)
 # ------------------------------------------------------------
-st.set_page_config(page_title="TariffEQ", layout="wide")
+st.set_page_config(page_title="TariffEQ", layout="wide", initial_sidebar_state="expanded")
 
 # Dil seçimi için session state başlatma (EĞER YOKSA)
 if 'lang' not in st.session_state:
@@ -23,7 +23,7 @@ CALC_MODULE_CAR = "car_module"
 st.markdown("""
 <style>
     [data-testid="stSidebar"] {
-        background-color: #039df426; /* Mevcut arka plan rengi korunuyor */
+        background-color: #edf7fa; /* Mevcut arka plan rengi korunuyor */
         display: flex; /* Sidebar'ı da flex container yap */
         flex-direction: column; /* İçeriği dikey sırala */
     }
@@ -55,8 +55,13 @@ st.markdown("""
         /* color: #2E86C1 !important; */ /* Kaldırıldı - h1 için genel siyah kuralı uygulanacak */
         margin-bottom: 0.5em;
         display: flex;
-        align-items: center;
+        flex-direction: column; /* Öğeleri dikey olarak sırala */
+        align-items: center;   /* Öğeleri yatayda ortala */
         justify-content: center;
+        /* white-space: nowrap;  Bu satır kaldırıldı */
+    }
+    .main-title > span:first-child { /* "TariffEQ" kısmının kaymasını engelle */
+        white-space: nowrap;
     }
     .main-title img {
         height: 1em; /* Ana başlık yazı boyutuna göre ölçeklenir */
@@ -465,7 +470,7 @@ def calculate_car_ear_premium(risk_group_type, risk_class, start_date, end_date,
 calc_title_full = tr("calc_title")
 descriptive_part = ""
 brand_name = "TariffEQ" # Renklendirilecek ana marka adı
-prefix_to_remove = brand_name + " – "
+prefix_to_remove = brand_name 
 
 if calc_title_full.startswith(prefix_to_remove):
     descriptive_part = calc_title_full[len(prefix_to_remove):]
@@ -475,15 +480,14 @@ else:
     # Beklenmedik format veya marka adı başta değilse, tam metni açıklama olarak kullan
     descriptive_part = calc_title_full
 
-st.markdown(f"""
-<h1 class="main-title">
-    <span>
-        <span class="tariff-part">Tariff</span><span class="eq-part">EQ</span>
-    </span>
-    <span style="margin-left: 0.3em;">– {descriptive_part}</span>
-</h1>
-""", unsafe_allow_html=True)
-
+# st.markdown(f"""
+# <h1 class="main-title">
+#     <span>
+#         <span class="tariff-part">Tariff</span><span class="eq-part">EQ</span>
+#     </span>
+#     <span>– {descriptive_part}</span>
+# </h1>
+# """, unsafe_allow_html=True)
 
 # Main Content
 st.markdown('<h2 class="section-header">📌 ' + (tr("select_calc")) + '</h2>', unsafe_allow_html=True)

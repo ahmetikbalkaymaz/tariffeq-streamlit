@@ -29,7 +29,7 @@ T = {
     "calc": {"TR": "🚀 Hemen Hesapla", "EN": "🚀 Calculate Now"},
 
     # calculate.py için özel çeviriler
-    "calc_title": {"TR": "TariffEQ – Akıllı Sigorta Prim Hesaplama Uygulaması", "EN": "TariffEQ – Smart Insurance Premium Calculator"}, # calculate.py başlığı
+    "calc_title": {"TR": "TariffEQ", "EN": "TariffEQ"}, # calculate.py başlığı
     "calc_subtitle": {"TR": "Deprem ve Yanardağ Püskürmesi Teminatı için Uygulanacak Güncel Tarife", "EN": "Current Tariff for Earthquake and Volcanic Eruption Coverage"}, # calculate.py altbaşlığı
     "fire_header": {"TR": "Deprem Teminatı (PD & BI)", "EN": "Earthquake Coverage (PD & BI)"},
     "car_header": {"TR": "🏗️ İnşaat & Montaj Hesaplama", "EN": "🏗️ Construction & Erection Calculation"},
