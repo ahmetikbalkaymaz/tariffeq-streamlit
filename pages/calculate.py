@@ -124,7 +124,7 @@ st.markdown("""
 
 # Kenar Çubuğu Navigasyonu ve Dil Seçimi
 with st.sidebar:
-    st.image("assets/logo.png", width=1000)
+    st.image("./assets/logo.png", width=1000)
     # st.write(f"### {T['title'][st.session_state.lang]}") # Ana başlık için 'title' kullanılıyor, gerekirse 'calc_title' olarak değiştirilebilir.
     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
     st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang])
@@ -247,7 +247,6 @@ koasurans_indirimi = {
     "80/20": 0.0, "75/25": 0.0625, "70/30": 0.125, "65/35": 0.1875,
     "60/40": 0.25, "55/45": 0.3125, "50/50": 0.375, "45/55": 0.4375,
     "40/60": 0.50,
-    "30/70": 0.125, "25/75": 0.0625,
     "90/10": -0.125, "100/0": -0.25
 }
 koasurans_indirimi_car = {
@@ -480,14 +479,6 @@ else:
     # Beklenmedik format veya marka adı başta değilse, tam metni açıklama olarak kullan
     descriptive_part = calc_title_full
 
-# st.markdown(f"""
-# <h1 class="main-title">
-#     <span>
-#         <span class="tariff-part">Tariff</span><span class="eq-part">EQ</span>
-#     </span>
-#     <span>– {descriptive_part}</span>
-# </h1>
-# """, unsafe_allow_html=True)
 
 # Main Content
 st.markdown('<h2 class="section-header">📊 ' + (tr("select_calc")) + '</h2>', unsafe_allow_html=True)
@@ -508,15 +499,23 @@ with col_btn2:
         st.session_state.active_calc_module = CALC_MODULE_CAR
         # st.rerun()
 
-# Eski session_state kullanımı:
-# if 'calc_display_type' not in st.session_state:
-#     st.session_state.calc_display_type = tr("calc_fire") 
-# calc_type = st.selectbox(tr("select_calc"), [tr("calc_fire"), tr("calc_car")], help="Hesaplama türünü seçerek başlayın." if lang == "TR" else "Start by selecting the calculation type.") # BU SATIRI SİLİN
-
 # İçeriği dil-bağımsız anahtara göre göster
 if st.session_state.active_calc_module == CALC_MODULE_FIRE:
     st.markdown(f'<h3 class="section-header">{tr("fire_header")}</h3>', unsafe_allow_html=True)
+
+    # Para birimi ve kur girişi genel alana taşındı
+    fire_general_col1, fire_general_col2 = st.columns(2)
+    with fire_general_col1:
+        # Benzersiz bir anahtar sağlamak için key güncellendi
+        currency_fire = st.selectbox(tr("currency"), ["TRY", "USD", "EUR"], key="main_fire_module_currency")
+    with fire_general_col2:
+        # Benzersiz bir key_prefix sağlamak için güncellendi
+        fx_rate_fire, fx_info_fire = fx_input(currency_fire, "main_fire_module")
     
+    # fx_input fonksiyonu zaten TRY olmayan durumlar için st.info mesajını gösteriyor.
+    # if currency_fire != "TRY":
+    #     st.info(fx_info_fire) # Bu satır fx_input tarafından zaten yönetiliyor.
+
     # Number of Locations
     num_locations = st.number_input(tr("num_locations"), min_value=1, max_value=10, value=1, step=1, help=tr("num_locations_help"))
     
@@ -531,48 +530,45 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 risk_group = st.selectbox(tr("risk_group"), [1, 2, 3, 4, 5, 6, 7], key=f"risk_group_{i}", help=tr("risk_group_help"))
             with col2:
                 group = st.selectbox(tr("location_group"), groups, key=f"group_{i}", help=tr("location_group_help"))
-                if i == 0: # Para birimi ve kur girişi sadece ilk lokasyonda veya genel bir alanda olmalı
-                    currency = st.selectbox(tr("currency"), ["TRY", "USD", "EUR"], key="fire_currency")
-                    fx_rate, fx_info = fx_input(currency, "fire") # fx_input zaten format="%.4f" kullanıyor
+                # Para birimi ve kur girişi yukarı taşındığı için buradan kaldırıldı.
             
             st.markdown(f"#### {tr('insurance_sums')}")
-            if i == 0 and currency != "TRY": # Kur bilgisini sadece bir kere göster
-                st.info(fx_info)
+            # Kur bilgisi yukarıda genel alanda gösterildiği için buradan kaldırıldı.
             
             col3, col4, col5 = st.columns(3)
             with col3:
-                building = st.number_input(tr("building_sum"), min_value=0.0, value=0.0, step=1000.0, key=f"building_{i}", help=tr("building_sum_help"), format="%.2f")
+                building = st.number_input(tr("building_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"building_{i}", help=tr("building_sum_help"), format="%.2f")
                 if building > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(building, currency)}")
-                fixture = st.number_input(tr("fixture_sum"), min_value=0.0, value=0.0, step=1000.0, key=f"fixture_{i}", help=tr("fixture_sum_help"), format="%.2f")
+                    st.write(f"{tr('entered_value')}: {format_number(building, currency_fire)}") # currency_fire kullanıldı
+                fixture = st.number_input(tr("fixture_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"fixture_{i}", help=tr("fixture_sum_help"), format="%.2f")
                 if fixture > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(fixture, currency)}")
-                decoration = st.number_input(tr("decoration_sum"), min_value=0.0, value=0.0, step=1000.0, key=f"decoration_{i}", help=tr("decoration_sum_help"), format="%.2f")
+                    st.write(f"{tr('entered_value')}: {format_number(fixture, currency_fire)}") # currency_fire kullanıldı
+                decoration = st.number_input(tr("decoration_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"decoration_{i}", help=tr("decoration_sum_help"), format="%.2f")
                 if decoration > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(decoration, currency)}")
-                bi = st.number_input(tr("bi"), min_value=0.0, value=0.0, step=1000.0, key=f"bi_{i}", help=tr("bi_help"), format="%.2f")
+                    st.write(f"{tr('entered_value')}: {format_number(decoration, currency_fire)}") # currency_fire kullanıldı
+                bi = st.number_input(tr("bi"), min_value=0.0, value=0.0, step=100000.0, key=f"bi_{i}", help=tr("bi_help"), format="%.2f")
                 if bi > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(bi, currency)}")
+                    st.write(f"{tr('entered_value')}: {format_number(bi, currency_fire)}") # currency_fire kullanıldı
             with col4:
-                commodity = st.number_input(tr("commodity_sum"), min_value=0.0, value=0.0, step=1000.0, key=f"commodity_{i}", help=tr("commodity_sum_help"), format="%.2f")
+                commodity = st.number_input(tr("commodity_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"commodity_{i}", help=tr("commodity_sum_help"), format="%.2f")
                 if commodity > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(commodity, currency)}")
-                safe = st.number_input(tr("safe_sum"), min_value=0.0, value=0.0, step=1000.0, key=f"safe_{i}", help=tr("safe_sum_help"), format="%.2f")
+                    st.write(f"{tr('entered_value')}: {format_number(commodity, currency_fire)}") # currency_fire kullanıldı
+                safe = st.number_input(tr("safe_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"safe_{i}", help=tr("safe_sum_help"), format="%.2f")
                 if safe > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(safe, currency)}")
+                    st.write(f"{tr('entered_value')}: {format_number(safe, currency_fire)}") # currency_fire kullanıldı
             with col5:
-                ec_fixed = st.number_input(tr("ec_fixed"), min_value=0.0, value=0.0, step=1000.0, key=f"ec_fixed_{i}", help=tr("ec_fixed_help"), format="%.2f")
+                ec_fixed = st.number_input(tr("ec_fixed"), min_value=0.0, value=0.0, step=100000.0, key=f"ec_fixed_{i}", help=tr("ec_fixed_help"), format="%.2f")
                 if ec_fixed > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(ec_fixed, currency)}")
-                ec_mobile = st.number_input(tr("ec_mobile"), min_value=0.0, value=0.0, step=1000.0, key=f"ec_mobile_{i}", help=tr("ec_mobile_help"), format="%.2f")
+                    st.write(f"{tr('entered_value')}: {format_number(ec_fixed, currency_fire)}") # currency_fire kullanıldı
+                ec_mobile = st.number_input(tr("ec_mobile"), min_value=0.0, value=0.0, step=100000.0, key=f"ec_mobile_{i}", help=tr("ec_mobile_help"), format="%.2f")
                 if ec_mobile > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(ec_mobile, currency)}")
-                mk_fixed = st.number_input(tr("mk_fixed"), min_value=0.0, value=0.0, step=1000.0, key=f"mk_fixed_{i}", help=tr("mk_fixed_help"), format="%.2f")
+                    st.write(f"{tr('entered_value')}: {format_number(ec_mobile, currency_fire)}") # currency_fire kullanıldı
+                mk_fixed = st.number_input(tr("mk_fixed"), min_value=0.0, value=0.0, step=100000.0, key=f"mk_fixed_{i}", help=tr("mk_fixed_help"), format="%.2f")
                 if mk_fixed > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(mk_fixed, currency)}")
-                mk_mobile = st.number_input(tr("mk_mobile"), min_value=0.0, value=0.0, step=1000.0, key=f"mk_mobile_{i}", help=tr("mk_mobile_help"), format="%.2f")
+                    st.write(f"{tr('entered_value')}: {format_number(mk_fixed, currency_fire)}") # currency_fire kullanıldı
+                mk_mobile = st.number_input(tr("mk_mobile"), min_value=0.0, value=0.0, step=100000.0, key=f"mk_mobile_{i}", help=tr("mk_mobile_help"), format="%.2f")
                 if mk_mobile > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(mk_mobile, currency)}")
+                    st.write(f"{tr('entered_value')}: {format_number(mk_mobile, currency_fire)}") # currency_fire kullanıldı
             
             locations_data.append({
                 "group": group,
@@ -600,45 +596,58 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
         inflation_rate = st.number_input(tr("inflation_rate"), min_value=0.0, value=0.0, step=0.1, help=tr("inflation_rate_help"), format="%.2f")
     
     if st.button(tr("btn_calc"), key="fire_calc"):
+        # Kullanıcının girdiği toplam ham bedelleri hesapla (orijinal para biriminde)
+        total_entered_pd_orig_ccy = 0.0
+        total_entered_bi_orig_ccy = 0.0
+        for loc_data_item in locations_data: # Değişken adı çakışmasını önlemek için loc_data_item kullanıldı
+            total_entered_pd_orig_ccy += (
+                loc_data_item["building"] + loc_data_item["fixture"] +
+                loc_data_item["decoration"] + loc_data_item["commodity"] +
+                loc_data_item["safe"] + loc_data_item["ec_fixed"] +
+                loc_data_item["ec_mobile"] + loc_data_item["mk_fixed"] +
+                loc_data_item["mk_mobile"]
+            )
+            total_entered_bi_orig_ccy += loc_data_item["bi"]
+
+        # Girilen bedel özetini göster
+        st.markdown(f"---")
+        st.markdown(f"<h5>{tr('entered_sums_summary_header')}</h5>", unsafe_allow_html=True)
+        st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_pd_sum")}:</b> {format_number(total_entered_pd_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True)
+        if total_entered_bi_orig_ccy > 0: # Sadece BI bedeli girilmişse göster
+            st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_bi_sum")}:</b> {format_number(total_entered_bi_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True)
+        st.markdown(f"---")
+
         groups = determine_group_params(locations_data)
         total_premium = 0.0
-        for group, data in groups.items():
+        for group_key, data in groups.items(): # group -> group_key olarak değiştirildi
             pd_premium, bi_premium, ec_premium, mk_premium, group_premium, applied_rate = calculate_fire_premium(
-                data["building_type"], data["risk_group"], currency,
+                data["building_type"], data["risk_group"], currency_fire, # currency_fire ve fx_rate_fire kullanıldı
                 data["building"], data["fixture"], data["decoration"], data["commodity"], data["safe"],
                 data["bi"], data["ec_fixed"], data["ec_mobile"], data["mk_fixed"], data["mk_mobile"],
-                koas, deduct, fx_rate, inflation_rate
+                koas, deduct, fx_rate_fire, inflation_rate # fx_rate_fire kullanıldı
             )
             total_premium += group_premium
-            if currency != "TRY":
-                pd_premium_converted = pd_premium / fx_rate
-                bi_premium_converted = bi_premium / fx_rate
-                ec_premium_converted = ec_premium / fx_rate
-                mk_premium_converted = mk_premium / fx_rate
-                group_premium_converted = group_premium / fx_rate
-                st.markdown(f'<div class="info-box">✅ <b>{tr("group_premium")} ({group}):</b> {format_number(group_premium_converted, currency)}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-box">✅ <b>{tr("pd_premium")} ({group}):</b> {format_number(pd_premium_converted, currency)}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-box">✅ <b>{tr("bi_premium")} ({group}):</b> {format_number(bi_premium_converted, currency)}</div>', unsafe_allow_html=True)
-                if data["ec_fixed"] > 0 or data["ec_mobile"] > 0:
-                    st.markdown(f'<div class="info-box">✅ <b>{tr("ec_premium")} ({group}):</b> {format_number(ec_premium_converted, currency)}</div>', unsafe_allow_html=True)
-                if data["mk_fixed"] > 0 or data["mk_mobile"] > 0:
-                    st.markdown(f'<div class="info-box">✅ <b>{tr("mk_premium")} ({group}):</b> {format_number(mk_premium_converted, currency)}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-box">📊 <b>{tr("applied_rate")} ({group}):</b> {applied_rate:.2f}‰</div>', unsafe_allow_html=True)
-            else:
-                st.markdown(f'<div class="info-box">✅ <b>{tr("group_premium")} ({group}):</b> {format_number(group_premium, "TRY")}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-box">✅ <b>{tr("pd_premium")} ({group}):</b> {format_number(pd_premium, "TRY")}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-box">✅ <b>{tr("bi_premium")} ({group}):</b> {format_number(bi_premium, "TRY")}</div>', unsafe_allow_html=True)
-                if data["ec_fixed"] > 0 or data["ec_mobile"] > 0:
-                    st.markdown(f'<div class="info-box">✅ <b>{tr("ec_premium")} ({group}):</b> {format_number(ec_premium, "TRY")}</div>', unsafe_allow_html=True)
-                if data["mk_fixed"] > 0 or data["mk_mobile"] > 0:
-                    st.markdown(f'<div class="info-box">✅ <b>{tr("mk_premium")} ({group}):</b> {format_number(mk_premium, "TRY")}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-box">📊 <b>{tr("applied_rate")} ({group}):</b> {applied_rate:.2f}‰</div>', unsafe_allow_html=True)
+            # Para birimi TRY değilse orijinal para birimine çevirerek göster
+            display_currency = currency_fire
+            display_fx_rate = fx_rate_fire if currency_fire != "TRY" else 1.0
+
+            pd_premium_display = pd_premium / display_fx_rate if currency_fire != "TRY" else pd_premium
+            bi_premium_display = bi_premium / display_fx_rate if currency_fire != "TRY" else bi_premium
+            ec_premium_display = ec_premium / display_fx_rate if currency_fire != "TRY" else ec_premium
+            mk_premium_display = mk_premium / display_fx_rate if currency_fire != "TRY" else mk_premium
+            group_premium_display = group_premium / display_fx_rate if currency_fire != "TRY" else group_premium
+            
+            st.markdown(f'<div class="info-box">✅ <b>{tr("group_premium")} ({group_key}):</b> {format_number(group_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="info-box">✅ <b>{tr("pd_premium")} ({group_key}):</b> {format_number(pd_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="info-box">✅ <b>{tr("bi_premium")} ({group_key}):</b> {format_number(bi_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+            if data["ec_fixed"] > 0 or data["ec_mobile"] > 0:
+                st.markdown(f'<div class="info-box">✅ <b>{tr("ec_premium")} ({group_key}):</b> {format_number(ec_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+            if data["mk_fixed"] > 0 or data["mk_mobile"] > 0:
+                st.markdown(f'<div class="info-box">✅ <b>{tr("mk_premium")} ({group_key}):</b> {format_number(mk_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="info-box">📊 <b>{tr("applied_rate")} ({group_key}):</b> {applied_rate:.2f}‰</div>', unsafe_allow_html=True)
         
-        if currency != "TRY":
-            total_premium_converted = total_premium / fx_rate
-            st.markdown(f'<div class="info-box">✅ <b>{tr("total_premium")}:</b> {format_number(total_premium_converted, currency)}</div>', unsafe_allow_html=True)
-        else:
-            st.markdown(f'<div class="info-box">✅ <b>{tr("total_premium")}:</b> {format_number(total_premium, "TRY")}</div>', unsafe_allow_html=True)
+        total_premium_display = total_premium / fx_rate_fire if currency_fire != "TRY" else total_premium
+        st.markdown(f'<div class="info-box">✅ <b>{tr("total_premium")}:</b> {format_number(total_premium_display, currency_fire)}</div>', unsafe_allow_html=True)
 
 elif st.session_state.active_calc_module == CALC_MODULE_CAR:
     st.markdown(f'<h3 class="section-header">{tr("car_header")}</h3>', unsafe_allow_html=True)

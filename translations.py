@@ -31,8 +31,8 @@ T = {
     # calculate.py için özel çeviriler
     "calc_title": {"TR": "TariffEQ", "EN": "TariffEQ"}, # calculate.py başlığı
     "calc_subtitle": {"TR": "Deprem ve Yanardağ Püskürmesi Teminatı için Uygulanacak Güncel Tarife", "EN": "Current Tariff for Earthquake and Volcanic Eruption Coverage"}, # calculate.py altbaşlığı
-    "fire_header": {"TR": "Deprem Teminatı (PD & BI)", "EN": "Earthquake Coverage (PD & BI)"},
-    "car_header": {"TR": "🏗️ İnşaat & Montaj Hesaplama", "EN": "🏗️ Construction & Erection Calculation"},
+    "fire_header": {"TR": "Riziko Bilgileri", "EN": "Risk Details"},
+    "car_header": {"TR": "🏗️ Proje Bilgileri", "EN": "🏗️ Project Details"},
     "select_calc": {"TR": "Hesaplama Türünü Seçin", "EN": "Select Calculation Type"},
     "calc_fire": {"TR": "Deprem Teminatı - Ticari Sınai Rizikolar (PD & BI)", "EN": "Earthquake Coverage – Commercial / Industrial (PD & BI)"},
     "calc_car": {"TR": "İnşaat & Montaj (CAR & EAR)", "EN": "Construction & Erection (CAR & EAR)"},
@@ -86,7 +86,7 @@ T = {
     "coins_help": {"TR": "Sigortalının hasara iştirak oranı. Min. %20 sigortalı üzerinde kalır. %60’a kadar artırılabilir (max. %50 indirim).", "EN": "Insured's share in the loss. Min. 20% remains with the insured. Can be increased to 60% (max. 50% discount)."}, # "koas_help" zaten var.
     "ded": {"TR": "Muafiyet (%)", "EN": "Deductible (%)"}, # "deduct" anahtarı zaten var.
     "ded_help": {"TR": "Her hasarda sigorta bedeli üzerinden uygulanır. Min. %2, artırılabilir (max. %35 indirim).", "EN": "Applied per loss on the sum insured. Min. 2%, can be increased (max. 35% discount)."}, # "deduct_help" zaten var.
-    "project": {"TR": "Proje Bedeli (CAR)", "EN": "Project Sum Insured (CAR)"},
+    "project": {"TR": "Proje Bedeli (CAR & EAR)", "EN": "Project Sum Insured (CAR & EAR)"},
     "project_help": {"TR": "Proje nihai değeri (gümrük, vergi, nakliye ve işçilik dahil). Min. sözleşme bedeli kadar olmalı.", "EN": "Final project value (including customs, taxes, transport, and labor). Must be at least the contract value."},
     "cpm": {"TR": "İnşaat Makineleri (CPM)", "EN": "Construction Machinery (CPM)"},
     "cpm_help": {"TR": "İnşaat makineleri için teminat bedeli. Aynı riziko adresinde kullanılmalı.", "EN": "Sum insured for construction machinery. Must be used at the same risk address."},
@@ -115,11 +115,30 @@ T = {
     "insurance_sums": {"TR": "Sigorta Bedelleri 📋", "EN": "Insurance Sums Insured 📋"},
     "coinsurance_deductible": {"TR": "Koasürans / Muafiyet Oranı ⚖️", "EN": "Coinsurance / Deductible Rate ⚖️"},
     "select_fire_button": {
-        "TR": "İşletme ve Endüstriyel Tesis Deprem Primi Hemen Hesapla 🔍",
-        "EN": "Business & Industrial Facility Earthquake Premium – Calculate Now 🔍"
+        "TR": "Yangın, Kâr Kaybı & Mühendislik Deprem Primi - Hemen Hesapla 🔍",
+        "EN": "PD-BI & Engineering Earthquake Premium – Calculate Now 🔍"
     },
     "select_car_button": {
-        "TR": "İnşaat Projesi İçin Primi Hemen Hesapla 🏗️",
-        "EN": "Construction Project Premium – Calculate Now 🏗️"
-    }
+        "TR": "İnşaat & Montoj Primi - Hemen Hesapla 🏗️",
+        "EN": "Construction & Erection Premium – Calculate Now 🏗️"
+    },
+    "entered_sums_summary_header": {"TR": "Girilen Bedel Özeti", "EN": "Entered Sums Summary"},
+    "total_entered_pd_sum": {"TR": "Toplam Girilen PD Bedeli", "EN": "Total Entered PD Sum"},
+    "total_entered_bi_sum": {"TR": "Toplam Girilen BI Bedeli", "EN": "Total Entered BI Sum"},
+    "total_entered_ec_sum": {"TR": "Toplam Girilen Elektronik Cihaz Bedeli", "EN": "Total Entered Electronic Device Sum"},
+    "total_entered_mk_sum": {"TR": "Toplam Girilen Makine Kırılması Bedeli", "EN": "Total Entered Machinery Breakdown Sum"},
+    "total_entered_car_sum": {"TR": "Toplam Girilen İnşaat & Montaj Bedeli", "EN": "Total Entered Construction & Erection Sum"},
+    "total_entered_project_sum": {"TR": "Toplam Girilen Proje Bedeli", "EN": "Total Entered Project Sum"},
+    "total_entered_cpm_sum": {"TR": "Toplam Girilen İnşaat Makineleri Bedeli", "EN": "Total Entered Construction Machinery Sum"},
+    "total_entered_cpe_sum": {"TR": "Toplam Girilen Şantiye Tesisleri Bedeli", "EN": "Total Entered Site Facilities Sum"},
+    "total_entered_commodity_sum": {"TR": "Toplam Girilen Emtea Bedeli", "EN": "Total Entered Commodity Sum"},
+    "total_entered_safe_sum": {"TR": "Toplam Girilen Kasa Bedeli", "EN": "Total Entered Safe Sum"},
+    "total_entered_bi_premium": {"TR": "Toplam Girilen BI Primi", "EN": "Total Entered BI Premium"},
+    "total_entered_pd_premium": {"TR": "Toplam Girilen PD Primi", "EN": "Total Entered PD Premium"},
+    "total_entered_ec_premium": {"TR": "Toplam Girilen Elektronik Cihaz Primi", "EN": "Total Entered Electronic Device Premium"},
+    "total_entered_mk_premium": {"TR": "Toplam Girilen Makine Kırılması Primi", "EN": "Total Entered Machinery Breakdown Premium"},
+    "total_entered_car_premium": {"TR": "Toplam Girilen İnşaat & Montaj Primi", "EN": "Total Entered Construction & Erection Premium"},
+    "total_entered_project_premium": {"TR": "Toplam Girilen Proje Primi", "EN": "Total Entered Project Premium"},
+    "total_entered_cpm_premium": {"TR": "Toplam Girilen İnşaat Makineleri Primi", "EN": "Total Entered Construction Machinery Premium"},
+    "total_entered_cpe_premium": {"TR": "Toplam Girilen Şantiye Tesisleri Primi", "EN": "Total Entered Site Facilities Premium"}
 }
