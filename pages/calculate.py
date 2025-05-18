@@ -292,38 +292,47 @@ def calculate_months_difference(start_date, end_date):
 
 def determine_group_params(locations_data):
     groups = {}
-    for loc in locations_data:
-        group = loc["group"]
-        if group not in groups:
-            groups[group] = []
-        groups[group].append(loc)
+    for loc_item_for_grouping in locations_data:
+        group_val = loc_item_for_grouping["group"]
+        if group_val not in groups:
+            groups[group_val] = []
+        groups[group_val].append(loc_item_for_grouping)
     
     result = {}
-    for group, locs in groups.items():
-        building_types = [loc["building_type"] for loc in locs]
+    for group_key, locs_in_group in groups.items():
+        building_types = [loc["building_type"] for loc in locs_in_group]
         building_type = "Diğer" if "Diğer" in building_types else "Betonarme"
         
-        risk_groups = [loc["risk_group"] for loc in locs]
+        risk_groups = [loc["risk_group"] for loc in locs_in_group]
         risk_group = min(risk_groups)
         
-        building = sum(loc["building"] for loc in locs)
-        fixture = sum(loc["fixture"] for loc in locs)
-        decoration = sum(loc["decoration"] for loc in locs)
-        commodity = sum(loc["commodity"] for loc in locs)
-        safe = sum(loc["safe"] for loc in locs)
-        bi = sum(loc["bi"] for loc in locs)
-        ec_fixed = sum(loc["ec_fixed"] for loc in locs)
-        ec_mobile = sum(loc["ec_mobile"] for loc in locs)
-        mk_fixed = sum(loc["mk_fixed"] for loc in locs)
-        mk_mobile = sum(loc["mk_mobile"] for loc in locs)
+        building = sum(loc["building"] for loc in locs_in_group)
+        fixture = sum(loc["fixture"] for loc in locs_in_group)
+        decoration = sum(loc["decoration"] for loc in locs_in_group)
         
-        result[group] = {
+        # Emtia bedelini abonman durumuna göre hesapla
+        commodity_sum_for_group = 0
+        for loc_data in locs_in_group:
+            comm_val = loc_data["commodity"]
+            if loc_data.get("commodity_is_subscription", False): # Abonman seçiliyse %40'ını al
+                comm_val *= 0.40
+            commodity_sum_for_group += comm_val
+        commodity = commodity_sum_for_group
+        
+        safe = sum(loc["safe"] for loc in locs_in_group)
+        bi = sum(loc["bi"] for loc in locs_in_group)
+        ec_fixed = sum(loc["ec_fixed"] for loc in locs_in_group)
+        ec_mobile = sum(loc["ec_mobile"] for loc in locs_in_group)
+        mk_fixed = sum(loc["mk_fixed"] for loc in locs_in_group)
+        mk_mobile = sum(loc["mk_mobile"] for loc in locs_in_group)
+        
+        result[group_key] = {
             "building_type": building_type,
             "risk_group": risk_group,
             "building": building,
             "fixture": fixture,
             "decoration": decoration,
-            "commodity": commodity,
+            "commodity": commodity, # Abonman uygulanmış emtia toplamı
             "safe": safe,
             "bi": bi,
             "ec_fixed": ec_fixed,
@@ -551,8 +560,11 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                     st.write(f"{tr('entered_value')}: {format_number(bi, currency_fire)}") # currency_fire kullanıldı
             with col4:
                 commodity = st.number_input(tr("commodity_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"commodity_{i}", help=tr("commodity_sum_help"), format="%.2f")
+                commodity_is_subscription = st.checkbox(tr("commodity_is_subscription"), key=f"commodity_is_subscription_{i}", help=tr("commodity_is_subscription_help")) # YENİ CHECKBOX
                 if commodity > 0:
-                    st.write(f"{tr('entered_value')}: {format_number(commodity, currency_fire)}") # currency_fire kullanıldı
+                    display_comm_value = commodity * 0.40 if commodity_is_subscription else commodity
+                    st.write(f"{tr('entered_value')}: {format_number(commodity, currency_fire)} ({tr('effective_value')}: {format_number(display_comm_value, currency_fire)})" if commodity_is_subscription else f"{tr('entered_value')}: {format_number(commodity, currency_fire)}")
+
                 safe = st.number_input(tr("safe_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"safe_{i}", help=tr("safe_sum_help"), format="%.2f")
                 if safe > 0:
                     st.write(f"{tr('entered_value')}: {format_number(safe, currency_fire)}") # currency_fire kullanıldı
@@ -578,6 +590,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 "fixture": fixture,
                 "decoration": decoration,
                 "commodity": commodity,
+                "commodity_is_subscription": commodity_is_subscription, # YENİ: Checkbox durumunu ekle
                 "safe": safe,
                 "bi": bi,
                 "ec_fixed": ec_fixed,
@@ -599,10 +612,15 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
         # Kullanıcının girdiği toplam ham bedelleri hesapla (orijinal para biriminde)
         total_entered_pd_orig_ccy = 0.0
         total_entered_bi_orig_ccy = 0.0
-        for loc_data_item in locations_data: # Değişken adı çakışmasını önlemek için loc_data_item kullanıldı
+        for loc_data_item in locations_data: 
+            current_commodity_for_total = loc_data_item["commodity"]
+            if loc_data_item.get("commodity_is_subscription", False): # Abonman seçiliyse %40'ını al
+                current_commodity_for_total *= 0.40
+            
             total_entered_pd_orig_ccy += (
                 loc_data_item["building"] + loc_data_item["fixture"] +
-                loc_data_item["decoration"] + loc_data_item["commodity"] +
+                loc_data_item["decoration"] +
+                current_commodity_for_total + # Güncellenmiş emtia değeri
                 loc_data_item["safe"] + loc_data_item["ec_fixed"] +
                 loc_data_item["ec_mobile"] + loc_data_item["mk_fixed"] +
                 loc_data_item["mk_mobile"]
@@ -638,8 +656,8 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             group_premium_display = group_premium / display_fx_rate if currency_fire != "TRY" else group_premium
             
             st.markdown(f'<div class="info-box">✅ <b>{tr("group_premium")} ({group_key}):</b> {format_number(group_premium_display, display_currency)}</div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="info-box">✅ <b>{tr("pd_premium")} ({group_key}):</b> {format_number(pd_premium_display, display_currency)}</div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="info-box">✅ <b>{tr("bi_premium")} ({group_key}):</b> {format_number(bi_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="info-box">🏢 <b>{tr("pd_premium")} ({group_key}):</b> {format_number(pd_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="info-box">📉 <b>{tr("bi_premium")} ({group_key}):</b> {format_number(bi_premium_display, display_currency)}</div>', unsafe_allow_html=True)
             if data["ec_fixed"] > 0 or data["ec_mobile"] > 0:
                 st.markdown(f'<div class="info-box">✅ <b>{tr("ec_premium")} ({group_key}):</b> {format_number(ec_premium_display, display_currency)}</div>', unsafe_allow_html=True)
             if data["mk_fixed"] > 0 or data["mk_mobile"] > 0:
@@ -647,7 +665,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             st.markdown(f'<div class="info-box">📊 <b>{tr("applied_rate")} ({group_key}):</b> {applied_rate:.2f}‰</div>', unsafe_allow_html=True)
         
         total_premium_display = total_premium / fx_rate_fire if currency_fire != "TRY" else total_premium
-        st.markdown(f'<div class="info-box">✅ <b>{tr("total_premium")}:</b> {format_number(total_premium_display, currency_fire)}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="info-box">💰 <b>{tr("total_premium")}:</b> {format_number(total_premium_display, currency_fire)}</div>', unsafe_allow_html=True)
 
 elif st.session_state.active_calc_module == CALC_MODULE_CAR:
     st.markdown(f'<h3 class="section-header">{tr("car_header")}</h3>', unsafe_allow_html=True)

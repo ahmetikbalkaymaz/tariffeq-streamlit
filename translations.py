@@ -53,8 +53,10 @@ T = {
     "decoration_sum": {"TR": "Dekorasyon Bedeli", "EN": "Decoration Sum Insured"},
     "decoration_sum_help": {"TR": "Dekorasyon için sigorta bedeli.", "EN": "Sum insured for decoration."},
     "commodity_sum": {"TR": "Emtea Bedeli", "EN": "Commodity Sum Insured"},
-    "commodity_sum_help": {"TR": "Emtea (ticari mallar) için sigorta bedeli. Abonman esasına göre teminat altına alınıyorsa %40’ı dikkate alınır.", "EN": "Sum insured for commodities (commercial goods). If covered on a subscription basis, 40% is considered."},
-    "safe_sum": {"TR": "Kasa Bedeli", "EN": "Safe Sum Insured"},
+    "commodity_sum_help": {"TR": "İşyerinizdeki ticari malların (hammadde, yarı mamul, mamul) toplam değeri.", "EN": "Total value of commercial goods (raw materials, semi-finished, finished products) in your workplace."},
+    "commodity_is_subscription": {"TR": "Emtea Abonman mı?", "EN": "Commodity Subscription?"},
+    "commodity_is_subscription_help": {"TR": "Eğer emtia bedeli abonman poliçesi kapsamında ise işaretleyiniz (bedelin %40'ı dikkate alınır).", "EN": "Check if the commodity value is under a subscription policy (40% of the value is considered)."},
+    "safe_sum": {"TR": "Kasa Muhteviyatı Bedeli", "EN": "Safe Contents Sum"},
     "safe_sum_help": {"TR": "Kasa için sigorta bedeli.", "EN": "Sum insured for the safe."},
     "bi": {"TR": "Kar Kaybı Bedeli (BI)", "EN": "Business Interruption Sum Insured (BI)"},
     "bi_help": {"TR": "Deprem sonrası ticari faaliyetin durması sonucu ciro azalması ve maliyet artışından kaynaklanan brüt kâr kaybı.", "EN": "Gross profit loss due to reduced turnover and increased costs from business interruption after an earthquake."},
@@ -140,5 +142,6 @@ T = {
     "total_entered_car_premium": {"TR": "Toplam Girilen İnşaat & Montaj Primi", "EN": "Total Entered Construction & Erection Premium"},
     "total_entered_project_premium": {"TR": "Toplam Girilen Proje Primi", "EN": "Total Entered Project Premium"},
     "total_entered_cpm_premium": {"TR": "Toplam Girilen İnşaat Makineleri Primi", "EN": "Total Entered Construction Machinery Premium"},
-    "total_entered_cpe_premium": {"TR": "Toplam Girilen Şantiye Tesisleri Primi", "EN": "Total Entered Site Facilities Premium"}
+    "total_entered_cpe_premium": {"TR": "Toplam Girilen Şantiye Tesisleri Primi", "EN": "Total Entered Site Facilities Premium"},
+    "effective_value": {"TR": "Kullanılan Değer", "EN": "Effective Value"},
 }
