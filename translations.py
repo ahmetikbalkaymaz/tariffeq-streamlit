@@ -67,7 +67,7 @@ T = {
     "mk_mobile": {"TR": "Makine Kırılması Bedeli (Seyyar)", "EN": "Machinery Breakdown Sum Insured (Portable)"},
     "mk_mobile_help": {"TR": "Seyyar makineler için sigorta bedeli.", "EN": "Sum insured for portable machinery."},
     "koas": {"TR": "Koasürans Oranı", "EN": "Coinsurance Share"},
-    "koas_help": {"TR": "Sigortalının hasara iştirak oranı. Min. %20 sigortalı üzerinde kalır. %60’a kadar artırılabilir (max. %50 indirim).", "EN": "Insured's share in the loss. Min. 20% remains with the insured. Can be increased to 60% (max. 50% discount)."},
+    "koas_help": {"TR": "Örnek: (80/20) -  %80 Sigortacı , %20 Sigortalı Üzerinde Kalan Kısımdır.", "EN": "Example: (80/20) – 80% is carried by the Insurer, and the remaining 20% is retained by the Insured"},
     "deduct": {"TR": "Muafiyet Oranı (%)", "EN": "Deductible (%)"},
     "deduct_help": {"TR": "Her hasarda bina sigorta bedeli üzerinden uygulanır. Min. %2, artırılabilir (max. %35 indirim).", "EN": "Applied per loss on the building sum insured. Min. 2%, can be increased (max. 35% discount)."},
     "inflation_rate": {"TR": "Enflasyon Artış Oranı (%)", "EN": "Inflation Increase Rate (%)"},
