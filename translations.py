@@ -157,11 +157,9 @@ T = {
         "TR": "❌ Geçersiz koasürans/muafiyet seçimi nedeniyle prim hesaplanamadı. Lütfen yukarıdaki uyarıları kontrol edin ve seçiminizi güncelleyin.",
         "EN": "❌ Premium could not be calculated due to invalid coinsurance/deductible selection. Please check the warnings above and update your selection."
     },
-    "mk_sum": {"TR": "Makine Bedeli", "EN": "Machinery Sum"},
     "mk_sum_help": {"TR": "İşyerinizdeki makinelerin toplam değeri.", "EN": "Total value of machinery in your workplace."},
     "commodity_sum": {"TR": "Emtea Bedeli", "EN": "Commodity Sum"},
     "mk_sum": {"TR": "Makine Bedeli", "EN": "Machinery Sum"},
-    "mk_sum_help": {"TR": "İşyerinizdeki makinelerin toplam değeri.", "EN": "Total value of machinery in your workplace."},
     "ec_mk_sums_header": {"TR": "Elektronik Cihaz ve Makine Kırılması Bedelleri", "EN": "Electronic Equipment and Machinery Breakdown Sums"},
     "ec_mk_cover_options_header": {"TR": "Elektronik Cihaz ve Makine Kırılması Teminatı Alınıyor mu?", "EN": "Electronic Equipment and Machinery Breakdown Coverage Taken?"},
     "mk_cover_subheader": {"TR": "Makine Kırılması teminatı Alınıyorsa Soldaki Bedeli Lütfen Aşağıya Giriniz", "EN": "If Machinery Breakdown coverage is taken, please enter the amount on the left below"},
