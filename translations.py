@@ -144,4 +144,26 @@ T = {
     "total_entered_cpm_premium": {"TR": "Toplam Girilen İnşaat Makineleri Primi", "EN": "Total Entered Construction Machinery Premium"},
     "total_entered_cpe_premium": {"TR": "Toplam Girilen Şantiye Tesisleri Primi", "EN": "Total Entered Site Facilities Premium"},
     "effective_value": {"TR": "Kullanılan Değer", "EN": "Effective Value"},
+    "limit_warning_mk": {"TR": "⚠️ Makine Kırılması bedeli 840 Milyon TL limitini aşıyor. Prim bu limite göre hesaplanacaktır.", "EN": "⚠️ Machinery Breakdown sum insured exceeds the 840 Million TRY limit. Premium will be calculated based on this limit."},
+    "warning_koas_below_3_5B": {
+        "TR": "⚠️ TSI 3.5 Milyar TL'den düşük olduğunda, seçilen '{koas_value}' koasürans oranı geçerli değildir. '90/10' ve '100/0' seçenekleri kullanılamaz. Lütfen uygun bir koasürans seçin.",
+        "EN": "⚠️ When TSI is below 3.5 Billion TRY, the selected coinsurance '{koas_value}' is not valid. Options '90/10' and '100/0' cannot be used. Please select a valid coinsurance."
+    },
+    "warning_deduct_below_3_5B": {
+        "TR": "⚠️ TSI 3.5 Milyar TL'den düşük olduğunda, seçilen '{deduct_value}%' muafiyet oranı geçerli değildir. Muafiyet %2'den düşük olamaz. Lütfen %2 veya daha yüksek bir muafiyet seçin.",
+        "EN": "⚠️ When TSI is below 3.5 Billion TRY, the selected deductible '{deduct_value}%' is not valid. Deductible cannot be less than 2%. Please select a deductible of 2% or higher."
+    },
+    "error_invalid_selections_fire": {
+        "TR": "❌ Geçersiz koasürans/muafiyet seçimi nedeniyle prim hesaplanamadı. Lütfen yukarıdaki uyarıları kontrol edin ve seçiminizi güncelleyin.",
+        "EN": "❌ Premium could not be calculated due to invalid coinsurance/deductible selection. Please check the warnings above and update your selection."
+    },
+    "mk_sum": {"TR": "Makine Bedeli", "EN": "Machinery Sum"},
+    "mk_sum_help": {"TR": "İşyerinizdeki makinelerin toplam değeri.", "EN": "Total value of machinery in your workplace."},
+    "commodity_sum": {"TR": "Emtea Bedeli", "EN": "Commodity Sum"},
+    "mk_sum": {"TR": "Makine Bedeli", "EN": "Machinery Sum"},
+    "mk_sum_help": {"TR": "İşyerinizdeki makinelerin toplam değeri.", "EN": "Total value of machinery in your workplace."},
+    "ec_mk_sums_header": {"TR": "Elektronik Cihaz ve Makine Kırılması Bedelleri", "EN": "Electronic Equipment and Machinery Breakdown Sums"},
+    "ec_mk_cover_options_header": {"TR": "Elektronik Cihaz ve Makine Kırılması Teminatı Alınıyor mu?", "EN": "Electronic Equipment and Machinery Breakdown Coverage Taken?"},
+    "mk_cover_subheader": {"TR": "Makine Kırılması teminatı Alınıyorsa Soldaki Bedeli Lütfen Aşağıya Giriniz", "EN": "If Machinery Breakdown coverage is taken, please enter the amount on the left below"},
+    "include_ec_mk_cover" : {"TR": "Alınıyorsa İşaretleyin Aksi Halde Boş Bırakın", "EN": "Check if taken, otherwise leave blank"},
 }
