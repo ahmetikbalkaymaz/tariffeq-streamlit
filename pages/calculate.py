@@ -654,7 +654,8 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             total_entered_bi_orig_ccy += loc_data_item["bi"]
 
         proceed_with_calculation = True
-        if total_entered_pd_orig_ccy < 3500000000 or koas in ["90/10", "100/0"] or deduct in [0.1, 0.5, 1.0, 1.5]:
+        # if total_entered_pd_orig_ccy < 3500000000 or koas in ["90/10", "100/0"] or deduct in [0.1, 0.5, 1.0, 1.5]:
+        if total_entered_pd_orig_ccy < 3500000000:
             # Koasürans kontrolü
             if koas in ["90/10", "100/0"]:
                 proceed_with_calculation = False
