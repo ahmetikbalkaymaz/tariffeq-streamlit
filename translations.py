@@ -121,7 +121,7 @@ T = {
         "EN": "PD-BI & Engineering Earthquake Premium – Calculate Now 🔍"
     },
     "select_car_button": {
-        "TR": "İnşaat & Montoj Primi - Hemen Hesapla 🏗️",
+        "TR": "İnşaat & Montaj Primi - Hemen Hesapla 🏗️",
         "EN": "Construction & Erection Premium – Calculate Now 🏗️"
     },
     "entered_sums_summary_header": {"TR": "Girilen Bedel Özeti", "EN": "Entered Sums Summary"},

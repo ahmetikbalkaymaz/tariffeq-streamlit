@@ -113,7 +113,7 @@ st.markdown("""
 
     /* .header h3 bölümü güncellenecek veya genel h3 kuralı kullanılacak */
     /* .header h3 {
-        color: #5DADE2; // Bu satır kaldırılacak veya yorumlanacak
+        color: #5DADE2; // Bu satır kaldırılacak veya yorum satırı yapılacak
         font-weight: 400;
         font-size: 1.5em;
     } */
@@ -228,6 +228,11 @@ st.markdown(f"""
 # Açıklama ve Başlat Butonu
 st.markdown(f"*{T['desc'][lang]}*") # Sadece italik, başlık (####) kaldırıldı
 
+# YENİ: Hemen Hesapla Butonu
+if st.button(T["calc"][lang], use_container_width=True, type="primary"):
+    st.switch_page("pages/calculate.py")
+
+st.markdown("---") # Buton ile sonraki bölüm arasına bir ayırıcı
 
 # Neden TariffEQ
 st.markdown(f"### {T['why'][lang]}")
