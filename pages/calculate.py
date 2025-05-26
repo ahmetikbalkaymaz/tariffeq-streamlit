@@ -538,9 +538,24 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             col1, col2 = st.columns(2)
             with col1:
                 building_type = st.selectbox(tr("building_type"), ["Betonarme", "Diğer"], key=f"building_type_{i}", help=tr("building_type_help"))
-                risk_group = st.selectbox(tr("risk_group"), [1, 2, 3, 4, 5, 6, 7], key=f"risk_group_{i}", help=tr("risk_group_help"))
+                
+                risk_group = st.selectbox(
+                    tr("risk_group"), 
+                    [1, 2, 3, 4, 5, 6, 7], 
+                    key=f"risk_group_{i}", 
+                    help=tr("risk_group_help") # Sadece temel yardım metni
+                )
+                # YENİ: Selectbox'ın hemen altına st.button ile sayfa değiştirme
+                if st.button(tr("learn_earthquake_zone_button"), key=f"learn_zone_btn_{i}", use_container_width=True):
+                    st.switch_page("pages/earthquake_zones.py")
+
             with col2:
-                group = st.selectbox(tr("location_group"), groups, key=f"group_{i}", help=tr("location_group_help"))
+                group = st.selectbox(
+                    tr("location_group"), 
+                    groups, 
+                    key=f"group_{i}", 
+                    help=tr("location_group_help") + " " + tr("location_group_help_cumulative") # YENİ: Ek açıklama eklendi
+                )
             
             st.markdown(f"#### {tr('insurance_sums')}")
             
@@ -677,39 +692,124 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_bi_sum")}:</b> {format_number(total_entered_bi_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True)
         st.markdown(f"---")
         if proceed_with_calculation == True:
-            groups = determine_group_params(locations_data)
-            total_premium = 0.0
-            # Ana hesaplama sonuçlarının gösterilmesi (mevcut kodunuz)
-            for group_key, data in groups.items(): 
-                pd_premium, bi_premium, ec_premium, mk_premium, group_premium, applied_rate = calculate_fire_premium(
+            groups_determined = determine_group_params(locations_data)
+            total_premium_all_groups_try = 0.0
+            all_groups_display_data_for_table = [] 
+            all_groups_info_boxes = []
+            grand_total_sum_insured_numeric = 0.0 # Bu değişkenler döngü içinde değil, burada sıfırlanmalı
+            grand_total_premium_numeric = 0.0   # Bu değişkenler döngü içinde değil, burada sıfırlanmalı
+
+
+            for group_key, data in groups_determined.items(): 
+                pd_premium_try, bi_premium_try, ec_premium_try, mk_premium_try, group_premium_try, applied_rate = calculate_fire_premium(
                     data["building_type"], data["risk_group"], currency_fire, 
                     data["building"], data["fixture"], data["decoration"], data["commodity"], data["safe"],
-                    data["machinery"], # YENİ: data["machinery"] parametresini ilet
+                    data["machinery"], 
                     data["bi"], data["ec_fixed"], data["ec_mobile"], data["mk_fixed"], data["mk_mobile"],
                     koas, deduct, fx_rate_fire, inflation_rate 
                 )
-                total_premium += group_premium
-                display_currency = currency_fire
-                display_fx_rate = fx_rate_fire if currency_fire != "TRY" else 1.0
-
-                pd_premium_display = pd_premium / display_fx_rate if currency_fire != "TRY" else pd_premium
-                bi_premium_display = bi_premium / display_fx_rate if currency_fire != "TRY" else bi_premium
-                ec_premium_display = ec_premium / display_fx_rate if currency_fire != "TRY" else ec_premium
-                mk_premium_display = mk_premium / display_fx_rate if currency_fire != "TRY" else mk_premium
-                group_premium_display = group_premium / display_fx_rate if currency_fire != "TRY" else group_premium
+                total_premium_all_groups_try += group_premium_try
                 
-                st.markdown(f'<div class="info-box">✅ <b>{tr("group_premium")} ({group_key}):</b> {format_number(group_premium_display, display_currency)}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-box">🏢 <b>{tr("pd_premium")} ({group_key}):</b> {format_number(pd_premium_display, display_currency)}</div>', unsafe_allow_html=True)
-                if data["bi"] > 0: # Sadece BI bedeli varsa BI primini göster
-                    st.markdown(f'<div class="info-box">📉 <b>{tr("bi_premium")} ({group_key}):</b> {format_number(bi_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+                display_currency_for_output = currency_fire
+                display_fx_rate_for_output = fx_rate_fire if currency_fire != "TRY" else 1.0
+
+                pd_premium_display_val = pd_premium_try / display_fx_rate_for_output
+                bi_premium_display_val = bi_premium_try / display_fx_rate_for_output
+                ec_premium_display_val = ec_premium_try / display_fx_rate_for_output
+                mk_premium_display_val = mk_premium_try / display_fx_rate_for_output
+                group_premium_display_val = group_premium_try / display_fx_rate_for_output
+
+                pd_sum_orig_ccy = (data["building"] + data["fixture"] + data["decoration"] + data["commodity"] + data["safe"] + data["machinery"])
+                bi_sum_orig_ccy = data["bi"]
+                ec_sum_orig_ccy = data["ec_fixed"] + data["ec_mobile"]
+                mk_sum_orig_ccy = data["mk_fixed"] + data["mk_mobile"]
+                
+                # Her grup için tablo verilerini geçici olarak topla
+                current_group_table_data_for_this_iteration = []
+                if pd_sum_orig_ccy > 0 or pd_premium_display_val > 0 :
+                    current_group_table_data_for_this_iteration.append({
+                        tr("table_col_coverage_type"): tr("coverage_pd_combined"),
+                        "sum_insured_numeric": pd_sum_orig_ccy, 
+                        "premium_numeric": pd_premium_display_val, 
+                        tr("table_col_sum_insured"): format_number(pd_sum_orig_ccy, display_currency_for_output),
+                        tr("table_col_premium"): format_number(pd_premium_display_val, display_currency_for_output)
+                    })
+                if data["bi"] > 0:
+                    current_group_table_data_for_this_iteration.append({
+                        tr("table_col_coverage_type"): tr("coverage_bi"),
+                        "sum_insured_numeric": bi_sum_orig_ccy,
+                        "premium_numeric": bi_premium_display_val,
+                        tr("table_col_sum_insured"): format_number(bi_sum_orig_ccy, display_currency_for_output),
+                        tr("table_col_premium"): format_number(bi_premium_display_val, display_currency_for_output)
+                    })
                 if data["ec_fixed"] > 0 or data["ec_mobile"] > 0:
-                    st.markdown(f'<div class="info-box">✅ <b>{tr("ec_premium")} ({group_key}):</b> {format_number(ec_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+                    current_group_table_data_for_this_iteration.append({
+                        tr("table_col_coverage_type"): tr("coverage_ec"),
+                        "sum_insured_numeric": ec_sum_orig_ccy,
+                        "premium_numeric": ec_premium_display_val,
+                        tr("table_col_sum_insured"): format_number(ec_sum_orig_ccy, display_currency_for_output),
+                        tr("table_col_premium"): format_number(ec_premium_display_val, display_currency_for_output)
+                    })
                 if data["mk_fixed"] > 0 or data["mk_mobile"] > 0:
-                    st.markdown(f'<div class="info-box">✅ <b>{tr("mk_premium")} ({group_key}):</b> {format_number(mk_premium_display, display_currency)}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-box">📊 <b>{tr("applied_rate")} ({group_key}):</b> {applied_rate:.2f}‰</div>', unsafe_allow_html=True)
+                    current_group_table_data_for_this_iteration.append({
+                        tr("table_col_coverage_type"): tr("coverage_mk"),
+                        "sum_insured_numeric": mk_sum_orig_ccy,
+                        "premium_numeric": mk_premium_display_val,
+                        tr("table_col_sum_insured"): format_number(mk_sum_orig_ccy, display_currency_for_output),
+                        tr("table_col_premium"): format_number(mk_premium_display_val, display_currency_for_output)
+                    })
+                if current_group_table_data_for_this_iteration: 
+                    all_groups_display_data_for_table.extend(current_group_table_data_for_this_iteration)
+
+                # Info box'ları da hazırla (birden fazla grup durumu için)
+                all_groups_info_boxes.append(f'<div class="info-box">✅ <b>{tr("group_premium")} ({group_key}):</b> {format_number(group_premium_display_val, display_currency_for_output)}</div>')
+                if pd_sum_orig_ccy > 0 or pd_premium_display_val > 0:
+                    all_groups_info_boxes.append(f'<div class="info-box">🏢 <b>{tr("pd_premium")} ({group_key}):</b> {format_number(pd_premium_display_val, display_currency_for_output)}</div>')
+                if data["bi"] > 0:
+                    all_groups_info_boxes.append(f'<div class="info-box">📉 <b>{tr("bi_premium")} ({group_key}):</b> {format_number(bi_premium_display_val, display_currency_for_output)}</div>')
+                if data["ec_fixed"] > 0 or data["ec_mobile"] > 0:
+                    all_groups_info_boxes.append(f'<div class="info-box">💻 <b>{tr("ec_premium")} ({group_key}):</b> {format_number(ec_premium_display_val, display_currency_for_output)}</div>')
+                if data["mk_fixed"] > 0 or data["mk_mobile"] > 0:
+                    all_groups_info_boxes.append(f'<div class="info-box">⚙️ <b>{tr("mk_premium")} ({group_key}):</b> {format_number(mk_premium_display_val, display_currency_for_output)}</div>')
+                all_groups_info_boxes.append(f'<div class="info-box">📊 <b>{tr("applied_rate")} ({group_key}):</b> {applied_rate:.2f}‰</div>')
+
+
+
+            if num_locations == 1 and len(groups_determined) == 1 and all_groups_display_data_for_table:
+                # Sayısal toplamları SADECE bu tek grup için hesapla (all_groups_display_data_for_table zaten sadece bu gruba ait olmalı)
+                grand_total_sum_insured_numeric = 0.0 # Yeniden sıfırla
+                grand_total_premium_numeric = 0.0   # Yeniden sıfırla
+                for row in all_groups_display_data_for_table: # Bu liste zaten tek gruba ait verileri içermeli
+                    grand_total_sum_insured_numeric += row.get("sum_insured_numeric", 0.0)
+                    grand_total_premium_numeric += row.get("premium_numeric", 0.0)
+
+                # Geçici bir kopya oluşturup ona toplam satırını ekleyelim ki orijinal liste bozulmasın
+                table_data_with_total = list(all_groups_display_data_for_table) 
+                table_data_with_total.append({
+                    tr("table_col_coverage_type"): f"**{tr('total_overall')}**",
+                    tr("table_col_sum_insured"): f"**{format_number(grand_total_sum_insured_numeric, display_currency_for_output)}**",
+                    tr("table_col_premium"): f"**{format_number(grand_total_premium_numeric, display_currency_for_output)}**"
+                })
+                
+                import pandas as pd
+                df_display_columns = [tr("table_col_coverage_type"), tr("table_col_sum_insured"), tr("table_col_premium")]
+                # DataFrame'i toplam satırını içeren kopyadan oluştur
+                df_results_table = pd.DataFrame(table_data_with_total)[df_display_columns]
+                
+                st.table(df_results_table.style.set_properties(**{'text-align': 'left'}).set_table_styles([dict(selector='th', props=[('text-align', 'left')])])) # İndeksi gizle
+                
+                st.markdown(f'<div class="info-box">📊 <b>{tr("applied_rate")}:</b> {applied_rate:.2f}‰</div>', unsafe_allow_html=True)
             
-            total_premium_display = total_premium / fx_rate_fire if currency_fire != "TRY" else total_premium
-            st.markdown(f'<div class="info-box">💰 <b>{tr("total_premium")}:</b> {format_number(total_premium_display, currency_fire)}</div>', unsafe_allow_html=True)
+            elif all_groups_info_boxes: # Eğer info box'lar için veri varsa (birden fazla grup veya tek grup ama tablo koşulu sağlanmadıysa)
+                for box_html in all_groups_info_boxes: 
+                    st.markdown(box_html, unsafe_allow_html=True)
+                
+                # Birden fazla grup varsa genel toplam primi de göster
+                if not (num_locations == 1 and len(groups_determined) == 1):
+                    total_premium_all_groups_display = total_premium_all_groups_try / display_fx_rate_for_output
+                    st.markdown(f'<div class="info-box">💰 <b>{tr("total_premium")}:</b> {format_number(total_premium_all_groups_display, display_currency_for_output)}</div>', unsafe_allow_html=True)
+            else:
+                st.info(tr("no_premium_calculated_msg")) # Hesaplama sonucu gösterilecek bir şey yoksa mesaj
 
             # --- SENARYO HESAPLAMA VERİLERİNİ HAZIRLA ---
             st.markdown("---") # Ayırıcı
@@ -725,7 +825,8 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
 
             for scenario_def in scenario_definitions:
                 scenario_results_per_group = []
-                for group_key, data_group in groups.items(): # groups, determine_group_params çıktısıdır
+                # HATA BURADAYDI: 'groups' yerine 'groups_determined' kullanılmalı
+                for group_key, data_group in groups_determined.items(): # DÜZELTİLDİ: groups_determined.items() kullanıldı
                     # Senaryo koasürans ve muafiyet değerleriyle PD ve BI primlerini hesapla
                     # calculate_fire_premium fonksiyonu primleri TRY cinsinden döndürür
                     pd_scenario_premium_try, bi_scenario_premium_try, _, _, _, _ = calculate_fire_premium(
@@ -754,7 +855,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 "total_bi_sum_orig_ccy": total_entered_bi_orig_ccy,
                 "currency_code": currency_fire,
                 "fx_rate_at_calculation": fx_rate_fire,
-                "groups_details": groups, # Her grup için orijinal bedeller, bina tipi, risk grubu vb. içerir
+                "groups_details": groups_determined, # DÜZELTİLDİ: groups_determined kullanıldı
                 "calculated_scenarios": calculated_scenarios_for_session,
                 "inflation_rate_at_calculation": inflation_rate,
                 "main_koas": koas, # Ana hesaplamada kullanılan koasürans
@@ -772,8 +873,8 @@ elif st.session_state.active_calc_module == CALC_MODULE_CAR:
     with col1:
         risk_group_type = st.selectbox(tr("risk_group_type"), ["RiskGrubuA", "RiskGrubuB"], format_func=lambda x: "A" if x == "RiskGrubuA" else "B", key="risk_group_type", help=tr("risk_group_type_help"))
         risk_class = st.selectbox(tr("risk_class"), [1, 2, 3, 4, 5, 6, 7], help=tr("risk_class_help"))
-        start_date = st.date_input(tr("start_date"), value=datetime.today())
-        end_date = st.date_input(tr("end_date"), value=datetime.today() + timedelta(days=365))
+        start_date = st.date_input(tr("start_date"), value=datetime.today(),format="DD-MM-YYYY")
+        end_date = st.date_input(tr("end_date"), value=datetime.today() + timedelta(days=365),format="DD-MM-YYYY")
     with col2:
         duration_months = calculate_months_difference(start_date, end_date)
         st.write(f"⏳ {tr('duration')}: {duration_months} {tr('months')}", help=tr("duration_help"))

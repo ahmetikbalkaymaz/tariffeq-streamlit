@@ -39,7 +39,14 @@ T = {
     "num_locations": {"TR": "Lokasyon Sayısı", "EN": "Number of Locations"},
     "num_locations_help": {"TR": "Hesaplama yapılacak lokasyon sayısını girin (1-10).", "EN": "Enter the number of locations to calculate (1-10)."},
     "location_group": {"TR": "Riziko Adresi Grubu", "EN": "Risk Address Group"},
-    "location_group_help": {"TR": "Aynı riziko adresindeki lokasyonları aynı gruba atayın.", "EN": "Assign locations at the same risk address to the same group."},
+    "location_group_help": {
+        "TR": "Bu lokasyonun hangi risk grubuna ait olduğunu seçin. Farklı gruplar için ayrı prim hesaplaması yapılır.",
+        "EN": "Select the risk group this location belongs to. Separate premium calculations are made for different groups."
+    },
+    "location_group_help_cumulative": {
+        "TR": "Kümül oluşturan adresleri aynı gruba atayınız.",
+        "EN": "Assign addresses that form a cumulation to the same group."
+    },
     "building_type": {"TR": "Yapı Tarzı", "EN": "Construction Type"},
     "building_type_help": {"TR": "Betonarme: Çelik veya betonarme taşıyıcı karkas bulunan yapılar. Diğer: Bu gruba girmeyen yapılar.", "EN": "Concrete: Structures with steel or reinforced concrete framework. Other: Structures not in this group."},
     "risk_group": {"TR": "Deprem Risk Grubu (1=En Yüksek Risk)", "EN": "Earthquake Risk Zone (1=Highest)"},
@@ -569,5 +576,37 @@ T = {
     "filter_option_all": {
         "TR": "Tümü",
         "EN": "All"
-    }
+    },
+    "table_col_coverage_type": {
+        "TR": "Teminat Türü",
+        "EN": "Coverage Type"
+    },
+    "table_col_sum_insured": {
+        "TR": "Bedel",
+        "EN": "Sum Insured"
+    },
+    "table_col_premium": {
+        "TR": "Prim",
+        "EN": "Premium"
+    },
+    "coverage_pd_combined": { # Yangın, Emtia, Demirbaş vb. hepsi bir arada PD olarak
+        "TR": "Yangın ve Ek Teminatlar",
+        "EN": "Fire and Allied Perils"
+    },
+    "coverage_bi": { # Bu zaten scenario_calculator_page.py için eklenmiş olabilir, kontrol edin.
+        "TR": "Kar Kaybı",
+        "EN": "Business Interruption"
+    },
+    "coverage_ec": {
+        "TR": "Elektronik Cihaz",
+        "EN": "Electronic Equipment"
+    },
+    "coverage_mk": {
+        "TR": "Makine Kırılması",
+        "EN": "Machinery Breakdown"
+    },
+    "total_overall": { # Genel toplam satırı için
+        "TR": "Toplam",
+        "EN": "Total"
+    },
 }
