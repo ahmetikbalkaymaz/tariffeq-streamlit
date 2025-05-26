@@ -46,8 +46,10 @@ T = {
     "submit": {"TR": "Gönder", "EN": "Submit"},
     "home": {"TR": "Ana Sayfa", "EN": "Home"},
     "calc": {"TR": "🚀 Hemen Hesapla", "EN": "🚀 Calculate Now"},
+    "calc_nav_label": {"TR": "🚀 Hızlı Hesapla", "EN": "🚀 Quick Calculate"}, # YENİ: Navigasyon için farklı etiket
+    "earthquake_zones_nav": {"TR": "🗺️ Deprem Bölgeleri", "EN": "🗺️ Earthquake Zones"}, # YENİ: Deprem Bölgeleri sayfası için etiket
     "featured_features_header": {"TR": "Öne Çıkan Özellikler", "EN": "Featured Features"},
-    "feature_fast": {"TR": "Hızlı ve Kolay Kullanım: 30 saniyede teklif alın", "EN": "Fast & Easy to Use: Get a quote in 30 seconds"},
+    "feature_fast": {"TR": " Hızlı ve Kolay Kullanım: 30 saniyede deprem primini öğrenin", "EN": " Fast and Easy to Use: Learn the earthquake premium in 30 seconds"},
     "feature_accurate": {"TR": "Teknik Doğruluk: Resmi deprem tarifesine tam uyum", "EN": "Technical Accuracy: Full compliance with the official earthquake tariff"},
     "feature_currency": {"TR": "Döviz Desteği: TRY, USD, EUR ile anında hesaplama", "EN": "Currency Support: Instant calculation with TRY, USD, EUR"},
     "feature_multilocation": {"TR": "Çoklu Lokasyon: Birden fazla işyeri/şantiye için tek ekranda hesaplama", "EN": "Multi-Location: Calculation for multiple workplaces/sites on a single screen"},
@@ -184,10 +186,10 @@ st.markdown("""
 
 # Kenar Çubuğu Navigasyonu
 with st.sidebar:
-    st.image("assets/logo.png", width=1000)
+    st.image("assets/logo.png", width=1000) # width=1000 logonuz büyükse küçültün, örneğin 200
     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
-    st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang]) # Navigasyon için session_state.lang kullanın
-    
+    st.page_link("pages/calculate.py", label=T["calc_nav_label"][st.session_state.lang]) # "calc" yerine farklı bir anahtar kullanmak daha iyi olabilir
+    st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) # YENİ SAYFA LİNKİ
     st.markdown("---") # Ayırıcı
 
     # Dil seçimini kenar çubuğuna ekle

@@ -647,7 +647,8 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 loc_data_item["building"] + loc_data_item["fixture"] +
                 loc_data_item["decoration"] +
                 current_commodity_for_total + # Güncellenmiş emtia değeri
-                loc_data_item["safe"] + loc_data_item["ec_fixed"] +
+                loc_data_item["safe"] + loc_data_item["machinery"] + # Genel Makine Bedeli eklendi
+                loc_data_item["ec_fixed"] +
                 loc_data_item["ec_mobile"] + loc_data_item["mk_fixed"] +
                 loc_data_item["mk_mobile"]
             )
@@ -655,7 +656,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
 
         proceed_with_calculation = True
         # if total_entered_pd_orig_ccy < 3500000000 or koas in ["90/10", "100/0"] or deduct in [0.1, 0.5, 1.0, 1.5]:
-        if total_entered_pd_orig_ccy < 3500000000:
+        if total_entered_pd_orig_ccy * fx_rate_fire < 3500000000: # Bedeli TRY'ye çevirerek kontrol et
             # Koasürans kontrolü
             if koas in ["90/10", "100/0"]:
                 proceed_with_calculation = False
@@ -663,9 +664,9 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             
             # Muafiyet kontrolü (deduct değeri muafiyet_indirimi dictionary'sindeki key'lerdir: 2, 3, 0.1, 0.5 vb.)
             # %2'den küçük muafiyetler: 0.1, 0.5, 1.0, 1.5
-            if deduct in [0.1, 0.5, 1.0, 1.5]:
+            if deduct in [0.1, 0.5, 1.0, 1.5]: # Bu muafiyetler % cinsinden değil, doğrudan anahtar değerleri
                 proceed_with_calculation = False
-                st.warning(tr("warning_deduct_below_3_5B").format(deduct_value=deduct))
+                st.warning(tr("warning_deduct_below_3_5B").format(deduct_value=str(deduct)))
 
 
         # Girilen bedel özetini göster
@@ -678,6 +679,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
         if proceed_with_calculation == True:
             groups = determine_group_params(locations_data)
             total_premium = 0.0
+            # Ana hesaplama sonuçlarının gösterilmesi (mevcut kodunuz)
             for group_key, data in groups.items(): 
                 pd_premium, bi_premium, ec_premium, mk_premium, group_premium, applied_rate = calculate_fire_premium(
                     data["building_type"], data["risk_group"], currency_fire, 
@@ -687,7 +689,6 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                     koas, deduct, fx_rate_fire, inflation_rate 
                 )
                 total_premium += group_premium
-                # Para birimi TRY değilse orijinal para birimine çevirerek göster
                 display_currency = currency_fire
                 display_fx_rate = fx_rate_fire if currency_fire != "TRY" else 1.0
 
@@ -699,7 +700,8 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 
                 st.markdown(f'<div class="info-box">✅ <b>{tr("group_premium")} ({group_key}):</b> {format_number(group_premium_display, display_currency)}</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="info-box">🏢 <b>{tr("pd_premium")} ({group_key}):</b> {format_number(pd_premium_display, display_currency)}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-box">📉 <b>{tr("bi_premium")} ({group_key}):</b> {format_number(bi_premium_display, display_currency)}</div>', unsafe_allow_html=True)
+                if data["bi"] > 0: # Sadece BI bedeli varsa BI primini göster
+                    st.markdown(f'<div class="info-box">📉 <b>{tr("bi_premium")} ({group_key}):</b> {format_number(bi_premium_display, display_currency)}</div>', unsafe_allow_html=True)
                 if data["ec_fixed"] > 0 or data["ec_mobile"] > 0:
                     st.markdown(f'<div class="info-box">✅ <b>{tr("ec_premium")} ({group_key}):</b> {format_number(ec_premium_display, display_currency)}</div>', unsafe_allow_html=True)
                 if data["mk_fixed"] > 0 or data["mk_mobile"] > 0:
@@ -708,6 +710,61 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             
             total_premium_display = total_premium / fx_rate_fire if currency_fire != "TRY" else total_premium
             st.markdown(f'<div class="info-box">💰 <b>{tr("total_premium")}:</b> {format_number(total_premium_display, currency_fire)}</div>', unsafe_allow_html=True)
+
+            # --- SENARYO HESAPLAMA VERİLERİNİ HAZIRLA ---
+            st.markdown("---") # Ayırıcı
+            scenario_definitions = [
+                {"name_key": "scenario_8020_2_name", "koas_key": "80/20", "deduct_key": 2},
+                {"name_key": "scenario_9010_2_name", "koas_key": "90/10", "deduct_key": 2},
+                {"name_key": "scenario_8020_5_name", "koas_key": "80/20", "deduct_key": 5},
+                {"name_key": "scenario_9010_5_name", "koas_key": "90/10", "deduct_key": 5},
+                {"name_key": "scenario_7030_5_name", "koas_key": "70/30", "deduct_key": 5},
+            ]
+
+            calculated_scenarios_for_session = []
+
+            for scenario_def in scenario_definitions:
+                scenario_results_per_group = []
+                for group_key, data_group in groups.items(): # groups, determine_group_params çıktısıdır
+                    # Senaryo koasürans ve muafiyet değerleriyle PD ve BI primlerini hesapla
+                    # calculate_fire_premium fonksiyonu primleri TRY cinsinden döndürür
+                    pd_scenario_premium_try, bi_scenario_premium_try, _, _, _, _ = calculate_fire_premium(
+                        data_group["building_type"], data_group["risk_group"], currency_fire,
+                        data_group["building"], data_group["fixture"], data_group["decoration"], data_group["commodity"], data_group["safe"],
+                        data_group["machinery"], data_group["bi"],
+                        data_group["ec_fixed"], data_group["ec_mobile"], data_group["mk_fixed"], data_group["mk_mobile"],
+                        scenario_def["koas_key"], scenario_def["deduct_key"],
+                        fx_rate_fire, inflation_rate
+                    )
+                    scenario_results_per_group.append({
+                        "group_key": group_key,
+                        "pd_premium_try": pd_scenario_premium_try,
+                        "bi_premium_try": bi_scenario_premium_try
+                    })
+                calculated_scenarios_for_session.append({
+                    "name": tr(scenario_def["name_key"]),
+                    "koas_key": scenario_def["koas_key"],
+                    "deduct_key": scenario_def["deduct_key"],
+                    "results_per_group": scenario_results_per_group
+                })
+
+            st.session_state.scenario_data_for_page = {
+                "num_locations": num_locations, # Kullanıcının girdiği lokasyon sayısı
+                "total_pd_sum_orig_ccy": total_entered_pd_orig_ccy, # EC/MK dahil toplam PD bedeli
+                "total_bi_sum_orig_ccy": total_entered_bi_orig_ccy,
+                "currency_code": currency_fire,
+                "fx_rate_at_calculation": fx_rate_fire,
+                "groups_details": groups, # Her grup için orijinal bedeller, bina tipi, risk grubu vb. içerir
+                "calculated_scenarios": calculated_scenarios_for_session,
+                "inflation_rate_at_calculation": inflation_rate,
+                "main_koas": koas, # Ana hesaplamada kullanılan koasürans
+                "main_deduct": deduct # Ana hesaplamada kullanılan muafiyet
+            }
+
+            # --- SENARYO HESAPLAMA SAYFASINA YÖNLENDİRME BUTONU ---
+            # Bu buton 'pages/scenario_calculator_page.py' adlı yeni bir sayfaya yönlendirecektir.
+            # Kullanıcının bu sayfayı oluşturması gerekmektedir.
+            st.page_link("pages/scenario_calculator_page.py", label=tr("goto_scenario_page_button"), icon="💡", use_container_width=True)
 
 elif st.session_state.active_calc_module == CALC_MODULE_CAR:
     st.markdown(f'<h3 class="section-header">{tr("car_header")}</h3>', unsafe_allow_html=True)

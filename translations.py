@@ -164,4 +164,410 @@ T = {
     "ec_mk_cover_options_header": {"TR": "Elektronik Cihaz ve Makine Kırılması Teminatı Alınıyor mu?", "EN": "Electronic Equipment and Machinery Breakdown Coverage Taken?"},
     "mk_cover_subheader": {"TR": "Makine Kırılması teminatı Alınıyorsa Soldaki Bedeli Lütfen Aşağıya Giriniz", "EN": "If Machinery Breakdown coverage is taken, please enter the amount on the left below"},
     "include_ec_mk_cover" : {"TR": "Alınıyorsa İşaretleyin Aksi Halde Boş Bırakın", "EN": "Check if taken, otherwise leave blank"},
+    "goto_scenario_page_button": {
+        "TR": "Detaylı Senaryo Analizine Git",
+        "EN": "Go to Detailed Scenario Analysis"
+    },
+    "scenario_8020_2_name": {
+        "TR": "80/20 Koas. - %2 Muaf.",
+        "EN": "80/20 Co-ins. - 2% Ded."
+    },
+    "scenario_9010_2_name": {
+        "TR": "90/10 Koas. - %2 Muaf.",
+        "EN": "90/10 Co-ins. - 2% Ded."
+    },
+    "scenario_8020_5_name": {
+        "TR": "80/20 Koas. - %5 Muaf.",
+        "EN": "80/20 Co-ins. - 5% Ded."
+    },
+    "scenario_9010_5_name": {
+        "TR": "90/10 Koas. - %5 Muaf.",
+        "EN": "90/10 Co-ins. - 5% Ded."
+    },
+    "scenario_7030_5_name": {
+        "TR": "70/30 Koas. - %5 Muaf.",
+        "EN": "70/30 Co-ins. - 5% Ded."
+    },
+    "scenario_page_title": {
+        "TR": "Senaryo Hesaplama ve Ek Bina Bilgileri",
+        "EN": "Scenario Calculation and Additional Building Information"
+    },
+    "scenario_data_missing_warning": {
+        "TR": "Senaryo verileri bulunamadı. Lütfen önce 'Hesaplama' sayfasından bir hesaplama yapın ve ardından 'Detaylı Senaryo Analizine Git' butonuna tıklayın.",
+        "EN": "Scenario data not found. Please perform a calculation on the 'Calculate' page first and then click the 'Go to Detailed Scenario Analysis' button."
+    },
+    "go_back_to_calculate_page": {
+        "TR": "Hesaplama Sayfasına Geri Dön",
+        "EN": "Go Back to Calculate Page"
+    },
+    "additional_info_for_location_group": {
+        "TR": "Grup {group_key} ({location_index}/{total_locations}) için Ek Bina Bilgileri",
+        "EN": "Additional Building Information for Group {group_key} ({location_index}/{total_locations})"
+    },
+    "building_age": {
+        "TR": "Bina Kaç Yaşında?",
+        "EN": "What is the age of the building?"
+    },
+    "building_age_options": {
+        "TR": ["<10 yıl", "10–30 yıl", ">30 yıl"],
+        "EN": ["<10 years", "10–30 years", ">30 years"]
+    },
+    "structural_type": {
+        "TR": "Yapı Tipi Nedir?",
+        "EN": "What is the structural type?"
+    },
+    "structural_type_options": {
+        "TR": ["Betonarme", "Çelik", "Yığma", "Diğer"],
+        "EN": ["Reinforced Concrete", "Steel", "Masonry", "Other"]
+    },
+    "num_floors": {
+        "TR": "Kat Sayısı Kaçtır?",
+        "EN": "How many floors does the building have?"
+    },
+    "num_floors_options": {
+        "TR": ["1–3", "4–7", "8 ve üzeri"],
+        "EN": ["1–3", "4–7", "8 or more"]
+    },
+    "activity_type": {
+        "TR": "Binanın Kullanım Amacı Nedir?",
+        "EN": "What is the activity type of the building?"
+    },
+    "activity_type_options": {
+        "TR": ["Depolama", "Üretim", "Ofis", "Ticaret", "Diğer"],
+        "EN": ["Warehouse", "Manufacturing", "Office", "Retail", "Other"]
+    },
+    "strengthening": {
+        "TR": "Bina Deprem Güçlendirmesi Yapılmış mı?",
+        "EN": "Has the building been retrofitted for earthquakes?"
+    },
+    "strengthening_options": {
+        "TR": ["Evet", "Hayır"],
+        "EN": ["Yes", "No"]
+    },
+    "scenario_inputs_collected_info": {
+        "TR": "Tüm lokasyonlar için ek bilgiler toplandı.",
+        "EN": "Additional information collected for all locations."
+    },
+    "earthquake_scenario_analysis_title": {
+        "TR": "Deprem Hasar Senaryo Analizi",
+        "EN": "Earthquake Damage Scenario Analysis"
+    },
+    "analysis_for_group": {
+        "TR": "Grup {group_key} için Analiz",
+        "EN": "Analysis for Group {group_key}"
+    },
+    "risk_group_missing_for_group": {
+        "TR": "Grup {group_key} için deprem risk bölgesi bilgisi eksik.",
+        "EN": "Earthquake risk zone information is missing for group {group_key}."
+    },
+    "alt_8020_2": {
+        "TR": "80/20 Koas. - %2 Muaf.",
+        "EN": "80/20 Co-ins. - 2% Ded."
+    },
+    "alt_9010_2": {
+        "TR": "90/10 Koas. - %2 Muaf.",
+        "EN": "90/10 Co-ins. - 2% Ded."
+    },
+    "alt_8020_5": {
+        "TR": "80/20 Koas. - %5 Muaf.",
+        "EN": "80/20 Co-ins. - 5% Ded."
+    },
+    "alt_9010_5": {
+        "TR": "90/10 Koas. - %5 Muaf.",
+        "EN": "90/10 Co-ins. - 5% Ded."
+    },
+    "alt_7030_5": {
+        "TR": "70/30 Koas. - %5 Muaf.",
+        "EN": "70/30 Co-ins. - 5% Ded."
+    },
+    "damage_scenario_minor": {
+        "TR": "Düşük Hasar",
+        "EN": "Minor Damage"
+    },
+    "damage_scenario_expected": {
+        "TR": "Beklenen Hasar",
+        "EN": "Expected Damage"
+    },
+    "damage_scenario_severe": {
+        "TR": "Yüksek Hasar",
+        "EN": "Severe Damage"
+    },
+    "table_col_alternative": {
+        "TR": "Alternatif",
+        "EN": "Alternative"
+    },
+    "table_col_scenario": {
+        "TR": "Hasar Senaryosu",
+        "EN": "Damage Scenario"
+    },
+    "table_col_pd_gross_loss": {
+        "TR": "PD Brüt Hasar",
+        "EN": "PD Gross Loss"
+    },
+    "table_col_pd_deductible": {
+        "TR": "PD Muafiyet",
+        "EN": "PD Deductible"
+    },
+    "table_col_pd_insurer_share": {
+        "TR": "PD Sigortacı Payı",
+        "EN": "PD Insurer Share"
+    },
+    "table_col_pd_insured_share": {
+        "TR": "PD Sigortalı Payı",
+        "EN": "PD Insured Share"
+    },
+    "table_col_bi_gross_loss": {
+        "TR": "BI Brüt Hasar",
+        "EN": "BI Gross Loss"
+    },
+    "table_col_bi_deductible": {
+        "TR": "BI Muafiyet",
+        "EN": "BI Deductible"
+    },
+    "table_col_bi_insurer_share": {
+        "TR": "BI Sigortacı Payı",
+        "EN": "BI Insurer Share"
+    },
+    "table_col_bi_insured_share": {
+        "TR": "BI Sigortalı Payı",
+        "EN": "BI Insured Share"
+    },
+    "total_pd_premium": { # Bu zaten eklenmiş olabilir, kontrol edin
+        "TR": "Toplam PD Primi",
+        "EN": "Total PD Premium"
+    },
+    "total_bi_premium": { # Bu zaten eklenmiş olabilir, kontrol edin
+        "TR": "Toplam BI Primi",
+        "EN": "Total BI Premium"
+    },
+    "premium_scenarios_from_calculate_page": { # Bu zaten eklenmiş olabilir
+        "TR": "Hesaplama Sayfasından Gelen Prim Senaryoları",
+        "EN": "Premium Scenarios from Calculate Page"
+    },
+    "building_info_header": { # Bu zaten eklenmiş olabilir
+        "TR": "Bina Bilgileri",
+        "EN": "Building Information"
+    },
+    "group_label": { # Bu zaten eklenmiş olabilir
+        "TR": "Grup",
+        "EN": "Group"
+    },
+    "bi_additional_info_header": {
+        "TR": "Kar Kaybı (BI) için Ek Bilgiler",
+        "EN": "Additional Information for Business Interruption (BI)"
+    },
+    "bi_activity_type": { # Bu zaten "activity_type" olarak mevcut olabilir, BI için ayrı bir başlık istenirse kullanılır.
+        "TR": "Faaliyet Türü (BI için)",
+        "EN": "Activity Type (for BI)"
+    },
+    "bi_activity_type_options": { # PD ile aynı seçenekler kullanılacaksa bu gerekmeyebilir.
+        "TR": ["Depolama", "Üretim", "Ofis", "Ticaret", "Diğer"],
+        "EN": ["Warehouse", "Manufacturing", "Office", "Retail", "Other"]
+    },
+    "alternative_production_site": {
+        "TR": "Alternatif Üretim/Hizmet Yeri Var mı?",
+        "EN": "Is there an alternative production/service site?"
+    },
+    "alternative_production_site_options": {
+        "TR": ["Evet", "Hayır"],
+        "EN": ["Yes", "No"]
+    },
+    "annual_turnover": {
+        "TR": "Yıllık Ciro (TRY)",
+        "EN": "Annual Turnover (TRY)"
+    },
+    "annual_turnover_options": {
+        "TR": ["1 - 10 Milyon TL", "10 - 50 Milyon TL", "50 Milyon TL Üzeri", "1 Milyon TL Altı"],
+        "EN": ["1 - 10 Million TRY", "10 - 50 Million TRY", "Over 50 Million TRY", "Below 1 Million TRY"]
+    },
+    "business_continuity_plan": {
+        "TR": "İş Sürekliliği Planı Var mı?",
+        "EN": "Is there a Business Continuity Plan?"
+    },
+    "business_continuity_plan_options": {
+        "TR": ["Evet", "Hayır"],
+        "EN": ["Yes", "No"]
+    },
+    "bi_info_header": {
+        "TR": "Kar Kaybı (BI) Bilgileri",
+        "EN": "Business Interruption (BI) Information"
+    },
+    "bi_additional_info_header_for_group": {
+        "TR": "Grup {group_key} ({location_index}/{total_locations}) için Kar Kaybı (BI) Bilgileri",
+        "EN": "Business Interruption (BI) Information for Group {group_key} ({location_index}/{total_locations})"
+    },
+    "calculate_scenario_button": {
+        "TR": "Senaryo Hesapla ve Tabloyu Göster",
+        "EN": "Calculate Scenario and Show Table"
+    },
+    "table_col_pd_premium": {
+        "TR": "PD Prim",
+        "EN": "PD Premium"
+    },
+    "table_col_bi_premium": {
+        "TR": "BI Prim",
+        "EN": "BI Premium"
+    },
+    "table_col_total_premium": {
+        "TR": "Toplam Prim",
+        "EN": "Total Premium"
+    },
+    "table_col_tcor": {
+        "TR": "TCoR (Toplam Risk Maliyeti)",
+        "EN": "TCoR (Total Cost of Risk)"
+    },
+    "pd_damage_ratios_for_group": {
+        "TR": "Grup {group_key} için PD Hasar Oranları ve Tahmini Kayıplar",
+        "EN": "PD Damage Ratios and Estimated Losses for Group {group_key}"
+    },
+    "bi_damage_ratios_for_group": {
+        "TR": "Grup {group_key} için BI Hasar Oranları, Çarpan ve Tahmini Kayıplar",
+        "EN": "BI Damage Ratios, Multiplier, and Estimated Losses for Group {group_key}"
+    },
+    "bi_multiplier_label": {
+        "TR": "BI Çarpanı",
+        "EN": "BI Multiplier"
+    },
+    "bi_minor_loss_rate_label": {
+        "TR": "BI Düşük Hasar Oranı",
+        "EN": "BI Minor Loss Rate"
+    },
+    "bi_expected_loss_rate_label": {
+        "TR": "BI Beklenen Hasar Oranı",
+        "EN": "BI Expected Loss Rate"
+    },
+    "bi_severe_loss_rate_label": {
+        "TR": "BI Yüksek Hasar Oranı",
+        "EN": "BI Severe Loss Rate"
+    },
+    "estimated_bi_minor_loss_label": {
+        "TR": "Tahmini BI Düşük Kayıp",
+        "EN": "Estimated BI Minor Loss"
+    },
+    "estimated_bi_expected_loss_label": {
+        "TR": "Tahmini BI Beklenen Kayıp",
+        "EN": "Estimated BI Expected Loss"
+    },
+    "estimated_bi_severe_loss_label": {
+        "TR": "Tahmini BI Yüksek Kayıp",
+        "EN": "Estimated BI Severe Loss"
+    },
+    "chart_title_pd_insurer_share": {
+        "TR": "Farklı Alternatiflerde PD Sigortacı Payı Senaryoları (Grup {group_key})",
+        "EN": "PD Insurer Share Scenarios for Different Alternatives (Group {group_key})"
+    },
+    "chart_xaxis_label_alternatives_with_premium": {
+        "TR": "Alternatif (Muafiyet-Koasürans, PD Prim ile birlikte)",
+        "EN": "Alternative (Deductible-Coinsurance, with PD Premium)"
+    },
+    "chart_yaxis_label_insurer_share_try": {
+        "TR": "Sigorta Şirketi PD Payı (TRY)",
+        "EN": "Insurer PD Share (TRY)"
+    },
+    "legend_minor_damage": {
+        "TR": "Düşük Hasar",
+        "EN": "Minor Damage"
+    },
+    "legend_expected_damage": {
+        "TR": "Orta Hasar", # "Beklenen Hasar" yerine "Orta Hasar" olarak güncellendi
+        "EN": "Expected Damage" # "Expected Damage" olarak kalabilir veya "Medium Damage"
+    },
+    "legend_severe_damage": {
+        "TR": "Yüksek Hasar",
+        "EN": "Severe Damage"
+    },
+    "limit_recommendations_title": {
+        "TR": "Limit Tavsiyeleri (Grup {group_key})",
+        "EN": "Limit Recommendations (Group {group_key})"
+    },
+    "limit_recommendation_intro": {
+        "TR": "Poliçenizi aşağıdaki limitlerle yaptırmanız tavsiye edilir. Bu tavsiyeler, girilen bilgilere ve genel hasar senaryolarına dayanmaktadır.",
+        "EN": "It is recommended to arrange your policy with the following limits. These recommendations are based on the information provided and general damage scenarios."
+    },
+    "limit_table_col_coverage": {
+        "TR": "Teminat",
+        "EN": "Coverage"
+    },
+    "limit_table_col_full_value": {
+        "TR": "Tam Bedel (Full Value)",
+        "EN": "Full Value"
+    },
+    "limit_table_col_minor_limit": {
+        "TR": "Hafif Hasar Limiti",
+        "EN": "Minor Damage Limit"
+    },
+    "limit_table_col_expected_limit": {
+        "TR": "Beklenen Hasar Limiti",
+        "EN": "Expected Damage Limit"
+    },
+    "limit_table_col_severe_limit": {
+        "TR": "Ağır Hasar Limiti",
+        "EN": "Severe Damage Limit"
+    },
+    "limit_table_col_sector_recommendation": {
+        "TR": "Sektör Tavsiyesi",
+        "EN": "Sector Recommendation"
+    },
+    "coverage_pd": {
+        "TR": "PD (Fiziksel Hasar)",
+        "EN": "PD (Physical Damage)"
+    },
+    "coverage_bi": {
+        "TR": "BI (Kar Kaybı)",
+        "EN": "BI (Business Interruption)"
+    },
+    "sector_recommendation_text_pd": {
+        "TR": "{expected_limit_str} - {severe_limit_str}. Beklenen veya ağır hasar senaryosuna göre limit seçmeniz, olası deprem sonrası finansal kaybınızın önemli bir kısmını güvence altına alır.",
+        "EN": "{expected_limit_str} - {severe_limit_str}. Choosing a limit based on the expected or severe damage scenario secures a significant portion of your potential financial loss after an earthquake."
+    },
+    "sector_recommendation_text_bi": {
+        "TR": "{expected_limit_str} - {severe_limit_str}. İş durması süresince oluşabilecek kar kaybınızı karşılamak için bu aralıkta bir limit değerlendirilebilir.",
+        "EN": "{expected_limit_str} - {severe_limit_str}. A limit within this range can be considered to cover your loss of profit during business interruption."
+    },
+    "general_limit_advice_title": {
+        "TR": "Genel Limit Tavsiyeleri",
+        "EN": "General Limit Advice"
+    },
+    "general_limit_advice_text": {
+        "TR": """
+- **Minimum Limit (Hafif Hasar):** En düşük hasar senaryosuna göre belirlenir. Genellikle tavsiye edilmez çünkü büyük bir hasarda yetersiz kalabilir.
+- **Orta Seviye Limit (Beklenen Hasar):** Ortalama bir deprem senaryosunda oluşabilecek kayıpları hedefler. Daha dengeli bir koruma ve prim sunar.
+- **Maksimum Koruma (Ağır Hasar):** En kötü senaryoya göre tam koruma sağlamayı amaçlar, primi daha yüksek olabilir.
+- **Sektör Tavsiyesi:** Genellikle 'Beklenen Hasar Limiti' ile 'Ağır Hasar Limiti' arasında bir değer, risk iştahınıza ve bütçenize göre seçilir. Bu, potansiyel kaybın %80-90'ını karşılamayı hedefler. Limitiniz çok düşükse, hasar sonrası poliçeniz yetersiz kalabilir. Çok yüksekse prim artar, ancak daha kapsamlı koruma sağlanır.
+        """,
+        "EN": """
+- **Minimum Limit (Minor Damage):** Based on the lowest damage scenario. Generally not recommended as it may be insufficient in a major event.
+- **Medium Level Limit (Expected Damage):** Targets losses in an average earthquake scenario. Offers a more balanced protection and premium.
+- **Maximum Protection (Severe Damage):** Aims for full protection against the worst-case scenario, premium may be higher.
+- **Sector Recommendation:** Typically, a value between the 'Expected Damage Limit' and 'Severe Damage Limit' is chosen based on your risk appetite and budget. This aims to cover 80-90% of the potential loss. If your limit is too low, your policy may be inadequate after a loss. If it's too high, the premium increases, but more comprehensive protection is provided.
+        """
+    },
+    "table_col_label": {
+        "TR": "Etiket",
+        "EN": "Label"
+    },
+    "label_min_protection": {
+        "TR": "🛡️ Min. Koruma", # Kalkan ikonu (Shield)
+        "EN": "🛡️ Min. Protection"
+    },
+    "label_balanced_protection": {
+        "TR": "⚖️ Denge", # Terazi ikonu (Balance Scale)
+        "EN": "⚖️ Balanced"
+    },
+    "label_max_protection": {
+        "TR": "🏆 Maks. Koruma", # Kupa ikonu (Trophy)
+        "EN": "🏆 Max. Protection"
+    },
+    "filter_label_table_filters": {
+        "TR": "Etikete Göre Filtrele",
+        "EN": "Filter by Label"
+    },
+    "filter_label_damage_type_filters": {
+        "TR": "Hasar Tipine Göre Filtrele",
+        "EN": "Filter by Damage Type"
+    },
+    "filter_option_all": {
+        "TR": "Tümü",
+        "EN": "All"
+    }
 }
