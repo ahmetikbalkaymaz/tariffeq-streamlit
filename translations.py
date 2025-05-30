@@ -26,7 +26,7 @@ T = {
     "comment_placeholder": {"TR": "Yorumunuzu buraya yazın...", "EN": "Write your comment here..."},
     "submit": {"TR": "Gönder", "EN": "Submit"},
     "home": {"TR": "Ana Sayfa", "EN": "Home"},
-    "calc": {"TR": "🚀 Hemen Hesapla", "EN": "🚀 Calculate Now"},
+    "calc": {"TR": "🚀  Deprem Primi ve Hasar Riski", "EN": "🚀 Earthquake Premium and Damage Risk"},
 
     # calculate.py için özel çeviriler
     "calc_title": {"TR": "TariffEQ", "EN": "TariffEQ"}, # calculate.py başlığı
@@ -131,8 +131,8 @@ T = {
         "TR": "İnşaat & Montaj Primi - Hemen Hesapla 🏗️",
         "EN": "Construction & Erection Premium – Calculate Now 🏗️"
     },
-    "entered_sums_summary_header": {"TR": "Girilen Bedel Özeti", "EN": "Entered Sums Summary"},
-    "total_entered_pd_sum": {"TR": "Toplam Girilen PD Bedeli", "EN": "Total Entered PD Sum"},
+    "current_entered_sums_header": {"TR": "Anlık Girilen Toplam Bedeller (Prim Hesaplamasına Esas)", "EN": "Current Entered Totals (Basis for Premium Calculation)"},
+    "total_entered_pd_sum_effective": {"TR": "Toplam PD Bedeli (Etkin)", "EN": "Total PD Sum (Effective)"},
     "total_entered_bi_sum": {"TR": "Toplam Girilen BI Bedeli", "EN": "Total Entered BI Sum"},
     "total_entered_ec_sum": {"TR": "Toplam Girilen Elektronik Cihaz Bedeli", "EN": "Total Entered Electronic Device Sum"},
     "total_entered_mk_sum": {"TR": "Toplam Girilen Makine Kırılması Bedeli", "EN": "Total Entered Machinery Breakdown Sum"},
@@ -196,8 +196,8 @@ T = {
         "EN": "70/30 Co-ins. - 5% Ded."
     },
     "scenario_page_title": {
-        "TR": "Senaryo Hesaplama ve Ek Bina Bilgileri",
-        "EN": "Scenario Calculation and Additional Building Information"
+        "TR": "Senaryo Hesaplama",
+        "EN": "Scenario Calculation"
     },
     "scenario_data_missing_warning": {
         "TR": "Senaryo verileri bulunamadı. Lütfen önce 'Hesaplama' sayfasından bir hesaplama yapın ve ardından 'Detaylı Senaryo Analizine Git' butonuna tıklayın.",
@@ -585,28 +585,68 @@ T = {
         "TR": "Bedel",
         "EN": "Sum Insured"
     },
-    "table_col_premium": {
-        "TR": "Prim",
-        "EN": "Premium"
+    "table_col_rate_permille": {"TR": "Fiyat (%o)", "EN": "Rate (%o)"},
+    "coverage_pd_combined": {"TR": "Yangın Mali", "EN": "Property Damage"}, # Zaten olabilir, kontrol edin
+    "coverage_bi": {"TR": "Kar Kaybı", "EN": "Business Interruption"}, # Zaten olabilir
+    "coverage_ec": {"TR": "Elektronik Cihaz", "EN": "Electronic Equipment"}, # Zaten olabilir
+    "coverage_mk": {"TR": "Makine Kırılması", "EN": "Machinery Breakdown"}, # Zaten olabilir
+    "total_overall": {"TR": "Toplam", "EN": "Total"}, # Zaten olabilir
+    "current_entered_sums_header": {
+        "TR": "Anlık Girilen Toplam Bedeller",
+        "EN": "Currently Entered Total Sums"
     },
-    "coverage_pd_combined": { # Yangın, Emtia, Demirbaş vb. hepsi bir arada PD olarak
-        "TR": "Yangın ve Ek Teminatlar",
-        "EN": "Fire and Allied Perils"
+     "earthquake_zones_nav": {
+        "TR": "🗺️ Deprem Bölgeleri", 
+        "EN": "🗺️ Earthquake Zones"
     },
-    "coverage_bi": { # Bu zaten scenario_calculator_page.py için eklenmiş olabilir, kontrol edin.
-        "TR": "Kar Kaybı",
-        "EN": "Business Interruption"
+    "earthquake_zones_search": {
+        "TR": "🗺️ Deprem Bölgeleri", 
+        "EN": "🗺️ Earthquake Zones"
     },
-    "coverage_ec": {
-        "TR": "Elektronik Cihaz",
-        "EN": "Electronic Equipment"
+    "coverage_car_ear": {"TR": "CAR/EAR", "EN": "CAR/EAR"},
+    "coverage_cpm": {"TR": "İnşaat Makineleri (CPM)", "EN": "Construction Plant & Machinery (CPM)"},
+    "coverage_cpe": {"TR": "Şantiye Tesisleri (CPE)", "EN": "Construction/Erection Site Equipment (CPE)"},
+    "table_col_coverage_type": {"TR": "Teminat", "EN": "Coverage"}, # Zaten olabilir
+    "table_col_sum_insured": {"TR": "Bedel", "EN": "Sum Insured"}, # Zaten olabilir
+    "table_col_rate_permille": {"TR": "Fiyat (%o)", "EN": "Rate (%o)"}, # Zaten olabilir
+    "table_col_premium": {"TR": "Prim", "EN": "Premium"}, # Zaten olabilir
+    "total_overall": {"TR": "Toplam", "EN": "Total"}, # Zaten olabilir
+    "results_table_header": {"TR": "Sonuç Tablosu", "EN": "Results Table"},
+    "learn_earthquake_zone_button": {
+        "TR": "Deprem Bölgelerini Öğren",
+        "EN": "Learn Earthquake Zones"
     },
-    "coverage_mk": {
-        "TR": "Makine Kırılması",
-        "EN": "Machinery Breakdown"
+    "group_label_format": {"TR": "{group_char} Kümülü", "EN": "{group_char} Aggregate"},
+    "current_entered_sums_raw_header": {"TR": "Anlık Girilen Toplam Bedel", "EN": "Current Entered Totals"},
+    "total_entered_pd_sum_raw": {"TR": "Toplam PD Bedeli", "EN": "Total PD Sum"},
+    "total_entered_bi_sum_raw": {"TR": "Toplam BI Bedeli", "EN": "Total BI Sum"},
+    "total_entered_pd_sum": {"TR": "Toplam Girilen PD Bedeli", "EN": "Total Entered PD Sum"},
+    "entered_sums_summary_header": {
+        "TR": "Girilen Bedel Özeti",
+        "EN": "Entered Sum Summary"
     },
-    "total_overall": { # Genel toplam satırı için
-        "TR": "Toplam",
-        "EN": "Total"
+    "location_group_cumulative_info": {
+        "TR": "ℹ️ Kümül oluşturan adresleri aynı gruba atayınız.", 
+        "EN": "ℹ️ Assign addresses that form an aggregate to the same group."
+    },
+    "select_province" : {
+        "TR": "Lütfen il seçiniz",
+        "EN": "Please select a province"
+    },
+    "select_district" : {
+        "TR": "Lütfen ilçe seçiniz",
+        "EN": "Please select a district"
+    },
+    "select_neighborhood" : {
+        "TR": "Lütfen mahalle seçiniz",
+        "EN": "Please select a neighborhood"
+    },
+    "select_village" : {
+        "TR": "Lütfen köy seçiniz",
+        "EN": "Please select a village"
+    },
+    "earthquake_zones_result": {
+        "TR": "Deprem Bölgeleri Sonucu",
+        "EN": "Earthquake Zones Result"
     },
 }

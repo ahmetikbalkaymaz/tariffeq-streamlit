@@ -108,11 +108,19 @@ if 'lang' not in st.session_state:
     st.session_state.lang = "TR" # Varsayılan dil
 lang = st.session_state.lang
 
+def tr(key: str, **kwargs) -> str:
+    translation = T.get(key, {}).get(lang, key)
+    if kwargs:
+        return translation.format(**kwargs)
+    return translation
+
+
 with st.sidebar:
     st.image("assets/logo.png", width=1000) # width=1000 logonuz büyükse küçültün, örneğin 200
     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
     st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang]) # "calc" yerine farklı bir anahtar kullanmak daha iyi olabilir
     st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) # YENİ SAYFA LİNKİ
+    st.page_link("pages/scenario_calculator_page.py", label=tr("scenario_page_title"), icon="📉") # Mevcut sayfa
     st.markdown("---") # Ayırıcı
 
     # Dil seçimini kenar çubuğuna ekle
@@ -138,6 +146,7 @@ with st.sidebar:
     
     st.markdown("---") # Dil seçimi ile footer arasına bir ayırıcı daha eklenebilir (opsiyonel)
     st.markdown(f"<div class='sidebar-footer footer'>{T['footer'][lang]}</div>", unsafe_allow_html=True) # Footer buraya eklendi, sınıf güncellendi
+
 
 
 # Veriyi önbelleğe alarak yükleyen fonksiyon

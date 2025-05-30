@@ -81,7 +81,7 @@ T = {
     "home": {"TR": "Ana Sayfa", "EN": "Home"},
     "calc": {"TR": "🚀 Deprem Primi ve Hasar Riskini Hesapla", "EN": "🚀 Calculate Earthquake Premium and Damage Risk"},
     "earthquake": {"TR": "🗺️ Deprem Bölgeni Öğren", "EN": "🗺️ Learn Your Earthquake Zone"}, # YENİ: Deprem Bölgeleri sayfası için etiket
-    "calc_nav_label": {"TR": "🚀 Hızlı Hesapla", "EN": "🚀 Quick Calculate"}, # YENİ: Navigasyon için farklı etiket
+    "calc_nav_label": {"TR": "🚀  Deprem Primi ve Hasar Riski", "EN": "🚀 Earthquake Premium and Damage Risk"}, # YENİ: Navigasyon için farklı etiket
     "earthquake_zones_nav": {"TR": "🗺️ Deprem Bölgeleri", "EN": "🗺️ Earthquake Zones"}, # YENİ: Deprem Bölgeleri sayfası için etiket
     "featured_features_header": {"TR": "Öne Çıkan Özellikler", "EN": "Featured Features"},
     "feature_fast": {"TR": " Hızlı ve Kolay Kullanım: 30 saniyede deprem primini öğrenin", "EN": " Fast and Easy to Use: Learn the earthquake premium in 30 seconds"},
@@ -93,7 +93,11 @@ T = {
     "target_insurers": {"TR": "🏢 Sigorta şirketi ekipleri ve underwriterlar", "EN": "🏢 Insurance company teams and underwriters"},
     "target_brokers": {"TR": "🤝 Brokerlar, acenteler", "EN": "🤝 Brokers, agents"},
     "target_professionals": {"TR": "⏱️ Hızlı teklif hazırlamak isteyen sigorta profesyonelleri", "EN": "⏱️ Insurance professionals who want to prepare quick quotes"},
-    "target_owners": {"TR": "🏗️ Proje sahipleri ve işletme yöneticileri", "EN": "🏗️ Project owners and business managers"}
+    "target_owners": {"TR": "🏗️ Proje sahipleri ve işletme yöneticileri", "EN": "🏗️ Project owners and business managers"},
+    "scenario_page_title": {
+        "TR": "Senaryo Hesaplama ",
+        "EN": "Scenario Calculation"
+    },
 }
 
 # Özel CSS (Navigasyon butonlarını gizle ve özel navigasyon için stil)
@@ -226,12 +230,14 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
 # Kenar Çubuğu Navigasyonu
 with st.sidebar:
     st.image("assets/logo.png", width=1000) # width=1000 logonuz büyükse küçültün, örneğin 200
     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
     st.page_link("pages/calculate.py", label=T["calc_nav_label"][st.session_state.lang]) # "calc" yerine farklı bir anahtar kullanmak daha iyi olabilir
     st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) # YENİ SAYFA LİNKİ
+    st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") # Mevcut sayfa
     st.markdown("---") # Ayırıcı
 
     # Dil seçimini kenar çubuğuna ekle
