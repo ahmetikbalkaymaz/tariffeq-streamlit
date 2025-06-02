@@ -165,19 +165,19 @@ st.title(T["earthquake_zones_search"][st.session_state.lang], anchor=False)
 # İl seçeneklerini bir kere hesaplayıp saklayabiliriz, ancak selectbox zaten dinamik olarak güncellenecek.
 # Sıralama işlemini de burada yapabiliriz.
 il_options = sorted(df["ILADI"].unique())
-selected_il = st.selectbox(T["select_province"][st.session_state.lang], il_options)
+selected_il = st.selectbox(T["select_province"][st.session_state.lang], il_options,index=None)
 
 # 2. İlçe Seçimi
 if selected_il:
     ilce_options = sorted(df[df["ILADI"] == selected_il]["ILCEADI"].unique())
-    selected_ilce = st.selectbox(T["select_district"][st.session_state.lang], ilce_options)
+    selected_ilce = st.selectbox(T["select_district"][st.session_state.lang], ilce_options,index=None)
 else:
     selected_ilce = None # Veya boş bir liste ile selectbox'ı devre dışı bırak
 
 # 3. Köy/Bucak Seçimi
 if selected_il and selected_ilce:
     koy_options = sorted(df[(df["ILADI"] == selected_il) & (df["ILCEADI"] == selected_ilce)]["KOYADI"].unique())
-    selected_koy = st.selectbox(T["select_village"][st.session_state.lang], koy_options)
+    selected_koy = st.selectbox(T["select_village"][st.session_state.lang], koy_options, index=None)
 else:
     selected_koy = None
 
