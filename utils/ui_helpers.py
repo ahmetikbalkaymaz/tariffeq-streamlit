@@ -10,6 +10,32 @@ def _tr(key: str) -> str:
     lang_code = st.session_state.get('lang', 'TR') # Varsayılan dil TR
     return T.get(key, {}).get(lang_code, key)
 
+# Teminat türleri için yapılandırma
+# Bu yapılandırma, calculate.py'deki premium_results_by_group ve groups_determined_data
+# anahtarlarıyla ve çeviri anahtarlarıyla uyumlu olmalıdır.
+coverage_config = [
+    {
+        "name_tr_key": "coverage_pd_combined", # Çeviri anahtarı (örn: "Maddi Hasarlar (Bina, Mef., Dek., Emtea, Kasa, Mak.)")
+        "sum_fields": ["building", "fixture", "decoration", "commodity_raw_for_display", "safe", "machinery"], # groups_determined_data'daki bedel alanları
+        "premium_field_in_results": "pd_premium_try" # premium_results_by_group'daki prim alanı
+    },
+    {
+        "name_tr_key": "coverage_bi",
+        "sum_fields": ["bi"],
+        "premium_field_in_results": "bi_premium_try"
+    },
+    {
+        "name_tr_key": "coverage_ec",
+        "sum_fields": ["ec_fixed", "ec_mobile"],
+        "premium_field_in_results": "ec_premium_try"
+    },
+    {
+        "name_tr_key": "coverage_mk",
+        "sum_fields": ["mk_fixed", "mk_mobile"],
+        "premium_field_in_results": "mk_premium_try"
+    }
+]
+
 # ------------------------------------------------------------
 # TCMB FX MODULE & FORMATTING
 # ------------------------------------------------------------
@@ -104,11 +130,28 @@ def fx_input(ccy: str, key_prefix: str) -> tuple[float, str]:
     st.info(info_message) # Bu mesajı her zaman göster
     return st.session_state[r_key], info_message
 
-def format_number(value: float, currency: str) -> str:
-    """Sayıyı para birimi formatında string'e çevirir."""
-    # Önce binlik ayıracı olarak geçici bir karakter (X) kullan, sonra nokta ve virgülü yer değiştir.
-    formatted_value = f"{value:,.4f}".replace(",", "X").replace(".", ",").replace("X", ".")
-    return f"{formatted_value} {currency}"
+def format_number(value, currency_code):
+    # Mevcut format_number fonksiyonunuz
+    if value is None:
+        return "-"
+    try:
+        # Türkçe formatı için: 1.234.567,89
+        # İngilizce formatı için: 1,234,567.89
+        # Şimdilik basit bir replace ile yapalım, daha gelişmiş locale kütüphaneleri kullanılabilir.
+        formatted_value = f"{value:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+        return f"{formatted_value} {currency_code}"
+    except (ValueError, TypeError):
+        return f"{value} {currency_code}"
+
+def format_rate(rate_value):
+    """Oran değerini 4 ondalık basamakla ve Türkçe yerel ayarına uygun formatlar."""
+    if rate_value is None:
+        return "-"
+    try:
+        # Örnek: 3,0000
+        return f"{rate_value:,.4f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    except (ValueError, TypeError):
+        return str(rate_value)
 
 # ------------------------------------------------------------
 # UI DISPLAY FUNCTIONS
@@ -135,11 +178,11 @@ def display_current_total_sums(locations_data_list, currency_code):
             loc_data.get("decoration", 0.0) +
             current_commodity_for_pd_display + # Ayarlanmış emtea bedeli
             loc_data.get("safe", 0.0) +
-            loc_data.get("machinery", 0.0) +
-            (loc_data.get("ec_fixed", 0.0) if loc_data.get("include_ec_mk_cover", False) else 0.0) +
-            (loc_data.get("ec_mobile", 0.0) if loc_data.get("include_ec_mk_cover", False) else 0.0) +
-            (loc_data.get("mk_fixed", 0.0) if loc_data.get("include_ec_mk_cover", False) else 0.0) +
-            (loc_data.get("mk_mobile", 0.0) if loc_data.get("include_ec_mk_cover", False) else 0.0)
+            loc_data.get("machinery", 0.0) 
+            # (loc_data.get("ec_fixed", 0.0) if loc_data.get("include_ec_mk_cover", False) else 0.0) +
+            # (loc_data.get("ec_mobile", 0.0) if loc_data.get("include_ec_mk_cover", False) else 0.0) +
+            # (loc_data.get("mk_fixed", 0.0) if loc_data.get("include_ec_mk_cover", False) else 0.0) +
+            # (loc_data.get("mk_mobile", 0.0) if loc_data.get("include_ec_mk_cover", False) else 0.0)
         )
         total_bi_sum_for_display += loc_data.get("bi", 0.0)
 
@@ -153,55 +196,78 @@ def display_current_total_sums(locations_data_list, currency_code):
 
 def display_fire_results(
     num_locations_val,
-    groups_determined_data, # dict: group_key -> {sum_insured_data_orig_ccy}
-    premium_results_by_group, # dict: group_key -> {premium_data_try} - Sadece çoklu grup için
-    all_groups_display_data_for_table_val, # Tek grup tablosu için veri listesi
-    total_premium_all_groups_try_val,
-    display_currency_for_output_val,
-    display_fx_rate_for_output_val,
-    applied_rate_val # Tek grubun ayrı "Uygulanan Oran" gösterimi için
+    groups_determined_data, 
+    premium_results_by_group, 
+    all_groups_display_data_for_table_val, 
+    total_premium_all_groups_try_val, 
+    display_currency_for_output_val, 
+    display_fx_rate_for_output_val, 
+    applied_rate_val 
     ):
-    """Yangın modülü hesaplama sonuçlarını gösterir."""
-
-    coverage_config = [
-        {"key": "pd", "name_tr_key": "coverage_pd_combined",
-         "sum_fields": ["building", "fixture", "decoration", "commodity", "safe", "machinery"],
-         "premium_field_in_results": "pd_premium_try"},
-        {"key": "bi", "name_tr_key": "coverage_bi",
-         "sum_fields": ["bi"],
-         "premium_field_in_results": "bi_premium_try"},
-        {"key": "ec", "name_tr_key": "coverage_ec",
-         "sum_fields": ["ec_fixed", "ec_mobile"],
-         "premium_field_in_results": "ec_premium_try"},
-        {"key": "mk", "name_tr_key": "coverage_mk",
-         "sum_fields": ["mk_fixed", "mk_mobile"],
-         "premium_field_in_results": "mk_premium_try"},
-    ]
-
-    if num_locations_val == 1 and groups_determined_data and len(groups_determined_data.keys()) == 1 and all_groups_display_data_for_table_val:
-        # Tek lokasyon ve tek grup varsa mevcut tablo mantığı korunur
-        grand_total_sum_insured_numeric = 0.0
-        grand_total_premium_numeric = 0.0
-        for row in all_groups_display_data_for_table_val:
-            grand_total_sum_insured_numeric += row.get("sum_insured_numeric", 0.0)
-            grand_total_premium_numeric += row.get("premium_numeric", 0.0)
-
-        table_data_with_total = list(all_groups_display_data_for_table_val) 
-        table_data_with_total.append({
-            _tr("table_col_coverage_type"): f"**{_tr('total_overall')}**",
-            _tr("table_col_sum_insured"): f"**{format_number(grand_total_sum_insured_numeric, display_currency_for_output_val)}**",
-            _tr("table_col_premium"): f"**{format_number(grand_total_premium_numeric, display_currency_for_output_val)}**"
-        })
-        
-        df_display_columns = [_tr("table_col_coverage_type"), _tr("table_col_sum_insured"), _tr("table_col_premium")]
-        df_results_table = pd.DataFrame(table_data_with_total)[df_display_columns]
-        
-        st.dataframe(df_results_table.style.set_properties(**{'text-align': 'left'}).set_table_styles([dict(selector='th', props=[('text-align', 'left')])]), use_container_width=True, hide_index=True)
-        # if applied_rate_val is not None: # applied_rate_val sadece tek grup için anlamlı
-        #     st.markdown(f'<div class="info-box">📊 <b>{_tr("applied_rate")}:</b> {applied_rate_val:.2f}‰</div>', unsafe_allow_html=True)
+    lang = st.session_state.lang # Bu satır kalabilir veya _tr zaten session state'i kullandığı için kaldırılabilir.
     
-    elif (num_locations_val > 1 or (groups_determined_data and len(groups_determined_data.keys()) > 1)) and premium_results_by_group:
-        # Birden fazla lokasyon/grup varsa yeni tablo mantığı
+    st.markdown(f"#### {_tr('results_table_header')}")
+
+    if num_locations_val == 1 and all_groups_display_data_for_table_val:
+        # Tek lokasyon, tek grup için tablo
+        df_single = pd.DataFrame(all_groups_display_data_for_table_val)
+
+        # Görüntülenecek sütunlar ve sıraları
+        display_columns_keys = [
+            _tr("table_col_coverage_type"),
+            _tr("table_col_sum_insured"),
+            _tr("table_col_rate_per_mille"), # YENİ SÜTUN
+            _tr("table_col_premium")
+        ]
+        
+        # Sadece görüntüleme için kullanılacak DataFrame
+        df_display_single = df_single[display_columns_keys].copy()
+
+        # Toplamları hesapla (sayısal değerler üzerinden)
+        total_sum_insured_single_numeric = df_single["sum_insured_numeric"].sum()
+        total_premium_single_numeric = df_single["premium_numeric"].sum()
+        
+        total_effective_rate_numeric = 0.0
+        if total_sum_insured_single_numeric > 0:
+            total_effective_rate_numeric = (total_premium_single_numeric / total_sum_insured_single_numeric) * 1000
+
+        # Toplam satırını df_display_single'a ekle
+        total_row_data = {
+            _tr("table_col_coverage_type"): _tr("total_overall"),
+            _tr("table_col_sum_insured"): format_number(total_sum_insured_single_numeric, display_currency_for_output_val),
+            _tr("table_col_rate_per_mille"): format_rate(total_effective_rate_numeric), # YENİ
+            _tr("table_col_premium"): format_number(total_premium_single_numeric, display_currency_for_output_val)
+        }
+        
+        # df_display_single = df_display_single.append(total_row_data, ignore_index=True) # append kaldırıldı
+        df_display_single.loc[len(df_display_single)] = total_row_data
+
+
+        st.dataframe(
+            df_display_single,
+            hide_index=True,
+            use_container_width=True,
+            column_config={
+                _tr("table_col_sum_insured"): st.column_config.TextColumn(
+                    label=_tr("table_col_sum_insured"), 
+                    help=_tr("table_col_sum_insured_help")
+                ),
+                _tr("table_col_rate_per_mille"): st.column_config.TextColumn( # YENİ
+                    label=_tr("table_col_rate_per_mille"), 
+                    help=_tr("table_col_rate_per_mille_help") # Yeni çeviri anahtarı eklenecek
+                ),
+                _tr("table_col_premium"): st.column_config.TextColumn(
+                    label=_tr("table_col_premium"), 
+                    help=_tr("table_col_premium_help")
+                ),
+            }
+        )
+        # ... (kalan tek lokasyon sonuç gösterimi) ...
+        # PD için uygulanan oranı göster (bu değişmedi)
+        # if applied_rate_val is not None:
+        #     st.markdown(f"**{_tr('applied_pd_rate_label')}:** {format_rate(applied_rate_val)} %o")
+
+    elif num_locations_val > 1 and premium_results_by_group:
         group_keys = sorted(list(groups_determined_data.keys()))
         
         table_rows_data = []
@@ -216,33 +282,32 @@ def display_fire_results(
                 sum_insured_orig_ccy = sum(group_sums.get(field, 0.0) for field in config["sum_fields"])
                 premium_try = group_premiums_try.get(config["premium_field_in_results"], 0.0)
 
-                # Bedel, giriş para biriminde (display_currency_for_output_val)
                 sum_insured_display = sum_insured_orig_ccy 
-                # Prim, TRY'den çıkış para birimine çevrilir
                 premium_display = premium_try / display_fx_rate_for_output_val if display_fx_rate_for_output_val != 0 else 0.0
                 
-                sum_insured_try_for_rate_calc = sum_insured_orig_ccy * display_fx_rate_for_output_val # Bedeli TRY'ye çevir (oran için)
+                sum_insured_try_for_rate_calc = sum_insured_orig_ccy * display_fx_rate_for_output_val
                 
                 effective_rate_permille = 0.0
                 if sum_insured_try_for_rate_calc > 0:
                     effective_rate_permille = (premium_try / sum_insured_try_for_rate_calc) * 1000
                 
                 row_data[f"{_tr('table_col_sum_insured')} ({gk})"] = format_number(sum_insured_display, display_currency_for_output_val)
-                row_data[f"{_tr('table_col_rate_permille')} ({gk})"] = f"{effective_rate_permille:.4f}"
+                # format_rate fonksiyonunu burada da kullanalım
+                row_data[f"{_tr('table_col_rate_permille')} ({gk})"] = format_rate(effective_rate_permille) 
                 row_data[f"{_tr('table_col_premium')} ({gk})"] = format_number(premium_display, display_currency_for_output_val)
             table_rows_data.append(row_data)
 
         # Toplam satırı
-        total_row_data = {_tr("table_col_coverage_type"): f"**{_tr('total_overall')}**"}
+        total_row_data = {_tr("table_col_coverage_type"): _tr('total_overall')} # Markdown bold kaldırıldı
         for gk in group_keys:
             group_sums = groups_determined_data.get(gk, {})
             group_premiums_try = premium_results_by_group.get(gk, {})
 
             current_group_total_sum_orig_ccy = 0.0
-            for cfg in coverage_config: # Tüm teminatların bedellerini topla
+            for cfg in coverage_config:
                 current_group_total_sum_orig_ccy += sum(group_sums.get(field, 0.0) for field in cfg["sum_fields"])
             
-            current_group_total_premium_try = group_premiums_try.get("total_premium_try", 0.0) # calculate.py'de bu anahtarın olması lazım
+            current_group_total_premium_try = group_premiums_try.get("total_premium_try", 0.0)
 
             total_sum_insured_display = current_group_total_sum_orig_ccy
             total_premium_display = current_group_total_premium_try / display_fx_rate_for_output_val if display_fx_rate_for_output_val != 0 else 0.0
@@ -253,9 +318,10 @@ def display_fire_results(
             if total_sum_insured_try_for_rate_calc > 0:
                 total_effective_rate_permille = (current_group_total_premium_try / total_sum_insured_try_for_rate_calc) * 1000
             
-            total_row_data[f"{_tr('table_col_sum_insured')} ({gk})"] = f"**{format_number(total_sum_insured_display, display_currency_for_output_val)}**"
-            total_row_data[f"{_tr('table_col_rate_permille')} ({gk})"] = f"**{total_effective_rate_permille:.4f}**"
-            total_row_data[f"{_tr('table_col_premium')} ({gk})"] = f"**{format_number(total_premium_display, display_currency_for_output_val)}**"
+            # Markdown bold kaldırıldı
+            total_row_data[f"{_tr('table_col_sum_insured')} ({gk})"] = format_number(total_sum_insured_display, display_currency_for_output_val)
+            total_row_data[f"{_tr('table_col_rate_permille')} ({gk})"] = format_rate(total_effective_rate_permille)
+            total_row_data[f"{_tr('table_col_premium')} ({gk})"] = format_number(total_premium_display, display_currency_for_output_val)
         table_rows_data.append(total_row_data)
         
         # DataFrame Sütun Başlıkları
@@ -268,9 +334,143 @@ def display_fire_results(
             ])
         
         results_df = pd.DataFrame(table_rows_data, columns=df_columns)
-        st.dataframe(results_df, hide_index=True, use_container_width=True)
 
-        # Genel Toplam Prim (tüm gruplar için)
+        # "Toplam" satırını belirleyen sütun adı ve değeri
+        # Bu değerlerin DataFrame'deki gerçek değerlerle eşleştiğinden emin olun.
+        TARGET_COLUMN_NAME_FOR_TOTAL = _tr("table_col_coverage_type")
+        TARGET_TEXT_FOR_TOTAL_ROW = _tr('total_overall')
+
+        # Debug için değerleri yazdırabilirsiniz:
+        # st.write(f"Debug: TARGET_COLUMN_NAME_FOR_TOTAL = '{TARGET_COLUMN_NAME_FOR_TOTAL}'")
+        # st.write(f"Debug: TARGET_TEXT_FOR_TOTAL_ROW = '{TARGET_TEXT_FOR_TOTAL_ROW}'")
+        # st.write("Debug: DataFrame'in ilk birkaç satırı:")
+        # st.write(results_df.head())
+
+
+        def style_last_row(row):
+            if row.name == results_df.index[-1]:  # Son satırın indeksini kontrol et
+                return ['font-weight: bold'] * len(row)
+            return [''] * len(row)
+        
+        st.dataframe(
+            results_df.style.apply(
+                style_last_row, 
+                axis=1
+            ).set_table_styles([
+                {'selector': 'th', 'props': [('font-weight', 'bold')]}
+            ]),
+            hide_index=True,
+            use_container_width=True
+        )
+
+        # --- YENİ İCMAL TABLOSU BAŞLANGICI ---
+        st.markdown(f"### {_tr('summary_results_table_title')}")
+        
+        summary_table_rows = []
+        grand_total_sum_insured_summary_numeric = 0.0
+        grand_total_premium_summary_numeric = 0.0
+
+        for config in coverage_config: # Daha önce tanımlanmış coverage_config'i kullanıyoruz
+            current_coverage_total_sum_orig_ccy = 0.0
+            current_coverage_total_premium_try = 0.0
+
+            for gk in group_keys:
+                group_data = groups_determined_data.get(gk, {})
+                group_premiums = premium_results_by_group.get(gk, {})
+                
+                # Bu teminat türü için bu gruptaki bedeli topla
+                # sum_fields, data["commodity_raw_for_display"] gibi alanları içerir
+                sum_insured_for_coverage_in_group = sum(group_data.get(field, 0.0) for field in config["sum_fields"])
+                current_coverage_total_sum_orig_ccy += sum_insured_for_coverage_in_group
+                
+                # Bu teminat türü için bu gruptaki primi (TRY) topla
+                premium_for_coverage_in_group_try = group_premiums.get(config["premium_field_in_results"], 0.0)
+                current_coverage_total_premium_try += premium_for_coverage_in_group_try
+
+            # Bedel ve Primi gösterim para birimine çevir
+            # current_coverage_total_sum_orig_ccy zaten orijinal/gösterim para biriminde
+            sum_insured_display_val = current_coverage_total_sum_orig_ccy
+            
+            # display_fx_rate_for_output_val, orijinal para biriminin TRY'ye olan kurudur.
+            # Primi (TRY) orijinal/gösterim para birimine çevirmek için böleriz.
+            premium_display_val = current_coverage_total_premium_try / display_fx_rate_for_output_val if display_fx_rate_for_output_val != 0 else 0.0
+            
+            effective_rate_permille = 0.0
+            if sum_insured_display_val > 0:
+                effective_rate_permille = (premium_display_val / sum_insured_display_val) * 1000
+            
+            summary_table_rows.append({
+                _tr("table_col_coverage_type"): _tr(config["name_tr_key"]),
+                "sum_insured_numeric": sum_insured_display_val,
+                "rate_per_mille_numeric": effective_rate_permille,
+                "premium_numeric": premium_display_val,
+                _tr("table_col_sum_insured"): format_number(sum_insured_display_val, display_currency_for_output_val),
+                _tr("table_col_rate_per_mille"): format_rate(effective_rate_permille),
+                _tr("table_col_premium"): format_number(premium_display_val, display_currency_for_output_val)
+            })
+            
+            grand_total_sum_insured_summary_numeric += sum_insured_display_val
+            grand_total_premium_summary_numeric += premium_display_val
+
+        # İcmal tablosu için DataFrame oluştur
+        summary_df = pd.DataFrame(summary_table_rows)
+
+        if not summary_df.empty:
+            # İcmal tablosu için genel toplam satırı
+            overall_summary_effective_rate = 0.0
+            if grand_total_sum_insured_summary_numeric > 0:
+                overall_summary_effective_rate = (grand_total_premium_summary_numeric / grand_total_sum_insured_summary_numeric) * 1000
+            
+            summary_total_row = pd.DataFrame([{
+                _tr("table_col_coverage_type"): _tr("total_overall"), # Tek lokasyon tablosundaki gibi "Toplam"
+                "sum_insured_numeric": grand_total_sum_insured_summary_numeric,
+                "rate_per_mille_numeric": overall_summary_effective_rate,
+                "premium_numeric": grand_total_premium_summary_numeric,
+                _tr("table_col_sum_insured"): format_number(grand_total_sum_insured_summary_numeric, display_currency_for_output_val),
+                _tr("table_col_rate_per_mille"): format_rate(overall_summary_effective_rate),
+                _tr("table_col_premium"): format_number(grand_total_premium_summary_numeric, display_currency_for_output_val)
+            }])
+            summary_df_display = pd.concat([summary_df, summary_total_row], ignore_index=True)
+
+            # İcmal tablosunu göster (tek lokasyon tablosuyla aynı stil fonksiyonunu kullanabiliriz)
+            # Sütun isimleri tek lokasyon tablosuyla aynı olmalı
+            display_columns_summary_keys = [
+                _tr("table_col_coverage_type"),
+                _tr("table_col_sum_insured"),
+                _tr("table_col_rate_per_mille"),
+                _tr("table_col_premium")
+            ]
+            
+            # Sadece gösterilecek sütunları ve doğru sırayı al
+            summary_df_for_styling = summary_df_display[display_columns_summary_keys]
+
+            st.dataframe(
+                summary_df_for_styling.style.apply(
+                    style_last_row, # Bu fonksiyon 'total_row_label' ile eşleşen satırı bold yapar
+                    axis=1
+                ).set_table_styles([
+                    {'selector': 'th', 'props': [('font-weight', 'bold')]}
+                ]).format(precision=4, thousands=".", decimal=","), # Sayı formatlaması
+                hide_index=True,
+                use_container_width=True,
+                column_config={ # Tek lokasyon tablosundaki gibi column_config
+                    _tr("table_col_sum_insured"): st.column_config.TextColumn(
+                        label=_tr("table_col_sum_insured"), 
+                        help=_tr("table_col_sum_insured_help")
+                    ),
+                    _tr("table_col_rate_per_mille"): st.column_config.TextColumn(
+                        label=_tr("table_col_rate_per_mille"), 
+                        help=_tr("table_col_rate_per_mille_help")
+                    ),
+                    _tr("table_col_premium"): st.column_config.TextColumn(
+                        label=_tr("table_col_premium"), 
+                        help=_tr("table_col_premium_help")
+                    ),
+                }
+            )
+        # --- YENİ İCMAL TABLOSU SONU ---
+
+        # Genel Toplam Prim (tüm gruplar için) - Bu zaten vardı, yerinde kalıyor
         if total_premium_all_groups_try_val > 0:
             total_premium_all_groups_display = total_premium_all_groups_try_val / display_fx_rate_for_output_val if display_fx_rate_for_output_val != 0 else 0.0
             st.markdown(f'<div class="info-box">💰 <b>{_tr("total_premium")}:</b> {format_number(total_premium_all_groups_display, display_currency_for_output_val)}</div>', unsafe_allow_html=True)

@@ -73,8 +73,8 @@ T = {
     "ec_mobile_help": {"TR": "Taşınabilir elektronik cihazlar için sigorta bedeli.", "EN": "Sum insured for mobile electronic devices."},
     "mk_fixed": {"TR": "Makine Kırılması Bedeli (Sabit)", "EN": "Machinery Breakdown Sum Insured (Fixed)"},
     "mk_fixed_help": {"TR": "Sabit makineler için sigorta bedeli.", "EN": "Sum insured for fixed machinery."},
-    "mk_mobile": {"TR": "Makine Kırılması Bedeli (Seyyar)", "EN": "Machinery Breakdown Sum Insured (Portable)"},
-    "mk_mobile_help": {"TR": "Seyyar makineler için sigorta bedeli.", "EN": "Sum insured for portable machinery."},
+    "mk_mobile": {"TR": "Makine Kırılması Bedeli (Hareketli)", "EN": "Machinery Breakdown Sum Insured (Mobile)"},
+    "mk_mobile_help": {"TR": "Hareketli makineler için sigorta bedeli.", "EN": "Sum insured for portable machinery."},
     "koas": {"TR": "Koasürans Oranı", "EN": "Coinsurance Share"},
     "koas_help": {"TR": "Örnek: (80/20) -  %80 Sigortacı , %20 Sigortalı Üzerinde Kalan Kısımdır.", "EN": "Example: (80/20) – 80% is carried by the Insurer, and the remaining 20% is retained by the Insured"},
     "deduct": {"TR": "Muafiyet Oranı (%)", "EN": "Deductible (%)"},
@@ -586,11 +586,10 @@ T = {
         "EN": "Sum Insured"
     },
     "table_col_rate_permille": {"TR": "Fiyat (%o)", "EN": "Rate (%o)"},
-    "coverage_pd_combined": {"TR": "Yangın Mali", "EN": "Property Damage"}, # Zaten olabilir, kontrol edin
+    "coverage_pd_combined": {"TR": "Yangın ", "EN": "Fire"}, # Zaten olabilir, kontrol edin
     "coverage_bi": {"TR": "Kar Kaybı", "EN": "Business Interruption"}, # Zaten olabilir
     "coverage_ec": {"TR": "Elektronik Cihaz", "EN": "Electronic Equipment"}, # Zaten olabilir
     "coverage_mk": {"TR": "Makine Kırılması", "EN": "Machinery Breakdown"}, # Zaten olabilir
-    "total_overall": {"TR": "Toplam", "EN": "Total"}, # Zaten olabilir
     "current_entered_sums_header": {
         "TR": "Anlık Girilen Toplam Bedeller",
         "EN": "Currently Entered Total Sums"
@@ -649,4 +648,38 @@ T = {
         "TR": "Deprem Bölgeleri Sonucu",
         "EN": "Earthquake Zones Result"
     },
+    "earthquake_zone_explanation_header": {
+    "TR": "Deprem Bölgesi Açıklaması:",
+    "EN": "Earthquake Zone Explanation:"
+    },
+    "earthquake_zone_explanation_text": {
+        "TR": """ 
+    Türkiye'de yer bilimleri ve afet yönetimi standartlarına göre belirlenen Deprem Bölgeleri, 1’den 7’ye kadar numaralandırılmıştır. Bu numaralandırma, bölgenin sismik risk derecesini ifade eder:
+
+    - **1. Bölge:** En yüksek deprem riski taşıyan alanlardır.
+    - **7. Bölge:** En düşük deprem riski taşıyan alanlardır.
+
+    Prim hesaplamalarında, bölgenin risk seviyesi sigorta primi üzerinde doğrudan etkili olup, daha yüksek riskli bölgelerde prim tutarı artış gösterecektir.
+    """,
+        "EN": """
+    Earthquake Zones in Turkey, determined according to earth sciences and disaster management standards, are numbered from 1 to 7. This numbering indicates the seismic risk level of the region:
+
+    - **Zone 1:** Areas with the highest earthquake risk.
+    - **Zone 7:** Areas with the lowest earthquake risk.
+
+    In premium calculations, the risk level of the zone directly affects the insurance premium, with higher-risk zones resulting in increased premium amounts.
+    """
+    },
+    "no_data_found": { # Bu anahtar zaten eklenmiş olabilir, kontrol edin.
+        "TR": "Seçilen kriterlere uygun veri bulunamadı.",
+        "EN": "No data found for the selected criteria."
+    },
+    "start_selection": { # Bu anahtar zaten eklenmiş olabilir, kontrol edin.
+        "TR": "Lütfen yukarıdan seçim yapmaya başlayınız.",
+        "EN": "Please start by making selections above."
+    },
+    "table_col_rate_per_mille": {"TR": "Fiyat (%o)", "EN": "Rate (%o)"},
+    "table_col_rate_per_mille_help": {"TR": "Prim / Teminat Bedeli * 1000", "EN": "Premium / Sum Insured * 1000"},
+    "applied_pd_rate_label": {"TR": "Uygulanan Oran (PD Bazında)", "EN": "Applied Rate (PD Basis)"}, # Bu zaten olabilir, kontrol edin
+    "summary_results_table_title": {"TR": "📊 İcmal Sonuç Tablosu", "EN": "📊 Summary Results Table"},
 }

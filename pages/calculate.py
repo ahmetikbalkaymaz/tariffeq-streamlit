@@ -104,13 +104,35 @@ st.markdown("""
     .stButton>button {
         background-color: #2E86C1;
         color: white;
-        border-radius: 10px;
+        border-radius: 10px; /* Streamlit butonlarının varsayılan border-radius'u daha az olabilir, 10px sizin tercihiniz */
         padding: 0.5em 1em;
+        border: none; /* Streamlit butonlarında genellikle border olmaz */
+        cursor: pointer;
     }
     .stButton>button:hover {
         background-color: #1A5276;
         color: white;
     }
+
+    /* Linki butona benzetmek için yeni sınıf */
+    a.styled-link-button {
+        display: inline-block; /* veya block, eğer tam genişlik isteniyorsa */
+        padding: 0.5em 1em;
+        background-color: #2E86C1; /* Ana buton renginiz */
+        color: white !important; /* !important, <a> etiketinin varsayılan rengini geçersiz kılmak için */
+        text-decoration: none;
+        border-radius: 10px; /* .stButton>button ile aynı */
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        width: 100%; /* use_container_width=True etkisi */
+        box-sizing: border-box;
+    }
+    a.styled-link-button:hover {
+        background-color: #1A5276; /* Hover rengi */
+        color: white !important;
+    }
+
     .info-box {
         background-color: #F0F8FF;
         padding: 1em;
@@ -281,24 +303,8 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 earthquake_zone_page_url = "earthquake_zones" # Streamlit sayfa adını / olmadan kullanır
                 button_label = tr("learn_earthquake_zone_button")
                 
-                # Streamlit'in kendi buton stilini taklit etmeye çalışalım
-                # Not: Bu, tam olarak st.button gibi görünmeyebilir ve CSS ile daha fazla özelleştirme gerektirebilir.
-                # Basit bir link olarak da bırakabilirsiniz:
-                # st.markdown(f'<a href="{earthquake_zone_page_url}" target="_blank">{button_label}</a>', unsafe_allow_html=True)
-
-                # Daha çok butona benzemesi için bir deneme (CSS ile desteklenmeli)
                 st.markdown(f"""
-                <a href="{earthquake_zone_page_url}" target="_blank" style="
-                    display: inline-block;
-                    padding: 0.5em 1em;
-                    background-color: #2E86C1; /* Ana buton renginiz */
-                    color: white;
-                    text-decoration: none;
-                    border-radius: 50px; /* Ana buton border-radius'unuz */
-                    text-align: center;
-                    width: 100%; /* use_container_width=True etkisi */
-                    box-sizing: border-box; /* padding ve border'ın genişliği etkilememesi için */
-                ">
+                <a href="{earthquake_zone_page_url}" target="_blank" class="styled-link-button">
                     {button_label}
                 </a>
                 """, unsafe_allow_html=True)
@@ -393,150 +399,157 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
     with col7:
         inflation_rate = st.number_input(tr("inflation_rate"), min_value=0.0, value=0.0, step=5.0, help=tr("inflation_rate_help"), format="%.2f")
 
-if st.button(tr("btn_calc"), key="fire_calc"):
-    total_entered_pd_orig_ccy = 0.0
-    total_entered_bi_orig_ccy = 0.0
-    for loc_data_item in locations_data: 
-        # Toplam girilen PD bedeli gösterimi için emteanın %100'ünü al
-        commodity_value_for_total_display = loc_data_item["commodity"]
-        
-        total_entered_pd_orig_ccy += (
-            loc_data_item["building"] + loc_data_item["fixture"] +
-            loc_data_item["decoration"] + commodity_value_for_total_display + # %100 emtea
-            loc_data_item["safe"] + loc_data_item["machinery"] +
-            loc_data_item["ec_fixed"] + loc_data_item["ec_mobile"] + 
-            loc_data_item["mk_fixed"] + loc_data_item["mk_mobile"] 
-        )
-        total_entered_bi_orig_ccy += loc_data_item["bi"]
-
-    proceed_with_calculation = True
-    if total_entered_pd_orig_ccy * fx_rate_fire < 3500000000: # 3.5 Milyar TL
-        if koas in ["90/10", "100/0"]:
-            proceed_with_calculation = False
-            st.warning(tr("warning_koas_below_3_5B").format(koas_value=koas))
-        if deduct in [0.1, 0.5, 1.0, 1.5]: # %0.1, %0.5, %1, %1.5
-            proceed_with_calculation = False
-            st.warning(tr("warning_deduct_below_3_5B").format(deduct_value=str(deduct)))
-
-    st.markdown(f"---")
-    st.markdown(f"<h5>{tr('entered_sums_summary_header')}</h5>", unsafe_allow_html=True)
-    st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_pd_sum")}:</b> {ui.format_number(total_entered_pd_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True) # ui.format_number
-    if total_entered_bi_orig_ccy > 0:
-        st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_bi_sum")}:</b> {ui.format_number(total_entered_bi_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True) # ui.format_number
-    st.markdown(f"---")
-
-    if proceed_with_calculation:
-        groups_determined = pc.determine_group_params(locations_data) # pc.determine_group_params
-        total_premium_all_groups_try = 0.0
-        
-        # display_fire_results için hazırlanacak veriler
-        # Tek grup/lokasyon durumu için
-        single_group_display_data_for_table = [] 
-        last_applied_rate_for_single_group = None # Başlangıçta None
-
-        # Çoklu grup/lokasyon durumu için
-        premium_results_by_group_for_multi = {}
-
-        display_currency_for_output = currency_fire
-        display_fx_rate_for_output = fx_rate_fire if currency_fire != "TRY" else 1.0
-
-        for group_key, data in groups_determined.items(): 
-            # pc.determine_group_params fonksiyonunun, 'data["commodity"]' içinde
-            # prim hesaplaması için doğru (gerekirse %40 uygulanmış) emtea bedelini
-            # zaten sağladığından emin olun. Eğer sağlamıyorsa, burada bir ayarlama yapmanız gerekir.
-            # Örnek:
-            # commodity_for_premium = data["commodity"]
-            # if data.get("commodity_is_subscription_in_group", False): # Bu flag'in groups_determined içinde olması lazım
-            #     commodity_for_premium *= 0.40
-            # Sonra commodity_for_premium'u pc.calculate_fire_premium'a geçin.
-            # Şimdilik, data["commodity"]'nin zaten doğru olduğunu varsayıyorum.
-
-            pd_premium_try, bi_premium_try, ec_premium_try, mk_premium_try, group_total_premium_try, applied_rate = pc.calculate_fire_premium(
-                data["building_type"], data["risk_group"], currency_fire, 
-                data["building"], data["fixture"], data["decoration"], data["commodity"], data["safe"], # data["commodity"] prim için ayarlanmış olmalı
-                data["machinery"], data["bi"], data["ec_fixed"], data["ec_mobile"], 
-                data["mk_fixed"], data["mk_mobile"],
-                koas, deduct, fx_rate_fire, inflation_rate 
+# Bu "Hesapla" butonu sadece Yangın modülü aktifken görünmeli ve çalışmalı
+if st.session_state.active_calc_module == CALC_MODULE_FIRE:
+    if st.button(tr("btn_calc"), key="fire_calc"): # Bu butonun key'i "fire_calc"
+        total_entered_pd_orig_ccy = 0.0
+        total_entered_bi_orig_ccy = 0.0
+        for loc_data_item in locations_data: 
+            # Toplam girilen PD bedeli gösterimi için emteanın %100'ünü al
+            commodity_value_for_total_display = loc_data_item["commodity"]
+            
+            total_entered_pd_orig_ccy += (
+                loc_data_item["building"] + loc_data_item["fixture"] +
+                loc_data_item["decoration"] + commodity_value_for_total_display + 
+                loc_data_item["safe"] + loc_data_item["machinery"] +
+                (loc_data_item.get("ec_fixed", 0.0) if loc_data_item.get("include_ec_mk_cover", False) else 0.0) +
+                (loc_data_item.get("ec_mobile", 0.0) if loc_data_item.get("include_ec_mk_cover", False) else 0.0) +
+                (loc_data_item.get("mk_fixed", 0.0) if loc_data_item.get("include_ec_mk_cover", False) else 0.0) +
+                (loc_data_item.get("mk_mobile", 0.0) if loc_data_item.get("include_ec_mk_cover", False) else 0.0)
             )
-            total_premium_all_groups_try += group_total_premium_try
+            total_entered_bi_orig_ccy += loc_data_item["bi"]
+
+        proceed_with_calculation = True
+        if total_entered_pd_orig_ccy * fx_rate_fire < 3500000000: # 3.5 Milyar TL
+            if koas in ["90/10", "100/0"]:
+                proceed_with_calculation = False
+                st.warning(tr("warning_koas_below_3_5B").format(koas_value=koas))
+            if deduct in [0.1, 0.5, 1.0, 1.5]: # %0.1, %0.5, %1, %1.5
+                proceed_with_calculation = False
+                st.warning(tr("warning_deduct_below_3_5B").format(deduct_value=str(deduct)))
+
+        st.markdown(f"---")
+        st.markdown(f"<h5>{tr('entered_sums_summary_header')}</h5>", unsafe_allow_html=True)
+        st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_pd_sum")}:</b> {ui.format_number(total_entered_pd_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True) 
+        if total_entered_bi_orig_ccy > 0:
+            st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_bi_sum")}:</b> {ui.format_number(total_entered_bi_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True) 
+        st.markdown(f"---")
+
+
+        if proceed_with_calculation:
+            groups_determined = pc.determine_group_params(locations_data) 
+            total_premium_all_groups_try = 0.0
             
-            # Çoklu grup/lokasyon için veri toplama
-            premium_results_by_group_for_multi[group_key] = {
-                "pd_premium_try": pd_premium_try,
-                "bi_premium_try": bi_premium_try,
-                "ec_premium_try": ec_premium_try,
-                "mk_premium_try": mk_premium_try,
-                "total_premium_try": group_total_premium_try, # Bu anahtar ui_helpers'da bekleniyor
-                "applied_rate": applied_rate # İsteğe bağlı, belki ileride kullanılır
-            }
+            single_group_display_data_for_table = [] 
+            last_applied_rate_for_single_group = None 
 
-            # Tek grup/lokasyon durumu için veri hazırlığı (sadece bir grup varsa bu veriler kullanılacak)
-            if len(groups_determined) == 1:
-                last_applied_rate_for_single_group = applied_rate # Tek grup varsa bu atanır
+            premium_results_by_group_for_multi = {}
 
-                pd_premium_display_val = pd_premium_try / display_fx_rate_for_output
-                bi_premium_display_val = bi_premium_try / display_fx_rate_for_output
-                ec_premium_display_val = ec_premium_try / display_fx_rate_for_output
-                mk_premium_display_val = mk_premium_try / display_fx_rate_for_output
+            display_currency_for_output = currency_fire
+            display_fx_rate_for_output = fx_rate_fire if currency_fire != "TRY" else 1.0
 
-                pd_sum_orig_ccy = (data["building"] + data["fixture"] + data["decoration"] + data["commodity"] + data["safe"] + data["machinery"])
-                bi_sum_orig_ccy = data["bi"]
-                ec_sum_orig_ccy = data["ec_fixed"] + data["ec_mobile"]
-                mk_sum_orig_ccy = data["mk_fixed"] + data["mk_mobile"]
-                
-                if pd_sum_orig_ccy > 0 or pd_premium_display_val > 0 :
-                    single_group_display_data_for_table.append({
-                        tr("table_col_coverage_type"): tr("coverage_pd_combined"),
-                        "sum_insured_numeric": pd_sum_orig_ccy, "premium_numeric": pd_premium_display_val, 
-                        tr("table_col_sum_insured"): ui.format_number(pd_sum_orig_ccy, display_currency_for_output),
-                        tr("table_col_premium"): ui.format_number(pd_premium_display_val, display_currency_for_output)
-                    })
-                if data["bi"] > 0:
-                    single_group_display_data_for_table.append({
-                        tr("table_col_coverage_type"): tr("coverage_bi"),
-                        "sum_insured_numeric": bi_sum_orig_ccy, "premium_numeric": bi_premium_display_val,
-                        tr("table_col_sum_insured"): ui.format_number(bi_sum_orig_ccy, display_currency_for_output),
-                        tr("table_col_premium"): ui.format_number(bi_premium_display_val, display_currency_for_output)
-                    })
-                if data["ec_fixed"] > 0 or data["ec_mobile"] > 0:
-                    single_group_display_data_for_table.append({
-                        tr("table_col_coverage_type"): tr("coverage_ec"),
-                        "sum_insured_numeric": ec_sum_orig_ccy, "premium_numeric": ec_premium_display_val,
-                        tr("table_col_sum_insured"): ui.format_number(ec_sum_orig_ccy, display_currency_for_output),
-                        tr("table_col_premium"): ui.format_number(ec_premium_display_val, display_currency_for_output)
-                    })
-                if data["mk_fixed"] > 0 or data["mk_mobile"] > 0:
-                    single_group_display_data_for_table.append({
-                        tr("table_col_coverage_type"): tr("coverage_mk"),
-                        "sum_insured_numeric": mk_sum_orig_ccy, "premium_numeric": mk_premium_display_val,
-                        tr("table_col_sum_insured"): ui.format_number(mk_sum_orig_ccy, display_currency_for_output),
-                        tr("table_col_premium"): ui.format_number(mk_premium_display_val, display_currency_for_output)
-                    })
+            for group_key, data in groups_determined.items(): 
+                pd_premium_try, bi_premium_try, ec_premium_try, mk_premium_try, group_total_premium_try, applied_rate = pc.calculate_fire_premium(
+                    data["building_type"], data["risk_group"], currency_fire, 
+                    data["building"], data["fixture"], data["decoration"], data["commodity"], data["safe"], 
+                    data["machinery"], data["bi"], data.get("ec_fixed", 0.0), data.get("ec_mobile", 0.0), 
+                    data.get("mk_fixed", 0.0), data.get("mk_mobile", 0.0),
+                    koas, deduct, fx_rate_fire, inflation_rate 
+                )
+                total_premium_all_groups_try += group_total_premium_try
             
-            # ui.display_fire_results çağrısını güncelle
-            # Eğer tek lokasyon ve tek grup varsa, eski tablo verilerini ve uygulanan oranı gönder
-            # Aksi halde, çoklu grup için hazırlanan premium_results_by_group_for_multi'yi gönder
+                premium_results_by_group_for_multi[group_key] = {
+                    "pd_premium_try": pd_premium_try,
+                    "bi_premium_try": bi_premium_try,
+                    "ec_premium_try": ec_premium_try,
+                    "mk_premium_try": mk_premium_try,
+                    "total_premium_try": group_total_premium_try, 
+                    "applied_rate": applied_rate 
+                }
+
+                if len(groups_determined) == 1:
+                    last_applied_rate_for_single_group = applied_rate 
+
+                    pd_premium_display_val = pd_premium_try / display_fx_rate_for_output
+                    bi_premium_display_val = bi_premium_try / display_fx_rate_for_output
+                    ec_premium_display_val = ec_premium_try / display_fx_rate_for_output
+                    mk_premium_display_val = mk_premium_try / display_fx_rate_for_output
+
+                    pd_sum_orig_ccy = (
+                        data["building"] + data["fixture"] + data["decoration"] + 
+                        data.get("commodity_raw_for_display", data["commodity"]) + # %100 emtea (önceki adıma göre)
+                        data["safe"] + data["machinery"]
+                    )
+                    bi_sum_orig_ccy = data["bi"]
+                    ec_sum_orig_ccy = data.get("ec_fixed", 0.0) + data.get("ec_mobile", 0.0)
+                    mk_sum_orig_ccy = data.get("mk_fixed", 0.0) + data.get("mk_mobile", 0.0)
+                    
+                    if pd_sum_orig_ccy > 0 or pd_premium_display_val > 0 :
+                        pd_effective_rate = (pd_premium_display_val / pd_sum_orig_ccy) * 1000 if pd_sum_orig_ccy > 0 else 0.0
+                        single_group_display_data_for_table.append({
+                            tr("table_col_coverage_type"): tr("coverage_pd_combined"),
+                            "sum_insured_numeric": pd_sum_orig_ccy,
+                            "rate_per_mille_numeric": pd_effective_rate,
+                            "premium_numeric": pd_premium_display_val, 
+                            tr("table_col_sum_insured"): ui.format_number(pd_sum_orig_ccy, display_currency_for_output),
+                            tr("table_col_rate_per_mille"): ui.format_rate(pd_effective_rate), # YENİ
+                            tr("table_col_premium"): ui.format_number(pd_premium_display_val, display_currency_for_output)
+                        })
+                    if data["bi"] > 0:
+                        bi_effective_rate = (bi_premium_display_val / bi_sum_orig_ccy) * 1000 if bi_sum_orig_ccy > 0 else 0.0
+                        single_group_display_data_for_table.append({
+                            tr("table_col_coverage_type"): tr("coverage_bi"),
+                            "sum_insured_numeric": bi_sum_orig_ccy,
+                            "rate_per_mille_numeric": bi_effective_rate,
+                            "premium_numeric": bi_premium_display_val,
+                            tr("table_col_sum_insured"): ui.format_number(bi_sum_orig_ccy, display_currency_for_output),
+                            tr("table_col_rate_per_mille"): ui.format_rate(bi_effective_rate), # YENİ
+                            tr("table_col_premium"): ui.format_number(bi_premium_display_val, display_currency_for_output)
+                        })
+                    if data.get("ec_fixed", 0.0) > 0 or data.get("ec_mobile", 0.0) > 0:
+                        ec_effective_rate = (ec_premium_display_val / ec_sum_orig_ccy) * 1000 if ec_sum_orig_ccy > 0 else 0.0
+                        single_group_display_data_for_table.append({
+                            tr("table_col_coverage_type"): tr("coverage_ec"),
+                            "sum_insured_numeric": ec_sum_orig_ccy,
+                            "rate_per_mille_numeric": ec_effective_rate,
+                            "premium_numeric": ec_premium_display_val,
+                            tr("table_col_sum_insured"): ui.format_number(ec_sum_orig_ccy, display_currency_for_output),
+                            tr("table_col_rate_per_mille"): ui.format_rate(ec_effective_rate), # YENİ
+                            tr("table_col_premium"): ui.format_number(ec_premium_display_val, display_currency_for_output)
+                        })
+                    if data.get("mk_fixed", 0.0) > 0 or data.get("mk_mobile", 0.0) > 0:
+                        mk_effective_rate = (mk_premium_display_val / mk_sum_orig_ccy) * 1000 if mk_sum_orig_ccy > 0 else 0.0
+                        single_group_display_data_for_table.append({
+                            tr("table_col_coverage_type"): tr("coverage_mk"),
+                            "sum_insured_numeric": mk_sum_orig_ccy,
+                            "rate_per_mille_numeric": mk_effective_rate,
+                            "premium_numeric": mk_premium_display_val,
+                            tr("table_col_sum_insured"): ui.format_number(mk_sum_orig_ccy, display_currency_for_output),
+                            tr("table_col_rate_per_mille"): ui.format_rate(mk_effective_rate), # YENİ
+                            tr("table_col_premium"): ui.format_number(mk_premium_display_val, display_currency_for_output)
+                        })
+            
             if num_locations == 1 and len(groups_determined) == 1:
                 ui.display_fire_results(
                     num_locations_val=num_locations,
                     groups_determined_data=groups_determined, 
-                    premium_results_by_group=None, # Tek grup için bu None olacak
+                    premium_results_by_group=None, 
                     all_groups_display_data_for_table_val=single_group_display_data_for_table, 
                     total_premium_all_groups_try_val=total_premium_all_groups_try, 
                     display_currency_for_output_val=display_currency_for_output, 
                     display_fx_rate_for_output_val=display_fx_rate_for_output, 
                     applied_rate_val=last_applied_rate_for_single_group
                 )
-            else: # Birden fazla lokasyon veya grup varsa
+            else: 
                 ui.display_fire_results(
                     num_locations_val=num_locations,
                     groups_determined_data=groups_determined, 
                     premium_results_by_group=premium_results_by_group_for_multi, 
-                    all_groups_display_data_for_table_val=None, # Çoklu grup için bu None olacak
+                    all_groups_display_data_for_table_val=None, 
                     total_premium_all_groups_try_val=total_premium_all_groups_try, 
                     display_currency_for_output_val=display_currency_for_output, 
                     display_fx_rate_for_output_val=display_fx_rate_for_output, 
-                    applied_rate_val=None # Çoklu grup için genel bir "uygulanan oran" yok
+                    applied_rate_val=None 
                 )
 
             st.markdown("---") 
@@ -547,13 +560,14 @@ if st.button(tr("btn_calc"), key="fire_calc"):
                 {"name_key": "scenario_9010_5_name", "koas_key": "90/10", "deduct_key": 5},
                 {"name_key": "scenario_7030_5_name", "koas_key": "70/30", "deduct_key": 5},
             ]
-            # prepare_scenario_data_for_session çağrısı burada kalıyor, içindeki pc.calculate_fire_premium güncellendi
             prepare_scenario_data_for_session(
                 scenario_definitions, groups_determined, currency_fire, fx_rate_fire, 
                 inflation_rate, total_entered_pd_orig_ccy, total_entered_bi_orig_ccy,
                 num_locations, koas, deduct
             )
-            st.page_link("pages/scenario_calculator_page.py", label=tr("goto_scenario_page_button"), icon="💡", use_container_width=True)
+
+            if st.button(label=tr("goto_scenario_page_button") + " 💡", use_container_width=True, key="goto_scenario_btn"):
+                st.switch_page("pages/scenario_calculator_page.py") 
 
 elif st.session_state.active_calc_module == CALC_MODULE_CAR:
     st.markdown(f'<h3 class="section-header">{tr("car_header")}</h3>', unsafe_allow_html=True)
@@ -589,11 +603,12 @@ elif st.session_state.active_calc_module == CALC_MODULE_CAR:
     with col6:
         koas_car = st.selectbox(tr("coins"), list(pc.koasurans_indirimi_car.keys()), help=tr("coins_help"), key="car_koas") # pc.koasurans_indirimi_car
     with col7:
-        deduct_car = st.selectbox(tr("ded"), sorted(list(pc.muafiyet_indirimi_car.keys()), reverse=True), help=tr("ded_help"), key="car_deduct") # pc.muafiyet_indirimi_car
+        deduct_car = st.selectbox(tr("ded"), sorted(list(pc.muafiyet_indirimi_car.keys()), reverse=True),index=4, help=tr("ded_help"), key="car_deduct") # pc.muafiyet_indirimi_car
     with col8:
         inflation_rate_car = st.number_input(tr("inflation_rate"), min_value=0.0, value=0.0, step=0.1, help=tr("inflation_rate_help"), format="%.2f", key="car_inflation")
     
-    if st.button(tr("btn_calc"), key="car_calc"):
+    # CAR modülü için ayrı bir "Hesapla" butonu
+    if st.button(tr("btn_calc"), key="car_calc"): # Bu butonun key'i "car_calc"
         car_premium_try, cpm_premium_try, cpe_premium_try, total_premium_try, applied_car_rate = pc.calculate_car_ear_premium( # pc.calculate_car_ear_premium
             risk_group_type, risk_class, start_date, end_date, project, cpm, cpe, currency, 
             koas_car, deduct_car, fx_rate, inflation_rate_car

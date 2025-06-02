@@ -204,6 +204,11 @@ if selected_il and selected_ilce and selected_koy and selected_mah:
         # f-string kullanarak düzeltme
         deprem_sinifi = result_df['Yeni Sınıf'].values[0]
         st.success(f"{T['earthquake_zones_result'][st.session_state.lang]} {deprem_sinifi}")
+        
+        # Deprem bölgesi açıklaması
+        st.markdown("---") # Sonuç ile açıklama arasına bir ayırıcı
+        st.markdown(f"#### {T['earthquake_zone_explanation_header'][st.session_state.lang]}")
+        st.markdown(T['earthquake_zone_explanation_text'][st.session_state.lang])
     else:
         st.warning(T["no_data_found"][st.session_state.lang]) # Yeni çeviri anahtarı
 elif selected_il: # Eğer sadece il seçilmişse veya diğer seçimler henüz yapılmamışsa bir mesaj gösterme

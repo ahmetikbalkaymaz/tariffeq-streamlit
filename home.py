@@ -274,13 +274,13 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# Açıklama ve Başlat Butonu
+# Açıklama
 st.markdown(f"""
-<div style="font-weight: bold;">
+<div style="font-style: italic;">
     <strong style="font-weight: 900;">{T['desc_highlight'][lang]}</strong> {T['desc_main'][lang]}
 </div>
 """, unsafe_allow_html=True)
-
+st.markdown("---") # Açıklama ile sonraki bölüm arasına bir ayırıcı
 col1, col2 = st.columns([1, 1]) # İki sütun: sol geniş, sağ dar
 # YENİ: Hemen Hesapla Butonu
 with col1:
