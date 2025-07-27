@@ -605,43 +605,41 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             )
 
             # --- SENARYO HESAPLAMALARI ---
-            # YENİ: Limitli poliçe seçiliyse senaryo analizini atla
-            if not apply_limited_policy:
-                all_koas_keys = list(pc.koasurans_indirimi.keys())
-                all_deduct_keys = sorted(list(pc.muafiyet_indirimi.keys()))
+            all_koas_keys = list(pc.koasurans_indirimi.keys())
+            all_deduct_keys = sorted(list(pc.muafiyet_indirimi.keys()))
 
-                # Kurala göre senaryoları filtrele
-                if total_pd_sum_try < 3_500_000_000:
-                    allowed_koas = [k for k in all_koas_keys if k not in ["90/10", "100/0"]]
-                    allowed_deduct = [d for d in all_deduct_keys if d >= 2]
-                else:
-                    allowed_koas = all_koas_keys
-                    allowed_deduct = all_deduct_keys
+            # Kurala göre senaryoları filtrele
+            if total_pd_sum_try < 3_500_000_000:
+                allowed_koas = [k for k in all_koas_keys if k not in ["90/10", "100/0"]]
+                allowed_deduct = [d for d in all_deduct_keys if d >= 2]
+            else:
+                allowed_koas = all_koas_keys
+                allowed_deduct = all_deduct_keys
 
-                scenario_definitions = []
-                for k in allowed_koas:
-                    for d in allowed_deduct:
-                        # Ana hesaplama ile aynı olan senaryoyu atla
-                        if k == koas and d == deduct:
-                            continue
-                        scenario_definitions.append({
-                            "name_key": f"Scenario {k} / {d}%", # Dinamik isim
-                            "koas_key": k,
-                            "deduct_key": d
-                        })
+            scenario_definitions = []
+            for k in allowed_koas:
+                for d in allowed_deduct:
+                    # Ana hesaplama ile aynı olan senaryoyu atla
+                    if k == koas and d == deduct:
+                        continue
+                    scenario_definitions.append({
+                        "name_key": f"Scenario {k} / {d}%", # Dinamik isim
+                        "koas_key": k,
+                        "deduct_key": d
+                    })
 
-                prepare_scenario_data_for_session(
-                    scenario_definitions,
-                    groups_determined,
-                    currency_fire,
-                    fx_rate_fire,
-                    inflation_rate,
-                    total_entered_pd_orig_ccy,
-                    total_entered_bi_orig_ccy,
-                    num_locations,
-                    koas,
-                    deduct
-                )
+            prepare_scenario_data_for_session(
+                scenario_definitions,
+                groups_determined,
+                currency_fire,
+                fx_rate_fire,
+                inflation_rate,
+                total_entered_pd_orig_ccy,
+                total_entered_bi_orig_ccy,
+                num_locations,
+                koas,
+                deduct
+            )
 
             st.session_state['export_data'] = {
                 'locations_data': locations_data,
@@ -655,10 +653,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 'total_premium_all_groups_try': total_premium_all_groups_try,
                 'display_currency': currency_fire,
                 'display_fx_rate': fx_rate_fire,
-                'limited_policy_multiplier': limited_policy_multiplier,
-                # YENİ: Limit bilgilerini rapora ekle
-                'apply_limited_policy': apply_limited_policy,
-                'limited_policy_limit': limited_policy_limit
+                'limited_policy_multiplier': limited_policy_multiplier
             }
 
     # --- HESAPLAMA SONRASI GÖSTERİLECEK BUTONLAR ---
@@ -688,10 +683,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                     display_fx_rate=st.session_state.export_data['display_fx_rate'],
                     ui_helpers=ui,
                     language=lang,
-                    scenario_data=st.session_state.get('scenario_data_for_page'), # YENİ
-                    # YENİ: Limit bilgilerini PDF oluşturucuya gönder
-                    apply_limited_policy=st.session_state.export_data['apply_limited_policy'],
-                    limited_policy_limit=st.session_state.export_data['limited_policy_limit']
+                    scenario_data=st.session_state.get('scenario_data_for_page') # YENİ
                 )
                 st.download_button(
                     label="📄 " + tr("download_pdf_button"),

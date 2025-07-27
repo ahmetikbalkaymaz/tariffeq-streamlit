@@ -172,7 +172,6 @@ with st.sidebar:
     st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang]) 
     st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) 
     st.page_link("pages/information.py", label=T["information_page_nav"][st.session_state.lang]) # BİLGİLENDİRME SAYFASI LİNKİ
-    st.page_link("pages/roadmap.py", label=T["roadmap_page_nav"][st.session_state.lang], icon="🚀") # YOL HARİTASI SAYFASI LİNKİ
     # st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") 
     st.markdown("---") 
 
@@ -314,11 +313,6 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
     # Kümül grupları için seçilen deprem bölgelerini saklamak için bir sözlük
     group_risk_mapping = {}
     
-    # YENİ: Limitli poliçe seçiliyse bedel girişlerini kilitle
-    is_locked = st.session_state.get('apply_limited_policy', False)
-    if is_locked:
-        st.info(tr("info_values_locked_for_limit")) # Bu çeviri anahtarını eklemeyi unutmayın
-
     for i in range(num_locations):
         expander_label = f"Lokasyon {i + 1}" if lang == "TR" else f"Location {i + 1}"
         with st.expander(expander_label, expanded=True if i == 0 else False):
@@ -393,38 +387,38 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             st.markdown(f"#### {tr('insurance_sums')}")
             main_col1, main_col2, ec_mk_main_col = st.columns([2, 2, 3]) 
             with main_col1:
-                building = st.number_input(tr("building_sum"), min_value=0, value=0, step=100000,key=f"building_{i}", help=tr("building_sum_help"), format="%d", disabled=is_locked)
+                building = st.number_input(tr("building_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"building_{i}", help=tr("building_sum_help"), format="%.2f")
                 if building > 0: st.write(f"{tr('entered_value')}: {ui.format_number(building, currency_fire)}")
-                fixture = st.number_input(tr("fixture_sum"), min_value=0, value=0, step=100000,key=f"fixture_{i}", help=tr("fixture_sum_help"), format="%d", disabled=is_locked)
+                fixture = st.number_input(tr("fixture_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"fixture_{i}", help=tr("fixture_sum_help"), format="%.2f")
                 if fixture > 0: st.write(f"{tr('entered_value')}: {ui.format_number(fixture, currency_fire)}")
-                decoration = st.number_input(tr("decoration_sum"), min_value=0, value=0, step=100000,key=f"decoration_{i}", help=tr("decoration_sum_help"), format="%d", disabled=is_locked)
+                decoration = st.number_input(tr("decoration_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"decoration_{i}", help=tr("decoration_sum_help"), format="%.2f")
                 if decoration > 0: st.write(f"{tr('entered_value')}: {ui.format_number(decoration, currency_fire)}")
-                bi = st.number_input(tr("bi"), min_value=0, value=0, step=100000,key=f"bi_{i}", help=tr("bi_help"), format="%d", disabled=is_locked)
+                bi = st.number_input(tr("bi"), min_value=0.0, value=0.0, step=100000.0, key=f"bi_{i}", help=tr("bi_help"), format="%.2f")
                 if bi > 0: st.write(f"{tr('entered_value')}: {ui.format_number(bi, currency_fire)}")
             with main_col2:
-                commodity = st.number_input(tr("commodity_sum"), min_value=0, value=0, step=100000,key=f"commodity_{i}", help=tr("commodity_sum_help"), format="%d", disabled=is_locked)
-                commodity_is_subscription = st.checkbox(tr("commodity_is_subscription"), key=f"commodity_is_subscription_{i}", help=tr("commodity_is_subscription_help"), disabled=is_locked)
+                commodity = st.number_input(tr("commodity_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"commodity_{i}", help=tr("commodity_sum_help"), format="%.2f")
+                commodity_is_subscription = st.checkbox(tr("commodity_is_subscription"), key=f"commodity_is_subscription_{i}", help=tr("commodity_is_subscription_help"))
                 if commodity > 0:
                     display_comm_value = commodity * 0.40 if commodity_is_subscription else commodity
                     st.write(f"{tr('entered_value')}: {ui.format_number(commodity, currency_fire)} ({tr('effective_value')}: {ui.format_number(display_comm_value, currency_fire)})" if commodity_is_subscription else f"{tr('entered_value')}: {ui.format_number(commodity, currency_fire)}")
-                safe = st.number_input(tr("safe_sum"), min_value=0, value=0, step=100000,key=f"safe_{i}", help=tr("safe_sum_help"), format="%d", disabled=is_locked)
+                safe = st.number_input(tr("safe_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"safe_{i}", help=tr("safe_sum_help"), format="%.2f")
                 if safe > 0: st.write(f"{tr('entered_value')}: {ui.format_number(safe, currency_fire)}")
-                machinery = st.number_input(tr("mk_sum"), min_value=0, value=0, step=100000,key=f"machinery_{i}", help=tr("mk_sum_help"), format="%d", disabled=is_locked)
+                machinery = st.number_input(tr("mk_sum"), min_value=0.0, value=0.0, step=100000.0, key=f"machinery_{i}", help=tr("mk_sum_help"), format="%.2f")
                 if machinery > 0: st.write(f"{tr('entered_value')}: {ui.format_number(machinery, currency_fire)}")
             
             ec_fixed, ec_mobile, mk_mobile = 0.0, 0.0, 0.0 # mk_fixed kaldırıldı
             with ec_mk_main_col:
                 st.markdown(f"###### {tr('ec_mk_cover_options_header')}")
-                include_ec_mk_cover = st.checkbox(tr("include_ec_mk_cover"), key=f"include_ec_mk_cover_{i}", value=True, disabled=is_locked)
+                include_ec_mk_cover = st.checkbox(tr("include_ec_mk_cover"), key=f"include_ec_mk_cover_{i}", value=True)
                 if include_ec_mk_cover:
-                    ec_fixed = st.number_input(tr("ec_fixed"), min_value=0, value=0, step=100000, key=f"ec_fixed_{i}", help=tr("ec_fixed_help"), format="%d", disabled=is_locked)
+                    ec_fixed = st.number_input(tr("ec_fixed"), min_value=0.0, value=0.0, step=100000.0, key=f"ec_fixed_{i}", help=tr("ec_fixed_help"), format="%.2f")
                     if ec_fixed > 0: st.write(f"{tr('entered_value')}: {ui.format_number(ec_fixed, currency_fire)}")
-                    ec_mobile = st.number_input(tr("ec_mobile"), min_value=0, value=0, step=100000, key=f"ec_mobile_{i}", help=tr("ec_mobile_help"), format="%d", disabled=is_locked)
+                    ec_mobile = st.number_input(tr("ec_mobile"), min_value=0.0, value=0.0, step=100000.0, key=f"ec_mobile_{i}", help=tr("ec_mobile_help"), format="%.2f")
                     if ec_mobile > 0: st.write(f"{tr('entered_value')}: {ui.format_number(ec_mobile, currency_fire)}")
                     # st.markdown(f"**{tr('mk_cover_subheader')}**") 
                     # mk_fixed = st.number_input(tr("mk_fixed"), min_value=0.0, value=0.0, step=100000.0, key=f"mk_fixed_cover_{i}", help=tr("mk_fixed_cover_help"), format="%.2f")
                     # if mk_fixed > 0: st.write(f"{tr('entered_value')}: {ui.format_number(mk_fixed, currency_fire)}")
-                    mk_mobile = st.number_input(tr("mk_mobile"), min_value=0, value=0, step=100000, key=f"mk_mobile_cover_{i}", help=tr("mk_mobile_cover_help"), format="%d", disabled=is_locked)
+                    mk_mobile = st.number_input(tr("mk_mobile"), min_value=0.0, value=0.0, step=100000.0, key=f"mk_mobile_cover_{i}", help=tr("mk_mobile_cover_help"), format="%.2f")
                     if mk_mobile > 0: st.write(f"{tr('entered_value')}: {ui.format_number(mk_mobile, currency_fire)}")
             
             locations_data.append({
@@ -453,277 +447,266 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
     with col7:
         inflation_rate = st.number_input(tr("inflation_rate"), min_value=0.0, value=0.0, step=5.0, help=tr("inflation_rate_help"), format="%.2f")
 
-    st.markdown("---")
-    # --- LİMİTLİ POLİÇE BÖLÜMÜ ---
-    st.markdown(f"#### {tr('limited_policy_info_header')}")
-    
-    # Toplam PD bedelini hesapla (sadece bu bölüm için geçici olarak)
-    total_pd_for_limit_check = 0
-    for loc_data in locations_data:
-        commodity_value = loc_data["commodity"] * 0.40 if loc_data["commodity_is_subscription"] else loc_data["commodity"]
-        total_pd_for_limit_check += (
-            loc_data["building"] + loc_data["fixture"] + loc_data["decoration"] + 
-            commodity_value + loc_data["safe"] + loc_data["machinery"]
-        )
-    
-    total_pd_try = total_pd_for_limit_check * fx_rate_fire
-    MIN_LIMIT_TRY = 420_000_000
-    
-    limit_col1, limit_col2 = st.columns(2)
-    with limit_col1:
-        apply_limited_policy = st.checkbox(
-            tr("apply_limited_policy"), 
-            key="apply_limited_policy",
-            help=tr("apply_limited_policy_help"),
-            disabled=total_pd_try < MIN_LIMIT_TRY
-        )
-    
-    limited_policy_limit = 0
-    if apply_limited_policy:
-        with limit_col2:
-            limited_policy_limit = st.number_input(
-                tr("limited_policy_limit"),
-                min_value=0,
-                value=0,
-                max_value=total_pd_for_limit_check, # YENİ: Maksimum değer olarak toplam bedel ayarlandı
-                step=1_000_000,
-                key="limited_policy_limit",
-                help=tr("limited_policy_limit_help"),
-                format="%d"
-            )
-            if limited_policy_limit > 0:
-                st.write(f"{tr('entered_value')}: {ui.format_number(limited_policy_limit, currency_fire)}")
-
-    if total_pd_try < MIN_LIMIT_TRY and apply_limited_policy:
-         st.warning(tr("warning_limit_too_low").format(min_limit_try=f"{MIN_LIMIT_TRY:,.0f}"))
-         st.session_state.apply_limited_policy = False # Checkbox'ı geri al
-         apply_limited_policy = False
-
-
     if st.button(tr("btn_calc"), key="fire_calc"):
         if 'export_data' in st.session_state:
-            del st.session_state['export_data'] # Önceki hesaplama verilerini temizle
-        if 'scenario_data_for_page' in st.session_state:
-            del st.session_state['scenario_data_for_page'] # Önceki senaryo verilerini temizle
-
-        # --- YENİ: Değer Girişi Kontrolü ---
-        total_sum_insured = sum(
-            loc.get('building', 0) + loc.get('fixture', 0) + loc.get('decoration', 0) +
-            loc.get('commodity', 0) + loc.get('safe', 0) + loc.get('machinery', 0) +
-            loc.get('bi', 0) + loc.get('ec_fixed', 0) + loc.get('ec_mobile', 0) +
-            loc.get('mk_mobile', 0)
-            for loc in locations_data
-        )
-
-        if total_sum_insured <= 0:
-            st.warning(tr("warning_no_sum_insured")) # Bu çeviri anahtarını translations.py'ye eklemeyi unutmayın.
-            st.stop()
-        # --- KONTROL SONU ---
-
+            del st.session_state['export_data']
 
         total_entered_pd_orig_ccy = 0.0
         total_entered_bi_orig_ccy = 0.0
-        for loc_data_item in locations_data:
-            # Abonman emtia değerini hesaplamalarda doğru kullanmak için geçici bir anahtar ekle
-            if loc_data_item["commodity_is_subscription"]:
-                loc_data_item["commodity_for_calc"] = loc_data_item["commodity"] * 0.40
-            else:
-                loc_data_item["commodity_for_calc"] = loc_data_item["commodity"]
-
+        for loc_data_item in locations_data: 
+            commodity_value_for_total_display = loc_data_item["commodity"]
             total_entered_pd_orig_ccy += (
                 loc_data_item["building"] + loc_data_item["fixture"] +
-                loc_data_item["decoration"] + loc_data_item["commodity_for_calc"] +
-                loc_data_item["safe"] + loc_data_item["machinery"]
+                loc_data_item["decoration"] + commodity_value_for_total_display + 
+                loc_data_item["safe"] + loc_data_item["machinery"] +
+                (loc_data_item.get("ec_fixed", 0.0) if loc_data_item.get("include_ec_mk_cover", False) else 0.0) +
+                (loc_data_item.get("ec_mobile", 0.0) if loc_data_item.get("include_ec_mk_cover", False) else 0.0) +
+                # (loc_data_item.get("mk_fixed", 0.0) if loc_data_item.get("include_ec_mk_cover", False) else 0.0) + # Kaldırıldı
+                (loc_data_item.get("mk_mobile", 0.0) if loc_data_item.get("include_ec_mk_cover", False) else 0.0)
             )
             total_entered_bi_orig_ccy += loc_data_item["bi"]
 
         proceed_with_calculation = True
-        total_pd_sum_try = total_entered_pd_orig_ccy * fx_rate_fire
-
-        # Kural: Toplam PD bedeli 3.5 Milyar TL'den küçükse belirli koasürans ve muafiyetler kısıtlanır.
-        if total_pd_sum_try < 3_500_000_000:
+        if total_entered_pd_orig_ccy * fx_rate_fire < 3500000000:
             if koas in ["90/10", "100/0"]:
-                st.error(tr("error_koas_not_allowed").format(koas_rate=koas))
                 proceed_with_calculation = False
-            if deduct < 2:
-                st.error(tr("error_deduct_not_allowed").format(deduct_rate=deduct))
+                st.warning(tr("warning_koas_below_3_5B").format(koas_value=koas))
+            if deduct in [0.1, 0.5, 1.0, 1.5]:
                 proceed_with_calculation = False
+                st.warning(tr("warning_deduct_below_3_5B").format(deduct_value=str(deduct)))
 
         st.markdown("---")
         st.markdown(f"<h5>{tr('entered_sums_summary_header')}</h5>", unsafe_allow_html=True)
-        st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_pd_sum")}:</b> {ui.format_number(total_entered_pd_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_pd_sum")}:</b> {ui.format_number(total_entered_pd_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True) 
         if total_entered_bi_orig_ccy > 0:
-             st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_bi_sum")}:</b> {ui.format_number(total_entered_bi_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="info-box">ℹ️ <b>{tr("total_entered_bi_sum")}:</b> {ui.format_number(total_entered_bi_orig_ccy, currency_fire)}</div>', unsafe_allow_html=True) 
         st.markdown("---")
 
         if proceed_with_calculation:
-            # --- LİMİTLİ POLİÇE HESAPLAMALARI (EĞER SEÇİLDİYSE) ---
-            limited_policy_multiplier = 1.0
-            if apply_limited_policy:
-                if limited_policy_limit <= 0 or limited_policy_limit >= total_entered_pd_orig_ccy:
-                    st.error(tr("warning_limit_value_invalid").format(total_pd_sum=ui.format_number(total_entered_pd_orig_ccy, currency_fire)))
-                    st.stop()
-                else:
-                    limit_ratio_float = total_entered_pd_orig_ccy / limited_policy_limit
-                    if limit_ratio_float < 5:
-                        discount_rate = 1.0
-                        st.info(tr("info_limit_no_discount"))
-                    else:
-                        limit_ratio = int(round(limit_ratio_float))
-                        capped_ratio = max(5, min(20, limit_ratio))
-                        discount_rate = pc.limited_policy_discounts.get(capped_ratio, 1.0)
-                    limited_policy_multiplier = 1.3 * discount_rate
-
-            groups_determined = pc.determine_group_params(locations_data)
-            premium_results_by_group = {}
+            groups_determined = pc.determine_group_params(locations_data) 
             total_premium_all_groups_try = 0.0
+            single_group_display_data_for_table = [] 
+            last_applied_rate_for_single_group = None 
+            premium_results_by_group_for_multi = {}
+            display_currency_for_output = currency_fire
+            display_fx_rate_for_output = fx_rate_fire if currency_fire != "TRY" else 1.0
 
-            for group_key, data in groups_determined.items():
-                pd_premium_try, bi_premium_try, ec_premium_try, mk_premium_try, total_premium_try, applied_rate = pc.calculate_fire_premium(
-                    data["building_type"], data["risk_group"], currency_fire,
-                    data["building"], data["fixture"], data["decoration"], data["commodity"], data["safe"],
-                    data["machinery"], data["bi"],
-                    data.get("ec_fixed", 0.0), data.get("ec_mobile", 0.0), data.get("mk_fixed", 0.0), data.get("mk_mobile", 0.0),
-                    koas, deduct, fx_rate_fire, inflation_rate,
-                    limited_policy_multiplier=limited_policy_multiplier
+            for group_key, data in groups_determined.items(): 
+                pd_premium_try, bi_premium_try, ec_premium_try, mk_premium_try, group_total_premium_try, applied_rate = pc.calculate_fire_premium(
+                    data["building_type"], data["risk_group"], currency_fire, 
+                    data["building"], data["fixture"], data["decoration"], data["commodity"], data["safe"], 
+                    data["machinery"], data["bi"], data.get("ec_fixed", 0.0), data.get("ec_mobile", 0.0), 
+                    data.get("mk_fixed", 0.0), data.get("mk_mobile", 0.0),
+                    koas, deduct, fx_rate_fire, inflation_rate 
                 )
-                premium_results_by_group[group_key] = {
+                total_premium_all_groups_try += group_total_premium_try
+                premium_results_by_group_for_multi[group_key] = {
                     "pd_premium_try": pd_premium_try, "bi_premium_try": bi_premium_try,
                     "ec_premium_try": ec_premium_try, "mk_premium_try": mk_premium_try,
-                    "total_premium_try": total_premium_try, "applied_rate": applied_rate
+                    "total_premium_try": group_total_premium_try, "applied_rate": applied_rate 
                 }
-                total_premium_all_groups_try += total_premium_try
+                if len(groups_determined) == 1:
+                    last_applied_rate_for_single_group = applied_rate 
+                    last_applied_rate_for_single_group = applied_rate 
 
-            ui.display_fire_results(
-                num_locations_val=num_locations,
-                groups_determined_data=groups_determined,
-                premium_results_by_group=premium_results_by_group,
-                total_premium_all_groups_try_val=total_premium_all_groups_try,
-                display_currency_for_output_val=currency_fire,
-                display_fx_rate_for_output_val=fx_rate_fire,
-                limited_policy_multiplier_val=limited_policy_multiplier
-            )
+                    # Tek grup için primlerü gösterim para birimine çevir
+                    pd_premium_display_val = pd_premium_try / display_fx_rate_for_output
+                    bi_premium_display_val = bi_premium_try / display_fx_rate_for_output
+                    ec_premium_display_val = ec_premium_try / display_fx_rate_for_output
+                    mk_premium_display_val = mk_premium_try / display_fx_rate_for_output
 
-            # --- SENARYO HESAPLAMALARI ---
-            # YENİ: Limitli poliçe seçiliyse senaryo analizini atla
-            if not apply_limited_policy:
-                all_koas_keys = list(pc.koasurans_indirimi.keys())
-                all_deduct_keys = sorted(list(pc.muafiyet_indirimi.keys()))
-
-                # Kurala göre senaryoları filtrele
-                if total_pd_sum_try < 3_500_000_000:
-                    allowed_koas = [k for k in all_koas_keys if k not in ["90/10", "100/0"]]
-                    allowed_deduct = [d for d in all_deduct_keys if d >= 2]
-                else:
-                    allowed_koas = all_koas_keys
-                    allowed_deduct = all_deduct_keys
-
-                scenario_definitions = []
-                for k in allowed_koas:
-                    for d in allowed_deduct:
-                        # Ana hesaplama ile aynı olan senaryoyu atla
-                        if k == koas and d == deduct:
-                            continue
-                        scenario_definitions.append({
-                            "name_key": f"Scenario {k} / {d}%", # Dinamik isim
-                            "koas_key": k,
-                            "deduct_key": d
+                    # Tek grup için bedelleri hesapla (%100 ham emtea değerini kullan)
+                    pd_sum_orig_ccy = (
+                        data["building"] + data["fixture"] + data["decoration"] + 
+                        data.get("commodity_raw_for_display", data["commodity"]) + # %100 emtea değeri
+                        data["safe"] + data["machinery"]
+                    )
+                    bi_sum_orig_ccy = data["bi"]
+                    ec_sum_orig_ccy = data.get("ec_fixed", 0.0) + data.get("ec_mobile", 0.0)
+                    mk_sum_orig_ccy = data.get("mk_mobile", 0.0) # Sadece mk_mobile kaldı
+                    
+                    # PD (Yangın) satırını her zaman ekle
+                    if pd_sum_orig_ccy > 0 or pd_premium_display_val > 0:
+                        pd_effective_rate = (pd_premium_display_val / pd_sum_orig_ccy) * 1000 if pd_sum_orig_ccy > 0 else 0.0
+                        single_group_display_data_for_table.append({
+                            tr("table_col_coverage_type"): tr("coverage_pd_combined"),
+                            "sum_insured_numeric": pd_sum_orig_ccy,
+                            "rate_per_mille_numeric": pd_effective_rate,
+                            "premium_numeric": pd_premium_display_val, 
+                            tr("table_col_sum_insured"): ui.format_number(pd_sum_orig_ccy, display_currency_for_output),
+                            tr("table_col_rate_per_mille"): ui.format_rate(pd_effective_rate),
+                            tr("table_col_premium"): ui.format_number(pd_premium_display_val, display_currency_for_output)
+                        })
+                    
+                    # BI (Kar Kaybı) satırını sadece değeri varsa ekle
+                    if bi_sum_orig_ccy > 0:
+                        bi_effective_rate = (bi_premium_display_val / bi_sum_orig_ccy) * 1000 if bi_sum_orig_ccy > 0 else 0.0
+                        single_group_display_data_for_table.append({
+                            tr("table_col_coverage_type"): tr("coverage_bi"),
+                            "sum_insured_numeric": bi_sum_orig_ccy,
+                            "rate_per_mille_numeric": bi_effective_rate,
+                            "premium_numeric": bi_premium_display_val,
+                            tr("table_col_sum_insured"): ui.format_number(bi_sum_orig_ccy, display_currency_for_output),
+                            tr("table_col_rate_per_mille"): ui.format_rate(bi_effective_rate),
+                            tr("table_col_premium"): ui.format_number(bi_premium_display_val, display_currency_for_output)
+                        })
+                    
+                    # EC (Elektronik Cihaz) satırını sadece değeri varsa ekle
+                    if ec_sum_orig_ccy > 0:
+                        ec_effective_rate = (ec_premium_display_val / ec_sum_orig_ccy) * 1000 if ec_sum_orig_ccy > 0 else 0.0
+                        single_group_display_data_for_table.append({
+                            tr("table_col_coverage_type"): tr("coverage_ec"),
+                            "sum_insured_numeric": ec_sum_orig_ccy,
+                            "rate_per_mille_numeric": ec_effective_rate,
+                            "premium_numeric": ec_premium_display_val,
+                            tr("table_col_sum_insured"): ui.format_number(ec_sum_orig_ccy, display_currency_for_output),
+                            tr("table_col_rate_per_mille"): ui.format_rate(ec_effective_rate),
+                            tr("table_col_premium"): ui.format_number(ec_premium_display_val, display_currency_for_output)  # Eksik parantez eklendi
+                        })
+                    
+                    # MK (Makine Kırılması) satırını sadece değeri varsa ekle
+                    if mk_sum_orig_ccy > 0:
+                        mk_effective_rate = (mk_premium_display_val / mk_sum_orig_ccy) * 1000 if mk_sum_orig_ccy > 0 else 0.0
+                        single_group_display_data_for_table.append({
+                            tr("table_col_coverage_type"): tr("coverage_mk"),
+                            "sum_insured_numeric": mk_sum_orig_ccy,
+                            "rate_per_mille_numeric": mk_effective_rate,
+                            "premium_numeric": mk_premium_display_val,
+                            tr("table_col_sum_insured"): ui.format_number(mk_sum_orig_ccy, display_currency_for_output),
+                            tr("table_col_rate_per_mille"): ui.format_rate(mk_effective_rate),
+                            tr("table_col_premium"): ui.format_number(mk_premium_display_val, display_currency_for_output)
                         })
 
-                prepare_scenario_data_for_session(
-                    scenario_definitions,
-                    groups_determined,
-                    currency_fire,
-                    fx_rate_fire,
-                    inflation_rate,
-                    total_entered_pd_orig_ccy,
-                    total_entered_bi_orig_ccy,
-                    num_locations,
-                    koas,
-                    deduct
+            if num_locations == 1 and len(groups_determined) == 1:
+                 ui.display_fire_results(
+                    num_locations_val=num_locations, groups_determined_data=groups_determined, 
+                    premium_results_by_group=None, all_groups_display_data_for_table_val=single_group_display_data_for_table, 
+                    total_premium_all_groups_try_val=total_premium_all_groups_try, 
+                    display_currency_for_output_val=display_currency_for_output, 
+                    display_fx_rate_for_output_val=display_fx_rate_for_output, 
+                    applied_rate_val=last_applied_rate_for_single_group
                 )
-
-            st.session_state['export_data'] = {
-                'locations_data': locations_data,
-                'groups_determined': groups_determined,
-                'num_locations': num_locations,
-                'currency_fire': currency_fire,
-                'koas': koas,
-                'deduct': deduct,
-                'inflation_rate': inflation_rate,
-                'premium_results_by_group': premium_results_by_group,
-                'total_premium_all_groups_try': total_premium_all_groups_try,
-                'display_currency': currency_fire,
-                'display_fx_rate': fx_rate_fire,
-                'limited_policy_multiplier': limited_policy_multiplier,
-                # YENİ: Limit bilgilerini rapora ekle
-                'apply_limited_policy': apply_limited_policy,
-                'limited_policy_limit': limited_policy_limit
+            else: 
+                # Çoklu grup için primlerü gösterim para birimine çevir
+                premium_results_by_group_for_display = {}
+                for group_key, premium_data in premium_results_by_group_for_multi.items():
+                    premium_results_by_group_for_display[group_key] = {
+                        "pd_premium_try": premium_data["pd_premium_try"] / display_fx_rate_for_output,  # Gösterim para birimine çevir
+                        "bi_premium_try": premium_data["bi_premium_try"] / display_fx_rate_for_output,  # Gösterim para birimine çevir
+                        "ec_premium_try": premium_data["ec_premium_try"] / display_fx_rate_for_output,  # Gösterim para birimine çevir
+                        "mk_premium_try": premium_data["mk_premium_try"] / display_fx_rate_for_output,  # Gösterim para birimine çevir
+                        "total_premium_try": premium_data["total_premium_try"] / display_fx_rate_for_output,  # Gösterim para birimine çevir
+                        "applied_rate": premium_data["applied_rate"]
+                    }
+                
+                # Toplam primi de gösterim para birimine çevir
+                total_premium_display = total_premium_all_groups_try / display_fx_rate_for_output
+                
+                ui.display_fire_results(
+                    num_locations_val=num_locations, groups_determined_data=groups_determined, 
+                    premium_results_by_group=premium_results_by_group_for_display,  # Çevrilmiş veriler
+                    all_groups_display_data_for_table_val=None, 
+                    total_premium_all_groups_try_val=total_premium_display,  # Çevrilmiş toplam
+                    display_currency_for_output_val=display_currency_for_output, 
+                    display_fx_rate_for_output_val=1.0,  # Artık 1.0 çünkü çeviri yapıldı
+                    applied_rate_val=None 
+                )
+            
+            # PDF ve Excel için kullanılacak verileri session state'e kaydet
+            st.session_state.export_data = {
+                "locations_data": locations_data,
+                "num_locations": num_locations, "currency_fire": currency_fire,
+                "koas": koas, "deduct": deduct, "inflation_rate": inflation_rate,
+                "groups_determined": groups_determined,
+                "premium_results_by_group": premium_results_by_group_for_multi,
+                "total_premium_all_groups_try": total_premium_all_groups_try,
+                "display_currency": display_currency_for_output,
+                "display_fx_rate": display_fx_rate_for_output,
+                "ui_helpers": ui,
+                "language": lang
             }
+            
+            scenario_definitions = [
+                {"name_key": "scenario_8020_2_name", "koas_key": "80/20", "deduct_key": 2},
+                {"name_key": "scenario_9010_2_name", "koas_key": "90/10", "deduct_key": 2},
+                {"name_key": "scenario_8020_5_name", "koas_key": "80/20", "deduct_key": 5},
+                {"name_key": "scenario_9010_5_name", "koas_key": "90/10", "deduct_key": 5},
+                {"name_key": "scenario_7030_5_name", "koas_key": "70/30", "deduct_key": 5},
+            ]
+            prepare_scenario_data_for_session(
+                scenario_definitions, groups_determined, currency_fire, fx_rate_fire, 
+                inflation_rate, total_entered_pd_orig_ccy, total_entered_bi_orig_ccy,
+                num_locations, koas, deduct
+            )
 
     # --- HESAPLAMA SONRASI GÖSTERİLECEK BUTONLAR ---
     if 'export_data' in st.session_state:
-        st.markdown("---")
+        st.markdown("---") 
 
-        # col1, col2, col3 = st.columns(3)
+        col1, col2, col3 = st.columns(3)
         col2, col3 = st.columns(2)
 
         # with col1:
         #     if st.button(label=tr("goto_scenario_page_button") + " 💡", use_container_width=True, key="goto_scenario_btn"):
-        #         st.switch_page("pages/scenario_calculator_page.py")
-
+        #         st.switch_page("pages/scenario_calculator_page.py") 
+        
         with col2:
-            if 'export_data' in st.session_state:
+            try:
+                pdf_data = st.session_state.export_data
+                
+                # Senaryo verilerini session state'den al
+                scenario_data_for_pdf = st.session_state.get('scenario_data_for_page', None)
+                
+                # PDF oluşturucuya senaryo verilerini de gönder
                 pdf_bytes = pdf_generator.create_fire_pdf(
-                    locations_data=st.session_state.export_data['locations_data'],
-                    groups_determined=st.session_state.export_data['groups_determined'],
-                    num_locations=st.session_state.export_data['num_locations'],
-                    currency_fire=st.session_state.export_data['currency_fire'],
-                    koas=st.session_state.export_data['koas'],
-                    deduct=st.session_state.export_data['deduct'],
-                    inflation_rate=st.session_state.export_data['inflation_rate'],
-                    premium_results_by_group=st.session_state.export_data['premium_results_by_group'],
-                    total_premium_all_groups_try=st.session_state.export_data['total_premium_all_groups_try'],
-                    display_currency=st.session_state.export_data['display_currency'],
-                    display_fx_rate=st.session_state.export_data['display_fx_rate'],
-                    ui_helpers=ui,
-                    language=lang,
-                    scenario_data=st.session_state.get('scenario_data_for_page'), # YENİ
-                    # YENİ: Limit bilgilerini PDF oluşturucuya gönder
-                    apply_limited_policy=st.session_state.export_data['apply_limited_policy'],
-                    limited_policy_limit=st.session_state.export_data['limited_policy_limit']
+                    locations_data=pdf_data['locations_data'],
+                    groups_determined=pdf_data['groups_determined'],
+                    num_locations=pdf_data['num_locations'],
+                    currency_fire=pdf_data['currency_fire'],
+                    koas=pdf_data['koas'],
+                    deduct=pdf_data['deduct'],
+                    inflation_rate=pdf_data['inflation_rate'],
+                    premium_results_by_group=pdf_data['premium_results_by_group'],
+                    total_premium_all_groups_try=pdf_data['total_premium_all_groups_try'],
+                    display_currency=pdf_data['display_currency'],
+                    display_fx_rate=pdf_data['display_fx_rate'],
+                    ui_helpers=pdf_data['ui_helpers'],
+                    language=pdf_data.get('language', 'TR'),
+                    scenario_data=scenario_data_for_pdf  # YENİ PARAMETRE
                 )
+
                 st.download_button(
-                    label="📄 " + tr("download_pdf_button"),
+                    label="📄 PDF Olarak İndir",
                     data=pdf_bytes,
-                    file_name=f"TariffEQ_Fire_Report_{datetime.now().strftime('%Y%m%d')}.pdf",
+                    file_name=f"TariffEQ_Yangin_Raporu_{date.today().strftime('%Y%m%d')}.pdf",
                     mime="application/pdf",
                     use_container_width=True,
-                    key="download_pdf"
+                    key="download_pdf_btn"
                 )
+            except Exception as e:
+                st.error(f"PDF oluşturulurken bir hata oluştu: {e}")
 
         with col3:
-            if 'export_data' in st.session_state:
-                try:
-                    excel_bytes = excel_generator.create_fire_excel(
-                        **st.session_state['export_data'],
-                        ui_helpers=ui,
-                        language=lang
-                    )
-                    st.download_button(
-                        label="📊 " + tr("download_excel_button"),
-                        data=excel_bytes,
-                        file_name=f"TariffEQ_Fire_Report_{datetime.now().strftime('%Y%m%d')}.xlsx",
-                        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                        use_container_width=True,
-                        key="download_fire_excel"
-                    )
-                except ValueError as e:
-                    # Excel oluşturmak için veri olmadığında bu blok çalışır.
-                    # Kullanıcıya bir uyarı göstermek yerine butonu devre dışı bırakabilir veya hiçbir şey yapmayabiliriz.
-                    # Şimdilik, butonu oluşturmuyoruz ve bir uyarı veriyoruz.
-                    st.warning(tr("warning_car_no_sum_insured"))
+            try:
+                excel_data = st.session_state.export_data
+                
+                excel_bytes = excel_generator.create_excel_report(
+                    groups_determined=excel_data['groups_determined'],
+                    premium_results_by_group=excel_data['premium_results_by_group'],
+                    display_currency=excel_data['display_currency'],
+                    display_fx_rate=excel_data['display_fx_rate']
+                )
 
+                st.download_button(
+                    label="📊 Excel'e Aktar",
+                    data=excel_bytes,
+                    file_name=f"TariffEQ_Sonuclari_{date.today().strftime('%Y%m%d')}.xlsx",
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    use_container_width=True,
+                    key="download_excel_btn"
+                )
+            except Exception as e:
+                st.error(f"Excel dosyası oluşturulurken bir hata oluştu: {e}")
 
 elif st.session_state.active_calc_module == CALC_MODULE_CAR:
     st.markdown(f'<h3 class="section-header">{tr("car_header")}</h3>', unsafe_allow_html=True)
@@ -743,13 +726,13 @@ elif st.session_state.active_calc_module == CALC_MODULE_CAR:
     
     col3, col4, col5 = st.columns(3)
     with col3:
-        project = st.number_input(tr("project"), min_value=0, value=0, step=100000, help=tr("project_help"), format="%d")
+        project = st.number_input(tr("project"), min_value=0.0000, value=0.0000, step=100000.0, help=tr("project_help"), format="%.4f")
         if project > 0: st.write(f"{tr('entered_value')}: {ui.format_number(project, currency)}")
     with col4:
-        cpm = st.number_input(tr("cpm"), min_value=0, value=0, step=100000, help=tr("cpm_help"), format="%d")
+        cpm = st.number_input(tr("cpm"), min_value=0.0000, value=0.0000, step=100000.0, help=tr("cpm_help"), format="%.4f")
         if cpm > 0: st.write(f"{tr('entered_value')}: {ui.format_number(cpm, currency)}")
     with col5:
-        cpe = st.number_input(tr("cpe"), min_value=0, value=0, step=100000, help=tr("cpe_help"), format="%d")
+        cpe = st.number_input(tr("cpe"), min_value=0.0000, value=0.0000, step=100000.0, help=tr("cpe_help"), format="%.4f")
         if cpe > 0: st.write(f"{tr('entered_value')}: {ui.format_number(cpe, currency)}")
     
     st.markdown(f"### {tr('coinsurance_deductible')}")
@@ -762,15 +745,6 @@ elif st.session_state.active_calc_module == CALC_MODULE_CAR:
         inflation_rate_car = st.number_input(tr("inflation_rate"), min_value=0.0, value=0.0, step=0.1, help=tr("inflation_rate_help"), format="%.2f", key="car_inflation")
     
     if st.button(tr("btn_calc"), key="car_calc"):
-        # Değerlerin girilip girilmediğini kontrol et
-        if project <= 0 and cpm <= 0 and cpe <= 0:
-            st.warning(tr("warning_car_no_sum_insured"))
-            st.stop() # Hesaplamanın geri kalanını çalıştırmayı durdur
-
-        if 'car_export_data' in st.session_state:
-            del st.session_state['car_export_data']
-
-        # Ana Hesaplama
         car_premium_try, cpm_premium_try, cpe_premium_try, total_premium_try, applied_car_rate = pc.calculate_car_ear_premium(
             risk_group_type, risk_class, start_date, end_date, project, cpm, cpe, currency, 
             koas_car, deduct_car, fx_rate, inflation_rate_car
@@ -782,97 +756,6 @@ elif st.session_state.active_calc_module == CALC_MODULE_CAR:
             project, cpm, cpe, 
             currency, fx_rate
         )
-
-        # --- YENİ: Senaryo Hesaplamaları ---
-        calculated_scenarios = []
-        all_koas_keys = list(pc.koasurans_indirimi_car.keys())
-        all_deduct_keys = sorted(list(pc.muafiyet_indirimi_car.keys()))
-
-        for k in all_koas_keys:
-            for d in all_deduct_keys:
-                if k == koas_car and d == deduct_car:
-                    continue # Ana hesaplamayı tekrar ekleme
-                
-                # Senaryo için primleri hesapla
-                s_car_prem, s_cpm_prem, s_cpe_prem, s_total_prem, _ = pc.calculate_car_ear_premium(
-                    risk_group_type, risk_class, start_date, end_date, project, cpm, cpe, currency, 
-                    k, d, fx_rate, inflation_rate_car
-                )
-                calculated_scenarios.append({
-                    "name": f"Senaryo {k} / {d}%",
-                    "koas_key": k,
-                    "deduct_key": d,
-                    "total_premium_try": s_total_prem
-                })
-        # --- SENARYO HESAPLAMA SONU ---
-
-
-        # YENİ: Raporlar için verileri session state'e kaydet (senaryolar dahil)
-        st.session_state['car_export_data'] = {
-            'risk_group_type': risk_group_type,
-            'risk_class': risk_class,
-            'start_date': start_date,
-            'end_date': end_date,
-            'duration_months': pc.calculate_months_difference(start_date, end_date),
-            'project_sum': project,
-            'cpm_sum': cpm,
-            'cpe_sum': cpe,
-            'currency': currency,
-            'koas': koas_car,
-            'deduct': deduct_car,
-            'fx_rate': fx_rate,
-            'inflation_rate': inflation_rate_car,
-            'car_premium_try': car_premium_try,
-            'cpm_premium_try': cpm_premium_try,
-            'cpe_premium_try': cpe_premium_try,
-            'total_premium_try': total_premium_try,
-            'applied_car_rate': applied_car_rate,
-            'calculated_scenarios': calculated_scenarios # Senaryo verilerini ekle
-        }
-
-    # YENİ: CAR/EAR için indirme butonları
-    if 'car_export_data' in st.session_state:
-        st.markdown("---")
-        col_pdf, col_excel = st.columns(2)
-        with col_pdf:
-            # Düzeltme: PDF oluşturucuya göndermeden önce tarih string'lerini doğru formatla date objesine çevir
-            pdf_data = st.session_state['car_export_data'].copy()
-            
-            # Gelen tarih nesnesi bir string ise (session state'den dolayı), onu date objesine çevir.
-            # Hata mesajına göre format 'DD.MM.YYYY' olarak geliyor.
-            if isinstance(pdf_data['start_date'], str):
-                pdf_data['start_date'] = datetime.strptime(pdf_data['start_date'], '%d.%m.%Y').date()
-            if isinstance(pdf_data['end_date'], str):
-                pdf_data['end_date'] = datetime.strptime(pdf_data['end_date'], '%d.%m.%Y').date()
-
-            pdf_bytes = pdf_generator.create_car_pdf(
-                data=pdf_data,
-                ui_helpers=ui,
-                language=lang
-            )
-            st.download_button(
-                label="📄 " + tr("download_pdf_button"),
-                data=pdf_bytes,
-                file_name=f"TariffEQ_CAR_Report_{datetime.now().strftime('%Y%m%d')}.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-                key="download_car_pdf"
-            )
-
-        with col_excel:
-            excel_bytes = excel_generator.create_car_excel(
-                data=st.session_state['car_export_data'],
-                ui_helpers=ui,
-                language=lang
-            )
-            st.download_button(
-                label="📊 " + tr("download_excel_button"),
-                data=excel_bytes,
-                file_name=f"TariffEQ_CAR_Report_{datetime.now().strftime('%Y%m%d')}.xlsx",
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                use_container_width=True,
-                key="download_car_excel"
-            )
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; font-size: 0.9em; color: #666; padding: 10px; background-color: #f8f9fa; border-radius: 5px; margin-top: 20px;'>

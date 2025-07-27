@@ -16,7 +16,7 @@ def _tr(key: str) -> str:
 coverage_config = [
     {
         "name_tr_key": "coverage_pd_combined", # Çeviri anahtarı (örn: "Maddi Hasarlar (Bina, Mef., Dek., Emtea, Kasa, Mak.)")
-        "sum_fields": ["building", "fixture", "decoration", "commodity_raw_for_display", "safe", "machinery"], # groups_determined_data'daki bedel alanları
+        "sum_fields": ["building", "fixture", "decoration", "commodity", "safe", "machinery"], # DEĞIŞTI: commodity_raw_for_display -> commodity
         "premium_field_in_results": "pd_premium_try" # premium_results_by_group'daki prim alanı
     },
     {
@@ -196,17 +196,43 @@ def display_current_total_sums(locations_data_list, currency_code):
 
 def display_fire_results(
     num_locations_val,
-    groups_determined_data, 
-    premium_results_by_group, 
-    all_groups_display_data_for_table_val, 
-    total_premium_all_groups_try_val, 
-    display_currency_for_output_val, 
-    display_fx_rate_for_output_val, 
-    applied_rate_val 
+    groups_determined_data,
+    premium_results_by_group,
+    total_premium_all_groups_try_val,
+    display_currency_for_output_val,
+    display_fx_rate_for_output_val,
+    limited_policy_multiplier_val
     ):
     lang = st.session_state.lang # Bu satır kalabilir veya _tr zaten session state'i kullandığı için kaldırılabilir.
     
     st.markdown(f"#### {_tr('results_table_header')}")
+
+    # Tek lokasyon ve çoklu lokasyon için ortak veri hazırlama mantığı
+    all_groups_display_data_for_table_val = []
+    if num_locations_val == 1:
+        group_key = list(groups_determined_data.keys())[0]
+        data = groups_determined_data[group_key]
+        premiums = premium_results_by_group[group_key]
+        
+        for config in coverage_config:
+            sum_insured_orig = sum(data.get(field, 0.0) for field in config["sum_fields"])
+            premium_try = premiums.get(config["premium_field_in_results"], 0.0)
+            
+            if sum_insured_orig > 0 or premium_try > 0:
+                sum_insured_display = sum_insured_orig
+                premium_display = premium_try / display_fx_rate_for_output_val if display_fx_rate_for_output_val != 0 else 0.0
+                
+                rate_permille = (premium_display / sum_insured_display) * 1000 if sum_insured_display > 0 else 0.0
+
+                all_groups_display_data_for_table_val.append({
+                    _tr("table_col_coverage_type"): _tr(config["name_tr_key"]),
+                    _tr("table_col_sum_insured"): format_number(sum_insured_display, display_currency_for_output_val),
+                    _tr("table_col_rate_per_mille"): format_rate(rate_permille),
+                    _tr("table_col_premium"): format_number(premium_display, display_currency_for_output_val),
+                    "sum_insured_numeric": sum_insured_display,
+                    "premium_numeric": premium_display
+                })
+
 
     if num_locations_val == 1 and all_groups_display_data_for_table_val:
         # Tek lokasyon, tek grup için tablo
@@ -573,10 +599,10 @@ def display_car_ear_results(
     total_rate_permille_overall = applied_car_rate # Bu, pc modülünden gelen genel oran
 
     table_data.append({
-        _tr("table_col_coverage_type"): f"**{_tr('total_overall')}**",
-        _tr("table_col_sum_insured"): f"**{format_number(total_sum_insured_display, display_currency)}**",
-        _tr("table_col_rate_permille"): f"**{total_rate_permille_overall:.4f}**",
-        _tr("table_col_premium"): f"**{format_number(total_premium_display, display_currency)}**"
+        _tr("table_col_coverage_type"): f"{_tr('total_overall')}",
+        _tr("table_col_sum_insured"): f"{format_number(total_sum_insured_display, display_currency)}",
+        _tr("table_col_rate_permille"): f"{total_rate_permille_overall:.4f}",
+        _tr("table_col_premium"): f"{format_number(total_premium_display, display_currency)}"
     })
 
     df_display_columns = [

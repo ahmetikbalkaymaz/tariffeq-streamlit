@@ -1,6 +1,10 @@
 import streamlit as st
 from translations import T
 import pandas as pd
+from pathlib import Path  # Dosyanın en üstüne ekleyin
+import os
+from datetime import datetime
+from utils.visitor_logger import track_page_visit, log_page_exit
 
 st.markdown("""
 <style>
@@ -116,12 +120,14 @@ def tr(key: str, **kwargs) -> str:
 
 
 with st.sidebar:
-    st.image("assets/logo.png", width=1000) # width=1000 logonuz büyükse küçültün, örneğin 200
+    st.image("assets/logo.png", width=1000) 
     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
-    st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang]) # "calc" yerine farklı bir anahtar kullanmak daha iyi olabilir
-    st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) # YENİ SAYFA LİNKİ
-    st.page_link("pages/scenario_calculator_page.py", label=tr("scenario_page_title"), icon="📉") # Mevcut sayfa
-    st.markdown("---") # Ayırıcı
+    st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang]) 
+    st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) 
+    st.page_link("pages/information.py", label=T["information_page_nav"][st.session_state.lang]) # BİLGİLENDİRME SAYFASI LİNKİ
+    st.page_link("pages/roadmap.py", label=T["roadmap_page_nav"][st.session_state.lang], icon="🚀") # YOL HARİTASI SAYFASI LİNKİ
+    # st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") 
+    st.markdown("---") 
 
     # Dil seçimini kenar çubuğuna ekle
     lang_options = ["TR", "EN"]
@@ -149,10 +155,20 @@ with st.sidebar:
 
 
 
+# Sayfa ziyaretini takip et
+track_page_visit("Earthquake_Zones")
+
+# Önceki sayfadan çıkışı logla
+if 'previous_page' in st.session_state and st.session_state.previous_page != "Earthquake_Zones":
+    log_page_exit(st.session_state.previous_page)
+
+st.session_state.previous_page = "Earthquake_Zones" # Geçerli sayfayı önceki sayfa olarak kaydet
+
 # Veriyi önbelleğe alarak yükleyen fonksiyon
 @st.cache_data
 def load_data():
-    df = pd.read_excel("files/Deprem Bölgesi Bulma-Tariffeq.xlsx", sheet_name="Veri")
+    excel_path = Path(__file__).parent.parent / "files" / "deprem.xlsx"
+    df = pd.read_excel(excel_path, sheet_name="Veri")
     df = df[["ILADI", "ILCEADI", "KOYADI", "MAHADI", "Yeni Sınıf"]].dropna()
     return df
 
@@ -188,7 +204,7 @@ if selected_il and selected_ilce and selected_koy:
         (df["ILCEADI"] == selected_ilce) &
         (df["KOYADI"] == selected_koy)
     ]["MAHADI"].unique())
-    selected_mah = st.selectbox(T["select_neighborhood"][st.session_state.lang], mah_options)
+    selected_mah = st.selectbox(T["select_neighborhood"][st.session_state.lang], mah_options,index=None)
 else:
     selected_mah = None
 
@@ -215,3 +231,20 @@ elif selected_il: # Eğer sadece il seçilmişse veya diğer seçimler henüz ya
     pass # Veya "Lütfen tüm seçimleri yapınız" gibi bir uyarı eklenebilir.
 else:
     st.info(T["start_selection"][st.session_state.lang]) # Yeni çeviri anahtarı
+
+
+st.divider()
+# --- YENİ EKLENEN BÖLÜM ---
+
+col1, col2 = st.columns([1, 1])
+
+with col1:
+    # Başlık
+    st.subheader(tr("fire_section_title"), anchor=False)
+    st.image("files/earthquake-2.jpeg")
+    st.caption(tr("sddk_reference_text_fire"))
+
+with col2:
+    st.subheader(tr("car_section_title"), anchor=False)
+    st.image("files/earthquake.jpeg")
+    st.caption(tr("sddk_reference_text_car"))

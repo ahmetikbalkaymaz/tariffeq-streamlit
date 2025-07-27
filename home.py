@@ -1,5 +1,8 @@
 import streamlit as st
-import requests # requests kütüphanesini import edin (eğer daha önce eklenmediyse)
+import requests
+import base64
+from utils.visitor_logger import track_page_visit, log_page_exit
+
 
 # Sayfa Ayarları (en üstte olmalı)
 st.set_page_config(
@@ -7,6 +10,15 @@ st.set_page_config(
     layout="wide",
     page_icon="📊"
 )
+
+# Sayfa ziyaretini takip et
+track_page_visit("Home")
+
+# Sayfa değişikliğinde exit'i logla
+if 'previous_page' in st.session_state and st.session_state.previous_page != "Home":
+    log_page_exit(st.session_state.previous_page)
+
+st.session_state.previous_page = "Home"
 
 # Dil seçimi için session state başlatma (EĞER YOKSA)
 if 'lang' not in st.session_state:
@@ -30,22 +42,22 @@ T = {
         "EN": "Forget complex insurance tariffs."
     },
     "desc_main": {
-        "TR": "Deprem bölgesi tespiti ve güncel mevzuata %100 uyumlu, teknik olarak doğru prim hesaplaması artık sadece birkaç tık uzağınızda. Ayrıca, yapay zeka destekli hasar analizi ile riskinizi daha akıllı yönetin!",
-        "EN": "Detect earthquake zones and calculate premiums that are 100% compliant with current regulations, all with just a few clicks. Plus, manage your risks smarter with AI-powered damage analysis!"
+        "TR": "Deprem bölgesi tespiti ve güncel mevzuata %100 uyumlu, teknik olarak doğru prim hesaplaması artık sadece birkaç tık uzağınızda.",
+        "EN": "Detect earthquake zones and calculate premiums that are 100% compliant with current regulations, all with just a few clicks."
     },
     # "why": {"TR": "Nasıl Çalışır?", "EN": "How It Works?"}, # Bu satırı güncelleyeceğiz veya yenisini ekleyeceğiz
     "usage_steps_header": {"TR": "TariffEQ Kullanım Adımları", "EN": "TariffEQ Usage Steps"}, # YENİ
     "step1_select_calc_type": {"TR": "1️⃣ Hesaplama Türünü Seçin", "EN": "1️⃣ Select Calculation Type"}, # YENİ (veya feature1'i güncelle)
     "step2_enter_details": {"TR": "2️⃣ Teminat ve Risk Bilgilerinizi Girin", "EN": "2️⃣ Enter Your Coverage and Risk Details"}, # YENİ (veya feature2'yi güncelle)
-    "step3_get_premium_scenario": {"TR": "3️⃣ Minimum Deprem Primini ve Teknik Hasar Senaryonuzu Hemen Öğrenin", "EN": "3️⃣ Instantly Get the Minimum Earthquake Premium and Your Technical Damage Scenario"}, # YENİ (veya feature3'ü güncelle)
-    "step4_ai_consultant": {"TR": "4️⃣ AI Danışman Yorumuyla Risklerinizi Değerlendirin", "EN": "4️⃣ Evaluate Your Risks with AI Consultant Commentary"}, # YENİ
+    "step3_get_premium_scenario": {"TR": "3️⃣ Minimum Deprem Primini Hemen Öğrenin", "EN": "3️⃣ Instantly Get the Minimum Earthquake Premium"}, # YENİ (veya feature3'ü güncelle)
+    "step4_ai_consultant": {"TR": "4️⃣ Senaryo Analizi ile Olabilecek Tüm Muafiyet Seçeneklerini Görün", "EN": "4️⃣ See All Possible Exemption Options with Scenario Analysis"}, # YENİ
     # Eski feature1, feature2, feature3 anahtarlarını kaldırabilir veya bu yenilerle değiştirebilirsiniz.
     # Benzerlikten dolayı mevcut feature anahtarlarını güncellemek daha mantıklı olabilir.
     # Örnek olarak yenilerini ekliyorum, siz duruma göre karar verin.
     "feature1": {"TR": "1️⃣ Hesaplama Türünü Seçin", "EN": "1️⃣ Select Calculation Type"}, # GÜNCELLENDİ
     "feature2": {"TR": "2️⃣ Teminat ve Risk Bilgilerinizi Girin", "EN": "2️⃣ Enter Your Coverage and Risk Details"}, # GÜNCELLENDİ
-    "feature3": {"TR": "3️⃣ Minimum Deprem Primini ve Teknik Hasar Senaryonuzu Hemen Öğrenin", "EN": "3️⃣ Instantly Get the Minimum Earthquake Premium and Your Technical Damage Scenario"}, # GÜNCELLENDİ
-    "feature4_ai_advice": {"TR": "4️⃣ AI Danışman Yorumuyla Risklerinizi Değerlendirin", "EN": "4️⃣ Evaluate Your Risks with AI Consultant Commentary"}, # YENİ
+    "feature3": {"TR": "3️⃣ Minimum Deprem Primini Hemen Öğrenin", "EN": "3️⃣ Instantly Get the Minimum Earthquake Premium"}, # GÜNCELLENDİ
+    "feature4_ai_advice": {"TR": "4️⃣ Senaryo Analizi ile Olabilecek Tüm Muafiyet Seçeneklerini Görün", "EN": "4️⃣ See All Possible Exemption Options with Scenario Analysis"}, # YENİ
     "founders": {"TR": "Geliştiriciler", "EN": "Developers"},
     "contact": {
         "TR": "Sorularınız için bize info@tariffeq.com adresinden ulaşabilirsiniz.",
@@ -60,10 +72,7 @@ T = {
         "TR": "Kurum (Opsiyonel)",
         "EN": "Institution (Optional)"
     },
-    "comment_institution_placeholder": {
-        "TR": "Örn: Allianz Sigorta A.Ş., Türk Reasürans A.Ş., Lockton Omni A.Ş.",
-        "EN": "e.g., Allianz Insurance Plc, Turkish Reinsurance Inc., Lockton Omni Ltd."
-    },
+
     "comment_name_label": {
         "TR": "Ad Soyad (Opsiyonel)",
         "EN": "Full Name (Optional)"
@@ -79,14 +88,14 @@ T = {
     "comment_placeholder": {"TR": "Yorumunuzu buraya yazın...", "EN": "Write your comment here..."}, # Bu zaten vardı, label ile birlikte kullanılabilir.
     "submit": {"TR": "Gönder", "EN": "Submit"},
     "home": {"TR": "Ana Sayfa", "EN": "Home"},
-    "calc": {"TR": "🚀 Deprem Primi ve Hasar Riskini Hesapla", "EN": "🚀 Calculate Earthquake Premium and Damage Risk"},
+    "calc": {"TR": "🚀 Deprem Primi Hesapla", "EN": "🚀 Calculate Earthquake Premium"},
     "earthquake": {"TR": "🗺️ Deprem Bölgeni Öğren", "EN": "🗺️ Learn Your Earthquake Zone"}, # YENİ: Deprem Bölgeleri sayfası için etiket
-    "calc_nav_label": {"TR": "🚀  Deprem Primi ve Hasar Riski", "EN": "🚀 Earthquake Premium and Damage Risk"}, # YENİ: Navigasyon için farklı etiket
+    "calc_nav_label": {"TR": "🚀  Deprem Primi Hesapla", "EN": "🚀 Calculate Earthquake Premium"}, # YENİ: Navigasyon için farklı etiket
     "earthquake_zones_nav": {"TR": "🗺️ Deprem Bölgeleri", "EN": "🗺️ Earthquake Zones"}, # YENİ: Deprem Bölgeleri sayfası için etiket
     "featured_features_header": {"TR": "Öne Çıkan Özellikler", "EN": "Featured Features"},
     "feature_fast": {"TR": " Hızlı ve Kolay Kullanım: 30 saniyede deprem primini öğrenin", "EN": " Fast and Easy to Use: Learn the earthquake premium in 30 seconds"},
     "feature_accurate": {"TR": "Teknik Doğruluk: Resmi deprem tarifesine tam uyum", "EN": "Technical Accuracy: Full compliance with the official earthquake tariff"},
-    "feature_currency": {"TR": "AI Destekli Hasar Analizi", "EN": "AI-Powered Damage Analysis"},
+    "feature_currency": {"TR": "Senaryo Analizi", "EN": "Scenario Analysis"},
     "feature_multilocation": {"TR": "Çoklu Lokasyon: Birden fazla işyeri/şantiye için tek ekranda hesaplama", "EN": "Multi-Location: Calculation for multiple workplaces/sites on a single screen"},
     "feature_coinsurance": {"TR": "Koasürans & Muafiyet: Tüm teknik indirim ve ek primler otomatik hesaplansın", "EN": "Coinsurance & Deductible: All technical discounts and additional premiums are calculated automatically"},
     "who_is_it_for_header": {"TR": "👥 Kimler İçin?", "EN": "👥 Who Is It For?"},
@@ -97,6 +106,14 @@ T = {
     "scenario_page_title": {
         "TR": "Senaryo Hesaplama ",
         "EN": "Scenario Calculation"
+    },
+    "information_page_nav": {
+        "TR": "ℹ️ Bilgilendirme",
+        "EN": "ℹ️ Information"
+    },
+    "roadmap_page_nav": {
+        "TR": "Yol Haritası",
+        "EN": "Roadmap"
     },
 }
 
@@ -237,7 +254,9 @@ with st.sidebar:
     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
     st.page_link("pages/calculate.py", label=T["calc_nav_label"][st.session_state.lang]) # "calc" yerine farklı bir anahtar kullanmak daha iyi olabilir
     st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) # YENİ SAYFA LİNKİ
-    st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") # Mevcut sayfa
+    st.page_link("pages/information.py", label=T["information_page_nav"][st.session_state.lang]) # BİLGİLENDİRME SAYFASI LİNKİ
+    st.page_link("pages/roadmap.py", label=T["roadmap_page_nav"][st.session_state.lang], icon="🚀")
+    # st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") # Mevcut sayfa
     st.markdown("---") # Ayırıcı
 
     # Dil seçimini kenar çubuğuna ekle
@@ -360,36 +379,52 @@ linkedin_logo_svg = """
 </svg>
 """
 
+def get_base64_image(image_path):
+    try:
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
+    except FileNotFoundError:
+        return None
+
+# Fotoğrafları base64'e çevir
+furkan_base64 = get_base64_image("files/furkan.jpeg")
+ubeyd_base64 = get_base64_image("files/ubeyd.jpeg")
+
 with f1:
-    st.markdown(f"""
-    <div style="text-align: center;">
-        <img src="https://i.imgur.com/d0JoyE1.jpeg" alt="Osman Furkan Kaymaz" style="width: 150px; height: auto; border-radius: 8px; margin-bottom: 10px;">
-        <p style="margin-bottom: 5px;"><strong>Osman Furkan Kaymaz</strong><br>Broker</p>
-        <a href='https://www.linkedin.com/in/furkan-kaymaz-97736718b/' target='_blank' title="Osman Furkan Kaymaz LinkedIn'de">
-            {linkedin_logo_svg}</a>
-    </div>
-    """, unsafe_allow_html=True)
+    if furkan_base64:
+        st.markdown(f"""
+        <div style="text-align: center;">
+            <img src="data:image/jpeg;base64,{furkan_base64}" alt="Osman Furkan Kaymaz" style="width: 150px; height: auto; border-radius: 8px; margin-bottom: 10px;">
+            <p style="margin-bottom: 5px;"><strong>Osman Furkan Kaymaz</strong><br>Broker</p>
+            <a href='https://www.linkedin.com/in/furkan-kaymaz-97736718b/' target='_blank' title="Osman Furkan Kaymaz LinkedIn'de">
+                {linkedin_logo_svg}</a>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.error("Furkan'ın fotoğrafı bulunamadı: files/furkan.jpeg")
 
 with f2:
-    st.markdown(f"""
-    <div style="text-align: center;">
-        <img src="https://i.ibb.co/K3ysQ1x/ubeydullah.jpg" alt="Ubeydullah Ayvaz" style="width: 150px; height: auto; border-radius: 8px; margin-bottom: 10px;">
-        <p style="margin-bottom: 5px;"><strong>Ubeydullah Ayvaz</strong><br>Underwriter</p>
-        <a href='https://www.linkedin.com/in/ubeydullah-ayvaz-762269143/' target='_blank' title="Ubeydullah Ayvaz LinkedIn'de">
-            {linkedin_logo_svg}</a>
-    </div>
-    """, unsafe_allow_html=True)
+    if ubeyd_base64:
+        st.markdown(f"""
+        <div style="text-align: center;">
+            <img src="data:image/jpeg;base64,{ubeyd_base64}" alt="Ubeydullah Ayvaz" style="width: 150px; height: auto; border-radius: 8px; margin-bottom: 10px;">
+            <p style="margin-bottom: 5px;"><strong>Ubeydullah Ayvaz</strong><br>Underwriter</p>
+            <a href='https://www.linkedin.com/in/ubeydullah-ayvaz-762269143/' target='_blank' title="Ubeydullah Ayvaz LinkedIn'de">
+                {linkedin_logo_svg}</a>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.error("Ubeydullah'ın fotoğrafı bulunamadı: files/ubeyd.jpeg")
 
 # Yorum Kutusu
 st.markdown(f"### {T['comment'][lang]}")
 
 # Formspree endpoint URL'nizi buraya girin
-formspree_url = "https://formspree.io/f/xxxxxxxx"  # KENDİ FORM ENDPOINT URL'NİZİ GİRİN
+formspree_url = "https://formspree.io/f/xovlerwo"  # KENDİ FORM ENDPOINT URL'NİZİ GİRİN
 
 with st.form(key="comment_form"):
     institution_name = st.text_input(
         label=T['comment_institution_label'][lang],
-        placeholder=T['comment_institution_placeholder'][lang],
         key="institution_input"
     )
     full_name = st.text_input(
@@ -420,16 +455,21 @@ with st.form(key="comment_form"):
                 response = requests.post(formspree_url, data=form_data)
                 response.raise_for_status() 
                 st.success("Teşekkürler, yorumunuz başarıyla gönderilmiştir.")
-                # Formu temizlemek için session state'leri sıfırla ve rerun yap
-                # st.session_state.institution_input = ""
-                # st.session_state.fullname_input = ""
-                # st.session_state.comment_text_area = ""
-                # st.rerun() # Bu satır, formu temizledikten sonra sayfayı yeniden yükler.
-                            # Ancak st.form içindeyken rerun bazen beklenmedik davranışlara yol açabilir.
-                            # Genellikle success mesajı yeterlidir, kullanıcı yeni bir yorum için formu tekrar doldurabilir.
             except requests.exceptions.RequestException as e:
                 st.error(f"Yorum gönderilirken bir hata oluştu: {e}")
             except Exception as e:
                 st.error(f"Beklenmedik bir hata oluştu: {e}")
         else:
             st.warning("Lütfen yorum alanını boş bırakmayınız.")
+
+# DISCLAIMER EKLENDI
+st.markdown("---")
+st.markdown("""
+<div style='text-align: center; font-size: 0.9em; color: #666; padding: 10px; background-color: #f8f9fa; border-radius: 5px; margin-top: 20px;'>
+    ⚠️ <strong>Yasal Uyarı:</strong> TariffEQ hesaplamaları bilgilendirme amaçlıdır; hukuki veya ticari bağlayıcılığı yoktur.
+</div>
+""", unsafe_allow_html=True)
+
+# Footer
+st.markdown(f"<div class='footer'>{T['footer'][lang]}</div>", unsafe_allow_html=True)
+

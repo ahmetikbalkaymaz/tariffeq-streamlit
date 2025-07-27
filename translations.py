@@ -26,7 +26,7 @@ T = {
     "comment_placeholder": {"TR": "Yorumunuzu buraya yazın...", "EN": "Write your comment here..."},
     "submit": {"TR": "Gönder", "EN": "Submit"},
     "home": {"TR": "Ana Sayfa", "EN": "Home"},
-    "calc": {"TR": "🚀  Deprem Primi ve Hasar Riski", "EN": "🚀 Earthquake Premium and Damage Risk"},
+    "calc": {"TR": "🚀  Deprem Primi Hesapla", "EN": "🚀 Earthquake Premium Calculation"},
 
     # calculate.py için özel çeviriler
     "calc_title": {"TR": "TariffEQ", "EN": "TariffEQ"}, # calculate.py başlığı
@@ -80,7 +80,10 @@ T = {
     "deduct": {"TR": "Muafiyet Oranı (%)", "EN": "Deductible (%)"},
     "deduct_help": {"TR": "Her hasarda bina sigorta bedeli üzerinden uygulanır. Min. %2, artırılabilir (max. %35 indirim).", "EN": "Applied per loss on the building sum insured. Min. 2%, can be increased (max. 35% discount)."},
     "inflation_rate": {"TR": "Enflasyon Artış Oranı (%)", "EN": "Inflation Increase Rate (%)"},
-    "inflation_rate_help": {"TR": "Enflasyona karşı teminat artışı oranı. Tarife fiyatı bu oranın yarısı kadar artırılır.", "EN": "Rate of increase for inflation protection. Tariff rate is increased by half of this rate."},
+    "inflation_rate_help": {
+        "TR": "Poliçe vadesi boyunca beklenen enflasyon oranını girin. Bu oran, sigorta bedellerini korumak için kullanılır.",
+        "EN": "Enter the expected inflation rate for the policy term. This rate is used to protect the sums insured."
+    },
     "btn_calc": {"TR": "Hesapla", "EN": "Calculate"},
     "min_premium": {"TR": "Minimum Deprem Primi", "EN": "Minimum Earthquake Premium"},
     "applied_rate": {"TR": "Uygulanan Oran (binde)", "EN": "Applied Rate (per mille)"},
@@ -586,7 +589,7 @@ T = {
         "EN": "Sum Insured"
     },
     "table_col_rate_permille": {"TR": "Fiyat (%o)", "EN": "Rate (%o)"},
-    "coverage_pd_combined": {"TR": "Yangın ", "EN": "Fire"}, # Zaten olabilir, kontrol edin
+    "coverage_pd_combined": {"TR": "Yangın (Bina, Makine, Emtea vb.)", "EN": "Fire (Building, Machinery, Commodity etc.)"},
     "coverage_bi": {"TR": "Kar Kaybı", "EN": "Business Interruption"}, # Zaten olabilir
     "coverage_ec": {"TR": "Elektronik Cihaz", "EN": "Electronic Equipment"}, # Zaten olabilir
     "coverage_mk": {"TR": "Makine Kırılması", "EN": "Machinery Breakdown"}, # Zaten olabilir
@@ -682,4 +685,486 @@ T = {
     "table_col_rate_per_mille_help": {"TR": "Prim / Teminat Bedeli * 1000", "EN": "Premium / Sum Insured * 1000"},
     "applied_pd_rate_label": {"TR": "Uygulanan Oran (PD Bazında)", "EN": "Applied Rate (PD Basis)"}, # Bu zaten olabilir, kontrol edin
     "summary_results_table_title": {"TR": "📊 İcmal Sonuç Tablosu", "EN": "📊 Summary Results Table"},
+    "location_name": {"TR": "Lokasyon Adı", "EN": "Location Name"},
+    "location_name_help": {"TR": "Bu lokasyon için tanımlayıcı bir isim veya adres girin.", "EN": "Enter a descriptive name or address for this location."},
+    
+    # Senaryo tablosu için çeviriler
+    "scenario_analysis_title": {"TR": "📊 Senaryo Analizi", "EN": "📊 Scenario Analysis"},
+    "scenario_name": {"TR": "Senaryo", "EN": "Scenario"},
+    "total_premium_try": {"TR": "Toplam Prim", "EN": "Total Premium"},
+    "total_premium_orig_currency": {"TR": "Toplam Prim", "EN": "Total Premium"},
+    "difference_from_main": {"TR": "Ana Senaryodan Fark", "EN": "Difference from Main"},
+    "main_scenario_name": {"TR": "Ana Senaryo", "EN": "Main Scenario"},
+    "coinsurance_label": {"TR": "Koasürans", "EN": "Coinsurance"},
+    "deductible_label": {"TR": "Muafiyet", "EN": "Deductible"},
+    "results_header": {"TR": "Sonuçlar", "EN": "Results"},
+    "risk_information_title": {"TR": "Riziko Bilgileri", "EN": "Risk Information"},
+    "fire_section_title": {
+        "TR": "Yangın & Kar Kaybı Deprem Tarifesi",
+        "EN": "Fire & Business Interruption Earthquake Tariff"
+    },
+    "sddk_reference_text_fire": {
+        "TR": "Kaynak: Sigortacılık ve Özel Emeklilik Düzenleme ve Denetleme Kurumu (SEDDK), İhtiyari deprem ve yanardağ püskürmesi teminatına ilişkin tarife ve talimat (01.01.2025), s. 6.",
+        "EN": "Source: Insurance and Private Pension Regulation and Supervision Agency (SEDDK), Tariff and instruction regarding optional earthquake and volcanic eruption coverage (01.01.2025), p. 6."
+    },
+    "car_section_title": {
+        "TR": "İnşaat & Montaj",
+        "EN": "Construction & Erection"
+    },
+    "sddk_reference_text_car": {
+        "TR": "Kaynak: Sigortacılık ve Özel Emeklilik Düzenleme ve Denetleme Kurumu (SEDDK), İhtiyari deprem ve yanardağ püskürmesi teminatına ilişkin tarife ve talimat (01.01.2025), s. 10.",
+        "EN": "Source: Insurance and Private Pension Regulation and Supervision Agency (SEDDK), Tariff and instruction regarding optional earthquake and volcanic eruption coverage (01.01.2025), p. 10."
+    },
+    "information_page_nav": {
+        "TR": "ℹ️ Bilgilendirme",
+        "EN": "ℹ️ Information"
+    },
+    "apply_limited_policy": {
+        "TR": "Limitli Poliçe Uygula",
+        "EN": "Apply Limited Policy"
+    },
+    "apply_limited_policy_help": {
+        "TR": "Toplam Yangın sigorta bedeli 420 Milyon TRY'yi aştığında seçilebilir. Poliçeyi belirli bir limitle sınırlandırır.",
+        "EN": "Can be selected when the total Fire sum insured exceeds 420 Million TRY. Limits the policy to a specific amount."
+    },
+    "limited_policy_limit": {
+        "TR": "Poliçe Limiti",
+        "EN": "Policy Limit"
+    },
+    "limited_policy_limit_help": {
+        "TR": "Poliçenin azami sorumluluk limitini girin. Bu değer, toplam Yangın sigorta bedelinden düşük olmalıdır.",
+        "EN": "Enter the maximum liability limit for the policy. This value must be lower than the total Fire sum insured."
+    },
+    "warning_limit_too_low": {
+        "TR": "Limitli poliçe seçeneği sadece toplam Yangın bedeli {min_limit_try} TRY üzerinde olan poliçeler için geçerlidir.",
+        "EN": "The limited policy option is only valid for policies with a total Fire sum insured over {min_limit_try} TRY."
+    },
+    "warning_limit_value_invalid": {
+        "TR": "Poliçe limiti, toplam Yangın bedelinden ({total_pd_sum}) düşük ve sıfırdan büyük olmalıdır.",
+        "EN": "The policy limit must be less than the total Fire sum insured ({total_pd_sum}) and greater than zero."
+    },
+    "limited_policy_info_header": {
+        "TR": "Limitli Poliçe Bilgileri",
+        "EN": "Limited Policy Information"
+    },
+    "limited_policy_ratio": {
+        "TR": "Limit Oranı (Toplam Bedel / Limit)",
+        "EN": "Limit Ratio (Total Sum / Limit)"
+    },
+    "limited_policy_discount_rate": {
+        "TR": "Uygulanan İndirim Oranı",
+        "EN": "Applied Discount Rate"
+    },
+    "limited_policy_final_multiplier": {
+        "TR": "Nihai Çarpan (1.3 * İndirim)",
+        "EN": "Final Multiplier (1.3 * Discount)"
+    },
+    "info_limit_no_discount": {
+        "TR": "Not: Girilen limit, toplam bedelin %20'sinden fazla olduğu için (oran < 5) herhangi bir indirim uygulanmamış, sadece %30'luk artış yansıtılmıştır.",
+        "EN": "Note: As the entered limit is more than 20% of the total sum insured (ratio < 5), no discount has been applied, only the 30% increase is reflected."
+    },
+    "btn_calc": {"TR": "HESAPLA", "EN": "CALCULATE"},
+    "coverage_pd_combined": {"TR": "Yangın (Bina, Makine, Emtea vb.)", "EN": "Fire (Building, Machinery, Commodity etc.)"},
+    "coverage_bi": {"TR": "Kar Kaybı", "EN": "Business Interruption"}, # Zaten olabilir
+    "coverage_ec": {"TR": "Elektronik Cihaz", "EN": "Electronic Equipment"}, # Zaten olabilir
+    "coverage_mk": {"TR": "Makine Kırılması", "EN": "Machinery Breakdown"}, # Zaten olabilir
+    "current_entered_sums_header": {
+        "TR": "Anlık Girilen Toplam Bedeller",
+        "EN": "Currently Entered Total Sums"
+    },
+     "earthquake_zones_nav": {
+        "TR": "🗺️ Deprem Bölgeleri", 
+        "EN": "🗺️ Earthquake Zones"
+    },
+    "earthquake_zones_search": {
+        "TR": "🗺️ Deprem Bölgeleri", 
+        "EN": "🗺️ Earthquake Zones"
+    },
+    "coverage_car_ear": {"TR": "CAR/EAR", "EN": "CAR/EAR"},
+    "coverage_cpm": {"TR": "İnşaat Makineleri (CPM)", "EN": "Construction Plant & Machinery (CPM)"},
+    "coverage_cpe": {"TR": "Şantiye Tesisleri (CPE)", "EN": "Construction/Erection Site Equipment (CPE)"},
+    "table_col_coverage_type": {"TR": "Teminat", "EN": "Coverage"}, # Zaten olabilir
+    "table_col_sum_insured": {"TR": "Bedel", "EN": "Sum Insured"}, # Zaten olabilir
+    "table_col_rate_permille": {"TR": "Fiyat (%o)", "EN": "Rate (%o)"}, # Zaten olabilir
+    "table_col_premium": {"TR": "Prim", "EN": "Premium"}, # Zaten olabilir
+    "total_overall": {"TR": "Toplam", "EN": "Total"}, # Zaten olabilir
+    "results_table_header": {"TR": "Sonuç Tablosu", "EN": "Results Table"},
+    "learn_earthquake_zone_button": {
+        "TR": "Deprem Bölgelerini Öğren",
+        "EN": "Learn Earthquake Zones"
+    },
+    "group_label_format": {"TR": "{group_char} Kümülü", "EN": "{group_char} Aggregate"},
+    "current_entered_sums_raw_header": {"TR": "Anlık Girilen Toplam Bedel", "EN": "Current Entered Totals"},
+    "total_entered_pd_sum_raw": {"TR": "Toplam PD Bedeli", "EN": "Total PD Sum"},
+    "total_entered_bi_sum_raw": {"TR": "Toplam BI Bedeli", "EN": "Total BI Sum"},
+    "total_entered_pd_sum": {"TR": "Toplam Girilen PD Bedeli", "EN": "Total Entered PD Sum"},
+    "entered_sums_summary_header": {
+        "TR": "Girilen Bedel Özeti",
+        "EN": "Entered Sum Summary"
+    },
+    "location_group_cumulative_info": {
+        "TR": "ℹ️ Kümül oluşturan adresleri aynı gruba atayınız.", 
+        "EN": "ℹ️ Assign addresses that form an aggregate to the same group."
+    },
+    "select_province" : {
+        "TR": "Lütfen il seçiniz",
+        "EN": "Please select a province"
+    },
+    "select_district" : {
+        "TR": "Lütfen ilçe seçiniz",
+        "EN": "Please select a district"
+    },
+    "select_neighborhood" : {
+        "TR": "Lütfen mahalle seçiniz",
+        "EN": "Please select a neighborhood"
+    },
+    "select_village" : {
+        "TR": "Lütfen köy seçiniz",
+        "EN": "Please select a village"
+    },
+    "earthquake_zones_result": {
+        "TR": "Deprem Bölgeleri Sonucu",
+        "EN": "Earthquake Zones Result"
+    },
+    "earthquake_zone_explanation_header": {
+    "TR": "Deprem Bölgesi Açıklaması:",
+    "EN": "Earthquake Zone Explanation:"
+    },
+    "earthquake_zone_explanation_text": {
+        "TR": """ 
+    Türkiye'de yer bilimleri ve afet yönetimi standartlarına göre belirlenen Deprem Bölgeleri, 1’den 7’ye kadar numaralandırılmıştır. Bu numaralandırma, bölgenin sismik risk derecesini ifade eder:
+
+    - **1. Bölge:** En yüksek deprem riski taşıyan alanlardır.
+    - **7. Bölge:** En düşük deprem riski taşıyan alanlardır.
+
+    Prim hesaplamalarında, bölgenin risk seviyesi sigorta primi üzerinde doğrudan etkili olup, daha yüksek riskli bölgelerde prim tutarı artış gösterecektir.
+    """,
+        "EN": """
+    Earthquake Zones in Turkey, determined according to earth sciences and disaster management standards, are numbered from 1 to 7. This numbering indicates the seismic risk level of the region:
+
+    - **Zone 1:** Areas with the highest earthquake risk.
+    - **Zone 7:** Areas with the lowest earthquake risk.
+
+    In premium calculations, the risk level of the zone directly affects the insurance premium, with higher-risk zones resulting in increased premium amounts.
+    """
+    },
+    "no_data_found": { # Bu anahtar zaten eklenmiş olabilir, kontrol edin.
+        "TR": "Seçilen kriterlere uygun veri bulunamadı.",
+        "EN": "No data found for the selected criteria."
+    },
+    "start_selection": { # Bu anahtar zaten eklenmiş olabilir, kontrol edin.
+        "TR": "Lütfen yukarıdan seçim yapmaya başlayınız.",
+        "EN": "Please start by making selections above."
+    },
+    "table_col_rate_per_mille": {"TR": "Fiyat (%o)", "EN": "Rate (%o)"},
+    "table_col_rate_per_mille_help": {"TR": "Prim / Teminat Bedeli * 1000", "EN": "Premium / Sum Insured * 1000"},
+    "applied_pd_rate_label": {"TR": "Uygulanan Oran (PD Bazında)", "EN": "Applied Rate (PD Basis)"}, # Bu zaten olabilir, kontrol edin
+    "summary_results_table_title": {"TR": "📊 İcmal Sonuç Tablosu", "EN": "📊 Summary Results Table"},
+    "location_name": {"TR": "Lokasyon Adı", "EN": "Location Name"},
+    "location_name_help": {"TR": "Bu lokasyon için tanımlayıcı bir isim veya adres girin.", "EN": "Enter a descriptive name or address for this location."},
+    
+    # Senaryo tablosu için çeviriler
+    "scenario_analysis_title": {"TR": "📊 Senaryo Analizi", "EN": "📊 Scenario Analysis"},
+    "scenario_name": {"TR": "Senaryo", "EN": "Scenario"},
+    "total_premium_try": {"TR": "Toplam Prim", "EN": "Total Premium"},
+    "total_premium_orig_currency": {"TR": "Toplam Prim", "EN": "Total Premium"},
+    "difference_from_main": {"TR": "Ana Senaryodan Fark", "EN": "Difference from Main"},
+    "main_scenario_name": {"TR": "Ana Senaryo", "EN": "Main Scenario"},
+    "coinsurance_label": {"TR": "Koasürans", "EN": "Coinsurance"},
+    "deductible_label": {"TR": "Muafiyet", "EN": "Deductible"},
+    "results_header": {"TR": "Sonuçlar", "EN": "Results"},
+    "risk_information_title": {"TR": "Riziko Bilgileri", "EN": "Risk Information"},
+    "fire_section_title": {
+        "TR": "Yangın & Kar Kaybı Deprem Tarifesi",
+        "EN": "Fire & Business Interruption Earthquake Tariff"
+    },
+    "sddk_reference_text_fire": {
+        "TR": "Kaynak: Sigortacılık ve Özel Emeklilik Düzenleme ve Denetleme Kurumu (SEDDK), İhtiyari deprem ve yanardağ püskürmesi teminatına ilişkin tarife ve talimat (01.01.2025), s. 6.",
+        "EN": "Source: Insurance and Private Pension Regulation and Supervision Agency (SEDDK), Tariff and instruction regarding optional earthquake and volcanic eruption coverage (01.01.2025), p. 6."
+    },
+    "car_section_title": {
+        "TR": "İnşaat & Montaj",
+        "EN": "Construction & Erection"
+    },
+    "sddk_reference_text_car": {
+        "TR": "Kaynak: Sigortacılık ve Özel Emeklilik Düzenleme ve Denetleme Kurumu (SEDDK), İhtiyari deprem ve yanardağ püskürmesi teminatına ilişkin tarife ve talimat (01.01.2025), s. 10.",
+        "EN": "Source: Insurance and Private Pension Regulation and Supervision Agency (SEDDK), Tariff and instruction regarding optional earthquake and volcanic eruption coverage (01.01.2025), p. 10."
+    },
+    "information_page_nav": {
+        "TR": "ℹ️ Bilgilendirme",
+        "EN": "ℹ️ Information"
+    },
+    "apply_limited_policy": {
+        "TR": "Limitli Poliçe Uygula",
+        "EN": "Apply Limited Policy"
+    },
+    "apply_limited_policy_help": {
+        "TR": "Toplam Yangın sigorta bedeli 420 Milyon TRY'yi aştığında seçilebilir. Poliçeyi belirli bir limitle sınırlandırır.",
+        "EN": "Can be selected when the total Fire sum insured exceeds 420 Million TRY. Limits the policy to a specific amount."
+    },
+    "limited_policy_limit": {
+        "TR": "Poliçe Limiti",
+        "EN": "Policy Limit"
+    },
+    "limited_policy_limit_help": {
+        "TR": "Poliçenin azami sorumluluk limitini girin. Bu değer, toplam Yangın sigorta bedelinden düşük olmalıdır.",
+        "EN": "Enter the maximum liability limit for the policy. This value must be lower than the total Fire sum insured."
+    },
+    "warning_limit_too_low": {
+        "TR": "Limitli poliçe seçeneği sadece toplam Yangın bedeli {min_limit_try} TRY üzerinde olan poliçeler için geçerlidir.",
+        "EN": "The limited policy option is only valid for policies with a total Fire sum insured over {min_limit_try} TRY."
+    },
+    "warning_limit_value_invalid": {
+        "TR": "Poliçe limiti, toplam Yangın bedelinden ({total_pd_sum}) düşük ve sıfırdan büyük olmalıdır.",
+        "EN": "The policy limit must be less than the total Fire sum insured ({total_pd_sum}) and greater than zero."
+    },
+    "limited_policy_info_header": {
+        "TR": "Limitli Poliçe Bilgileri",
+        "EN": "Limited Policy Information"
+    },
+    "limited_policy_ratio": {
+        "TR": "Limit Oranı (Toplam Bedel / Limit)",
+        "EN": "Limit Ratio (Total Sum / Limit)"
+    },
+    "limited_policy_discount_rate": {
+        "TR": "Uygulanan İndirim Oranı",
+        "EN": "Applied Discount Rate"
+    },
+    "limited_policy_final_multiplier": {
+        "TR": "Nihai Çarpan (1.3 * İndirim)",
+        "EN": "Final Multiplier (1.3 * Discount)"
+    },
+    "info_limit_no_discount": {
+        "TR": "Not: Girilen limit, toplam bedelin %20'sinden fazla olduğu için (oran < 5) herhangi bir indirim uygulanmamış, sadece %30'luk artış yansıtılmıştır.",
+        "EN": "Note: As the entered limit is more than 20% of the total sum insured (ratio < 5), no discount has been applied, only the 30% increase is reflected."
+    },
+    "btn_calc": {"TR": "HESAPLA", "EN": "CALCULATE"},
+    "coverage_pd_combined": {"TR": "Yangın (Bina, Makine, Emtea vb.)", "EN": "Fire (Building, Machinery, Commodity etc.)"},
+    "coverage_bi": {"TR": "Kar Kaybı", "EN": "Business Interruption"}, # Zaten olabilir
+    "coverage_ec": {"TR": "Elektronik Cihaz", "EN": "Electronic Equipment"}, # Zaten olabilir
+    "coverage_mk": {"TR": "Makine Kırılması", "EN": "Machinery Breakdown"}, # Zaten olabilir
+    "current_entered_sums_header": {
+        "TR": "Anlık Girilen Toplam Bedeller",
+        "EN": "Currently Entered Total Sums"
+    },
+     "earthquake_zones_nav": {
+        "TR": "🗺️ Deprem Bölgeleri", 
+        "EN": "🗺️ Earthquake Zones"
+    },
+    "earthquake_zones_search": {
+        "TR": "🗺️ Deprem Bölgeleri", 
+        "EN": "🗺️ Earthquake Zones"
+    },
+    "coverage_car_ear": {"TR": "CAR/EAR", "EN": "CAR/EAR"},
+    "coverage_cpm": {"TR": "İnşaat Makineleri (CPM)", "EN": "Construction Plant & Machinery (CPM)"},
+    "coverage_cpe": {"TR": "Şantiye Tesisleri (CPE)", "EN": "Construction/Erection Site Equipment (CPE)"},
+    "table_col_coverage_type": {"TR": "Teminat", "EN": "Coverage"}, # Zaten olabilir
+    "table_col_sum_insured": {"TR": "Bedel", "EN": "Sum Insured"}, # Zaten olabilir
+    "table_col_rate_permille": {"TR": "Fiyat (%o)", "EN": "Rate (%o)"}, # Zaten olabilir
+    "table_col_premium": {"TR": "Prim", "EN": "Premium"}, # Zaten olabilir
+    "total_overall": {"TR": "Toplam", "EN": "Total"}, # Zaten olabilir
+    "results_table_header": {"TR": "Sonuç Tablosu", "EN": "Results Table"},
+    "learn_earthquake_zone_button": {
+        "TR": "Deprem Bölgelerini Öğren",
+        "EN": "Learn Earthquake Zones"
+    },
+    "group_label_format": {"TR": "{group_char} Kümülü", "EN": "{group_char} Aggregate"},
+    "current_entered_sums_raw_header": {"TR": "Anlık Girilen Toplam Bedel", "EN": "Current Entered Totals"},
+    "total_entered_pd_sum_raw": {"TR": "Toplam PD Bedeli", "EN": "Total PD Sum"},
+    "download_pdf_button": {
+        "TR": "PDF Olarak İndir",
+        "EN": "Download as PDF"
+    },
+    "download_excel_button": {
+        "TR": "Excel Olarak İndir",
+        "EN": "Download as Excel"
+    },
+    "info_limit_no_discount_high_ratio": {
+        "TR": "Not: Hesaplanan oran ({ratio}%) %20'den büyük olduğu için limitli poliçe indirimi uygulanmamıştır.",
+        "EN": "Note: Since the calculated ratio ({ratio}%) is greater than 20%, no limited policy discount has been applied."
+    },
+    "info_limit_override_koas_deduct": {
+        "TR": "ℹ️ Limitli poliçe seçildiği için hesaplama, Koasürans: {koas} ve Muafiyet: {deduct} olarak sabitlenmiştir.",
+        "EN": "ℹ️ Since a limited policy was selected, the calculation is fixed with Coinsurance: {koas} and Deductible: {deduct}."
+    },
+    "info_limit_no_discount": {
+        "TR": "Not: Girilen limit, toplam bedelin %20'sinden fazla olduğu için (oran < 5) herhangi bir indirim uygulanmamış, sadece %30'luk artış yansıtılmıştır.",
+        "EN": "Note: As the entered limit is more than 20% of the total sum insured (ratio < 5), no discount has been applied, only the 30% increase is reflected."
+    },
+    "fx_rate_pdf": {
+        "TR": "Kur Değeri",
+        "EN": "Exchange Rate"
+    },
+    "location_info_header": {
+        "TR": "Lokasyon Bilgileri",
+        "EN": "Location Information"
+    },
+    "premium_summary_header": {
+        "TR": "Prim Özeti",
+        "EN": "Premium Summary"
+    },
+    "error_koas_not_allowed": {
+        "TR": "Toplam yangın bedeli 3.500.000.000 TRY altında olan teminatlar için bu koasürans oranı seçilemez.",
+        "EN": "For coverages with a total fire value below 3,500,000,000 TRY, this coinsurance rate cannot be selected."
+    },
+    "summary_sheet_name": {
+        "TR":"İcmal Tablosu",
+        "EN":"Summary Table"
+    },
+    "cumulative_group_suffix": {
+        "TR": " Kümülü",
+        "EN": " Aggregate"
+    },
+    "error_deduct_not_allowed": {
+        "TR": "Toplam yangın bedeli 3.500.000.000 TRY altında olan teminatlar için bu muafiyet oranı seçilemez.",
+        "EN": "For coverages with a total fire value below 3,500,000,000 TRY, this deductible rate cannot be selected."
+    },
+    "excel_header_fire": {
+        "TR": "Yangın",
+        "EN": "Fire"
+    },
+    "excel_header_bi": {
+        "TR": "Kar Kaybı (BI)",
+        "EN": "Business Interruption (BI)"
+    },
+    "excel_header_total": {
+        "TR": "Toplam",
+        "EN": "Total"
+    },
+    "warning_no_sum_insured": {
+        "TR": "Hesaplama yapmak için lütfen en az bir bedel giriniz.",
+        "EN": "Please enter at least one sum insured to perform a calculation."
+    },
+    "roadmap_page_nav": {
+        "TR": "Yakında",
+        "EN": "Coming Soon"
+    },
+    "roadmap_title": {
+        "TR": "Yakında TariffEQ'da",
+        "EN": "Coming Soon to TariffEQ"
+    },
+    "roadmap_subtitle": {
+        "TR": "Gelişmiş Risk Yönetimi Araçları Yolda",
+        "EN": "Advanced Risk Management Tools Are on the Way"
+    },
+    "roadmap_intro": {
+        "TR": "TariffEQ olarak, sadece teknik tarife hesaplaması sunmakla kalmıyor; geleceğin sigortacılığına uygun akıllı araçlar geliştiriyoruz.",
+        "EN": "At TariffEQ, we don't just offer technical tariff calculations; we are developing smart tools for the future of insurance."
+    },
+    "ai_analysis_header": {
+        "TR": "AI Destekli Risk Analizi",
+        "EN": "AI-Powered Risk Analysis"
+    },
+    "ai_analysis_desc": {
+        "TR": "Yapı tipi, lokasyon, kullanım amacı ve sektörel veriler ışığında;",
+        "EN": "Based on building type, location, purpose of use, and industry data;"
+    },
+    "ai_analysis_item1": {
+        "TR": "Depreme bağlı PD (Physical Damage)",
+        "EN": "Earthquake-related PD (Physical Damage)"
+    },
+    "ai_analysis_item2": {
+        "TR": "BI (Business Interruption / Kar Kaybı) riski skorlama bazlı analizlerle değerlendirilecek.",
+        "EN": "BI (Business Interruption) risk will be assessed through score-based analysis."
+    },
+    "simulation_header": {
+        "TR": "Simülasyonlu Deprem Primi Hesabı",
+        "EN": "Simulated Earthquake Premium Calculation"
+    },
+    "simulation_desc": {
+        "TR": "Yeni sürümle birlikte:",
+        "EN": "With the new version:"
+    },
+    "simulation_item1": {
+        "TR": "Koasürans oranı ve tüm muafiyet alternatiflerine göre farklı senaryolar",
+        "EN": "Different scenarios based on coinsurance rates and all deductible alternatives"
+    },
+    "simulation_item2": {
+        "TR": "Farklı limit ve tazminat yapıları için tek tuşla karşılaştırmalı prim hesaplama imkanı sunuyoruz.",
+        "EN": "We offer one-click comparative premium calculations for different limits and indemnity structures."
+    },
+    "limit_tool_header": {
+        "TR": "Optimum Limit Belirleme Aracı",
+        "EN": "Optimal Limit Determination Tool"
+    },
+    "limit_tool_desc": {
+        "TR": "Teminat limiti belirlemek artık bir varsayım değil:",
+        "EN": "Determining the coverage limit is no longer a guess:"
+    },
+    "limit_tool_item1": {
+        "TR": "Deprem senaryoları ve ekonomik göstergelerle desteklenen lokasyon bazlı optimum limit önerileri, yapay zekâ destekli olarak sunulacak.",
+        "EN": "AI-powered, location-based optimal limit recommendations supported by earthquake scenarios and economic indicators will be provided."
+    },
+    "reporting_header": {
+        "TR": "Çıktı & Raporlama Araçları",
+        "EN": "Output & Reporting Tools"
+    },
+    "reporting_desc": {
+        "TR": "Yapılan her hesaplama;",
+        "EN": "Every calculation performed will be supported by features like;"
+    },
+    "reporting_item1": {
+        "TR": "PDF ve Excel formatında çıktı desteği",
+        "EN": "Output support in PDF and Excel formats"
+    },
+    "reporting_item2": {
+        "TR": "İlgili kişilere e-posta ile gönderim gibi özelliklerle desteklenecek.",
+        "EN": "Sending results via email to relevant parties."
+    },
+    "corporate_header": {
+        "TR": "Kurumsal Paketler",
+        "EN": "Corporate Packages"
+    },
+    "corporate_desc": {
+        "TR": "TariffEQ, yakında sigorta brokerleri, acenteler ve risk yöneticileri için:",
+        "EN": "TariffEQ will soon offer professional packages for insurance brokers, agents, and risk managers, including:"
+    },
+    "corporate_item1": {
+        "TR": "Çok kullanıcılı kurumsal hesaplar",
+        "EN": "Multi-user corporate accounts"
+    },
+    "corporate_item2": {
+        "TR": "CRM sistemlerine entegrasyon",
+        "EN": "Integration with CRM systems"
+    },
+    "corporate_item3": {
+        "TR": "API ile teklif altyapısına bağlantı gibi profesyonel paketlerle sunulacak.",
+        "EN": "API connection to quotation infrastructures."
+    },
+    "demo_header": {
+        "TR": "Demo Sürüm Hakkında",
+        "EN": "About the Demo Version"
+    },
+    "demo_desc1": {
+        "TR": "Şu anda yayında olan sürüm, sınırlı süreliğine ücretsiz olarak erişime açıktır.",
+        "EN": "The currently live version is accessible for free for a limited time."
+    },
+    "demo_desc2": {
+        "TR": "Kısa süre içinde yalnızca kayıtlı kullanıcılar için erişilebilir hale gelecektir.",
+        "EN": "It will soon become accessible only to registered users."
+    },
+    "demo_desc3": {
+        "TR": "Daha sonra Premium sürümle birlikte bazı fonksiyonlar yalnızca abonelik ile kullanılabilecektir.",
+        "EN": "Later, with the Premium version, some functions will only be available via subscription."
+    },
+    "roadmap_conclusion": {
+        "TR": "TariffEQ ile sadece tarife değil, karar destek sistemine dönüşen bir platform yaratıyoruz.",
+        "EN": "With TariffEQ, we are creating not just a tariff tool, but a platform that transforms into a decision support system."
+    },
+    "car_ear_report_title": {
+        "TR": "CAR/EAR Deprem Primi",
+        "EN": "CAR/EAR Earthquake Premium"
+    },
+    "disclaimer_label": {
+        "TR": "Uyarı",
+        "EN": "Disclaimer"
+    },
+    "disclaimer_text": {
+        "TR" : "TariffEQ hesaplamaları bilgilendirme amaçlıdır; hukuki veya ticari bağlayıcılığı yoktur.",
+        "EN": "TariffEQ calculations are for informational purposes only and have no legal or commercial binding."
+    },
+    "info_values_locked_for_limit": {
+        "TR": "ℹ️ Limitli poliçe seçili olduğu için bedel girişleri kilitlenmiştir. Değişiklik yapmak için lütfen önce 'Limitli Poliçe Uygula' seçimini kaldırın.",
+        "EN": "ℹ️ Insured values are locked because a limited policy is selected. To make changes, please uncheck 'Apply Limited Policy' first."
+    },
 }

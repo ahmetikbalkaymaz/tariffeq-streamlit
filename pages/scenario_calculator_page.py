@@ -128,7 +128,7 @@ with st.sidebar:
     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
     st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang]) # "calc" yerine farklı bir anahtar kullanmak daha iyi olabilir
     st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) # YENİ SAYFA LİNKİ
-    st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") # Mevcut sayfa
+    # st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") # Mevcut sayfa
     st.markdown("---") # Ayırıcı
 
     # Dil seçimini kenar çubuğuna ekle

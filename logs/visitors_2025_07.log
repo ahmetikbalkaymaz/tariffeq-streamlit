@@ -1,0 +1,208 @@
+2025-07-16 13:42:54 | IP: unknown | Page: Home
+2025-07-16 13:42:57 | IP: unknown | Page: Calculate
+2025-07-16 13:54:21 | IP: 95.0.242.8 | Page: Calculate | Action: ENTER
+2025-07-16 13:54:39 | IP: 95.0.242.8 | Page: Home | Action: ENTER
+2025-07-16 13:54:41 | IP: 95.0.242.8 | Page: Calculate | Action: ENTER
+2025-07-16 13:54:41 | IP: 95.0.242.8 | Page: Home | Action: EXIT | Duration: 2s
+2025-07-16 15:06:09 | IP: 95.0.242.8 | Page: Home | Action: ENTER
+2025-07-16 15:06:09 | IP: 95.0.242.8 | EMAIL NOTIFICATION SENT
+2025-07-21 11:58:12 | IP: 213.194.78.218 | Page: Home | Action: ENTER
+2025-07-21 11:58:12 | IP: 213.194.78.218 | EMAIL NOTIFICATION SENT
+2025-07-21 11:58:20 | IP: 213.194.78.218 | Page: Home | Action: EXIT | Duration: 8s
+2025-07-21 11:58:20 | IP: 213.194.78.218 | Page: Calculate | Action: ENTER
+2025-07-21 11:58:26 | IP: 213.194.78.218 | Page: Calculate | Action: EXIT | Duration: 5s
+2025-07-23 22:42:40 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-23 22:42:40 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-23 22:42:47 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 7s
+2025-07-23 22:42:47 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-23 22:49:36 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 6m 49s
+2025-07-23 23:11:14 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: ENTER
+2025-07-23 23:18:49 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: EXIT | Duration: 7m 35s
+2025-07-23 23:20:52 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-23 23:20:52 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-23 23:21:05 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 12s
+2025-07-23 23:21:05 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-23 23:21:13 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 8s
+2025-07-23 23:45:18 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-23 23:45:18 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-23 23:45:24 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 6s
+2025-07-23 23:50:52 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: ENTER
+2025-07-23 23:55:12 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: EXIT | Duration: 4m 20s
+2025-07-23 23:56:13 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-23 23:58:13 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 1m 59s
+2025-07-23 23:59:19 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-23 23:59:19 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-23 23:59:48 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 29s
+2025-07-23 23:59:48 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: ENTER
+2025-07-24 00:00:05 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: EXIT | Duration: 17s
+2025-07-24 09:19:48 | IP: 213.194.78.218 | Page: Home | Action: ENTER
+2025-07-24 09:19:48 | IP: 213.194.78.218 | EMAIL NOTIFICATION SENT
+2025-07-24 09:21:13 | IP: 213.194.78.218 | Page: Home | Action: ENTER
+2025-07-24 09:21:13 | IP: 213.194.78.218 | EMAIL NOTIFICATION SENT
+2025-07-24 09:21:17 | IP: 213.194.78.218 | Page: Home | Action: EXIT | Duration: 3s
+2025-07-24 09:21:17 | IP: 213.194.78.218 | Page: Calculate | Action: ENTER
+2025-07-24 09:21:23 | IP: 213.194.78.218 | Page: Calculate | Action: EXIT | Duration: 6s
+2025-07-24 09:21:24 | IP: 213.194.78.218 | Page: Earthquake_Zones | Action: ENTER
+2025-07-24 09:21:32 | IP: 213.194.78.218 | Page: Earthquake_Zones | Action: EXIT | Duration: 7s
+2025-07-24 09:28:04 | IP: 213.194.78.218 | Page: Home | Action: ENTER
+2025-07-24 09:28:04 | IP: 213.194.78.218 | EMAIL NOTIFICATION SENT
+2025-07-24 09:29:37 | IP: 213.194.78.218 | Page: Home | Action: EXIT | Duration: 1m 32s
+2025-07-24 09:29:37 | IP: 213.194.78.218 | Page: Earthquake_Zones | Action: ENTER
+2025-07-24 09:29:38 | IP: 213.194.78.218 | Page: Calculate | Action: ENTER
+2025-07-24 09:29:41 | IP: 213.194.78.218 | Page: Earthquake_Zones | Action: EXIT | Duration: 3s
+2025-07-24 09:29:42 | IP: 213.194.78.218 | Page: Calculate | Action: EXIT | Duration: 3s
+2025-07-24 11:31:03 | IP: 213.194.78.218 | Page: Home | Action: ENTER
+2025-07-24 11:31:03 | IP: 213.194.78.218 | EMAIL NOTIFICATION SENT
+2025-07-24 11:32:47 | IP: 213.194.78.218 | Page: Home | Action: EXIT | Duration: 1m 43s
+2025-07-24 11:32:47 | IP: 213.194.78.218 | Page: Calculate | Action: ENTER
+2025-07-24 11:33:00 | IP: 213.194.78.218 | Page: Calculate | Action: EXIT | Duration: 13s
+2025-07-24 12:19:34 | IP: 213.194.78.218 | Page: Home | Action: ENTER
+2025-07-24 12:19:34 | IP: 213.194.78.218 | EMAIL NOTIFICATION SENT
+2025-07-24 12:19:48 | IP: 213.194.78.218 | Page: Home | Action: EXIT | Duration: 14s
+2025-07-24 12:19:48 | IP: 213.194.78.218 | Page: Calculate | Action: ENTER
+2025-07-24 12:19:59 | IP: 213.194.78.218 | Page: Calculate | Action: EXIT | Duration: 10s
+2025-07-24 12:41:29 | IP: 213.194.78.218 | Page: Home | Action: ENTER
+2025-07-24 12:41:29 | IP: 213.194.78.218 | EMAIL NOTIFICATION SENT
+2025-07-24 20:06:08 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-24 20:06:08 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 20:06:13 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 4s
+2025-07-24 20:06:13 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 20:06:19 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 6s
+2025-07-24 20:22:30 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 20:22:30 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 20:22:39 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 8s
+2025-07-24 20:43:20 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 20:43:20 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 20:43:33 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 12s
+2025-07-24 20:45:00 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 20:45:00 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 20:45:28 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 28s
+2025-07-24 20:45:58 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 20:45:58 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 20:46:10 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 12s
+2025-07-24 20:47:04 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 20:47:04 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 20:47:20 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 15s
+2025-07-24 20:47:44 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 20:47:44 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 20:47:52 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 7s
+2025-07-24 20:49:39 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-24 20:49:39 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 20:49:50 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 11s
+2025-07-24 20:49:50 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 20:50:06 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 15s
+2025-07-24 20:50:19 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 20:50:19 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 20:50:59 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 40s
+2025-07-24 21:01:06 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-24 21:01:06 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-24 21:01:20 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 13s
+2025-07-26 10:12:27 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-26 10:12:27 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-26 10:12:32 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 5s
+2025-07-26 10:12:32 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-26 10:12:44 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 12s
+2025-07-27 15:10:20 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 15:10:20 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 15:10:24 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 4s
+2025-07-27 15:10:24 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:10:42 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 18s
+2025-07-27 15:11:41 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:11:41 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 15:11:50 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 9s
+2025-07-27 15:23:10 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 15:23:10 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 15:23:14 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 4s
+2025-07-27 15:23:14 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:23:22 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 8s
+2025-07-27 15:23:47 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 15:23:47 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 15:23:49 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:23:49 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 15:23:55 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 7s
+2025-07-27 15:23:55 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:25:06 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 1m 11s
+2025-07-27 15:26:42 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:26:42 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 15:26:51 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 9s
+2025-07-27 15:33:37 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 15:33:37 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 15:33:41 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 3s
+2025-07-27 15:33:41 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:33:49 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 7s
+2025-07-27 15:35:01 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 15:35:01 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 15:35:04 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 3s
+2025-07-27 15:35:04 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:35:11 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 7s
+2025-07-27 15:38:18 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 15:38:18 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 15:38:21 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 3s
+2025-07-27 15:38:22 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:38:31 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 9s
+2025-07-27 15:39:15 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 15:39:15 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 16:07:27 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 16:07:27 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 16:07:30 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 3s
+2025-07-27 16:07:30 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 16:07:40 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 10s
+2025-07-27 16:09:05 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 16:09:05 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 16:09:09 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 3s
+2025-07-27 16:09:09 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 16:09:17 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 8s
+2025-07-27 16:46:20 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 16:46:20 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 16:46:47 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 26s
+2025-07-27 16:46:50 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 16:46:50 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 16:47:05 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 15s
+2025-07-27 18:08:27 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 18:08:38 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 11s
+2025-07-27 18:33:33 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 18:33:33 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 18:33:36 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 18:33:38 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 5s
+2025-07-27 18:33:38 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 18:33:44 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 5s
+2025-07-27 18:34:45 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 18:34:45 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 18:34:50 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 4s
+2025-07-27 18:47:10 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 18:47:10 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 18:47:14 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 4s
+2025-07-27 18:52:03 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 18:52:03 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 18:52:07 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 4s
+2025-07-27 18:52:07 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 18:52:12 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 4s
+2025-07-27 18:54:33 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 18:54:44 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 18:54:44 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 18:54:48 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 4s
+2025-07-27 18:54:48 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 18:54:51 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 3s
+2025-07-27 18:56:58 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 18:56:58 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 18:57:02 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 3s
+2025-07-27 19:00:15 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 19:00:51 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 35s
+2025-07-27 19:04:21 | IP: 31.223.77.143 | Page: Earthquake_Zones | Action: ENTER
+2025-07-27 19:04:24 | IP: 31.223.77.143 | Page: Earthquake_Zones | Action: EXIT | Duration: 3s
+2025-07-27 19:43:27 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 19:43:27 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 19:44:20 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 53s
+2025-07-27 19:46:15 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 19:46:15 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 19:46:17 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 3s
+2025-07-27 19:46:17 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 19:46:25 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 7s
+2025-07-27 19:52:26 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 19:52:26 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 19:52:40 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 14s
+2025-07-27 19:52:40 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 19:52:46 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 6s
+2025-07-27 19:56:30 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
+2025-07-27 19:56:30 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 19:56:40 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 10s
