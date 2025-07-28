@@ -2,6 +2,7 @@ import pandas as pd
 import io
 from openpyxl.styles import Font
 from translations import T
+from datetime import date
 
 def create_fire_excel(
     locations_data,
@@ -19,13 +20,21 @@ def create_fire_excel(
     ui_helpers,
     language="TR",
     scenario_data=None,
-    apply_limited_policy=False, # YENİ: Argüman eklendi
-    limited_policy_limit=0      # YENİ: Argüman eklendi
+    apply_limited_policy=False,
+    limited_policy_limit=0,
+    fx_info="" # YENİ: Parametre eklendi
 ):
     """
     Hesaplanan prim ve bedel tablolarını, her grup için ayrı bir sayfada olacak şekilde
     bir Excel dosyası olarak oluşturur.
     """
+    # YENİ: Limitli poliçe durumuna göre gösterilecek koasürans/muafiyet değerlerini belirle
+    if apply_limited_policy:
+        koas_display = "-"
+        deduct_display = "-"
+    else:
+        koas_display = koas
+        deduct_display = f"{deduct}%"
 
     def _tr_excel(key):
         return T.get(key, {}).get(language, key)
@@ -33,10 +42,34 @@ def create_fire_excel(
 
     # Excel dosyasını bir context manager ile oluşturuyoruz, bu sayede otomatik olarak kaydedilir.
     with pd.ExcelWriter(output, engine='openpyxl') as writer:
-        
-        # Excel'de kullanılacak para birimi formatını belirliyoruz.
-        currency_format = f'"{display_currency}" #,##0.00'
+        # YENİ: Sayı formatlarını tanımla
+        currency_format = f'#,##0.00 "{display_currency}"'
         rate_format = '0.0000'
+
+        # --- Genel Bilgiler Sayfası ---
+        info_data = {
+            _tr_excel("info_label"): [_tr_excel("report_date"), _tr_excel("currency"), _tr_excel("koas"), _tr_excel("deduct"), _tr_excel("inflation_rate")],
+            _tr_excel("info_value"): [date.today().strftime('%d.%m.%Y'), currency_fire, koas_display, deduct_display, f"{inflation_rate}%"]
+        }
+        # YENİ: Dövizli poliçe ise kur bilgisini ekle
+        if currency_fire != "TRY":
+            info_data[_tr_excel("info_label")].insert(2, _tr_excel("exchange_rate_info"))
+            info_data[_tr_excel("info_value")].insert(2, fx_info)
+
+        if apply_limited_policy:
+            info_data[_tr_excel("info_label")].append(_tr_excel("limited_policy_limit"))
+            info_data[_tr_excel("info_value")].append(limited_policy_limit)
+
+        df_info = pd.DataFrame(info_data)
+
+        # Genel Bilgiler sayfasını oluştur
+        sheet_name_info = _tr_excel("general_info_sheet_name")
+        df_info.to_excel(writer, sheet_name=sheet_name_info, index=False, header=False)
+
+        worksheet_info = writer.sheets[sheet_name_info]
+        for column_cells in worksheet_info.columns:
+            max_length = max(len(str(cell.value)) for cell in column_cells)
+            worksheet_info.column_dimensions[column_cells[0].column_letter].width = max_length + 2
 
         # --- İcmal (Özet) Tablosu için verileri toplama ---
         icmal_data_summary = {
@@ -147,15 +180,18 @@ def create_fire_excel(
                 worksheet_icmal.column_dimensions[column_cells[0].column_letter].width = max_length + 2
 
         # --- Senaryo Analizi Sayfasını Oluşturma ---
-        if scenario_data and scenario_data.get('calculated_scenarios'):
+        if not apply_limited_policy and scenario_data and scenario_data.get('calculated_scenarios'):
             scenarios_list = []
             main_total_premium_orig = total_premium_all_groups_try / display_fx_rate
             
+            # Oran hesaplaması için toplam PD ve BI bedelini al
             total_pd_sum_orig = sum(g.get("building", 0) + g.get("fixture", 0) + g.get("decoration", 0) + g.get("commodity", 0) + g.get("safe", 0) + g.get("machinery", 0) for g in groups_determined.values())
             total_bi_sum_orig = sum(g.get("bi", 0) for g in groups_determined.values())
-            total_scenario_sum_orig = (total_pd_sum_orig + total_bi_sum_orig) # Orijinal para biriminde
+            total_scenario_sum_orig = (total_pd_sum_orig + total_bi_sum_orig)
 
             main_rate = (main_total_premium_orig / total_scenario_sum_orig) * 1000 if total_scenario_sum_orig > 0 else 0.0
+            
+            # Ana senaryo satırı
             scenarios_list.append({
                 _tr_excel('scenario_name'): f"{_tr_excel('main_scenario_name')} ({koas} - {deduct}%)",
                 _tr_excel('coinsurance_label'): koas,
@@ -165,6 +201,7 @@ def create_fire_excel(
                 f"{_tr_excel('difference_from_main')} (%)": "-"
             })
 
+            # Diğer senaryolar
             for scenario in scenario_data['calculated_scenarios']:
                 scenario_total_premium_try = sum(g['pd_premium_try'] + g['bi_premium_try'] for g in scenario['results_per_group'])
                 scenario_total_premium_orig = scenario_total_premium_try / display_fx_rate
@@ -222,27 +259,19 @@ def create_car_excel(data, ui_helpers, language="TR"):
 
     output = io.BytesIO()
     with pd.ExcelWriter(output, engine='openpyxl') as writer:
-        
-        # --- Veri Çerçevelerini (DataFrames) Oluşturma ---
-
-        # 1. Riziko Bilgileri
-        risk_info_dict = {
-            _tr('risk_group_type'): 'A' if data['risk_group_type'] == 'RiskGrubuA' else 'B',
-            _tr('risk_class'): data['risk_class'],
-            _tr('start_date'): data['start_date'],
-            _tr('end_date'): data['end_date'],
-            _tr('duration'): f"{data['duration_months']} {_tr('months')}",
-            _tr('currency'): data['currency'],
-            _tr('koas'): data['koas'],
-            _tr('deduct'): f"{data['deduct']}%",
-            _tr('inflation_rate'): f"{data['inflation_rate']}%"
+        # --- Riziko Bilgileri ---
+        risk_info = {
+            _tr("info_label"): [_tr("report_date"), _tr("currency"), _tr("risk_group_type"), _tr("risk_class"), _tr("start_date"), _tr("end_date"), _tr("duration"), _tr("koas"), _tr("deduct"), _tr("inflation_rate")],
+            _tr("info_value"): [date.today().strftime('%d.%m.%Y'), data.get('currency', '-'), data.get('risk_group_type', '-'), data.get('risk_class', '-'), data.get('start_date').strftime('%d.%m.%Y'), data.get('end_date').strftime('%d.%m.%Y'), f"{data.get('duration_months', '-')} Ay", data.get('koas', '-'), f"{data.get('deduct', '-')}%", f"{data.get('inflation_rate', 0.0)}%"]
         }
-        if data['currency'] != 'TRY':
-            risk_info_dict[f"{_tr('fx_rate_pdf')} (1 {data['currency']})"] = data['fx_rate']
-        
-        df_risk_info = pd.DataFrame(risk_info_dict.items(), columns=[_tr('risk_information_title'), ''])
-        
-        # 2. Prim Özeti
+        # YENİ: Dövizli poliçe ise kur bilgisini ekle
+        if data.get('currency') != "TRY" and data.get('fx_info'):
+            risk_info[_tr("info_label")].insert(2, _tr("exchange_rate_info"))
+            risk_info[_tr("info_value")].insert(2, data.get('fx_info'))
+
+        df_risk_info = pd.DataFrame(risk_info)
+
+        # --- Prim Detayları ---
         display_currency = data['currency']
         fx_rate = data.get('fx_rate', 1.0)
 
@@ -300,6 +329,51 @@ def create_car_excel(data, ui_helpers, language="TR"):
         for column_cells in worksheet.columns:
             max_length = max(len(str(cell.value).strip()) for cell in column_cells if cell.value)
             worksheet.column_dimensions[column_cells[0].column_letter].width = max_length + 4
+
+        # YENİ: Senaryo Analizi Sayfasını Oluşturma
+        scenario_data = data.get('scenario_data')
+        if scenario_data:
+            scenarios_list = []
+            main_total_premium_orig = data['total_premium_try'] / fx_rate
+            
+            # Ana senaryo satırı
+            scenarios_list.append({
+                _tr('scenario_name'): f"{_tr('main_scenario_name')} ({data['koas']} - {data['deduct']}%)",
+                _tr('coinsurance_label'): data['koas'],
+                f"{_tr('deductible_label')} (%)": data['deduct'],
+                f"{_tr('total_premium_try')} ({display_currency})": main_total_premium_orig,
+                f"{_tr('difference_from_main')} (%)": "-"
+            })
+
+            # Diğer senaryolar
+            for scenario in scenario_data:
+                scenario_total_premium_orig = scenario['total_premium'] / fx_rate
+                percentage_diff = ((scenario_total_premium_orig - main_total_premium_orig) / main_total_premium_orig) * 100 if main_total_premium_orig > 0 else 0
+                
+                scenarios_list.append({
+                    _tr('scenario_name'): scenario['name'],
+                    _tr('coinsurance_label'): scenario['koas_key'],
+                    f"{_tr('deductible_label')} (%)": scenario['deduct_key'],
+                    f"{_tr('total_premium_try')} ({display_currency})": scenario_total_premium_orig,
+                    f"{_tr('difference_from_main')} (%)": f"{percentage_diff:+.1f}%"
+                })
+            
+            scenario_df = pd.DataFrame(scenarios_list)
+            if not scenario_df.empty:
+                sheet_name_scenario = _tr("scenario_analysis_sheet_name")
+                scenario_df.to_excel(writer, sheet_name=sheet_name_scenario, index=False)
+
+                worksheet_scenario = writer.sheets[sheet_name_scenario]
+                premium_col_name = f"{_tr('total_premium_try')} ({display_currency})"
+
+                for col_idx, col_name in enumerate(scenario_df.columns):
+                    col_letter = chr(ord('A') + col_idx)
+                    if col_name == premium_col_name:
+                        for cell in worksheet_scenario[col_letter][1:]: cell.number_format = format_orig
+
+                for column_cells in worksheet_scenario.columns:
+                    max_length = max(len(str(cell.value)) for cell in column_cells)
+                    worksheet_scenario.column_dimensions[column_cells[0].column_letter].width = max_length + 2
 
     output.seek(0)
     return output.getvalue()

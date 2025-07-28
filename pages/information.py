@@ -7,6 +7,12 @@ if 'lang' not in st.session_state:
     st.session_state.lang = "TR"
 lang = st.session_state.lang
 
+def tr(key: str, **kwargs) -> str:
+    translation = T.get(key, {}).get(lang, key)
+    if kwargs:
+        return translation.format(**kwargs)
+    return translation
+
 # Sayfa yapılandırması
 st.set_page_config(page_title="Bilgilendirme - TariffEQ", layout="wide", page_icon="ℹ️")
 
@@ -204,3 +210,13 @@ footer_text = {
     "EN": "©️ 2025 TariffEQ. All rights reserved."
 }
 st.markdown(f"<div style='text-align: center; font-size: 0.9em; color: #64748B; margin-top: 2em; padding-top: 1em; border-top: 1px solid #E0E7FF;'>{footer_text[lang]}</div>", unsafe_allow_html=True)
+
+st.markdown("---")
+st.markdown(f"""
+<div style='text-align: center; font-size: 0.9em; color: #666; padding: 10px; background-color: #f8f9fa; border-radius: 5px; margin-top: 20px;'>
+    ⚠️ <strong>{tr('disclaimer_title')}:</strong> {tr('disclaimer_text')}
+</div>
+""", unsafe_allow_html=True)
+
+# Footer
+st.markdown(f"<div class='footer'>{T['footer'][lang]}</div>", unsafe_allow_html=True)

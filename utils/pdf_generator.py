@@ -32,8 +32,9 @@ def create_fire_pdf(
     ui_helpers,
     language="TR",
     scenario_data=None,  # YENİ PARAMETRE
-    apply_limited_policy=False, # YENİ PARAMETRE
-    limited_policy_limit=0      # YENİ PARAMETRE
+    apply_limited_policy=False,
+    limited_policy_limit=0,
+    fx_info="" # YENİ: Parametre eklendi
     ):
     """
     Hesaplama verilerini kullanarak Yangın Poliçesi için bir PDF raporu oluşturur.
@@ -45,43 +46,21 @@ def create_fire_pdf(
     # ----- Tabloları HTML olarak oluşturma -----
     
     # 1. Riziko Bilgileri Tablosu (Genel)
-    # YENİ: Limitli poliçe durumuna göre tabloyu ayarla
-    koas_display = "-" if apply_limited_policy else koas
-    deduct_display = "-" if apply_limited_policy else deduct
-    
-    risk_info_html = f"""
-        <table class="info-table">
-            <tr>
-                <td>Para Birimi</td>
-                <td>{currency_fire}</td>
-            </tr>
-            <tr>
-                <td>Lokasyon Sayısı</td>
-                <td>{num_locations}</td>
-            </tr>
-    """
-    if apply_limited_policy:
-        risk_info_html += f"""
-            <tr>
-                <td>Poliçe Limiti</td>
-                <td>{ui_helpers.format_number(limited_policy_limit, currency_fire)}</td>
-            </tr>
-        """
-    
+    risk_info_html = f"<h3>{_tr('risk_info_header', language)}</h3>"
     risk_info_html += f"""
-            <tr>
-                <td>Koasürans Oranı</td>
-                <td>{koas_display}</td>
-            </tr>
-             <tr>
-                <td>Muafiyet Oranı (%)</td>
-                <td>{deduct_display}</td>
-            </tr>
-             <tr>
-                <td>Enflasyon Artış Oranı (%)</td>
-                <td>{inflation_rate}</td>
-            </tr>
-        </table>
+    <table class="info-table">
+        <tr><td>{_tr('report_date', language)}</td><td>{today_formatted}</td></tr>
+        <tr><td>{_tr('currency', language)}</td><td>{currency_fire}</td></tr>
+    """
+    # YENİ: Dövizli poliçe ise kur bilgisini ekle
+    if currency_fire != "TRY":
+        risk_info_html += f"<tr><td>{_tr('exchange_rate_info', language)}</td><td>{fx_info}</td></tr>"
+
+    risk_info_html += f"""
+        <tr><td>{_tr('koas', language)}</td><td>{koas}</td></tr>
+        <tr><td>{_tr('deduct', language)}</td><td>{deduct}</td></tr>
+        <tr><td>{_tr('inflation_rate', language)}</td><td>{inflation_rate}</td></tr>
+    </table>
     """
 
     # 2. YENİ: Lokasyon Detayları Tablosu
@@ -112,18 +91,7 @@ def create_fire_pdf(
 
     # 3. Sonuçlar Tablosu (Teminat Bazında)
     results_html = f"<h3>{_tr('premium_summary_header', lang=language)}</h3>"
-    results_html += """
-    <table class="results-table">
-        <thead>
-            <tr>
-                <th>Teminat</th>
-                <th>Bedel</th>
-                <th>Fiyat (‰)</th>
-                <th>Prim</th>
-            </tr>
-        </thead>
-        <tbody>
-    """
+    # AŞAĞIDAKİ GEREKSİZ TABLO BAŞLIĞI KALDIRILDI
     icmal_data = {
         "Yangın": {"Bedel": 0, "Prim": 0},
         "Kar Kaybı": {"Bedel": 0, "Prim": 0},
@@ -210,7 +178,7 @@ def create_fire_pdf(
 
     # İcmal tablosu sonrası senaryo tablosunu ekle
     scenario_html = ""
-    # YENİ: Limitli poliçe seçiliyse senaryo tablosunu oluşturma
+    # Kural: Limitli poliçe seçiliyse senaryo tablosunu oluşturma
     if not apply_limited_policy and scenario_data and scenario_data.get('calculated_scenarios'):
         scenario_html = f"<h3>{_tr('scenario_analysis_title', language)}</h3>"
         scenario_html += f"""
@@ -350,19 +318,26 @@ def create_car_pdf(data, ui_helpers, language="TR"):
     # ----- Tabloları HTML olarak oluşturma -----
 
     # 1. Riziko Bilgileri Tablosu
-    risk_info_html = f"""
-        <table class="info-table">
-            <tr><td>{_tr("risk_group_type", lang=language)}</td><td>{data['risk_group_type'].replace('RiskGrubu', '')}</td></tr>
-            <tr><td>{_tr("risk_class", lang=language)}</td><td>{data['risk_class']}</td></tr>
-            <tr><td>{_tr("start_date", lang=language)}</td><td>{data['start_date'].strftime('%d.%m.%Y')}</td></tr>
-            <tr><td>{_tr("end_date", lang=language)}</td><td>{data['end_date'].strftime('%d.%m.%Y')}</td></tr>
-            <tr><td>{_tr("duration", lang=language)}</td><td>{data['duration_months']} {_tr("months", lang=language)}</td></tr>
-            <tr><td>{_tr("currency", lang=language)}</td><td>{currency}</td></tr>
-            {'<tr><td>' + _tr('fx_rate_pdf', lang=language) + ' (1 ' + currency + ')</td><td>' + str(round(fx_rate, 4)) + '</td></tr>' if currency != 'TRY' else ''}
-            <tr><td>{_tr("koas", lang=language)}</td><td>{data['koas']}</td></tr>
-            <tr><td>{_tr("deduct", lang=language)}</td><td>{data['deduct']}%</td></tr>
-            <tr><td>{_tr("inflation_rate", lang=language)}</td><td>{data['inflation_rate']}%</td></tr>
-        </table>
+    risk_info_html = f"<h3>{_tr('policy_info_header', language)}</h3>"
+    risk_info_html += f"""
+    <table class="info-table">
+        <tr><td>{_tr('report_date', language)}</td><td>{today_formatted}</td></tr>
+        <tr><td>{_tr('currency', language)}</td><td>{data.get('currency', '-')}</td></tr>
+    """
+    # YENİ: Dövizli poliçe ise kur bilgisini ekle
+    if data.get('currency') != "TRY" and data.get('fx_info'):
+        risk_info_html += f"<tr><td>{_tr('exchange_rate_info', language)}</td><td>{data.get('fx_info')}</td></tr>"
+
+    risk_info_html += f"""
+        <tr><td>{_tr('risk_group_type', language)}</td><td>{data.get('risk_group_type', '-')}</td></tr>
+        <tr><td>{_tr('risk_class', language)}</td><td>{data.get('risk_class', '-')}</td></tr>
+        <tr><td>{_tr('start_date', language)}</td><td>{data['start_date'].strftime('%d.%m.%Y')}</td></tr>
+        <tr><td>{_tr('end_date', language)}</td><td>{data['end_date'].strftime('%d.%m.%Y')}</td></tr>
+        <tr><td>{_tr('duration', language)}</td><td>{data['duration_months']} {_tr('months', language)}</td></tr>
+        <tr><td>{_tr('koas', language)}</td><td>{data['koas']}</td></tr>
+        <tr><td>{_tr('deduct', language)}</td><td>{data['deduct']}%</td></tr>
+        <tr><td>{_tr('inflation_rate', language)}</td><td>{data['inflation_rate']}%</td></tr>
+    </table>
     """
 
     # 2. Ana Sonuçlar Tablosu

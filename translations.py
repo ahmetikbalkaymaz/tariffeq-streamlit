@@ -61,7 +61,7 @@ T = {
     "decoration_sum_help": {"TR": "Dekorasyon için sigorta bedeli.", "EN": "Sum insured for decoration."},
     "commodity_sum": {"TR": "Emtea Bedeli", "EN": "Commodity Sum Insured"},
     "commodity_sum_help": {"TR": "İşyerinizdeki ticari malların (hammadde, yarı mamul, mamul) toplam değeri.", "EN": "Total value of commercial goods (raw materials, semi-finished, finished products) in your workplace."},
-    "commodity_is_subscription": {"TR": "Emtea Abonman mı?", "EN": "Commodity Subscription?"},
+    "commodity_is_subscription": {"TR": "Emtea Abonman mı?", "EN": "Floating Policy?"},
     "commodity_is_subscription_help": {"TR": "Eğer emtia bedeli abonman poliçesi kapsamında ise işaretleyiniz (bedelin %40'ı dikkate alınır).", "EN": "Check if the commodity value is under a subscription policy (40% of the value is considered)."},
     "safe_sum": {"TR": "Kasa Muhteviyatı Bedeli", "EN": "Safe Contents Sum"},
     "safe_sum_help": {"TR": "Kasa için sigorta bedeli.", "EN": "Sum insured for the safe."},
@@ -79,7 +79,7 @@ T = {
     "koas_help": {"TR": "Örnek: (80/20) -  %80 Sigortacı , %20 Sigortalı Üzerinde Kalan Kısımdır.", "EN": "Example: (80/20) – 80% is carried by the Insurer, and the remaining 20% is retained by the Insured"},
     "deduct": {"TR": "Muafiyet Oranı (%)", "EN": "Deductible (%)"},
     "deduct_help": {"TR": "Her hasarda bina sigorta bedeli üzerinden uygulanır. Min. %2, artırılabilir (max. %35 indirim).", "EN": "Applied per loss on the building sum insured. Min. 2%, can be increased (max. 35% discount)."},
-    "inflation_rate": {"TR": "Enflasyon Artış Oranı (%)", "EN": "Inflation Increase Rate (%)"},
+    "inflation_rate": {"TR": "Enflasyon Artış Oranı (%)", "EN": "Inflation Rate (%)"},
     "inflation_rate_help": {
         "TR": "Poliçe vadesi boyunca beklenen enflasyon oranını girin. Bu oran, sigorta bedellerini korumak için kullanılır.",
         "EN": "Enter the expected inflation rate for the policy term. This rate is used to protect the sums insured."
@@ -100,9 +100,9 @@ T = {
     "ded_help": {"TR": "Her hasarda sigorta bedeli üzerinden uygulanır. Min. %2, artırılabilir (max. %35 indirim).", "EN": "Applied per loss on the sum insured. Min. 2%, can be increased (max. 35% discount)."}, # "deduct_help" zaten var.
     "project": {"TR": "Proje Bedeli (CAR & EAR)", "EN": "Project Sum Insured (CAR & EAR)"},
     "project_help": {"TR": "Proje nihai değeri (gümrük, vergi, nakliye ve işçilik dahil). Min. sözleşme bedeli kadar olmalı.", "EN": "Final project value (including customs, taxes, transport, and labor). Must be at least the contract value."},
-    "cpm": {"TR": "İnşaat Makineleri (CPM)", "EN": "Construction Machinery (CPM)"},
+    "cpm": {"TR": "İnşaat Makineleri (CPM)", "EN": "Construction Plant Machinery (CPM)"},
     "cpm_help": {"TR": "İnşaat makineleri için teminat bedeli. Aynı riziko adresinde kullanılmalı.", "EN": "Sum insured for construction machinery. Must be used at the same risk address."},
-    "cpe": {"TR": "Şantiye Tesisleri (CPE)", "EN": "Site Facilities (CPE)"},
+    "cpe": {"TR": "Şantiye Tesisleri (CPE)", "EN": "Construction Plant Equipment (CPE)"},
     "cpe_help": {"TR": "Şantiye tesisleri için teminat bedeli. Aynı riziko adresinde bulunmalı.", "EN": "Sum insured for site facilities. Must be at the same risk address."},
     "total_premium": {"TR": "Toplam Minimum Prim", "EN": "Total Minimum Premium"},
     "car_premium": {"TR": "CAR Primi", "EN": "CAR Premium"},
@@ -618,7 +618,7 @@ T = {
         "TR": "Deprem Bölgelerini Öğren",
         "EN": "Learn Earthquake Zones"
     },
-    "group_label_format": {"TR": "{group_char} Kümülü", "EN": "{group_char} Aggregate"},
+    "group_label_format": {"TR": "{group_char} Kümülü", "EN": "{group_char} Accumulation"},
     "current_entered_sums_raw_header": {"TR": "Anlık Girilen Toplam Bedel", "EN": "Current Entered Totals"},
     "total_entered_pd_sum_raw": {"TR": "Toplam PD Bedeli", "EN": "Total PD Sum"},
     "total_entered_bi_sum_raw": {"TR": "Toplam BI Bedeli", "EN": "Total BI Sum"},
@@ -1169,6 +1169,74 @@ T = {
     },
     "mk_mobile_cover_help": {
         "TR": "Hareketli Makine Bedeli",
-        "EN": "Mobile Machine Coverage"
+        "EN": "Sum Insured for mobile machinery"
+    },
+    "total_label": {
+        "TR": "Toplam",
+        "EN": "Total"
+    },
+    "info_limit_policy_sums_locked": {
+        "TR": "ℹ️ Limitli poliçe seçildiği için toplam bedeller ve oranlar otomatik olarak hesaplanır ve kilitlenir. Değişiklik yapmak için lütfen 'Limitli Poliçe Uygula' seçimini kaldırın.",
+        "EN": "ℹ️ Since a limited policy is selected, total sums and rates are calculated automatically and locked. To make changes, please uncheck 'Apply Limited Policy' first."
+    },
+    "fire": {
+        "TR": "Yangın",
+        "EN": "Fire"
+    },
+    "bi": {
+        "TR": "Kar Kaybı",
+        "EN": "Business Interruption"
+    },
+    "ec": {
+        "TR": "Elektronik Cihaz",
+        "EN": "Electronic Equipment"
+    },
+    "mb": {
+        "TR": "Makine Kırılması",
+        "EN": "Machinery Breakdown"
+    },
+    "total": {
+        "TR": "Toplam",
+        "EN": "Total"
+    },
+    "building_type_betonarme": {
+        "TR": "Betonarme",
+        "EN": "Reinforced Concrete"
+    },
+    "building_type_diğer": {
+        "TR": "Diğer",
+        "EN": "Other"
+    },
+    "disclaimer_title": {
+        "TR": "Yasal Uyarı",
+        "EN": "Disclaimer"
+    },
+    "disclaimer_text": {
+        "TR": "TariffEQ hesaplamaları bilgilendirme amaçlıdır; hukuki veya ticari bağlayıcılığı yoktur.",
+        "EN": "TariffEQ calculations are for informational purposes only; they have no legal or commercial binding."
+    },
+    "fx_info_tcmb_rate": {
+        "TR": "TCMB Kuru",
+        "EN": "CBRT Rate"
+    },
+    "fx_info_used_rate": {
+        "TR": "Kullanılan Kur",
+        "EN": "Used Rate"
+    },
+    "currency_try_short": {
+        "TR": "TL",
+        "EN": "TRY"
+    },
+    "cbrt_short": {
+        "TR": "TCMB",
+        "EN": "CBRT"
+    },
+    "fx_source_manual": {
+        "TR": "MANUEL",
+        "EN": "MANUAL"
+    },
+    "exchange_rate_info": {
+        "TR": "Kur Bilgisi",
+        "EN": "Exchange Rate Info"
     },
 }

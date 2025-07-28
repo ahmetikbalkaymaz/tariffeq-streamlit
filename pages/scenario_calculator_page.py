@@ -761,4 +761,14 @@ else:
 # CSS stillerini ekleyebilirsiniz (calculate.py'den benzer şekilde)
 # st.markdown("""<style>...</style>""", unsafe_allow_html=True)
 
+st.markdown("---")
+st.markdown(f"""
+<div style='text-align: center; font-size: 0.9em; color: #666; padding: 10px; background-color: #f8f9fa; border-radius: 5px; margin-top: 20px;'>
+    ⚠️ <strong>{tr('disclaimer_title')}:</strong> {tr('disclaimer_text')}
+</div>
+""", unsafe_allow_html=True)
+
+# Footer
+st.markdown(f"<div class='footer'>{T['footer'][lang]}</div>", unsafe_allow_html=True)
+
 

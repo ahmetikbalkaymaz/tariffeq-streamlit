@@ -221,3 +221,34 @@
 2025-07-28 20:57:33 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 8s
 2025-07-28 21:00:01 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: ENTER
 2025-07-28 21:00:55 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: EXIT | Duration: 54s
+2025-07-28 21:50:38 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-28 21:50:38 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-28 21:50:43 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 5s
+2025-07-28 21:50:43 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-28 21:51:00 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 16s
+2025-07-28 21:57:21 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-28 21:57:21 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-28 21:57:28 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 6s
+2025-07-28 22:16:14 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-28 22:16:14 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-28 22:16:22 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 8s
+2025-07-28 22:43:10 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-28 22:43:10 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-28 22:43:14 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 3s
+2025-07-28 22:43:14 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-28 22:43:17 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 3s
+2025-07-28 22:53:52 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-28 22:53:52 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-28 22:55:52 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 1m 59s
+2025-07-28 22:55:52 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-28 23:02:55 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 7m 2s
+2025-07-28 23:14:43 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-28 23:14:43 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-28 23:14:53 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 9s
+2025-07-28 23:14:53 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-28 23:14:56 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 3s
+2025-07-28 23:26:05 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-28 23:26:05 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-28 23:26:14 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 8s
+2025-07-28 23:26:14 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-28 23:26:18 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 4s

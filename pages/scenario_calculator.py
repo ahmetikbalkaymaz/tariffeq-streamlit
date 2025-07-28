@@ -712,3 +712,14 @@ else: # scenario_data yoksa
 # "TR": "Seçilen filtrelere uygun sonuç bulunamadı. Lütfen filtrelerinizi değiştirin veya tüm sonuçları görmek için sıfırlayın.",
 # "EN": "No results found for the selected filters. Please change your filters or reset to see all results."
 # },
+
+
+st.markdown("---")
+st.markdown(f"""
+<div style='text-align: center; font-size: 0.9em; color: #666; padding: 10px; background-color: #f8f9fa; border-radius: 5px; margin-top: 20px;'>
+    ⚠️ <strong>{tr('disclaimer_title')}:</strong> {tr('disclaimer_text')}
+</div>
+""", unsafe_allow_html=True)
+
+# Footer
+st.markdown(f"<div class='footer'>{T['footer'][lang]}</div>", unsafe_allow_html=True)

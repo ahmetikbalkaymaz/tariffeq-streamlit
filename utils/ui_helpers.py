@@ -115,17 +115,17 @@ def fx_input(ccy: str, key_prefix: str) -> tuple[float, str]:
     
     # Eğer girilen kur, TCMB'den çekilen kurdan farklıysa, kaynağı MANUEL yap
     if new_rate != st.session_state.get(tcmb_rate_key, 0.0): # TCMB kuru yoksa 0 ile karşılaştır
-        st.session_state[s_key] = "MANUEL"
+        st.session_state[s_key] = "fx_source_manual" # YENİ: Sabit metin yerine anahtar kullan
     else: # Aynıysa TCMB
-        st.session_state[s_key] = "TCMB"
+        st.session_state[s_key] = "cbrt_short" # YENİ: Sabit metin yerine anahtar kullan
     
     # Kullanılan kuru güncelle
     st.session_state[r_key] = new_rate
     
     # Bilgi mesajı
     info_message = (
-        f"💱 TCMB Kuru: 1 {ccy} = {st.session_state[tcmb_rate_key]:,.4f} TL (TCMB, {st.session_state[tcmb_date_key]}) | "
-        f"Kullanılan Kur: 1 {ccy} = {st.session_state[r_key]:,.4f} TL ({st.session_state[s_key]})"
+        f"💱 {_tr('fx_info_tcmb_rate')}: 1 {ccy} = {st.session_state.get(tcmb_rate_key, 0.0):,.4f} {_tr('currency_try_short')} ({_tr('cbrt_short')}, {st.session_state.get(tcmb_date_key, '-')}) | "
+        f"{_tr('fx_info_used_rate')}: 1 {ccy} = {st.session_state.get(r_key, 0.0):,.4f} {_tr('currency_try_short')} ({_tr(st.session_state.get(s_key, '-'))})"
     )
     st.info(info_message) # Bu mesajı her zaman göster
     return st.session_state[r_key], info_message

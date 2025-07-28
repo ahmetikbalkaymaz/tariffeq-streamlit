@@ -248,3 +248,14 @@ with col2:
     st.subheader(tr("car_section_title"), anchor=False)
     st.image("files/earthquake.jpeg")
     st.caption(tr("sddk_reference_text_car"))
+
+
+st.markdown("---")
+st.markdown(f"""
+<div style='text-align: center; font-size: 0.9em; color: #666; padding: 10px; background-color: #f8f9fa; border-radius: 5px; margin-top: 20px;'>
+    ⚠️ <strong>{tr('disclaimer_title')}:</strong> {tr('disclaimer_text')}
+</div>
+""", unsafe_allow_html=True)
+
+# Footer
+st.markdown(f"<div class='footer'>{T['footer'][lang]}</div>", unsafe_allow_html=True)
