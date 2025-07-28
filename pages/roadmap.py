@@ -4,7 +4,8 @@ from translations import T
 # --- Sayfa Konfigürasyonu ---
 st.set_page_config(
     page_title="Yol Haritası",
-    page_icon="🚀"
+    page_icon="🚀",
+    layout="wide",
 )
 
 if 'lang' not in st.session_state:

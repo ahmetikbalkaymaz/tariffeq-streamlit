@@ -314,11 +314,6 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
     # Kümül grupları için seçilen deprem bölgelerini saklamak için bir sözlük
     group_risk_mapping = {}
     
-    # YENİ: Limitli poliçe seçiliyse bedel girişlerini kilitle
-    is_locked = st.session_state.get('apply_limited_policy', False)
-    if is_locked:
-        st.info(tr("info_values_locked_for_limit")) # Bu çeviri anahtarını eklemeyi unutmayın
-
     for i in range(num_locations):
         expander_label = f"Lokasyon {i + 1}" if lang == "TR" else f"Location {i + 1}"
         with st.expander(expander_label, expanded=True if i == 0 else False):
@@ -393,38 +388,38 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             st.markdown(f"#### {tr('insurance_sums')}")
             main_col1, main_col2, ec_mk_main_col = st.columns([2, 2, 3]) 
             with main_col1:
-                building = st.number_input(tr("building_sum"), min_value=0, value=0, step=100000,key=f"building_{i}", help=tr("building_sum_help"), format="%d", disabled=is_locked)
+                building = st.number_input(tr("building_sum"), min_value=0, value=0, step=100000,key=f"building_{i}", help=tr("building_sum_help"), format="%d")
                 if building > 0: st.write(f"{tr('entered_value')}: {ui.format_number(building, currency_fire)}")
-                fixture = st.number_input(tr("fixture_sum"), min_value=0, value=0, step=100000,key=f"fixture_{i}", help=tr("fixture_sum_help"), format="%d", disabled=is_locked)
+                fixture = st.number_input(tr("fixture_sum"), min_value=0, value=0, step=100000,key=f"fixture_{i}", help=tr("fixture_sum_help"), format="%d")
                 if fixture > 0: st.write(f"{tr('entered_value')}: {ui.format_number(fixture, currency_fire)}")
-                decoration = st.number_input(tr("decoration_sum"), min_value=0, value=0, step=100000,key=f"decoration_{i}", help=tr("decoration_sum_help"), format="%d", disabled=is_locked)
+                decoration = st.number_input(tr("decoration_sum"), min_value=0, value=0, step=100000,key=f"decoration_{i}", help=tr("decoration_sum_help"), format="%d")
                 if decoration > 0: st.write(f"{tr('entered_value')}: {ui.format_number(decoration, currency_fire)}")
-                bi = st.number_input(tr("bi"), min_value=0, value=0, step=100000,key=f"bi_{i}", help=tr("bi_help"), format="%d", disabled=is_locked)
+                bi = st.number_input(tr("bi"), min_value=0, value=0, step=100000,key=f"bi_{i}", help=tr("bi_help"), format="%d")
                 if bi > 0: st.write(f"{tr('entered_value')}: {ui.format_number(bi, currency_fire)}")
             with main_col2:
-                commodity = st.number_input(tr("commodity_sum"), min_value=0, value=0, step=100000,key=f"commodity_{i}", help=tr("commodity_sum_help"), format="%d", disabled=is_locked)
-                commodity_is_subscription = st.checkbox(tr("commodity_is_subscription"), key=f"commodity_is_subscription_{i}", help=tr("commodity_is_subscription_help"), disabled=is_locked)
+                commodity = st.number_input(tr("commodity_sum"), min_value=0, value=0, step=100000,key=f"commodity_{i}", help=tr("commodity_sum_help"), format="%d")
+                commodity_is_subscription = st.checkbox(tr("commodity_is_subscription"), key=f"commodity_is_subscription_{i}", help=tr("commodity_is_subscription_help"))
                 if commodity > 0:
                     display_comm_value = commodity * 0.40 if commodity_is_subscription else commodity
                     st.write(f"{tr('entered_value')}: {ui.format_number(commodity, currency_fire)} ({tr('effective_value')}: {ui.format_number(display_comm_value, currency_fire)})" if commodity_is_subscription else f"{tr('entered_value')}: {ui.format_number(commodity, currency_fire)}")
-                safe = st.number_input(tr("safe_sum"), min_value=0, value=0, step=100000,key=f"safe_{i}", help=tr("safe_sum_help"), format="%d", disabled=is_locked)
+                safe = st.number_input(tr("safe_sum"), min_value=0, value=0, step=100000,key=f"safe_{i}", help=tr("safe_sum_help"), format="%d")
                 if safe > 0: st.write(f"{tr('entered_value')}: {ui.format_number(safe, currency_fire)}")
-                machinery = st.number_input(tr("mk_sum"), min_value=0, value=0, step=100000,key=f"machinery_{i}", help=tr("mk_sum_help"), format="%d", disabled=is_locked)
+                machinery = st.number_input(tr("mk_sum"), min_value=0, value=0, step=100000,key=f"machinery_{i}", help=tr("mk_sum_help"), format="%d")
                 if machinery > 0: st.write(f"{tr('entered_value')}: {ui.format_number(machinery, currency_fire)}")
             
             ec_fixed, ec_mobile, mk_mobile = 0.0, 0.0, 0.0 # mk_fixed kaldırıldı
             with ec_mk_main_col:
                 st.markdown(f"###### {tr('ec_mk_cover_options_header')}")
-                include_ec_mk_cover = st.checkbox(tr("include_ec_mk_cover"), key=f"include_ec_mk_cover_{i}", value=True, disabled=is_locked)
+                include_ec_mk_cover = st.checkbox(tr("include_ec_mk_cover"), key=f"include_ec_mk_cover_{i}", value=True)
                 if include_ec_mk_cover:
-                    ec_fixed = st.number_input(tr("ec_fixed"), min_value=0, value=0, step=100000, key=f"ec_fixed_{i}", help=tr("ec_fixed_help"), format="%d", disabled=is_locked)
+                    ec_fixed = st.number_input(tr("ec_fixed"), min_value=0, value=0, step=100000, key=f"ec_fixed_{i}", help=tr("ec_fixed_help"), format="%d")
                     if ec_fixed > 0: st.write(f"{tr('entered_value')}: {ui.format_number(ec_fixed, currency_fire)}")
-                    ec_mobile = st.number_input(tr("ec_mobile"), min_value=0, value=0, step=100000, key=f"ec_mobile_{i}", help=tr("ec_mobile_help"), format="%d", disabled=is_locked)
+                    ec_mobile = st.number_input(tr("ec_mobile"), min_value=0, value=0, step=100000, key=f"ec_mobile_{i}", help=tr("ec_mobile_help"), format="%d")
                     if ec_mobile > 0: st.write(f"{tr('entered_value')}: {ui.format_number(ec_mobile, currency_fire)}")
                     # st.markdown(f"**{tr('mk_cover_subheader')}**") 
                     # mk_fixed = st.number_input(tr("mk_fixed"), min_value=0.0, value=0.0, step=100000.0, key=f"mk_fixed_cover_{i}", help=tr("mk_fixed_cover_help"), format="%.2f")
                     # if mk_fixed > 0: st.write(f"{tr('entered_value')}: {ui.format_number(mk_fixed, currency_fire)}")
-                    mk_mobile = st.number_input(tr("mk_mobile"), min_value=0, value=0, step=100000, key=f"mk_mobile_cover_{i}", help=tr("mk_mobile_cover_help"), format="%d", disabled=is_locked)
+                    mk_mobile = st.number_input(tr("mk_mobile"), min_value=0, value=0, step=100000, key=f"mk_mobile_cover_{i}", help=tr("mk_mobile_cover_help"), format="%d")
                     if mk_mobile > 0: st.write(f"{tr('entered_value')}: {ui.format_number(mk_mobile, currency_fire)}")
             
             locations_data.append({
@@ -560,19 +555,22 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             # --- LİMİTLİ POLİÇE HESAPLAMALARI (EĞER SEÇİLDİYSE) ---
             limited_policy_multiplier = 1.0
             if apply_limited_policy:
-                if limited_policy_limit <= 0 or limited_policy_limit >= total_entered_pd_orig_ccy:
-                    st.error(tr("warning_limit_value_invalid").format(total_pd_sum=ui.format_number(total_entered_pd_orig_ccy, currency_fire)))
-                    st.stop()
+                # YENİ: Yeni kurallara göre çarpanı hesapla
+                # Toplam PD bedelini TRY cinsinden al
+                total_pd_sum_try_for_limit = total_entered_pd_orig_ccy * fx_rate_fire
+                
+                if total_pd_sum_try_for_limit > 0 and limited_policy_limit > 0:
+                    limited_policy_multiplier = pc.calculate_limited_policy_multiplier(
+                        total_pd_try=total_pd_sum_try_for_limit,
+                        limited_policy_limit=limited_policy_limit
+                    )
                 else:
-                    limit_ratio_float = total_entered_pd_orig_ccy / limited_policy_limit
-                    if limit_ratio_float < 5:
-                        discount_rate = 1.0
-                        st.info(tr("info_limit_no_discount"))
-                    else:
-                        limit_ratio = int(round(limit_ratio_float))
-                        capped_ratio = max(5, min(20, limit_ratio))
-                        discount_rate = pc.limited_policy_discounts.get(capped_ratio, 1.0)
-                    limited_policy_multiplier = 1.3 * discount_rate
+                    # Bedel veya limit girilmemişse, çarpan 1.0 olarak kalır.
+                    limited_policy_multiplier = 1.0
+
+            groups_determined = pc.determine_group_params(locations_data)
+            premium_results_by_group = {}
+            total_premium_all_groups_try = 0.0
 
             groups_determined = pc.determine_group_params(locations_data)
             premium_results_by_group = {}
@@ -605,43 +603,41 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
             )
 
             # --- SENARYO HESAPLAMALARI ---
-            # YENİ: Limitli poliçe seçiliyse senaryo analizini atla
-            if not apply_limited_policy:
-                all_koas_keys = list(pc.koasurans_indirimi.keys())
-                all_deduct_keys = sorted(list(pc.muafiyet_indirimi.keys()))
+            all_koas_keys = list(pc.koasurans_indirimi.keys())
+            all_deduct_keys = sorted(list(pc.muafiyet_indirimi.keys()))
 
-                # Kurala göre senaryoları filtrele
-                if total_pd_sum_try < 3_500_000_000:
-                    allowed_koas = [k for k in all_koas_keys if k not in ["90/10", "100/0"]]
-                    allowed_deduct = [d for d in all_deduct_keys if d >= 2]
-                else:
-                    allowed_koas = all_koas_keys
-                    allowed_deduct = all_deduct_keys
+            # Kurala göre senaryoları filtrele
+            if total_pd_sum_try < 3_500_000_000:
+                allowed_koas = [k for k in all_koas_keys if k not in ["90/10", "100/0"]]
+                allowed_deduct = [d for d in all_deduct_keys if d >= 2]
+            else:
+                allowed_koas = all_koas_keys
+                allowed_deduct = all_deduct_keys
 
-                scenario_definitions = []
-                for k in allowed_koas:
-                    for d in allowed_deduct:
-                        # Ana hesaplama ile aynı olan senaryoyu atla
-                        if k == koas and d == deduct:
-                            continue
-                        scenario_definitions.append({
-                            "name_key": f"Scenario {k} / {d}%", # Dinamik isim
-                            "koas_key": k,
-                            "deduct_key": d
-                        })
+            scenario_definitions = []
+            for k in allowed_koas:
+                for d in allowed_deduct:
+                    # Ana hesaplama ile aynı olan senaryoyu atla
+                    if k == koas and d == deduct:
+                        continue
+                    scenario_definitions.append({
+                        "name_key": f"Scenario {k} / {d}%", # Dinamik isim
+                        "koas_key": k,
+                        "deduct_key": d
+                    })
 
-                prepare_scenario_data_for_session(
-                    scenario_definitions,
-                    groups_determined,
-                    currency_fire,
-                    fx_rate_fire,
-                    inflation_rate,
-                    total_entered_pd_orig_ccy,
-                    total_entered_bi_orig_ccy,
-                    num_locations,
-                    koas,
-                    deduct
-                )
+            prepare_scenario_data_for_session(
+                scenario_definitions,
+                groups_determined,
+                currency_fire,
+                fx_rate_fire,
+                inflation_rate,
+                total_entered_pd_orig_ccy,
+                total_entered_bi_orig_ccy,
+                num_locations,
+                koas,
+                deduct
+            )
 
             st.session_state['export_data'] = {
                 'locations_data': locations_data,
@@ -655,10 +651,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 'total_premium_all_groups_try': total_premium_all_groups_try,
                 'display_currency': currency_fire,
                 'display_fx_rate': fx_rate_fire,
-                'limited_policy_multiplier': limited_policy_multiplier,
-                # YENİ: Limit bilgilerini rapora ekle
-                'apply_limited_policy': apply_limited_policy,
-                'limited_policy_limit': limited_policy_limit
+                'limited_policy_multiplier': limited_policy_multiplier
             }
 
     # --- HESAPLAMA SONRASI GÖSTERİLECEK BUTONLAR ---
@@ -688,10 +681,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                     display_fx_rate=st.session_state.export_data['display_fx_rate'],
                     ui_helpers=ui,
                     language=lang,
-                    scenario_data=st.session_state.get('scenario_data_for_page'), # YENİ
-                    # YENİ: Limit bilgilerini PDF oluşturucuya gönder
-                    apply_limited_policy=st.session_state.export_data['apply_limited_policy'],
-                    limited_policy_limit=st.session_state.export_data['limited_policy_limit']
+                    scenario_data=st.session_state.get('scenario_data_for_page') # YENİ
                 )
                 st.download_button(
                     label="📄 " + tr("download_pdf_button"),

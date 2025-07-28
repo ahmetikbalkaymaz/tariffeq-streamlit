@@ -43,7 +43,7 @@ sure_carpani_tablosu = {
     31: 1.90, 32: 1.94, 33: 1.98, 34: 2.02, 35: 2.06, 36: 2.10
 }
 
-# Limitli Poliçe İndirim Oranları
+# YENİ: Limitli Poliçe İndirim Oranları Tablosu
 limited_policy_discounts = {
     2: 0.30, 3: 0.35, 4: 0.40, 5: 0.45, 6: 0.50,
     7: 0.55, 8: 0.60, 9: 0.65, 10: 0.70, 11: 0.73,
@@ -54,6 +54,33 @@ limited_policy_discounts = {
 # ------------------------------------------------------------
 # CALCULATION LOGIC FUNCTIONS
 # ------------------------------------------------------------
+def calculate_limited_policy_multiplier(total_pd_try, limited_policy_limit):
+    """
+    Yeni kurallara göre limitli poliçe çarpanını hesaplar.
+    """
+    # 1. Fiyatı %30 artır
+    multiplier = 1.30
+
+    # 2. Oranı hesapla ve en yakın tam sayıya yuvarla
+    ratio = (limited_policy_limit / total_pd_try) * 100
+    lookup_key = round(ratio)
+
+    # 3. İstisnaları ve indirimleri uygula
+    if lookup_key < 2:
+        # Oran 2'den küçükse %70 indirim uygula (0.30 ile çarp)
+        discount_multiplier = 0.30
+    elif lookup_key > 20:
+        # Oran 20'den büyükse ek indirim yapma, sadece %30 artış kalır
+        return multiplier # Sadece 1.30 döner
+    else:
+        # Tablodan indirimi al
+        discount_multiplier = limited_policy_discounts.get(lookup_key, 1.0) # Bulamazsa indirim yok
+
+    # 4. Nihai çarpanı hesapla: %30 artış * indirim
+    final_multiplier = multiplier * discount_multiplier
+    return final_multiplier
+
+
 def calculate_duration_multiplier(months: int) -> float:
     if months <= 36:
         return sure_carpani_tablosu.get(months, 1.0)

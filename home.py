@@ -88,9 +88,9 @@ T = {
     "comment_placeholder": {"TR": "Yorumunuzu buraya yazın...", "EN": "Write your comment here..."}, # Bu zaten vardı, label ile birlikte kullanılabilir.
     "submit": {"TR": "Gönder", "EN": "Submit"},
     "home": {"TR": "Ana Sayfa", "EN": "Home"},
-    "calc": {"TR": "🚀 Deprem Primi Hesapla", "EN": "🚀 Calculate Earthquake Premium"},
+    "calc": {"TR": "📊 Deprem Primi Hesapla", "EN": "📊 Calculate Earthquake Premium"},
     "earthquake": {"TR": "🗺️ Deprem Bölgeni Öğren", "EN": "🗺️ Learn Your Earthquake Zone"}, # YENİ: Deprem Bölgeleri sayfası için etiket
-    "calc_nav_label": {"TR": "🚀  Deprem Primi Hesapla", "EN": "🚀 Calculate Earthquake Premium"}, # YENİ: Navigasyon için farklı etiket
+    "calc_nav_label": {"TR": "📊 Deprem Primi Hesapla", "EN": "📊 Calculate Earthquake Premium"}, # YENİ: Navigasyon için farklı etiket
     "earthquake_zones_nav": {"TR": "🗺️ Deprem Bölgeleri", "EN": "🗺️ Earthquake Zones"}, # YENİ: Deprem Bölgeleri sayfası için etiket
     "featured_features_header": {"TR": "Öne Çıkan Özellikler", "EN": "Featured Features"},
     "feature_fast": {"TR": " Hızlı ve Kolay Kullanım: 30 saniyede deprem primini öğrenin", "EN": " Fast and Easy to Use: Learn the earthquake premium in 30 seconds"},
@@ -112,8 +112,8 @@ T = {
         "EN": "ℹ️ Information"
     },
     "roadmap_page_nav": {
-        "TR": "Yol Haritası",
-        "EN": "Roadmap"
+        "TR": "Yakında TariffEQ’da",
+        "EN": "Coming Soon to TariffEQ"
     },
 }
 

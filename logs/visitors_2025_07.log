@@ -206,3 +206,18 @@
 2025-07-27 19:56:30 | IP: 31.223.77.143 | Page: Calculate | Action: ENTER
 2025-07-27 19:56:30 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
 2025-07-27 19:56:40 | IP: 31.223.77.143 | Page: Calculate | Action: EXIT | Duration: 10s
+2025-07-27 20:11:51 | IP: 31.223.77.143 | Page: Home | Action: ENTER
+2025-07-27 20:11:51 | IP: 31.223.77.143 | EMAIL NOTIFICATION SENT
+2025-07-27 20:11:59 | IP: 31.223.77.143 | Page: Home | Action: EXIT | Duration: 8s
+2025-07-28 19:44:08 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-28 19:44:08 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-28 19:44:13 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 5s
+2025-07-28 19:44:13 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-28 19:44:24 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 11s
+2025-07-28 20:57:21 | IP: 95.70.206.192 | Page: Home | Action: ENTER
+2025-07-28 20:57:21 | IP: 95.70.206.192 | EMAIL NOTIFICATION SENT
+2025-07-28 20:57:25 | IP: 95.70.206.192 | Page: Home | Action: EXIT | Duration: 4s
+2025-07-28 20:57:25 | IP: 95.70.206.192 | Page: Calculate | Action: ENTER
+2025-07-28 20:57:33 | IP: 95.70.206.192 | Page: Calculate | Action: EXIT | Duration: 8s
+2025-07-28 21:00:01 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: ENTER
+2025-07-28 21:00:55 | IP: 95.70.206.192 | Page: Earthquake_Zones | Action: EXIT | Duration: 54s

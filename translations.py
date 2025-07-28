@@ -26,7 +26,7 @@ T = {
     "comment_placeholder": {"TR": "Yorumunuzu buraya yazın...", "EN": "Write your comment here..."},
     "submit": {"TR": "Gönder", "EN": "Submit"},
     "home": {"TR": "Ana Sayfa", "EN": "Home"},
-    "calc": {"TR": "🚀  Deprem Primi Hesapla", "EN": "🚀 Earthquake Premium Calculation"},
+    "calc": {"TR": "📊 Deprem Primi Hesapla", "EN": "📊Earthquake Premium Calculation"},
 
     # calculate.py için özel çeviriler
     "calc_title": {"TR": "TariffEQ", "EN": "TariffEQ"}, # calculate.py başlığı
@@ -1036,8 +1036,8 @@ T = {
         "EN": "Please enter at least one sum insured to perform a calculation."
     },
     "roadmap_page_nav": {
-        "TR": "Yakında",
-        "EN": "Coming Soon"
+        "TR": "Yakında TariffEQ'da",
+        "EN": "Coming Soon to TariffEQ"
     },
     "roadmap_title": {
         "TR": "Yakında TariffEQ'da",
@@ -1166,5 +1166,9 @@ T = {
     "info_values_locked_for_limit": {
         "TR": "ℹ️ Limitli poliçe seçili olduğu için bedel girişleri kilitlenmiştir. Değişiklik yapmak için lütfen önce 'Limitli Poliçe Uygula' seçimini kaldırın.",
         "EN": "ℹ️ Insured values are locked because a limited policy is selected. To make changes, please uncheck 'Apply Limited Policy' first."
+    },
+    "mk_mobile_cover_help": {
+        "TR": "Hareketli Makine Bedeli",
+        "EN": "Mobile Machine Coverage"
     },
 }
