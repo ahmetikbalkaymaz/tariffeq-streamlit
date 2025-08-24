@@ -99,6 +99,39 @@ class EmailNotifier:
         except Exception as e:
             print(f"Session özeti e-postası gönderme hatası: {e}")
             return False
+
+    def send_calculation_notification(self, ip, module_name, calculation_details):
+        """Bir hesaplama yapıldığında bildirim gönderir."""
+        try:
+            subject = f"✅ TariffEQ - Hesaplama Yapıldı: {module_name}"
+
+            # Detayları güzel bir şekilde formatla
+            details_formatted = ""
+            for key, value in calculation_details.items():
+                details_formatted += f"    • {key}: {value}\n"
+
+            body = f"""
+            Merhaba,
+
+            TariffEQ uygulamanızda yeni bir hesaplama gerçekleştirildi:
+
+            📅 Tarih/Saat: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+            🌐 IP Adresi: {ip}
+            🧮 Modül: {module_name}
+
+            Hesaplama Detayları:
+            {details_formatted}
+            Bu otomatik bir bildirimdir.
+
+            İyi günler,
+            TariffEQ Bildiri Sistemi
+            """
+
+            return self._send_email(subject, body)
+
+        except Exception as e:
+            print(f"Hesaplama bildirimi e-postası gönderme hatası: {e}")
+            return False
     
     def _send_email(self, subject, body):
         """E-posta gönderme ortak fonksiyonu"""

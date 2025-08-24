@@ -23,7 +23,9 @@ import pandas as pd
 from utils import premium_calculations as pc
 from utils import ui_helpers as ui
 from utils import pdf_generator
-from utils import excel_generator # YENİ: Excel oluşturucuyu import et
+from utils import excel_generator
+from utils.visitor_logger import get_client_ip # YENİ: IP fonksiyonunu import et
+from utils.email_notifier import notifier # YENİ: Notifier'ı import et
 
 # ------------------------------------------------------------
 # STREAMLIT CONFIG (must be first)
@@ -636,6 +638,22 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 }
                 total_premium_all_groups_try += total_premium_try
 
+            # YENİ: Hesaplama sonrası e-posta bildirimi gönder
+            try:
+                ip_address = get_client_ip()
+                details = {
+                    "Poliçe Türü": "Yangın",
+                    "Lokasyon Sayısı": num_locations,
+                    "Para Birimi": currency_fire,
+                    "Toplam Prim (TRY)": f"{total_premium_all_groups_try:,.2f}",
+                    "Koasürans": koas,
+                    "Muafiyet": f"{deduct}%",
+                    "Limitli Poliçe": "Evet" if apply_limited_policy else "Hayır"
+                }
+                notifier.send_calculation_notification(ip_address, "Yangın", details)
+            except Exception as e:
+                print(f"Yangın hesaplama maili gönderilemedi: {e}") # Hata olursa logla, programı durdurma
+
             ui.display_fire_results(
                 num_locations_val=num_locations,
                 groups_determined_data=groups_determined,
@@ -817,6 +835,21 @@ elif st.session_state.active_calc_module == CALC_MODULE_CAR:
             koas_car, deduct_car, fx_rate, inflation_rate_car
         )
         
+        # YENİ: Hesaplama sonrası e-posta bildirimi gönder
+        try:
+            ip_address = get_client_ip()
+            details = {
+                "Poliçe Türü": "İnşaat All Risk",
+                "Para Birimi": currency,
+                "Toplam Prim (TRY)": f"{total_premium_try:,.2f}",
+                "Proje Bedeli": f"{ui.format_number(project, currency)}",
+                "Koasürans": koas_car,
+                "Muafiyet": f"{deduct_car}%"
+            }
+            notifier.send_calculation_notification(ip_address, "CAR/EAR", details)
+        except Exception as e:
+            print(f"CAR/EAR hesaplama maili gönderilemedi: {e}") # Hata olursa logla, programı durdurma
+
         # Uyarı mesajı özelliği şimdilik kaldırıldı. Fonksiyonun kendisi uyarıyı basacaktır.
 
         ui.display_car_ear_results(

@@ -56,23 +56,34 @@ def create_fire_pdf(
     if currency_fire != "TRY":
         risk_info_html += f"<tr><td>{_tr('exchange_rate_info', language)}</td><td>{fx_info}</td></tr>"
 
+    # YENİ: Limitli poliçe durumuna göre gösterilecek değerleri ayarla
+    if apply_limited_policy:
+        risk_info_html += f"""
+            <tr><td>{_tr('limited_policy_limit_label', language)}</td><td>{ui_helpers.format_number(limited_policy_limit, currency_fire)}</td></tr>
+            <tr><td>{_tr('koas', language)}</td><td>-</td></tr>
+            <tr><td>{_tr('deduct', language)}</td><td>-</td></tr>
+        """
+    else:
+        risk_info_html += f"""
+            <tr><td>{_tr('koas', language)}</td><td>{koas}</td></tr>
+            <tr><td>{_tr('deduct', language)}</td><td>{deduct}%</td></tr>
+        """
+
     risk_info_html += f"""
-        <tr><td>{_tr('koas', language)}</td><td>{koas}</td></tr>
-        <tr><td>{_tr('deduct', language)}</td><td>{deduct}</td></tr>
-        <tr><td>{_tr('inflation_rate', language)}</td><td>{inflation_rate}</td></tr>
+        <tr><td>{_tr('inflation_rate', language)}</td><td>{inflation_rate}%</td></tr>
     </table>
     """
 
     # 2. YENİ: Lokasyon Detayları Tablosu
-    location_details_html = "<h3>Lokasyon Bilgileri</h3>"
-    location_details_html += """
+    location_details_html = f"<h3>{_tr('location_info', language)}</h3>"
+    location_details_html += f"""
     <table class="info-table location-details">
         <thead>
             <tr>
-                <th>Lokasyon Adı / Adresi</th>
-                <th>Kümül Grubu</th>
-                <th>Yapı Tarzı</th>
-                <th>Deprem Risk Grubu</th>
+                <th>{_tr('location_name', language)}</th>
+                <th>{_tr('location_group', language)}</th>
+                <th>{_tr('building_type', language)}</th>
+                <th>{_tr('risk_group', language)}</th>
             </tr>
         </thead>
         <tbody>
@@ -133,28 +144,28 @@ def create_fire_pdf(
         icmal_data["Toplam"]["Bedel"] += total_sum
         icmal_data["Toplam"]["Prim"] += total_premium
 
-        results_html += f"<h3>{group_key} Kümülü Sonuçları</h3>"
-        results_html += """
+        results_html += f"<h3>{group_key} {_tr('accumulation_result',lang=language)}</h3>"
+        results_html += f"""
         <table class="results-table">
-            <thead><tr><th>Teminat</th><th>Bedel</th><th>Fiyat (‰)</th><th>Prim</th></tr></thead>
+            <thead><tr><th>{_tr('teminat', lang=language)}</th><th>{_tr('bedel', lang=language)}</th><th>{_tr('fiyat', lang=language)}</th><th>{_tr('prim', lang=language)}</th></tr></thead>
             <tbody>"""
-        if pd_sum > 0: results_html += f'<tr><td>Yangın</td><td>{ui_helpers.format_number(pd_sum, display_currency)}</td><td>{ui_helpers.format_rate(pd_rate)}</td><td>{ui_helpers.format_number(pd_premium, display_currency)}</td></tr>'
-        if bi_sum > 0: results_html += f'<tr><td>Kar Kaybı</td><td>{ui_helpers.format_number(bi_sum, display_currency)}</td><td>{ui_helpers.format_rate(bi_rate)}</td><td>{ui_helpers.format_number(bi_premium, display_currency)}</td></tr>'
-        if ec_sum > 0: results_html += f'<tr><td>Elektronik Cihaz</td><td>{ui_helpers.format_number(ec_sum, display_currency)}</td><td>{ui_helpers.format_rate(ec_rate)}</td><td>{ui_helpers.format_number(ec_premium, display_currency)}</td></tr>'
-        if mk_sum > 0: results_html += f'<tr><td>Makine Kırılması</td><td>{ui_helpers.format_number(mk_sum, display_currency)}</td><td>{ui_helpers.format_rate(mk_rate)}</td><td>{ui_helpers.format_number(mk_premium, display_currency)}</td></tr>'
+        if pd_sum > 0: results_html += f"<tr><td>{_tr('fire', lang=language)}</td><td>{ui_helpers.format_number(pd_sum, display_currency)}</td><td>{ui_helpers.format_rate(pd_rate)}</td><td>{ui_helpers.format_number(pd_premium, display_currency)}</td></tr>"
+        if bi_sum > 0: results_html += f"<tr><td>{_tr('bi', lang=language)}</td><td>{ui_helpers.format_number(bi_sum, display_currency)}</td><td>{ui_helpers.format_rate(bi_rate)}</td><td>{ui_helpers.format_number(bi_premium, display_currency)}</td></tr>"
+        if ec_sum > 0: results_html += f"<tr><td>{_tr('ec', lang=language)}</td><td>{ui_helpers.format_number(ec_sum, display_currency)}</td><td>{ui_helpers.format_rate(ec_rate)}</td><td>{ui_helpers.format_number(ec_premium, display_currency)}</td></tr>"
+        if mk_sum > 0: results_html += f"<tr><td>{_tr('mb', lang=language)}</td><td>{ui_helpers.format_number(mk_sum, display_currency)}</td><td>{ui_helpers.format_rate(mk_rate)}</td><td>{ui_helpers.format_number(mk_premium, display_currency)}</td></tr>"
         results_html += f"""
                 <tr class="total-row">
-                    <td>Toplam</td>
+                    <td>{_tr('total', lang=language)}</td>
                     <td>{ui_helpers.format_number(total_sum, display_currency)}</td>
                     <td>{ui_helpers.format_rate(total_rate)}</td>
                     <td>{ui_helpers.format_number(total_premium, display_currency)}</td>
                 </tr></tbody></table>"""
 
     # İcmal tablosu için de fiyat sütunu eklendi
-    icmal_html = "<h3>İcmal</h3>"
-    icmal_html += """
+    icmal_html = f"<h3>{_tr('icmal', lang=language)}</h3>"
+    icmal_html += f"""
     <table class="results-table">
-        <thead><tr><th>Teminat</th><th>Bedel</th><th>Fiyat (‰)</th><th>Prim</th></tr></thead>
+        <thead><tr><th>{_tr('teminat', lang=language)}</th><th>{_tr('bedel', lang=language)}</th><th>{_tr('fiyat', lang=language)}</th><th>{_tr('prim', lang=language)}</th></tr></thead>
         <tbody>"""
     
     # İcmal için efektif oranları hesapla
@@ -163,14 +174,14 @@ def create_fire_pdf(
     ec_icmal_rate = (icmal_data["Elektronik Cihaz"]["Prim"] / icmal_data["Elektronik Cihaz"]["Bedel"]) * 1000 if icmal_data["Elektronik Cihaz"]["Bedel"] > 0 else 0.0
     mk_icmal_rate = (icmal_data["Makine Kırılması"]["Prim"] / icmal_data["Makine Kırılması"]["Bedel"]) * 1000 if icmal_data["Makine Kırılması"]["Bedel"] > 0 else 0.0
     total_icmal_rate = (icmal_data["Toplam"]["Prim"] / icmal_data["Toplam"]["Bedel"]) * 1000 if icmal_data["Toplam"]["Bedel"] > 0 else 0.0
-    
-    if icmal_data["Yangın"]["Bedel"] > 0: icmal_html += f'<tr><td>Yangın</td><td>{ui_helpers.format_number(icmal_data["Yangın"]["Bedel"], display_currency)}</td><td>{ui_helpers.format_rate(pd_icmal_rate)}</td><td>{ui_helpers.format_number(icmal_data["Yangın"]["Prim"], display_currency)}</td></tr>'
-    if icmal_data["Kar Kaybı"]["Bedel"] > 0: icmal_html += f'<tr><td>Kar Kaybı</td><td>{ui_helpers.format_number(icmal_data["Kar Kaybı"]["Bedel"], display_currency)}</td><td>{ui_helpers.format_rate(bi_icmal_rate)}</td><td>{ui_helpers.format_number(icmal_data["Kar Kaybı"]["Prim"], display_currency)}</td></tr>'
-    if icmal_data["Elektronik Cihaz"]["Bedel"] > 0: icmal_html += f'<tr><td>Elektronik Cihaz</td><td>{ui_helpers.format_number(icmal_data["Elektronik Cihaz"]["Bedel"], display_currency)}</td><td>{ui_helpers.format_rate(ec_icmal_rate)}</td><td>{ui_helpers.format_number(icmal_data["Elektronik Cihaz"]["Prim"], display_currency)}</td></tr>'
-    if icmal_data["Makine Kırılması"]["Bedel"] > 0: icmal_html += f'<tr><td>Makine Kırılması</td><td>{ui_helpers.format_number(icmal_data["Makine Kırılması"]["Bedel"], display_currency)}</td><td>{ui_helpers.format_rate(mk_icmal_rate)}</td><td>{ui_helpers.format_number(icmal_data["Makine Kırılması"]["Prim"], display_currency)}</td></tr>'
+
+    if icmal_data['Yangın']['Bedel'] > 0: icmal_html += f"<tr><td>{_tr('fire', lang=language)}</td><td>{ui_helpers.format_number(icmal_data['Yangın']['Bedel'], display_currency)}</td><td>{ui_helpers.format_rate(pd_icmal_rate)}</td><td>{ui_helpers.format_number(icmal_data['Yangın']['Prim'], display_currency)}</td></tr>"
+    if icmal_data['Kar Kaybı']['Bedel'] > 0: icmal_html += f"<tr><td>{_tr('bi', lang=language)}</td><td>{ui_helpers.format_number(icmal_data['Kar Kaybı']['Bedel'], display_currency)}</td><td>{ui_helpers.format_rate(bi_icmal_rate)}</td><td>{ui_helpers.format_number(icmal_data['Kar Kaybı']['Prim'], display_currency)}</td></tr>"
+    if icmal_data['Elektronik Cihaz']['Bedel'] > 0: icmal_html += f"<tr><td>{_tr('ec', lang=language)}</td><td>{ui_helpers.format_number(icmal_data['Elektronik Cihaz']['Bedel'], display_currency)}</td><td>{ui_helpers.format_rate(ec_icmal_rate)}</td><td>{ui_helpers.format_number(icmal_data['Elektronik Cihaz']['Prim'], display_currency)}</td></tr>"
+    if icmal_data['Makine Kırılması']['Bedel'] > 0: icmal_html += f"<tr><td>{_tr('mb', lang=language)}</td><td>{ui_helpers.format_number(icmal_data['Makine Kırılması']['Bedel'], display_currency)}</td><td>{ui_helpers.format_rate(mk_icmal_rate)}</td><td>{ui_helpers.format_number(icmal_data['Makine Kırılması']['Prim'], display_currency)}</td></tr>"
     icmal_html += f"""
             <tr class="total-row">
-                <td>Toplam</td>
+                <td>{_tr('total', lang=language)}</td>
                 <td>{ui_helpers.format_number(icmal_data["Toplam"]["Bedel"], display_currency)}</td>
                 <td>{ui_helpers.format_rate(total_icmal_rate)}</td>
                 <td>{ui_helpers.format_number(icmal_data["Toplam"]["Prim"], display_currency)}</td>
@@ -278,9 +289,9 @@ def create_fire_pdf(
     <body>
         <div class="title-page">
             <img src="data:image/png;base64,{logo_base64}" class="logo">
-            <h1>DEPREM TARİFE PRİMİ</h1>
+            <h1>{_tr('calc_title', language)}</h1>
             <p class="date">{today_formatted}</p>
-            <h2>Yangın, Kar Kaybı & Mühendislik Deprem Primi</h2>
+            <h2>{_tr('calc_subtitle', language)}</h2>
             <a href="http://tariffeq.com" class="footer-link">http://tariffeq.com</a>
         </div>
         <div class="page-break"></div>
@@ -293,7 +304,7 @@ def create_fire_pdf(
         {scenario_html}
         
         <div class="disclaimer">
-            <strong>⚠️ Yasal Uyarı:</strong> TariffEQ hesaplamaları bilgilendirme amaçlıdır; hukuki veya ticari bağlayıcılığı yoktur.
+            <strong>⚠️ {_tr("disclaimer_label", language)}:</strong> {_tr("disclaimer_text", language)}
         </div>
     </body>
     </html>

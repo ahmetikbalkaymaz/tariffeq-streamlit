@@ -59,10 +59,10 @@ T = {
     "fixture_sum_help": {"TR": "Demirbaşlar için sigorta bedeli.", "EN": "Sum insured for fixtures."},
     "decoration_sum": {"TR": "Dekorasyon Bedeli", "EN": "Decoration Sum Insured"},
     "decoration_sum_help": {"TR": "Dekorasyon için sigorta bedeli.", "EN": "Sum insured for decoration."},
-    "commodity_sum": {"TR": "Emtea Bedeli", "EN": "Commodity Sum Insured"},
+    "commodity_sum": {"TR": "Emtea Bedeli", "EN": "Stock Sum Insured"},
     "commodity_sum_help": {"TR": "İşyerinizdeki ticari malların (hammadde, yarı mamul, mamul) toplam değeri.", "EN": "Total value of commercial goods (raw materials, semi-finished, finished products) in your workplace."},
     "commodity_is_subscription": {"TR": "Emtea Abonman mı?", "EN": "Floating Policy?"},
-    "commodity_is_subscription_help": {"TR": "Eğer emtia bedeli abonman poliçesi kapsamında ise işaretleyiniz (bedelin %40'ı dikkate alınır).", "EN": "Check if the commodity value is under a subscription policy (40% of the value is considered)."},
+    "commodity_is_subscription_help": {"TR": "Eğer emtia bedeli abonman poliçesi kapsamında ise işaretleyiniz (bedelin %40'ı dikkate alınır).", "EN": "Check if the stock value is under a subscription policy (40% of the value is considered)."},
     "safe_sum": {"TR": "Kasa Muhteviyatı Bedeli", "EN": "Safe Contents Sum"},
     "safe_sum_help": {"TR": "Kasa için sigorta bedeli.", "EN": "Sum insured for the safe."},
     "bi": {"TR": "Kar Kaybı Bedeli (BI)", "EN": "Business Interruption Sum Insured (BI)"},
@@ -143,7 +143,7 @@ T = {
     "total_entered_project_sum": {"TR": "Toplam Girilen Proje Bedeli", "EN": "Total Entered Project Sum"},
     "total_entered_cpm_sum": {"TR": "Toplam Girilen İnşaat Makineleri Bedeli", "EN": "Total Entered Construction Machinery Sum"},
     "total_entered_cpe_sum": {"TR": "Toplam Girilen Şantiye Tesisleri Bedeli", "EN": "Total Entered Site Facilities Sum"},
-    "total_entered_commodity_sum": {"TR": "Toplam Girilen Emtea Bedeli", "EN": "Total Entered Commodity Sum"},
+    "total_entered_commodity_sum": {"TR": "Toplam Girilen Emtea Bedeli", "EN": "Total Entered Stock Sum"},
     "total_entered_safe_sum": {"TR": "Toplam Girilen Kasa Bedeli", "EN": "Total Entered Safe Sum"},
     "total_entered_bi_premium": {"TR": "Toplam Girilen BI Primi", "EN": "Total Entered BI Premium"},
     "total_entered_pd_premium": {"TR": "Toplam Girilen PD Primi", "EN": "Total Entered PD Premium"},
@@ -168,7 +168,7 @@ T = {
         "EN": "❌ Premium could not be calculated due to invalid coinsurance/deductible selection. Please check the warnings above and update your selection."
     },
     "mk_sum_help": {"TR": "İşyerinizdeki makinelerin toplam değeri.", "EN": "Total value of machinery in your workplace."},
-    "commodity_sum": {"TR": "Emtea Bedeli", "EN": "Commodity Sum"},
+    "commodity_sum": {"TR": "Emtea Bedeli", "EN": "Stock Sum"},
     "mk_sum": {"TR": "Makine Bedeli", "EN": "Machinery Sum"},
     "ec_mk_sums_header": {"TR": "Elektronik Cihaz ve Makine Kırılması Bedelleri", "EN": "Electronic Equipment and Machinery Breakdown Sums"},
     "ec_mk_cover_options_header": {"TR": "Elektronik Cihaz ve Makine Kırılması Teminatı Alınıyor mu?", "EN": "Electronic Equipment and Machinery Breakdown Coverage Taken?"},
@@ -589,7 +589,7 @@ T = {
         "EN": "Sum Insured"
     },
     "table_col_rate_permille": {"TR": "Fiyat (%o)", "EN": "Rate (%o)"},
-    "coverage_pd_combined": {"TR": "Yangın (Bina, Makine, Emtea vb.)", "EN": "Fire (Building, Machinery, Commodity etc.)"},
+    "coverage_pd_combined": {"TR": "Yangın (Bina, Makine, Emtea vb.)", "EN": "Fire (Building, Machinery, Stock etc.)"},
     "coverage_bi": {"TR": "Kar Kaybı", "EN": "Business Interruption"}, # Zaten olabilir
     "coverage_ec": {"TR": "Elektronik Cihaz", "EN": "Electronic Equipment"}, # Zaten olabilir
     "coverage_mk": {"TR": "Makine Kırılması", "EN": "Machinery Breakdown"}, # Zaten olabilir
@@ -764,7 +764,7 @@ T = {
         "EN": "Note: As the entered limit is more than 20% of the total sum insured (ratio < 5), no discount has been applied, only the 30% increase is reflected."
     },
     "btn_calc": {"TR": "HESAPLA", "EN": "CALCULATE"},
-    "coverage_pd_combined": {"TR": "Yangın (Bina, Makine, Emtea vb.)", "EN": "Fire (Building, Machinery, Commodity etc.)"},
+    "coverage_pd_combined": {"TR": "Yangın (Bina, Makine, Emtea vb.)", "EN": "Fire (Building, Machinery, Stock etc.)"},
     "coverage_bi": {"TR": "Kar Kaybı", "EN": "Business Interruption"}, # Zaten olabilir
     "coverage_ec": {"TR": "Elektronik Cihaz", "EN": "Electronic Equipment"}, # Zaten olabilir
     "coverage_mk": {"TR": "Makine Kırılması", "EN": "Machinery Breakdown"}, # Zaten olabilir
@@ -793,7 +793,7 @@ T = {
         "TR": "Deprem Bölgelerini Öğren",
         "EN": "Learn Earthquake Zones"
     },
-    "group_label_format": {"TR": "{group_char} Kümülü", "EN": "{group_char} Aggregate"},
+    "group_label_format": {"TR": "{group_char} Kümülü", "EN": "{group_char} Accumulation"},
     "current_entered_sums_raw_header": {"TR": "Anlık Girilen Toplam Bedel", "EN": "Current Entered Totals"},
     "total_entered_pd_sum_raw": {"TR": "Toplam PD Bedeli", "EN": "Total PD Sum"},
     "total_entered_bi_sum_raw": {"TR": "Toplam BI Bedeli", "EN": "Total BI Sum"},
@@ -804,7 +804,7 @@ T = {
     },
     "location_group_cumulative_info": {
         "TR": "ℹ️ Kümül oluşturan adresleri aynı gruba atayınız.", 
-        "EN": "ℹ️ Assign addresses that form an aggregate to the same group."
+        "EN": "ℹ️ Assign addresses that form an accumulation to the same group."
     },
     "select_province" : {
         "TR": "Lütfen il seçiniz",
@@ -939,7 +939,7 @@ T = {
         "EN": "Note: As the entered limit is more than 20% of the total sum insured (ratio < 5), no discount has been applied, only the 30% increase is reflected."
     },
     "btn_calc": {"TR": "HESAPLA", "EN": "CALCULATE"},
-    "coverage_pd_combined": {"TR": "Yangın (Bina, Makine, Emtea vb.)", "EN": "Fire (Building, Machinery, Commodity etc.)"},
+    "coverage_pd_combined": {"TR": "Yangın (Bina, Makine, Emtea vb.)", "EN": "Fire (Building, Machinery, Stock etc.)"},
     "coverage_bi": {"TR": "Kar Kaybı", "EN": "Business Interruption"}, # Zaten olabilir
     "coverage_ec": {"TR": "Elektronik Cihaz", "EN": "Electronic Equipment"}, # Zaten olabilir
     "coverage_mk": {"TR": "Makine Kırılması", "EN": "Machinery Breakdown"}, # Zaten olabilir
@@ -968,7 +968,7 @@ T = {
         "TR": "Deprem Bölgelerini Öğren",
         "EN": "Learn Earthquake Zones"
     },
-    "group_label_format": {"TR": "{group_char} Kümülü", "EN": "{group_char} Aggregate"},
+    "group_label_format": {"TR": "{group_char} Kümülü", "EN": "{group_char} Accumulation"},
     "current_entered_sums_raw_header": {"TR": "Anlık Girilen Toplam Bedel", "EN": "Current Entered Totals"},
     "total_entered_pd_sum_raw": {"TR": "Toplam PD Bedeli", "EN": "Total PD Sum"},
     "download_pdf_button": {
@@ -1013,7 +1013,7 @@ T = {
     },
     "cumulative_group_suffix": {
         "TR": " Kümülü",
-        "EN": " Aggregate"
+        "EN": " Accumulation"
     },
     "error_deduct_not_allowed": {
         "TR": "Toplam yangın bedeli 3.500.000.000 TRY altında olan teminatlar için bu muafiyet oranı seçilemez.",
@@ -1238,5 +1238,81 @@ T = {
     "exchange_rate_info": {
         "TR": "Kur Bilgisi",
         "EN": "Exchange Rate Info"
+    },
+    "report_date": {
+        "TR": "Rapor Tarihi",
+        "EN": "Report Date"
+    },
+    "risk_info_header": {
+        "TR": "Riziko Bilgileri",
+        "EN": "Risk Information"
+    },
+    "general_info_sheet_name": {
+        "TR": "Genel Bilgiler",
+        "EN": "General Information"
+    },
+    "location_info": {
+        "TR": "Lokasyon Bilgileri",
+        "EN": "Location Information"
+    },
+    "location_name": {
+        "TR": "Lokasyon Adı",
+        "EN": "Location Name"
+    },
+    "acumulation_group": {
+        "TR": "Kümül Grubu",
+        "EN": "Accumulation Group"
+    },
+    "building_type": {
+        "TR": "Yapı Tipi",
+        "EN": "Building Type"
+    },
+    "risk_group": {
+        "TR": "Riziko Grubu",
+        "EN": "Risk Group"
+    },
+    "accumulation_result": {
+        "TR": "Kümülü Sonuçları",
+        "EN": "Accumulation Results"
+    },
+    "icmal": {
+        "TR": "İcmal",
+        "EN": "Summary"
+    },
+    "teminat": {
+        "TR": "Teminat",
+        "EN": "Coverage"
+    },
+    "bedel": {
+        "TR": "Bedel",
+        "EN": "Sum Insured"
+    },
+    "fiyat": {
+        "TR": "Fiyat (%o)",
+        "EN": "Rate (%o)"
+    },
+    "prim": {
+        "TR": "Prim",
+        "EN": "Premium"
+    },
+    "calc_title": {
+        "TR": "Deprem Tarife Primi",
+        "EN": "Earthquake Rate Premium"
+    },
+    "calc_subtitle": {
+        "TR": "Yangın, Kar Kaybı & Mühendislik Deprem Primi",
+        "EN": "Fire, Business Interruption & Engineering Earthquake Premium"
+    },
+    "total": {
+        "TR": "Toplam",
+        "EN": "Total"
+    },
+    "scenario_analysis_sheet_name": {
+        "TR": "Senaryo Analizi",
+        "EN": "Scenario Analysis"
+    },
+    "limited_policy_limit_label": {
+        "TR": "Poliçe Limiti",
+        "EN": "Policy Limit"
     },
 }

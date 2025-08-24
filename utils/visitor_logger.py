@@ -1,59 +1,38 @@
 # utils/visitor_logger.py (GELIŞTIRILMIŞ)
 import streamlit as st
+# YENİ: Streamlit'in dahili API'lerine erişim için farklı importlar kullanılıyor
+from streamlit.runtime.scriptrunner import get_script_run_ctx
+from streamlit.runtime import get_instance
+from .email_notifier import notifier
+import time
 import os
 import requests
 from datetime import datetime
-import time
-import json
-from utils.email_notifier import notifier
+
+def get_session_id():
+    """Geçerli kullanıcının oturum kimliğini alır."""
+    try:
+        ctx = get_script_run_ctx()
+        if ctx:
+            return ctx.session_id
+    except Exception:
+        pass
+    return None
 
 def get_client_ip():
-    """IP adresini almak için farklı yöntemler dene"""
+    """Geçerli kullanıcının IP adresini döndürür."""
+    session_id = get_session_id()
+    if not session_id:
+        return "Bilinmiyor"
+    
     try:
-        if 'user_ip' in st.session_state:
-            return st.session_state.user_ip
-        
-        try:
-            response = requests.get('https://api.ipify.org?format=text', timeout=3)
-            if response.status_code == 200:
-                ip = response.text.strip()
-                st.session_state.user_ip = ip
-                return ip
-        except:
-            pass
-        
-        if hasattr(st, 'context') and hasattr(st.context, 'headers'):
-            headers = st.context.headers
-            
-            for header in ['x-forwarded-for', 'x-real-ip', 'cf-connecting-ip', 'x-client-ip']:
-                if header in headers:
-                    ip = headers[header].split(',')[0].strip()
-                    if ip and ip != '127.0.0.1' and ip != 'localhost':
-                        st.session_state.user_ip = ip
-                        return ip
-            
-            user_agent = headers.get('user-agent', 'unknown')
-            st.session_state.user_agent = user_agent
-            
-        return 'unknown'
-        
-    except Exception as e:
-        return 'unknown'
-
-def get_user_agent():
-    """User agent bilgisini al"""
-    try:
-        if 'user_agent' in st.session_state:
-            return st.session_state.user_agent
-            
-        if hasattr(st, 'context') and hasattr(st.context, 'headers'):
-            user_agent = st.context.headers.get('user-agent', 'unknown')
-            st.session_state.user_agent = user_agent
-            return user_agent
-            
-        return 'unknown'
-    except:
-        return 'unknown'
+        # Bu dahili bir API'dir ve gelecekteki Streamlit sürümlerinde değişebilir.
+        session_info = get_instance()._session_mgr.get_session_info(session_id)
+        if session_info:
+            return session_info.client.ip
+    except Exception:
+        pass
+    return "Bilinmiyor"
 
 def init_session_tracking():
     """Session tracking'i başlat"""
@@ -107,7 +86,7 @@ def log_page_entry(page_name):
         if page_key not in st.session_state:
             
             ip = get_client_ip()
-            user_agent = get_user_agent()
+            user_agent = st.experimental_get_query_params().get('user_agent', [None])[0]
             
             # Session tracking'e ekle
             st.session_state.session_pages[page_name] = {
@@ -140,30 +119,18 @@ def log_page_entry(page_name):
 
 def log_page_exit(page_name):
     """Sayfa çıkışını logla"""
-    try:
-        if 'session_pages' in st.session_state and page_name in st.session_state.session_pages:
-            page_data = st.session_state.session_pages[page_name]
-            
-            if 'entry_time' in page_data and 'duration' not in page_data:
-                current_time = time.time()
-                duration = int(current_time - page_data['entry_time'])
-                
-                if duration > 2:  # 2 saniyeden fazla kaldıysa logla
-                    st.session_state.session_pages[page_name]['duration'] = duration
-                    
-                    # Exit log'u yaz
-                    log_file = f"logs/visitors_{datetime.now().strftime('%Y_%m')}.log"
-                    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                    ip = page_data['ip']
-                    
-                    duration_str = format_duration(duration)
-                    log_message = f"{timestamp} | IP: {ip} | Page: {page_name} | Action: EXIT | Duration: {duration_str}\n"
-                    
-                    with open(log_file, "a", encoding="utf-8") as f:
-                        f.write(log_message)
-    
-    except Exception as e:
-        pass
+    session_id = get_session_id()
+    if not session_id or 'visitor_log' not in st.session_state or session_id not in st.session_state.visitor_log:
+        return
+
+    log = st.session_state.visitor_log[session_id]
+    if page_name in log['pages'] and 'duration' not in log['pages'][page_name]:
+        duration = time.time() - log['pages'][page_name]['visit_time']
+        log['pages'][page_name]['duration'] = round(duration)
+        
+        # Oturum özeti gönder (örneğin, belirli bir süre sonra veya tarayıcı kapandığında)
+        # Bu kısım daha karmaşık bir mantık gerektirebilir. Şimdilik basit tutuyoruz.
+        # notifier.send_session_summary(log['ip'], log['pages'])
 
 def send_session_summary():
     """Session özetini e-posta ile gönder"""
@@ -202,25 +169,29 @@ def send_session_summary():
 
 def track_page_visit(page_name):
     """Sayfa ziyaretini takip et"""
-    log_page_entry(page_name)
+    session_id = get_session_id()
+    if not session_id:
+        return
+
+    if 'visitor_log' not in st.session_state:
+        st.session_state.visitor_log = {}
     
-    # Session bitiş kontrolü için JavaScript kodu ekle
-    st.markdown(f"""
-    <script>
-        // Sayfa kapatılırken session özeti gönder
-        window.addEventListener('beforeunload', function() {{
-            // Streamlit session'ına session bitiş sinyali gönder
-            // Bu tam olarak çalışmayabilir, alternatif yöntem gerekebilir
-        }});
-        
-        // Sayfa değişikliğinde önceki sayfanın süresini hesapla
-        if (sessionStorage.getItem('current_page') && 
-            sessionStorage.getItem('current_page') !== '{page_name}') {{
-            // Önceki sayfa süresi hesaplanacak
-        }}
-        sessionStorage.setItem('current_page', '{page_name}');
-    </script>
-    """, unsafe_allow_html=True)
+    if session_id not in st.session_state.visitor_log:
+        ip = get_client_ip()
+        # User agent bilgisi daha karmaşık olduğu için şimdilik basitleştirildi.
+        user_agent = "Bilinmiyor" 
+        st.session_state.visitor_log[session_id] = {
+            'ip': ip,
+            'start_time': time.time(),
+            'notified': True, # İlk bildirim gönderildi olarak işaretle
+            'pages': {}
+        }
+        # İlk ziyaret bildirimi gönder
+        notifier.send_visitor_notification(ip, page_name, user_agent)
+
+    st.session_state.visitor_log[session_id]['pages'][page_name] = {
+        'visit_time': time.time()
+    }
 
 def trigger_session_summary():
     """Manuel olarak session özetini tetikle"""
