@@ -1,0 +1,3 @@
+- venv oluşturulur
+- requirements.txt pip install ile yüklenir
+- streamlit run home.py
