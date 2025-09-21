@@ -15,14 +15,14 @@ jobs:
 
       - name: Setup gcloud CLI
         # Corrected the version from @v0.1.9 to a valid major version
-        uses: google-github-actions/setup-gcloud@v0
+        uses: google-github-actions/setup-gcloud@v2
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }} # Optional: If using GCP services
           service_account_key: ${{ secrets.GCP_SA_KEY }} # Optional: For secure authentication
 
       - name: Run Gemini CLI on Issue
         id: gemini
-        uses: google-github-actions/run-gemini-cli@v0
+        uses: google-github-actions/run-gemini-cli@v2
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
           command: |
