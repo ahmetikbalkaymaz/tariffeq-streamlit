@@ -1,0 +1,52 @@
+name: Gemini AI Developer
+
+on:
+  issues:
+    types: [opened, edited] # Yeni bir issue açıldığında veya düzenlendiğinde tetiklenir
+  issue_comment:
+    types: [created] # Bir issue'ya yorum yapıldığında tetiklenir
+
+jobs:
+  build-and-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Gemini CLI
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }} # Opsiyonel: Eğer GCP servisleri kullanılıyorsa
+          service_account_key: ${{ secrets.GCP_SA_KEY }} # Opsiyonel: Güvenli kimlik doğrulama için
+
+      - name: Run Gemini CLI on Issue
+        id: gemini
+        uses: google-github-actions/run-gemini-cli@v1
+        with:
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          command: |
+            # Issue başlığını ve içeriğini al
+            ISSUE_TITLE="${{ github.event.issue.title }}"
+            ISSUE_BODY="${{ github.event.issue.body }}"
+
+            # Gemini'ye görevi açıkla
+            echo "Aşağıdaki GitHub issue'sunda belirtilen hatayı düzelt veya istenen özelliği ekle. Gerekli kod değişikliklerini yap ve sadece değiştirilen dosyaları listele." > prompt.txt
+            echo "Issue Başlığı: $ISSUE_TITLE" >> prompt.txt
+            echo "Issue Açıklaması: $ISSUE_BODY" >> prompt.txt
+
+            # Gemini CLI'ı çalıştır
+            gemini -p prompt.txt --write
+
+      - name: Create Pull Request
+        if: steps.gemini.outputs.result == 'success' # Eğer gemini başarılı bir şekilde değişiklik yaptıysa
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "fix(ai): Gemini tarafından issue #${{ github.event.issue.number }} için otomatik düzeltme"
+          title: "AI Düzeltmesi: ${{ github.event.issue.title }}"
+          body: |
+            Bu pull request, #${{ github.event.issue.number }} numaralı issue'yu çözmek için Gemini tarafından otomatik olarak oluşturulmuştur.
+
+            Lütfen yapılan değişiklikleri kontrol edip onaylayın.
+          branch: "gemini-fix-${{ github.event.issue.number }}"
+          base: main # Ana branch'inizin adını buraya yazın
