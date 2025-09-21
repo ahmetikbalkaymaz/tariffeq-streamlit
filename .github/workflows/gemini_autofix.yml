@@ -1,52 +1,182 @@
-name: Gemini AI Developer
+name: Gemini AI Auto Code Fixer
 
 on:
   issues:
-    types: [opened, edited] # Triggers on new or edited issues
+    types: [opened, edited]
   issue_comment:
-    types: [created] # Triggers on a new issue comment
+    types: [created]
 
 jobs:
-  build-and-fix:
+  auto-fix:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup gcloud CLI
-        uses: google-github-actions/setup-gcloud@main
+        uses: actions/checkout@v4
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }} # Optional: If using GCP services
-          service_account_key: ${{ secrets.GCP_SA_KEY }} # Optional: For secure authentication
-
-      - name: Run Gemini CLI on Issue
-        id: gemini
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Setup Git
+        run: |
+          git config --global user.name "Gemini AI Bot"
+          git config --global user.email "gemini-ai@github-actions.local"
+          
+      - name: Create working branch
+        run: |
+          BRANCH_NAME="gemini-fix-${{ github.event.issue.number }}-$(date +%s)"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          git checkout -b "$BRANCH_NAME"
+          
+      - name: Analyze and Fix Issue with Gemini
         uses: google-github-actions/run-gemini-cli@main
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
-          command: |
-            # Get the issue title and body
-            ISSUE_TITLE="${{ github.event.issue.title }}"
-            ISSUE_BODY="${{ github.event.issue.body }}"
+          prompt: |
+            Sen deneyimli bir yazılım geliştiricisisin. Aşağıdaki GitHub issue'sunu analiz et ve GEREKLİ DOSYA DEĞİŞİKLİKLERİNİ YAP.
             
-            # Explain the task to Gemini
-            echo "Fix the error described in the following GitHub issue or add the requested feature. Make the necessary code changes and list only the modified files." > prompt.txt
-            echo "Issue Title: $ISSUE_TITLE" >> prompt.txt
-            echo "Issue Description: $ISSUE_BODY" >> prompt.txt
+            **Issue Bilgileri:**
+            - Başlık: ${{ github.event.issue.title }}
+            - Açıklama: ${{ github.event.issue.body }}
+            - Issue No: #${{ github.event.issue.number }}
             
-            # Run the Gemini CLI
-            gemini -p prompt.txt --write
+            **Görevin:**
+            1. Issue'yu anlayıp problemi tespit et
+            2. Hangi dosyaların değiştirilmesi gerektiğini belirle
+            3. Gerekli kod değişikliklerini YAP (sadece analiz etme, gerçekten değiştir)
+            4. Eğer bu bir bug ise düzelt, feature request ise implement et
+            5. Değişiklikleri git'e commit et
+            
+            **Önemli Kurallar:**
+            - Sadece gerekli dosyaları değiştir
+            - Mevcut kod stilini koru
+            - Test dosyalarını da güncelle gerekirse
+            - Breaking changes yapmamaya çalış
+            - Her değişiklikten sonra dosyayı kaydet
+            
+            **Git Komutları:**
+            Değişiklikleri yaptıktan sonra:
+            ```bash
+            git add .
+            git commit -m "fix: Issue #${{ github.event.issue.number }} - [kısa açıklama]"
+            ```
+            
+            Hemen işe başla ve gerekli dosyaları düzenle!
 
+      - name: Check if changes were made
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changes_made=true" >> $GITHUB_OUTPUT
+            echo "Değişiklikler tespit edildi:"
+            git status --short
+          else
+            echo "changes_made=false" >> $GITHUB_OUTPUT
+            echo "Hiç değişiklik yapılmadı"
+          fi
+          
+      - name: Commit changes if any
+        if: steps.check_changes.outputs.changes_made == 'true'
+        run: |
+          git add .
+          git commit -m "fix: Issue #${{ github.event.issue.number }} - Gemini AI tarafından otomatik düzeltme" || echo "Commit already made"
+          
+      - name: Push changes and create PR
+        if: steps.check_changes.outputs.changes_made == 'true'
+        run: |
+          git push origin "$BRANCH_NAME"
+          
       - name: Create Pull Request
-        if: steps.gemini.outputs.result == 'success' # If Gemini successfully made changes
-        uses: peter-evans/create-pull-request@v4
+        if: steps.check_changes.outputs.changes_made == 'true'
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "fix(ai): Automated fix for issue #${{ github.event.issue.number }} by Gemini"
-          title: "AI Fix for: ${{ github.event.issue.title }}"
+          branch: ${{ env.BRANCH_NAME }}
+          title: "🤖 Auto-fix: ${{ github.event.issue.title }}"
           body: |
-            This pull request was automatically generated by Gemini to resolve issue #${{ github.event.issue.number }}.
-
-            Please review and approve the changes.
-          branch: "gemini-fix-${{ github.event.issue.number }}"
-          base: main # Specify your main branch name here
+            ## 🤖 Gemini AI Otomatik Düzeltmesi
+            
+            Bu PR, **#${{ github.event.issue.number }}** numaralı issue için Gemini AI tarafından otomatik olarak oluşturulmuştur.
+            
+            ### 📋 Issue Detayları
+            **Başlık:** ${{ github.event.issue.title }}
+            **Link:** https://github.com/${{ github.repository }}/issues/${{ github.event.issue.number }}
+            
+            ### 🔧 Yapılan Değişiklikler
+            Gemini AI aşağıdaki değişiklikleri yaptı:
+            - Otomatik kod analizi ve düzeltme
+            - Issue'da belirtilen problemin çözümü
+            - Mevcut kod stiline uygun güncellemeler
+            
+            ### ⚠️ İnceleme Gerekli
+            Bu PR otomatik olarak oluşturulduğu için lütfen:
+            - [ ] Kod değişikliklerini dikkatli inceleyin
+            - [ ] Testlerin geçtiğini kontrol edin
+            - [ ] Breaking changes olmadığını doğrulayın
+            - [ ] Güvenlik açıklarının bulunmadığını kontrol edin
+            
+            ### 🚀 Test Önerileri
+            ```bash
+            # Bu branch'ı local'e çekin
+            git checkout ${{ env.BRANCH_NAME }}
+            
+            # Testleri çalıştırın
+            npm test
+            # veya
+            python -m pytest
+            # veya proje tipinize uygun test komutu
+            ```
+            
+            ---
+            **Not:** Bu değişiklikler AI tarafından yapılmıştır. Merge etmeden önce kapsamlı bir inceleme yapmanız önerilir.
+            
+            Closes #${{ github.event.issue.number }}
+          delete-branch: true
+          
+      - name: Comment on issue if changes made
+        if: steps.check_changes.outputs.changes_made == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 🤖 Gemini AI Otomatik Düzeltmesi Tamamlandı!
+              
+              Issue için otomatik kod düzeltmesi yapıldı ve pull request oluşturuldu.
+              
+              📥 **Pull Request:** Yakında oluşturulacak PR'ı kontrol edin
+              🔍 **Yapılan:** Kod analizi ve otomatik düzeltme
+              ⏰ **Süre:** $(date)
+              
+              Lütfen PR'ı inceleyin ve test edin!`
+            });
+            
+      - name: Comment on issue if no changes
+        if: steps.check_changes.outputs.changes_made == 'false'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 🤖 Gemini AI Analiz Sonucu
+              
+              Issue analiz edildi ancak otomatik kod değişikliği yapılamadı.
+              
+              **Olası nedenler:**
+              - Issue daha fazla açıklama gerektirebilir
+              - Manuel müdahale gerektiren bir durum
+              - Mevcut kodda değişiklik gerektirmeyen bir öneri
+              
+              💡 **Öneri:** Issue'yu daha detaylı açıklayarak tekrar deneyin veya geliştiricilere etiketleyin.`
+            });
