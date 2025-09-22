@@ -30,9 +30,17 @@ jobs:
           
       - name: Create working branch
         run: |
+          # Önce main branch'a geçelim
+          git checkout main
+          git pull origin main
+          
+          # Sonra yeni branch oluşturalım
           BRANCH_NAME="gemini-fix-${{ github.event.issue.number }}-$(date +%s)"
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
           git checkout -b "$BRANCH_NAME"
+          
+          echo "✅ Branch oluşturuldu: $BRANCH_NAME"
+          echo "📍 Current branch: $(git branch --show-current)"
           
       - name: Show initial status
         run: |
@@ -69,19 +77,101 @@ jobs:
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
           gemini_debug: true
-          gemini_model: "gemini-1.5-flash"  # Daha hızlı model
+          gemini_model: "gemini-2.5-pro"  # En güçlü model
           prompt: |
-            BASIT GÖREV: Bu issue için bir dosya değişikliği yap.
+            Sen Gemini 2.5 Pro'sun ve sigorta matematik uzmanı + Python/Streamlit developer'sın. Bu sigorta hesaplama uygulamasını geliştiriyorsun.
             
+            🎯 **STREAMLIT PROJE ANALİZİ:**
+            1. Streamlit app dosyalarını bul: `find . -name "*.py" | head -20`
+            2. Ana app dosyasını tespit et (app.py, streamlit_app.py, main.py)
+            3. Sigorta hesaplama modüllerini kontrol et
+            4. Requirements.txt ve config dosyalarını incele
+            
+            📋 **ISSUE DETAYLI ANALİZİ:**
             Issue: "${{ github.event.issue.title }}"
             Açıklama: "${{ github.event.issue.body }}"
             
-            SADECE BİR ŞEY YAP:
-            1. Mevcut dosyaları kontrol et: `ls -la`
-            2. En uygun dosyayı seç ve küçük bir değişiklik yap
-            3. Değişikliği kaydet
+            🏦 **SİGORTA HESAPLAMA UZMANI OLARAK:**
             
-            Basit tut, hızlı ol!
+            **Matematik ve Aktüerya:**
+            - Sigorta primleri hesaplaması (life, health, property)
+            - Risk analizi ve underwriting algoritmalarını
+            - Rezerv hesaplamaları ve cash flow projeksiyonları
+            - Solvency ratio ve capital adequacy hesapları
+            - Stochastic modeling ve Monte Carlo simulations
+            - Premium calculation formulas (net, gross, loading factors)
+            
+            **Streamlit Specific Development:**
+            - st.sidebar, st.columns, st.tabs ile professional UI
+            - st.cache_data, st.cache_resource ile performance optimization  
+            - st.session_state ile complex state management
+            - Interactive charts (plotly, altair) sigorta verisi için
+            - File upload/download sigorta raporları için
+            - Forms ve input validation sigorta parametreleri için
+            
+            **Advanced Python Libraries:**
+            - pandas, numpy: Veri manipulasyonu ve hesaplamalar
+            - scipy.stats: İstatistiksel dağılımlar ve testler
+            - matplotlib/plotly: Sigorta grafikleri ve visualization
+            - datetime: Policy periods ve vade hesaplamaları
+            - openpyxl: Excel export/import sigorta raporları için
+            - streamlit-aggrid: Professional data tables
+            
+            **Sigorta Domain Expertise:**
+            - Life insurance: mortality tables, actuarial calculations
+            - Health insurance: morbidity rates, claim frequency
+            - Property insurance: catastrophe modeling, exposure analysis
+            - Reinsurance: quota share, surplus treaties
+            - Investment returns ve asset-liability matching
+            
+            **Production-Ready Features:**
+            - Input validation sigorta parametreleri için
+            - Error handling edge cases için
+            - Logging calculation steps ve audit trail
+            - Performance optimization büyük datasets için
+            - Professional reporting ve export functions
+            - Multi-language support (TR/EN)
+            
+            **UI/UX for Insurance Apps:**
+            - Clean, professional insurance industry UI
+            - Step-by-step wizards complex calculations için
+            - Real-time calculation updates
+            - Interactive parameter sliders
+            - Professional charts ve risk visualizations
+            - Export capabilities (PDF, Excel reports)
+            
+            🎯 **GÖREV TİPLERİ:**
+            
+            **🔍 Bug ise (Hesaplama hataları):**
+            - Matematik formüllerini kontrol et ve düzelt
+            - Edge cases handle et (0, negative values, etc.)
+            - Precision issues düzelt (decimal, rounding)
+            - Unit tests ekle kritik calculations için
+            
+            **🚀 Feature ise (Yeni sigorta ürünü/hesaplama):**
+            - Complete insurance product implement et
+            - Professional UI components ekle
+            - Calculation engine oluştur/genişlet
+            - Validation rules ve business logic
+            - Reporting ve export functionality
+            
+            **🔧 İyileştirme ise:**
+            - Performance optimization büyük hesaplar için
+            - Code refactoring maintainability için
+            - Better error messages kullanıcılar için
+            - Advanced visualizations
+            
+            🎯 **SINIRSIZ GELİŞTİRME YETKİN VAR!**
+            - Complete insurance modules oluştur
+            - Complex mathematical models implement et
+            - Professional Streamlit interfaces yap
+            - Multi-step calculation workflows
+            - Advanced data processing ve analysis
+            
+            🔍 **SON KONTROL:**
+            `git status` ve `git diff --stat` çalıştırıp tüm değişiklikleri göster.
+            
+            **Şimdi bu sigorta hesaplama issue'sunu tamamen çöz ve production-ready geliştirme yap!**
 
       - name: Check First Attempt Result
         id: check_attempt1
@@ -115,19 +205,39 @@ jobs:
           const payload = JSON.stringify({
             contents: [{
               parts: [{
-                text: `Sen bir yazılım geliştiricisisin. Bu issue için basit bir çözüm öner ve küçük bir kod örneği ver:
-                
+                text: `Sen sigorta matematik uzmanı ve Python/Streamlit developer'sın. Bu sigorta hesaplama uygulamasını geliştiriyorsun.
+
                 Issue: "${issueTitle}"
                 Açıklama: "${issueBody}"
                 
-                Sadece 2-3 satır kod veya README güncellemesi yap. Basit tut!`
+                SİGORTA HESAPLAMA UZMANI OLARAK GÖREV:
+                1. Sigorta matematik formüllerini doğru uygula
+                2. Aktüerya hesaplamalarını implement et
+                3. Professional Streamlit UI oluştur
+                4. Risk analizi ve premium calculations
+                
+                STREAMLIT SPECIFIC:
+                - st.sidebar, st.columns ile professional layout
+                - st.cache_data ile performance optimization
+                - Interactive charts sigorta verisi için
+                - Forms ve validation sigorta parametreleri için
+                - Export functionality raporlar için
+                
+                SİGORTA DOMAIN:
+                - Life/Health/Property insurance calculations
+                - Premium, reserve, solvency hesaplamaları
+                - Risk modeling ve analysis
+                - Regulatory compliance hesapları
+                
+                TAM ÇÖZÜMİ IMPLEMENTATION ET!
+                Bu küçük patch değil, complete sigorta modülü olsun!`
               }]
             }]
           });
           
           const options = {
             hostname: 'generativelanguage.googleapis.com',
-            path: `/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+            path: `/v1beta/models/gemini-2.5-pro:generateContent?key=${apiKey}`,
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -146,17 +256,35 @@ jobs:
                 const response = JSON.parse(data);
                 if (response.candidates && response.candidates[0]) {
                   const aiResponse = response.candidates[0].parts[0].text;
+                  console.log('🏦 Sigorta AI Analizi:', aiResponse.substring(0, 500) + '...');
                   
-                  // Basit bir README güncellemesi yap
-                  const updateText = `\n## AI Güncellemesi\n\n**Issue #${process.env.ISSUE_NUMBER}:** ${issueTitle}\n\n**AI Önerisi:** ${aiResponse.substring(0, 200)}...\n\n*Son güncelleme: ${new Date().toLocaleString('tr-TR')}*\n`;
+                  // Basit README güncellemesi - AI'ın kendi kod yazmasını bekle
+                  const readmeUpdate = `
+## 🏦 AI Sigorta Geliştirmesi
+
+### Issue #${process.env.ISSUE_NUMBER}: ${issueTitle}
+
+**Tarih:** ${new Date().toLocaleString('tr-TR')}
+**Durum:** AI-Powered Insurance Development
+
+#### 📋 Issue Detayları:
+${issueBody}
+
+#### 🤖 AI Analizi:
+${aiResponse.substring(0, 1000)}
+
+---
+*Bu analiz Gemini 2.5 Pro tarafından sigorta expertise ile yapılmıştır.*
+
+          `;
                   
                   if (fs.existsSync('README.md')) {
-                    fs.appendFileSync('README.md', updateText);
+                    fs.appendFileSync('README.md', readmeUpdate);
                   } else {
-                    fs.writeFileSync('README.md', `# Project\n${updateText}`);
+                    fs.writeFileSync('README.md', `# Sigorta Hesaplama Uygulaması\n\n${readmeUpdate}`);
                   }
                   
-                  console.log('✅ README.md güncellendi!');
+                  console.log('✅ README.md güncellendi - AI Analysis logged');
                   process.exit(0);
                 } else {
                   console.log('❌ API yanıtı boş');
@@ -266,41 +394,79 @@ jobs:
       - name: Push and Create PR
         if: steps.final_check.outputs.changes_made == 'true'
         run: |
+          # Branch'ı push et
+          echo "🚀 Branch push ediliyor: $BRANCH_NAME"
           git push origin "$BRANCH_NAME"
+          
+          # Debug: Hangi branch'dayız kontrol et
+          echo "📍 Current branch: $(git branch --show-current)"
+          echo "🎯 Target branch: main"
+          echo "🌿 PR Branch: $BRANCH_NAME"
           
       - name: Create Pull Request
         if: steps.final_check.outputs.changes_made == 'true'
-        uses: peter-evans/create-pull-request@v5
+        uses: actions/github-script@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ env.BRANCH_NAME }}
-          title: "🤖 Fix: ${{ github.event.issue.title }}"
-          body: |
-            ## 🤖 Otomatik Issue Düzeltmesi
-            
-            **Issue:** #${{ github.event.issue.number }} - ${{ github.event.issue.title }}
-            
-            ### 📊 İşlem Durumu
-            - **1. Deneme (Gemini CLI):** ${{ steps.check_attempt1.outputs.success == 'true' && '✅ Başarılı' || '❌ API Overload (503)' }}
-            - **2. Deneme (Direct API):** ${{ steps.check_attempt2.outputs.success == 'true' && '✅ Başarılı' || (steps.check_attempt1.outputs.success == 'false' && '❌ API Overload (503)' || '⏭️ Atlandı') }}
-            - **3. Fallback:** ${{ steps.manual_fix.outputs.success == 'true' && '✅ Manuel rapor' || '⏭️ Atlandı' }}
-            
-            ### 🔧 Yapılan Değişiklikler
-            Bu PR, issue'yu çözmek için otomatik olarak oluşturulmuştur.
-            
-            ### ⚠️ 503 Service Unavailable Hatası
-            ${{ steps.check_attempt1.outputs.success == 'false' && 'Gemini API geçici olarak aşırı yüklenmiş durumda. Bu normal bir durumdur ve daha sonra tekrar denenebilir.' || 'API başarıyla çalıştı.' }}
-            
-            ### 🔍 İnceleme
-            - [ ] Değişiklikleri kontrol edin
-            - [ ] API hata durumunu değerlendirin
-            - [ ] Gerekirse manuel düzeltme yapın
-            
-            ---
-            **Log:** [Workflow detayları](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
-            
-            Closes #${{ github.event.issue.number }}
-          delete-branch: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            try {
+              const { data: pullRequest } = await github.rest.pulls.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: "🤖 Fix: ${{ github.event.issue.title }}",
+                head: "${{ env.BRANCH_NAME }}",
+                base: "main",
+                body: `## 🤖 Otomatik Issue Düzeltmesi
+                
+                **Issue:** #${{ github.event.issue.number }} - ${{ github.event.issue.title }}
+                
+                ### 📊 İşlem Durumu
+                - **1. Deneme (Gemini CLI):** ${{ steps.check_attempt1.outputs.success == 'true' && '✅ Başarılı' || '❌ API Overload (503)' }}
+                - **2. Deneme (Direct API):** ${{ steps.check_attempt2.outputs.success == 'true' && '✅ Başarılı' || (steps.check_attempt1.outputs.success == 'false' && '❌ API Overload (503)' || '⏭️ Atlandı') }}
+                - **3. Fallback:** ${{ steps.manual_fix.outputs.success == 'true' && '✅ Manuel rapor' || '⏭️ Atlandı' }}
+                
+                ### 🔧 Yapılan Değişiklikler
+                Bu PR, issue'yu çözmek için otomatik olarak oluşturulmuştur.
+                
+                ### ⚠️ 503 Service Unavailable Hatası
+                ${{ steps.check_attempt1.outputs.success == 'false' && 'Gemini API geçici olarak aşırı yüklenmiş durumda. Bu normal bir durumdur ve daha sonra tekrar denenebilir.' || 'API başarıyla çalıştı.' }}
+                
+                ### 🔍 İnceleme
+                - [ ] Değişiklikleri kontrol edin
+                - [ ] API hata durumunu değerlendirin
+                - [ ] Gerekirse manuel düzeltme yapın
+                
+                ---
+                **Branch:** \`${{ env.BRANCH_NAME }}\`  
+                **Log:** [Workflow detayları](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+                
+                Closes #${{ github.event.issue.number }}`
+              });
+              
+              console.log(`✅ Pull Request oluşturuldu: #${pullRequest.number}`);
+              console.log(`🔗 PR URL: ${pullRequest.html_url}`);
+              
+              // PR bilgisini environment'a kaydet
+              core.exportVariable('PR_NUMBER', pullRequest.number);
+              core.exportVariable('PR_URL', pullRequest.html_url);
+              
+            } catch (error) {
+              console.error('❌ PR oluşturma hatası:', error.message);
+              
+              // Hata durumunda branch'ı temizle
+              try {
+                await github.rest.git.deleteRef({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: `heads/${{ env.BRANCH_NAME }}`
+                });
+                console.log('🧹 Hatalı branch temizlendi');
+              } catch (deleteError) {
+                console.log('⚠️ Branch temizleme hatası:', deleteError.message);
+              }
+              
+              throw error;
+            }
           
       - name: Final Comment on Issue
         uses: actions/github-script@v7
@@ -327,7 +493,7 @@ jobs:
             3. **Manuel Fallback:** ${success && !attempt1 && !attempt2 ? '✅ Çalıştırıldı' : '⏭️ Gerek kalmadı'}
             
             ### 📋 Sonuç:
-            ${success ? '🎉 Pull Request oluşturuldu! PR\'ı inceleyin ve merge edin.' : '😞 Hiçbir değişiklik yapılamadı. Daha sonra tekrar deneyin.'}
+            ${success ? `🎉 Pull Request oluşturuldu! PR #${process.env.PR_NUMBER || 'N/A'} - [Görüntüle](${process.env.PR_URL || '#'})` : '😞 Hiçbir değişiklik yapılamadı. Daha sonra tekrar deneyin.'}
             
             ### 💡 503 Hatası Hakkında:
             Bu hata Gemini API'ın geçici olarak aşırı yüklenmiş olması nedeniyle oluşur. 
