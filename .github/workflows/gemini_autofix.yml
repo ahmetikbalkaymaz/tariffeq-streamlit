@@ -260,21 +260,21 @@ jobs:
                   
                   // Basit README güncellemesi - AI'ın kendi kod yazmasını bekle
                   const readmeUpdate = `
-## 🏦 AI Sigorta Geliştirmesi
+          ## 🏦 AI Sigorta Geliştirmesi
 
-### Issue #${process.env.ISSUE_NUMBER}: ${issueTitle}
+          ### Issue #${process.env.ISSUE_NUMBER}: ${issueTitle}
 
-**Tarih:** ${new Date().toLocaleString('tr-TR')}
-**Durum:** AI-Powered Insurance Development
+          **Tarih:** ${new Date().toLocaleString('tr-TR')}
+          **Durum:** AI-Powered Insurance Development
 
-#### 📋 Issue Detayları:
-${issueBody}
+          #### 📋 Issue Detayları:
+          ${issueBody}
 
-#### 🤖 AI Analizi:
-${aiResponse.substring(0, 1000)}
+          #### 🤖 AI Analizi:
+          ${aiResponse.substring(0, 1000)}
 
----
-*Bu analiz Gemini 2.5 Pro tarafından sigorta expertise ile yapılmıştır.*
+          ---
+          *Bu analiz Gemini 2.5 Pro tarafından sigorta expertise ile yapılmıştır.*
 
           `;
                   
