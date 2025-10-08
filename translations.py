@@ -1315,4 +1315,16 @@ T = {
         "TR": "Poliçe Limiti",
         "EN": "Policy Limit"
     },
+    "locate_loss_page_nav": {
+        "TR": "Locate Loss",
+        "EN": "Locate Loss"
+    },
+    "cat_locate_loss_page_nav": {
+        "TR": "Cat Locate Loss",
+        "EN": "Cat Locate Loss"
+    },
+    "loss_analysis_page_nav": {
+        "TR": "Loss Analysis",
+        "EN": "Loss Analysis"
+    }
 }

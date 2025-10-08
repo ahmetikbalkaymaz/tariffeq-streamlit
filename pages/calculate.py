@@ -1,7 +1,17 @@
 import streamlit as st
 from utils.visitor_logger import track_page_visit, log_page_exit
+from pages.sidebar import sidebar
+from datetime import datetime, timedelta, date # 'date' import'unu eklediğinizden emin olun
+from translations import T 
+import pandas as pd
+from utils import premium_calculations as pc
+from utils import ui_helpers as ui
+from utils import pdf_generator
+from utils import excel_generator
+from utils.visitor_logger import get_client_ip 
+from utils.email_notifier import notifier 
 
-# Sayfa konfigürasyonu
+
 st.set_page_config(
     page_title="TariffEQ - Hesaplama",
     layout="wide",
@@ -17,15 +27,7 @@ if 'previous_page' in st.session_state and st.session_state.previous_page != "Ca
 
 st.session_state.previous_page = "Calculate"
 
-from datetime import datetime, timedelta, date # 'date' import'unu eklediğinizden emin olun
-from translations import T 
-import pandas as pd
-from utils import premium_calculations as pc
-from utils import ui_helpers as ui
-from utils import pdf_generator
-from utils import excel_generator
-from utils.visitor_logger import get_client_ip # YENİ: IP fonksiyonunu import et
-from utils.email_notifier import notifier # YENİ: Notifier'ı import et
+
 
 # ------------------------------------------------------------
 # STREAMLIT CONFIG (must be first)
@@ -167,52 +169,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Kenar Çubuğu Navigasyonu ve Dil Seçimi (Değişiklik yok)
-with st.sidebar:
-    st.image("assets/logo.png", width=1000) 
-    st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
-    st.page_link("pages/calculate.py", label=T["calc"][st.session_state.lang]) 
-    st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) 
-    st.page_link("pages/information.py", label=T["information_page_nav"][st.session_state.lang]) # BİLGİLENDİRME SAYFASI LİNKİ
-    st.page_link("pages/roadmap.py", label=T["roadmap_page_nav"][st.session_state.lang], icon="🚀") # YOL HARİTASI SAYFASI LİNKİ
-    # st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") 
-    st.markdown("---") 
 
-    lang_options = ["TR", "EN"]
-    if st.session_state.lang not in lang_options:
-        st.session_state.lang = "TR" 
 
-    current_lang_index = lang_options.index(st.session_state.lang)
-    
-    selected_lang_sidebar = st.radio(
-        "Language / Dil", 
-        options=lang_options, 
-        index=current_lang_index, 
-        key="sidebar_language_selector" 
-    )
-
-    if selected_lang_sidebar != st.session_state.lang:
-        st.session_state.lang = selected_lang_sidebar
-        st.rerun() 
-    
-    st.markdown("---") 
-    st.markdown(f"<div class='sidebar-footer footer'>{T['footer'][lang]}</div>", unsafe_allow_html=True)
+sidebar()  # Kenar çubuğunu göster
 
 # tr fonksiyonu burada kalıyor, ana UI tarafından kullanılıyor
 def tr(key: str) -> str:
-    # `T` sözlüğünüzde "location_name" ve "location_name_help" anahtarlarını eklemeyi unutmayın.
-    # Örnek:
-    # "location_name": {"TR": "Lokasyon Adı / Adresi", "EN": "Location Name / Address"},
-    # "location_name_help": {"TR": "Bu lokasyon için tanımlayıcı bir isim veya adres girin.", "EN": "Enter a descriptive name or address for this location."},
+   
     return T.get(key, {}).get(lang, key)
 
-# Sabit tablolar pc modülüne taşındı
-# Hesaplama fonksiyonları pc modülüne taşındı
-# UI yardımcı fonksiyonları ui modülüne taşındı
 
-# ------------------------------------------------------------
-# SCENARIO DATA PREPARATION (Burada kalabilir veya scenario_utils.py'ye taşınabilir)
-# ------------------------------------------------------------
 def prepare_scenario_data_for_session(
     scenario_definitions_list, 
     groups_determined_val, 
@@ -716,18 +682,83 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                 'limited_policy_multiplier': limited_policy_multiplier
             }
 
+            # Mevcut kodunuzda sadece bu bölümü değiştirin (satır 686-698 arası):
+
+            sonuc_listesi = []
+            for group_key, data_group in groups_determined.items():
+                # Grup için toplam PD bedelini hesapla
+                commodity_value = data_group["commodity"] * 0.40 if data_group.get("commodity_is_subscription", False) else data_group["commodity"]
+                
+                total_pd_for_group_try = (
+                    data_group["building"] + 
+                    data_group["fixture"] + 
+                    data_group["decoration"] + 
+                    commodity_value + 
+                    data_group["safe"] + 
+                    data_group["machinery"]
+                ) * fx_rate_fire  # TRY'ye çevir
+                
+                premium_data = premium_results_by_group[group_key]
+                
+                sonuc_listesi.append({
+                    'Kalem': f'Grup {group_key}' if num_locations > 1 else 'Ana Bina',
+                    'Bedel (TRY)': total_pd_for_group_try,  # ✅ Burada hesapladığımız değeri kullanıyoruz
+                    'Nihai Fiyat (‰)': premium_data['applied_rate'],
+                    'Prim (TRY)': premium_data['pd_premium_try']
+                })
+
+            # Kar Kaybı (BI) varsa ekle
+            if total_entered_bi_orig_ccy > 0:
+                total_bi_try = total_entered_bi_orig_ccy * fx_rate_fire
+                total_bi_premium_try = sum(
+                    premium_results_by_group[gk]['bi_premium_try'] 
+                    for gk in premium_results_by_group.keys()
+                )
+                
+                # BI için oran hesapla (binde cinsinden)
+                bi_rate = (total_bi_premium_try / total_bi_try * 1000) if total_bi_try > 0 else 0
+                
+                sonuc_listesi.append({
+                    'Kalem': 'Kar Kaybı',
+                    'Bedel (TRY)': total_bi_try,
+                    'Nihai Fiyat (‰)': bi_rate,
+                    'Prim (TRY)': total_bi_premium_try
+                })
+
+            # DataFrame'e çevir
+            sonuc_tablosu_df = pd.DataFrame(sonuc_listesi)
+
+            # Session state'e kaydet
+            st.session_state['sonuc_tablosu_df'] = sonuc_tablosu_df
+            st.session_state['para_birimi'] = currency_fire
+            st.session_state['kur'] = fx_rate_fire
+            st.session_state['enflasyon_orani'] = inflation_rate
+
+            # Limit oranı (eğer varsa)
+            if apply_limited_policy and limited_policy_limit > 0:
+                limit_yuzdesi = (limited_policy_limit / total_entered_pd_orig_ccy) * 100
+                st.session_state['limit_orani'] = limit_yuzdesi
+            else:
+                st.session_state['limit_orani'] = None
+
+            # Sabit makine bedeli (machinery toplamı)
+            total_machinery_try = sum(
+                loc['machinery'] for loc in locations_data
+            ) * fx_rate_fire
+            st.session_state['sabit_makine_bedeli_try'] = total_machinery_try
+
+            # Export data'ya da ekleyelim
+            st.session_state['sonuc_tablosu_df'] = sonuc_tablosu_df
+            st.session_state['sabit_makine_bedeli_try'] = total_machinery_try
     # --- HESAPLAMA SONRASI GÖSTERİLECEK BUTONLAR ---
     if 'export_data' in st.session_state:
         st.markdown("---")
 
         # col1, col2, col3 = st.columns(3)
-        col2, col3 = st.columns(2)
+        col1, col2, col3 = st.columns(3)
 
-        # with col1:
-        #     if st.button(label=tr("goto_scenario_page_button") + " 💡", use_container_width=True, key="goto_scenario_btn"):
-        #         st.switch_page("pages/scenario_calculator_page.py")
 
-        with col2:
+        with col1:
             if 'export_data' in st.session_state:
                 pdf_bytes = pdf_generator.create_fire_pdf(
                     locations_data=st.session_state.export_data['locations_data'],
@@ -757,7 +788,7 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                     key="download_pdf"
                 )
 
-        with col3:
+        with col2:
             if 'export_data' in st.session_state:
                 try:
                     excel_bytes = excel_generator.create_fire_excel(
@@ -782,6 +813,13 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                     # Kullanıcıya bir uyarı göstermek yerine butonu devre dışı bırakabilir veya hiçbir şey yapmayabiliriz.
                     # Şimdilik, butonu oluşturmuyoruz ve bir uyarı veriyoruz.
                     st.warning(tr("warning_car_no_sum_insured"))
+
+        with col3:
+            if st.button("🏢 " + tr("go_to_policy_details"), use_container_width=True, key="go_to_policy"):
+                st.switch_page("pages/calculate_policy.py")
+            # if st.button("🏢 " + tr("go_to_policy_details"), use_container_width=True, key="go_to_policy"):
+            #     st.session_state.page = 'calculate_policy'
+            #     st.rerun()
 
 
 elif st.session_state.active_calc_module == CALC_MODULE_CAR:

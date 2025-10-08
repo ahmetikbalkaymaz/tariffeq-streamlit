@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yapay Zeka Destekli NAT CAT Paneli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            overflow: hidden;
+        }
+        .main-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            grid-template-rows: 1fr;
+            height: calc(100vh - 120px);
+            gap: 1rem;
+        }
+        #incident-list-container, #main-content-area {
+            overflow-y: auto;
+            height: 100%;
+        }
+        .active-item {
+            background-color: #eef2ff;
+            border-left-color: #4f46e5;
+            transform: translateX(-4px);
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+            border-radius: 0.75rem;
+            z-index: 10;
+        }
+        .leaflet-div-icon {
+            background: transparent;
+            border: none;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #4f46e5;
+            animation: spin 1s ease infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c5c5c5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a3a3a3; }
+        .chart-container {
+            position: relative;
+            height: 350px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <div class="flex flex-col h-screen">
+        <header class="bg-white shadow-sm w-full p-4 z-20 flex-shrink-0">
+            <div class="max-w-screen-2xl mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <svg class="w-8 h-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                    </svg>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Yapay Zeka Destekli NAT CAT Paneli</h1>
+                        <p class="text-sm text-gray-500">Türkiye: Son 3 Aylık Orman Yangını & Sel Analizi</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="bg-white/80 backdrop-blur-sm w-full p-3 shadow-md z-10 flex-shrink-0">
+            <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-2 items-center">
+                 <p class="font-semibold text-gray-600 mr-2">Filtreler:</p>
+                 <select id="il-filter" class="w-full md:w-auto p-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"><option value="all">Tüm İller</option></select>
+                 <select id="tehlike-filter" class="w-full md:w-auto p-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"><option value="all">Tüm Tehlike Türleri</option></select>
+                 <select id="etki-filter" class="w-full md:w-auto p-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"><option value="all">Tüm Etki Seviyeleri</option><option value="Yüksek">Yüksek</option><option value="Orta">Orta</option><option value="Düşük">Düşük</option></select>
+                 <button id="reset-filters" class="w-full md:w-auto bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-md text-sm transition duration-150">Filtreleri Temizle</button>
+                 <div id="result-count" class="ml-auto text-sm font-medium text-gray-600 pr-2"></div>
+            </div>
+        </div>
+
+        <main class="max-w-screen-2xl mx-auto w-full p-4 flex-grow">
+            <div class="main-grid">
+                <aside id="incident-list-container" class="bg-white p-2 rounded-lg shadow-sm">
+                    <h2 class="text-lg font-bold mb-3 p-2 border-b">Olay Listesi (En Yeni)</h2>
+                    <div id="incident-list" class="space-y-1"></div>
+                </aside>
+
+                <div id="main-content-area">
+                    <div id="details-panel" class="hidden bg-white p-6 rounded-lg shadow-lg"></div>
+                    <div id="analysis-panel" class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                        <div class="xl:col-span-2 h-[450px] bg-white rounded-lg shadow-lg p-4">
+                             <h3 class="font-bold text-gray-700 text-lg mb-2">Afet Konumları Haritası</h3>
+                             <div id="map-container" class="w-full h-[calc(100%-40px)]"><div id="map"></div></div>
+                        </div>
+                        <div class="xl:col-span-2 bg-white rounded-lg shadow-lg p-4">
+                             <div class="flex justify-between items-center mb-3">
+                                 <h3 class="font-bold text-gray-700 text-lg">Öne Çıkan Analizler</h3>
+                                 <div class="flex gap-2">
+                                     <button id="generate-report-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center transition duration-150 text-sm">📊 Detaylı Rapor Görüntüle</button>
+                                     <button id="generate-analysis-btn" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center transition duration-150 text-sm">✨ Genel Risk Analizi İste</button>
+                                 </div>
+                             </div>
+                             <div id="analysis-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg p-4">
+                            <h3 class="font-semibold text-center mb-2 text-gray-600">Tehlike Türüne Göre Vaka Sayısı</h3>
+                            <div class="chart-container"><canvas id="tehlikeChart"></canvas></div>
+                        </div>
+                         <div class="bg-white rounded-lg shadow-lg p-4">
+                            <h3 class="font-semibold text-center mb-2 text-gray-600">Aylara Göre Vaka Dağılımı</h3>
+                            <div class="chart-container"><canvas id="aylikChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="gemini-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 overflow-y-auto h-full w-full z-50 hidden flex items-center justify-center">
+        <div class="relative mx-auto p-5 border w-full max-w-3xl shadow-lg rounded-2xl bg-white transform transition-all duration-300 ease-out scale-95 opacity-0" id="gemini-modal-content-box">
+             <div class="flex justify-between items-center mb-4 pb-3 border-b"><h3 class="text-xl leading-6 font-semibold text-gray-900 flex items-center gap-2" id="modal-title"></h3><button id="modal-close-btn-icon" class="text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button></div>
+             <div class="mt-2 px-2 py-3 max-h-[65vh] overflow-y-auto"><div id="modal-loading" class="hidden justify-center items-center py-10"><div class="spinner"></div><p class="ml-4 text-gray-600">Yapay zeka analiz ediyor...</p></div><div class="prose max-w-none text-gray-700" id="modal-content"></div></div>
+             <div class="items-center px-4 py-3 mt-4 bg-gray-50 rounded-b-2xl"><button id="modal-close-btn" class="w-full px-4 py-2 bg-gray-600 text-white text-base font-medium rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300">Kapat</button></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const incidentsData = [
+                { id: "YanginHatay-ErzinGokdere2025-10-05", tarih: "05.10.2025", il: "Hatay", ilce: "Erzin", konum: "Gökdere mevkii", tehlikeTuru: "Yangın", olayAdi: "Erzin Orman Yangını", sektor: "Orman", etkiSeviyesi: "Orta", yananAlanHa: 50, insaniEtki: "Belirtilmedi", maddiEtki: "Ormanlık alanda ve tarım arazilerinde hasar riski.", lat: 36.95, lng: 36.21, geometri: "Nokta", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Hatay'ın Erzin ilçesi Gökdere mevkii yakınlarındaki ormanlık alanda yangın çıktı. Ekiplerin havadan ve karadan müdahalesi devam ediyor.", kaynaklar: [{kaynak: "Resmi Açıklama", alinti: "Yangına müdahale sürüyor."}] },
+                { id: "YanginBingol-GencDedebagi2025-10-05", tarih: "05.10.2025", il: "Bingöl", ilce: "Genç", konum: "Dedebağı köyü kırsalı", tehlikeTuru: "Yangın", olayAdi: "Genç Kırsal Alan Yangını", sektor: "Orman", etkiSeviyesi: "Düşük", yananAlanHa: 15, insaniEtki: "Belirtilmedi", maddiEtki: "Sınırlı alanda örtü yangını.", lat: 38.75, lng: 40.57, geometri: "Nokta", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Bingöl'ün Genç ilçesi Dedebağı köyü kırsalında çıkan örtü yangını, ekiplerin müdahalesiyle kontrol altına alındı.", kaynaklar: [{kaynak: "Valilik", alinti: "Yangın kontrol altına alındı."}] },
+                { id: "YanginDiyarbakir-DicleBicer2025-10-04", tarih: "04.10.2025", il: "Diyarbakır", ilce: "Dicle", konum: "Biçer Mahallesi", tehlikeTuru: "Yangın", olayAdi: "Dicle Kırsal Yangını", sektor: "Orman/Örtü", etkiSeviyesi: "Orta", yananAlanHa: 100, insaniEtki: "Belirtilmedi", maddiEtki: "Geniş bir alanda anız ve örtü yangını, tarım arazileri risk altında.", lat: 38.37, lng: 40.06, geometri: "Çokgen", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Diyarbakır'ın Dicle ilçesi Biçer Mahallesi'nde başlayan yangın geniş bir alana yayıldı. Yangının anız yakma kaynaklı olduğu tahmin ediliyor.", kaynaklar: [{kaynak: "Yerel Basın", alinti: "Yangın rüzgarın etkisiyle yayıldı."}] },
+                { id: "YanginKonya-KadinhaniKestel2025-10-04", tarih: "04.10.2025", il: "Konya", ilce: "Kadınhanı", konum: "Kestel Ormanı", tehlikeTuru: "Yangın", olayAdi: "Kestel Orman Yangını", sektor: "Orman", etkiSeviyesi: "Düşük", yananAlanHa: 5, insaniEtki: "Belirtilmedi", maddiEtki: "Mesire alanı yakınında küçük çaplı orman yangını.", lat: 38.24, lng: 32.21, geometri: "Nokta", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Konya Kadınhanı'ndaki Kestel Ormanı ve Mesire Alanı'nda çıkan yangın, hızlı müdahale ile büyümeden söndürüldü.", kaynaklar: [{kaynak: "OGM", alinti: "Yangın söndürüldü."}] },
+                { id: "YanginOsmaniye-MerkezZorkun2025-10-04", tarih: "04.10.2025", il: "Osmaniye", ilce: "Merkez", konum: "Zorkun Yaylası yolu", tehlikeTuru: "Yangın", olayAdi: "Zorkun Yaylası Yangını", sektor: "Orman", etkiSeviyesi: "Düşük", yananAlanHa: 2, insaniEtki: "Belirtilmedi", maddiEtki: "Yol kenarında başlayan küçük çaplı yangın.", lat: 37.05, lng: 36.25, geometri: "Nokta", dogrulamaYontemi: "B", dogrulukOrani: 90, ozet: "Zorkun Yaylası yolu kenarında bir araçtan çıktığı iddia edilen yangın, büyümeden kontrol altına alındı.", kaynaklar: [{kaynak: "Sosyal Medya", alinti: "Görgü tanıkları yangının araçtan çıktığını belirtti."}] },
+                { id: "YanginKayseri-TalasCaybaglari2025-10-03", tarih: "03.10.2025", il: "Kayseri", ilce: "Talas", konum: "Çaybağları mevkii", tehlikeTuru: "Yangın", olayAdi: "Talas Orman Yangını", sektor: "Orman", etkiSeviyesi: "Düşük", yananAlanHa: 3, insaniEtki: "Belirtilmedi", maddiEtki: "İhmal sonucu çıktığı düşünülen küçük çaplı yangın.", lat: 38.68, lng: 35.59, geometri: "Nokta", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Kayseri Talas'ta ihmal sonucu çıktığı tahmin edilen orman yangını, ekiplerce söndürüldü.", kaynaklar: [{kaynak: "OGM", alinti: "Soğutma çalışmaları tamamlandı."}] },
+                { id: "YanginGumushane-KelkitAlicyeri2025-09-29", tarih: "29.09.2025", il: "Gümüşhane", ilce: "Kelkit", konum: "Alıçyeri mevkii", tehlikeTuru: "Yangın", olayAdi: "Kelkit Orman Yangını", sektor: "Orman", etkiSeviyesi: "Düşük", yananAlanHa: 3, insaniEtki: "Belirtilmedi", maddiEtki: "Yaklaşık 30 dönüm (3 hektar) alan zarar gördü.", lat: 40.09, lng: 39.27, geometri: "Nokta", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Gümüşhane Kelkit'te çıkan orman yangınında yaklaşık 30 dönüm alanın zarar gördüğü bildirildi.", kaynaklar: [{kaynak: "AA", alinti: "Yaklaşık 30 dönüm alan yandı."}] },
+                { id: "SelRize-MerkezMultiple2025-09-21", tarih: "21.09.2025", il: "Rize", ilce: "Merkez", konum: "İl geneli", tehlikeTuru: "Sel", olayAdi: "Rize Sel Felaketi", sektor: "Altyapı/Enerji", etkiSeviyesi: "Yüksek", yananAlanHa: 0, insaniEtki: "Belirtilmedi", maddiEtki: "Köy yolları ve altyapıda hasar. Muratlı Barajı ve HES'in selden etkilendiği ve operasyonel riskler taşıdığı bildirildi.", lat: 41.02, lng: 40.52, geometri: "Çokgen", dogrulamaYontemi: "A", dogrulukOrani: 96, ozet: "Rize genelinde etkili olan şiddetli yağışlar sel ve heyelanlara neden oldu. Çok sayıda köy yolu ulaşıma kapandı. Muratlı Barajı ve HES'in de risk altında olduğu belirtildi.", kaynaklar: [{kaynak: "AFAD", alinti: "Bölgeye çok sayıda ekip sevk edildi."}], etkilenenTesislerDetay: [{ad: "Muratlı Barajı ve HES", lat: 41.47, lng: 41.77, sektor: "Enerji" }] },
+                { id: "SelTrabzon-MerkezMultiple2025-09-21", tarih: "21.09.2025", il: "Trabzon", ilce: "Merkez", konum: "İl geneli", tehlikeTuru: "Sel", olayAdi: "Trabzon Sel Felaketi", sektor: "Altyapı", etkiSeviyesi: "Orta", yananAlanHa: 0, insaniEtki: "Belirtilmedi", maddiEtki: "Şehir merkezi ve ilçelerde su baskınları, altyapı hasarı.", lat: 41.00, lng: 39.72, geometri: "Çokgen", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Trabzon'da etkili olan sağanak yağış sele neden oldu, dereler taştı.", kaynaklar: [{kaynak: "Valilik", alinti: "Hasar tespit çalışmaları başladı."}] },
+                { id: "SelArtvin-BorckaKopru2025-09-21", tarih: "21.09.2025", il: "Artvin", ilce: "Borçka", konum: "İlçeler arası yol", tehlikeTuru: "Sel", olayAdi: "Borçka Köprü Çökmesi", sektor: "Kamu Altyapı", etkiSeviyesi: "Yüksek", yananAlanHa: 0, insaniEtki: "Belirtilmedi", maddiEtki: "Taşan dere nedeniyle bir köprü çöktü, ulaşımda ciddi aksama.", lat: 41.38, lng: 41.67, geometri: "Nokta", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Artvin Borçka'da şiddetli yağış sonrası bir köprünün çökmesiyle ulaşım durdu.", kaynaklar: [{kaynak: "Karayolları", alinti: "Alternatif güzergahlar oluşturuluyor."}] },
+                { id: "YanginMuglaKoycegiz-Milas2025-09-19", tarih: "19.09.2025", il: "Muğla", ilce: "Köyceğiz–Milas", konum: "İl geneli", tehlikeTuru: "Yangın", olayAdi: "Muğla Büyük Orman Yangını", sektor: "Orman", etkiSeviyesi: "Yüksek", yananAlanHa: 2403, insaniEtki: "Tahliyeler yapıldı", maddiEtki: "Valilik açıklamasına göre 2403 hektar alan yandı. Türkiye'nin en büyük yangınlarından biri.", lat: 37.15, lng: 28.5, geometri: "Çokgen", dogrulamaYontemi: "A", dogrulukOrani: 96, ozet: "Muğla'nın Köyceğiz ve Milas ilçelerinde başlayan ve rüzgarın etkisiyle geniş bir alana yayılan orman yangınında, valilik verilerine göre 2403 hektar alan zarar gördü.", kaynaklar: [{kaynak: "Muğla Valiliği", alinti: "Toplam 2403 hektar alan etkilenmiştir."}] },
+                { id: "SelOrdu-FatsaMerkez2025-09-07", tarih: "07.09.2025", il: "Ordu", ilce: "Fatsa", konum: "İlçe merkezi", tehlikeTuru: "Sel", olayAdi: "Fatsa Su Baskını", sektor: "Ticari İşletmeler", etkiSeviyesi: "Orta", yananAlanHa: 0, insaniEtki: "Belirtilmedi", maddiEtki: "İlçe merkezindeki çok sayıda işyerini su bastı. Ciddi emtea ve dekorasyon hasarları.", lat: 41.03, lng: 37.5, geometri: "Çokgen", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Ordu'nun Fatsa ilçesinde yaşanan ani sel, ilçe merkezinde su baskınlarına yol açtı. Çok sayıda dükkan zarar gördü.", kaynaklar: [{kaynak: "Ticaret Odası", alinti: "Esnafın zararı büyük."}] },
+                { id: "YanginDenizli-BuldanCevre2025-09-02", tarih: "02.09.2025", il: "Denizli", ilce: "Buldan", konum: "Çatak–Süleymanlı kırsalı", tehlikeTuru: "Yangın", olayAdi: "Buldan Orman Yangını", sektor: "Orman", etkiSeviyesi: "Orta", yananAlanHa: 250, insaniEtki: "Belirtilmedi", maddiEtki: "Geniş bir ormanlık alanda etkili oldu.", lat: 38.04, lng: 28.83, geometri: "Çokgen", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Denizli'nin Buldan ilçesi kırsalında çıkan orman yangını, ekiplerin yoğun çabasıyla kontrol altına alındı.", kaynaklar: [{kaynak: "Bakanlık Açıklaması", alinti: "Denizli'deki yangın kontrol altında."}] },
+                { id: "YanginCanakkale-MerkezErenkoy2025-08-12", tarih: "12.08.2025", il: "Çanakkale", ilce: "Merkez", konum: "Erenköy çevresi", tehlikeTuru: "Yangın", olayAdi: "Çanakkale Tarihi Alan Yangını", sektor: "Orman", etkiSeviyesi: "Yüksek", yananAlanHa: 1500, insaniEtki: "Yüzlerce kişi tahliye edildi", maddiEtki: "Tarihi Gelibolu Yarımadası'na yakın bölgede büyük çaplı yangın. Yüzlerce kişi tahliye edildi.", lat: 40.05, lng: 26.35, geometri: "Çokgen", dogrulamaYontemi: "B", dogrulukOrani: 90, ozet: "Çanakkale merkez Erenköy çevresinde çıkan yangın nedeniyle yüzlerce kişi tahliye edildi. Yangın, tarihi alanları tehdit etti.", kaynaklar: [{kaynak: "Ulusal Basın", alinti: "Bölgeden yüzlerce kişi tahliye edildi."}] },
+                { id: "YanginEskisehir-SeyitgaziKirka2025-07-23", tarih: "23.07.2025", il: "Eskişehir", ilce: "Seyitgazi", konum: "Kırka çevresi", tehlikeTuru: "Yangın", olayAdi: "Seyitgazi Orman Yangını", sektor: "Orman", etkiSeviyesi: "Yüksek", yananAlanHa: 800, insaniEtki: "10 şehit / 14 yaralı (Söndürme uçağı düştü)", maddiEtki: "Geniş bir alanda etkili olan yangına müdahale sırasında söndürme uçağının düşmesi sonucu can kayıpları yaşandı.", lat: 39.45, lng: 30.69, geometri: "Çokgen", dogrulamaYontemi: "A", dogrulukOrani: 100, ozet: "Eskişehir Seyitgazi'deki orman yangınına müdahale eden bir uçağın düşmesi sonucu 10 personel şehit oldu, 14 personel yaralandı. Yangın, trajik bir olayla sonuçlandı.", kaynaklar: [{kaynak: "Resmi Açıklama", alinti: "Maalesef can kayıplarımız var."}] },
+                { id: "SelAnkara-MerkezMultiple2025-07-18", tarih: "18.07.2025", il: "Ankara", ilce: "Merkez", konum: "İl geneli", tehlikeTuru: "Sel", olayAdi: "Ankara Sel Baskını", sektor: "Kentsel Altyapı", etkiSeviyesi: "Orta", yananAlanHa: 0, insaniEtki: "Belirtilmedi", maddiEtki: "Ankara'nın birçok ilçesinde ani sel baskınları yaşandı. Çok sayıda ev ve işyerini su bastı, altyapı zarar gördü.", lat: 39.93, lng: 32.85, geometri: "Çokgen", dogrulamaYontemi: "A", dogrulukOrani: 95, ozet: "Ankara'da etkili olan şiddetli yağışlar, altyapının yetersiz kaldığı bölgelerde sel baskınlarına neden oldu.", kaynaklar: [{kaynak: "Belediye", alinti: "Kritik noktalara müdahale ediliyor."}] }
+            ];
+
+            let map, markersLayer, polylinesLayer, tehlikeChart, aylikChart;
+            let currentIncident = null;
+            let currentFilteredData = incidentsData;
+            const elements = { 
+                ilFilter: document.getElementById('il-filter'), 
+                tehlikeFilter: document.getElementById('tehlike-filter'), 
+                etkiFilter: document.getElementById('etki-filter'), 
+                incidentList: document.getElementById('incident-list'), 
+                resultCount: document.getElementById('result-count'), 
+                resetBtn: document.getElementById('reset-filters'), 
+                detailsPanel: document.getElementById('details-panel'), 
+                analysisPanel: document.getElementById('analysis-panel'), 
+                mainContentArea: document.getElementById('main-content-area'), 
+                mapContainer: document.getElementById('map-container'), 
+                geminiModal: document.getElementById('gemini-modal'), 
+                modalContentBox: document.getElementById('gemini-modal-content-box'), 
+                modalTitle: document.getElementById('modal-title'), 
+                modalContent: document.getElementById('modal-content'), 
+                modalLoading: document.getElementById('modal-loading'), 
+                modalCloseBtn: document.getElementById('modal-close-btn'), 
+                modalCloseBtnIcon: document.getElementById('modal-close-btn-icon'), 
+                generateAnalysisBtn: document.getElementById('generate-analysis-btn'),
+                generateReportBtn: document.getElementById('generate-report-btn'),
+                analysisCards: document.getElementById('analysis-cards') 
+            };
+
+            function init() { populateFilters(); initMap(); renderAll(incidentsData); addEventListeners(); }
+
+            function addEventListeners() {
+                elements.ilFilter.addEventListener('change', applyFilters);
+                elements.tehlikeFilter.addEventListener('change', applyFilters);
+                elements.etkiFilter.addEventListener('change', applyFilters);
+                elements.resetBtn.addEventListener('click', resetAllFilters);
+                elements.incidentList.addEventListener('click', handleListClick);
+                elements.modalCloseBtn.addEventListener('click', closeModal);
+                elements.modalCloseBtnIcon.addEventListener('click', closeModal);
+                elements.generateAnalysisBtn.addEventListener('click', handleGenerateAnalysis);
+                elements.generateReportBtn.addEventListener('click', handleGenerateReport);
+            }
+
+            function renderAll(data) { renderIncidentList(data); updateAnalysis(data); updateMapMarkers(data); }
+
+            function populateFilters() {
+                const iller = [...new Set(incidentsData.map(item => item.il))].sort((a, b) => a.localeCompare(b, 'tr'));
+                const tehlikeler = [...new Set(incidentsData.map(item => item.tehlikeTuru))].sort();
+                iller.forEach(il => elements.ilFilter.innerHTML += `<option value="${il}">${il}</option>`);
+                tehlikeler.forEach(tehlike => elements.tehlikeFilter.innerHTML += `<option value="${tehlike}">${tehlike}</option>`);
+            }
+
+            function renderIncidentList(data) {
+                elements.incidentList.innerHTML = data.length === 0 ? '<p class="text-gray-500 text-center p-4">Filtre kriterlerine uygun sonuç bulunamadı.</p>' : '';
+                if(data.length > 0) {
+                    data.sort((a, b) => {
+                        const dateA = new Date(a.tarih.split('.').reverse().join('-'));
+                        const dateB = new Date(b.tarih.split('.').reverse().join('-'));
+                        return dateB - dateA;
+                    });
+                    data.forEach(item => {
+                        const etkiRenk = { 'Yüksek': 'border-red-500', 'Orta': 'border-yellow-500', 'Düşük': 'border-green-500' }[item.etkiSeviyesi] || 'border-gray-200';
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = `p-3 border-l-4 ${etkiRenk} cursor-pointer hover:bg-gray-100 transition duration-150 rounded-r-md`;
+                        itemDiv.dataset.id = item.id;
+                        itemDiv.innerHTML = `<div class="flex justify-between items-start"><p class="font-bold text-base text-gray-800">${item.olayAdi}</p><span class="text-xs font-medium text-gray-500">${item.tarih}</span></div><p class="text-sm text-gray-600">${item.il}, ${item.ilce}</p><p class="text-xs text-gray-500 mt-1 font-semibold">${item.tehlikeTuru}</p>`;
+                        elements.incidentList.appendChild(itemDiv);
+                    });
+                }
+                elements.resultCount.textContent = `${data.length} sonuç bulundu.`;
+            }
+
+            function showDetails(incident) {
+                elements.analysisPanel.classList.add('hidden');
+                elements.mapContainer.classList.add('hidden');
+                const etkiBilgi = { 'Yüksek': { renk: 'red', ikon: 'fa-triangle-exclamation', metin: 'Yüksek Etki' }, 'Orta': { renk: 'yellow', ikon: 'fa-circle-exclamation', metin: 'Orta Etki' }, 'Düşük': { renk: 'green', ikon: 'fa-circle-info', metin: 'Düşük Etki' } }[incident.etkiSeviyesi];
+                
+                let yananAlanHTML = incident.tehlikeTuru === 'Yangın' && incident.yananAlanHa > 0 ? `<div class="bg-red-50 p-3 rounded-lg text-center"><p class="font-semibold text-red-500">Yanan Alan</p><p class="font-bold text-2xl text-red-800">${incident.yananAlanHa.toLocaleString('tr-TR')} ha</p></div>` : '';
+                let insaniEtkiHTML = incident.insaniEtki !== 'Belirtilmedi' ? `<div class="bg-gray-50 p-3 rounded-lg"><p class="font-semibold text-gray-500">İnsani Etki</p><p class="font-medium text-lg">${incident.insaniEtki}</p></div>` : `<div class="bg-gray-50 p-3 rounded-lg"><p class="font-semibold text-gray-500">Tarih</p><p class="font-medium text-lg">${incident.tarih}</p></div>`;
+                let etkilenenTesislerHTML = incident.etkilenenTesislerDetay ? `<div class="mt-4"><h4 class="font-bold text-sky-700 flex items-center gap-2"><i class="fa-solid fa-industry"></i> Etkilenen Kritik Tesis(ler)</h4><ul class="text-sm bg-sky-50 p-3 rounded-lg mt-1 border border-sky-200 space-y-1">${incident.etkilenenTesislerDetay.map(p => `<li><strong>${p.ad}</strong></li>`).join('')}</ul></div>` : '';
+
+                elements.detailsPanel.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="md:col-span-2"><div class="flex justify-between items-start relative"><button onclick="resetToAnalysisView()" class="absolute top-0 right-0 text-gray-500 hover:text-gray-800 font-bold p-2 text-2xl z-10">&times;</button><div><span class="inline-block px-3 py-1 text-sm font-semibold text-${etkiBilgi.renk}-800 bg-${etkiBilgi.renk}-100 rounded-full mb-2"><i class="fa-solid ${etkiBilgi.ikon} mr-2"></i>${etkiBilgi.metin}</span><h2 class="text-3xl font-bold text-gray-800">${incident.olayAdi}</h2><p class="text-md text-gray-500 mt-1">${incident.konum}, ${incident.ilce}/${incident.il}</p></div></div><div class="grid grid-cols-2 gap-4 text-sm mt-6">${yananAlanHTML}<div class="bg-gray-50 p-3 rounded-lg"><p class="font-semibold text-gray-500">Tehlike Türü</p><p class="font-medium text-lg">${incident.tehlikeTuru}</p></div><div class="bg-gray-50 p-3 rounded-lg"><p class="font-semibold text-gray-500">Etkilenen Varlık</p><p class="font-medium text-lg">${incident.sektor}</p></div>${insaniEtkiHTML}</div><div class="mt-4"><h4 class="font-bold text-gray-700">Olay Özeti</h4><p class="text-sm mt-1 bg-blue-50 p-3 rounded-lg border border-blue-200">${incident.ozet}</p></div><div class="mt-4"><h4 class="font-bold text-gray-700">Potansiyel Sigorta Etkisi</h4><p class="text-sm mt-1">${incident.maddiEtki}</p></div>${etkilenenTesislerHTML}</div><div class="md:col-span-1 h-full min-h-[400px]"><div id="detail-map" class="w-full h-full rounded-lg shadow-md"></div></div></div>`;
+                elements.detailsPanel.classList.remove('hidden');
+                
+                const detailMap = L.map('detail-map').setView([incident.lat, incident.lng], 12);
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(detailMap);
+                L.marker([incident.lat, incident.lng], { icon: createMapIcon(incident) }).addTo(detailMap).bindPopup(`<b>${incident.olayAdi}</b>`).openPopup();
+                if (incident.etkilenenTesislerDetay) {
+                    incident.etkilenenTesislerDetay.forEach(tesis => {
+                        L.marker([tesis.lat, tesis.lng], { icon: createMapIcon(null, 'tesis') })
+                            .addTo(detailMap)
+                            .bindPopup(`<b>Etkilenen Tesis:</b> ${tesis.ad}`);
+                        L.polyline([[incident.lat, incident.lng], [tesis.lat, tesis.lng]], { color: '#0ea5e9', dashArray: '5, 10' }).addTo(detailMap);
+                    });
+                }
+            }
+
+            function updateAnalysis(data) {
+                const totalIncidents = data.length;
+                const highImpactCount = data.filter(i => i.etkiSeviyesi === 'Yüksek').length;
+                const totalHectares = data.reduce((sum, i) => sum + (i.yananAlanHa || 0), 0);
+                const mostAffectedCity = Object.entries(data.reduce((acc, item) => { acc[item.il] = (acc[item.il] || 0) + 1; return acc; }, {})).sort((a,b) => b[1] - a[1])[0] || ['-', 0];
+
+                elements.analysisCards.innerHTML = `
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200"><p class="text-sm text-blue-700 font-semibold">Toplam Vaka</p><p class="text-3xl font-bold text-blue-900">${totalIncidents}</p></div>
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-200"><p class="text-sm text-red-700 font-semibold">Toplam Yanan Alan (ha)</p><p class="text-3xl font-bold text-red-900">${totalHectares.toLocaleString('tr-TR')}</p></div>
+                    <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200"><p class="text-sm text-yellow-700 font-semibold">En Riskli Bölge</p><p class="text-xl font-bold text-yellow-900">${mostAffectedCity[0]}</p></div>
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200"><p class="text-sm text-green-700 font-semibold">Yüksek Etkili Vaka</p><p class="text-3xl font-bold text-green-900">${highImpactCount}</p></div>`;
+                updateCharts(data);
+            }
+            
+            function applyFilters() { 
+                const filters = { 
+                    il: elements.ilFilter.value, 
+                    tehlike: elements.tehlikeFilter.value, 
+                    etki: elements.etkiFilter.value 
+                }; 
+                currentFilteredData = incidentsData.filter(item => 
+                    (filters.il === 'all' || item.il === filters.il) && 
+                    (filters.tehlike === 'all' || item.tehlikeTuru === filters.tehlike) && 
+                    (filters.etki === 'all' || item.etkiSeviyesi === filters.etki)
+                ); 
+                renderAll(currentFilteredData); 
+                resetToAnalysisView(); 
+            }
+            
+            function resetAllFilters() { 
+                elements.ilFilter.value = 'all'; 
+                elements.tehlikeFilter.value = 'all'; 
+                elements.etkiFilter.value = 'all'; 
+                applyFilters(); 
+                map.setView([39.0, 35.0], 6); 
+            }
+
+            window.resetToAnalysisView = function() { 
+                elements.detailsPanel.classList.add('hidden'); 
+                elements.analysisPanel.classList.remove('hidden'); 
+                elements.mapContainer.classList.remove('hidden'); 
+                currentIncident = null; 
+                document.querySelectorAll('.active-item').forEach(el => el.classList.remove('active-item')); 
+                if (map) map.invalidateSize(); 
+            }
+
+            function handleListClick(e) {
+                const itemDiv = e.target.closest('[data-id]');
+                if (itemDiv) { 
+                    const incidentId = itemDiv.dataset.id; 
+                    currentIncident = incidentsData.find(i => i.id === incidentId); 
+                    document.querySelectorAll('.active-item').forEach(el => el.classList.remove('active-item')); 
+                    itemDiv.classList.add('active-item'); 
+                    itemDiv.scrollIntoView({ behavior: 'smooth', block: 'center' }); 
+                    showDetails(currentIncident); 
+                    if (map) map.flyTo([currentIncident.lat, currentIncident.lng], 11); 
+                }
+            }
+            
+            function initMap() { 
+                map = L.map('map').setView([39.0, 35.0], 6); 
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(map); 
+                markersLayer = L.layerGroup().addTo(map); 
+                polylinesLayer = L.layerGroup().addTo(map);
+            }
+            
+            function createMapIcon(incident, type = 'main') {
+                if (type === 'tesis') {
+                    return L.divIcon({ 
+                        html: `<div style="font-size: 20px; color: #0ea5e9; text-shadow: 0 0 4px white;"><i class="fa-solid fa-industry"></i></div>`, 
+                        className: 'leaflet-div-icon', 
+                        iconSize: [24, 24], 
+                        iconAnchor: [12, 12] 
+                    });
+                }
+                const icons = { 'Yangın': 'fa-fire', 'Sel': 'fa-house-flood-water' }; 
+                const colors = { 'Yüksek': '#ef4444', 'Orta': '#f59e0b', 'Düşük': '#22c55e' }; 
+                const iconClass = icons[incident.tehlikeTuru] || 'fa-circle-question'; 
+                const color = colors[incident.etkiSeviyesi] || '#6b7280'; 
+                return L.divIcon({ 
+                    html: `<div style="font-size: 24px; color: ${color}; text-shadow: 0 0 4px white;"><i class="fa-solid ${iconClass}"></i></div>`, 
+                    className: 'leaflet-div-icon', 
+                    iconSize: [24, 24], 
+                    iconAnchor: [12, 12] 
+                }); 
+            }
+
+            function updateMapMarkers(data) {
+                markersLayer.clearLayers();
+                polylinesLayer.clearLayers();
+                data.forEach(item => {
+                    const marker = L.marker([item.lat, item.lng], { icon: createMapIcon(item) }).addTo(markersLayer);
+                    marker.bindPopup(`<b>${item.olayAdi}</b><br>${item.tehlikeTuru}`).on('click', () => handleListClick({ target: document.querySelector(`[data-id="${item.id}"]`) }));
+                    if (item.etkilenenTesislerDetay) {
+                        item.etkilenenTesislerDetay.forEach(tesis => {
+                            const tesisMarker = L.marker([tesis.lat, tesis.lng], { icon: createMapIcon(null, 'tesis') }).addTo(markersLayer);
+                            tesisMarker.bindPopup(`<b>Etkilenen Tesis:</b><br>${tesis.ad}`);
+                            L.polyline([[item.lat, item.lng], [tesis.lat, tesis.lng]], { color: '#0ea5e9', dashArray: '5, 10' }).addTo(polylinesLayer);
+                        });
+                    }
+                });
+            }
+
+            function createOrUpdateChart(chartInstance, elementId, type, data, options) { 
+                if (chartInstance) { chartInstance.destroy(); } 
+                const ctx = document.getElementById(elementId).getContext('2d'); 
+                return new Chart(ctx, { type, data, options }); 
+            }
+            
+            function updateCharts(data) {
+                const tehlikeData = data.reduce((acc, item) => { acc[item.tehlikeTuru] = (acc[item.tehlikeTuru] || 0) + 1; return acc; }, {});
+                tehlikeChart = createOrUpdateChart(tehlikeChart, 'tehlikeChart', 'doughnut', { 
+                    labels: Object.keys(tehlikeData), 
+                    datasets: [{ 
+                        label: 'Vaka Sayısı', 
+                        data: Object.values(tehlikeData), 
+                        backgroundColor: ['rgba(239, 68, 68, 0.7)', 'rgba(59, 130, 246, 0.7)'],
+                        borderColor: ['#ef4444', '#3b82f6'],
+                        borderWidth: 1
+                    }] 
+                }, { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' } } });
+
+                const aylikDataRaw = data.reduce((acc, item) => { const month = item.tarih.substring(3, 10); acc[month] = (acc[month] || 0) + 1; return acc; }, {});
+                const sortedAylikData = Object.entries(aylikDataRaw).sort((a, b) => { const [m1, y1] = a[0].split('.'); const [m2, y2] = b[0].split('.'); return new Date(y1, m1-1) - new Date(y2, m2-1); });
+                aylikChart = createOrUpdateChart(aylikChart, 'aylikChart', 'line', { 
+                    labels: sortedAylikData.map(d => d[0]), 
+                    datasets: [{ 
+                        label: 'Vaka Sayısı', 
+                        data: sortedAylikData.map(d => d[1]), 
+                        backgroundColor: 'rgba(22, 163, 74, 0.1)', 
+                        borderColor: '#16a34a', 
+                        tension: 0.3, 
+                        fill: true, 
+                        pointBackgroundColor: '#16a34a' 
+                    }] 
+                }, { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false } }, y: { grid: { display: false } } } });
+            }
+
+            function handleGenerateReport() {
+                const reportTitle = `<i class="fa-solid fa-chart-simple mr-2"></i> Filtrelenmiş Veri Raporu`;
+                let reportContent = '';
+
+                const fireData = currentFilteredData.filter(d => d.tehlikeTuru === 'Yangın');
+                reportContent += `<h3>Orman Yangını Raporu</h3>`;
+                if (fireData.length > 0) {
+                    const fireByCity = fireData.reduce((acc, item) => { acc[item.il] = (acc[item.il] || 0) + 1; return acc; }, {});
+                    const topFireCity = Object.entries(fireByCity).sort((a, b) => b[1] - a[1])[0];
+                    const totalBurnedArea = fireData.reduce((sum, i) => sum + (i.yananAlanHa || 0), 0);
+                    reportContent += `<ul class="list-disc pl-5">
+                                        <li>Toplam <b>${fireData.length}</b> yangın vakası bulunmaktadır.</li>
+                                        <li>En fazla yangın görülen il: <b>${topFireCity[0]}</b> (${topFireCity[1]} vaka)</li>
+                                        <li>Filtrelenen veride yanan toplam alan: <b>${totalBurnedArea.toLocaleString('tr-TR')} hektar</b>.</li>
+                                      </ul><br>`;
+                } else {
+                    reportContent += `<p>Filtre kriterlerine uygun yangın verisi bulunamadı.</p><br>`;
+                }
+
+                const floodData = currentFilteredData.filter(d => d.tehlikeTuru === 'Sel');
+                reportContent += `<h3>Sel Raporu</h3>`;
+                if (floodData.length > 0) {
+                    const floodByCity = floodData.reduce((acc, item) => { acc[item.il] = (acc[item.il] || 0) + 1; return acc; }, {});
+                    const topFloodCity = Object.entries(floodByCity).sort((a, b) => b[1] - a[1])[0];
+                    const affectedInfrastructure = floodData.filter(d => d.sektor.includes('Altyapı') || d.sektor.includes('Enerji') || d.sektor.includes('Ticari')).length;
+                    reportContent += `<ul class="list-disc pl-5">
+                                        <li>Toplam <b>${floodData.length}</b> sel vakası bulunmaktadır.</li>
+                                        <li>En fazla sel görülen il: <b>${topFloodCity[0]}</b> (${topFloodCity[1]} vaka)</li>
+                                        <li>Altyapı, enerji veya ticari tesisleri etkileyen vaka sayısı: <b>${affectedInfrastructure}</b>.</li>
+                                      </ul><br>`;
+                } else {
+                    reportContent += `<p>Filtre kriterlerine uygun sel verisi bulunamadı.</p><br>`;
+                }
+
+                const aylikDataRaw = currentFilteredData.reduce((acc, item) => { const month = item.tarih.substring(3, 10); acc[month] = (acc[month] || 0) + 1; return acc; }, {});
+                const sortedAylikData = Object.entries(aylikDataRaw).sort((a, b) => { const [m1, y1] = a[0].split('.'); const [m2, y2] = b[0].split('.'); return new Date(y1, m1-1) - new Date(y2, m2-1); });
+                
+                reportContent += `<h3>Aylara Göre Vaka Dağılımı</h3>`;
+                if(sortedAylikData.length > 0) {
+                    reportContent += `<ul class="list-disc pl-5">${sortedAylikData.map(d => `<li><b>${d[0]}:</b> ${d[1]} vaka</li>`).join('')}</ul>`;
+                } else {
+                    reportContent += `<p>Aylık dağılım için veri bulunamadı.</p>`;
+                }
+                
+                openModal(reportTitle);
+                elements.modalContent.innerHTML = reportContent.replace(/<h3>/g, '<h3 class="text-lg font-semibold mb-2 mt-4 text-indigo-700">');
+                elements.modalLoading.style.display = 'none';
+            }
+            
+            function handleGenerateAnalysis() {
+                const summary = `Mevcut filtrelemeye göre ${currentFilteredData.length} doğal afet vakası incelenmektedir. Bunların ${currentFilteredData.filter(i=>i.tehlikeTuru==='Yangın').length}'i yangın, ${currentFilteredData.filter(i=>i.tehlikeTuru==='Sel').length}'i sel vakasıdır. Yangınlarda toplam yanan alan yaklaşık ${currentFilteredData.reduce((sum, i) => sum + (i.yananAlanHa || 0), 0).toLocaleString('tr-TR')} hektardır. Yüksek etkili vakaların toplam içindeki oranı %${(currentFilteredData.filter(i=>i.etkiSeviyesi === 'Yüksek').length / currentFilteredData.length * 100).toFixed(0)}'dır. En çok vaka görülen il: ${Object.keys(currentFilteredData.reduce((acc, item) => { acc[item.il] = (acc[item.il] || 0) + 1; return acc; }, {})).sort((a,b) => b[1] - a[1])[0] || '-'}.`;
+                const prompt = `Sen Türkiye doğal afet sigortaları (CAT) alanında uzman bir risk analisti ve portföy yöneticisisin. Aşağıda özetlenen doğal afet verilerine dayanarak, üst yönetime sunulacak kısa, net ve etkili bir analiz raporu oluştur. Raporu Markdown formatında, başlıklar ve listeler kullanarak hazırla. Rapor Türkçe olmalı ve şu başlıkları içermelidir:\n### 1. Gözlemlenen Afet Trendleri ve Yoğunlaşma Bölgeleri\n### 2. Portföy ve Underwriting Stratejisi için Çıkarımlar (Bölgesel risk birikimi (accumulation), riskli altyapı tesisleri ve DASK dışı konut/işyeri poliçeleri için öneriler)\n### 3. Hasar Önleme ve Risk Yönetimi Önerileri (Hem sigortalılar hem de şirket için alınabilecek önlemler)\n**Analiz Edilecek Veri Özeti:**\n${summary}`;
+                callGeminiAPI(prompt, `<i class="fa-solid fa-chart-pie mr-2"></i> Genel NAT CAT Risk Analizi`);
+            }
+            
+            async function callGeminiAPI(prompt, title) {
+                openModal(title);
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                const payload = { contents: [{ parts: [{ text: prompt }] }] };
+                try {
+                    const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                    if (!response.ok) throw new Error(`API hatası: ${response.statusText}`);
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (text) { elements.modalContent.innerHTML = convertMarkdownToHtml(text); } 
+                    else { elements.modalContent.textContent = "Yapay zekadan geçerli bir yanıt alınamadı."; }
+                } catch (error) { 
+                    console.error("Gemini API çağrısı başarısız:", error); 
+                    elements.modalContent.textContent = `Bir hata oluştu: ${error.message}.`; 
+                } finally { 
+                    elements.modalLoading.style.display = 'none'; 
+                }
+            }
+
+            function openModal(title) { 
+                elements.modalTitle.innerHTML = title; 
+                elements.modalContent.innerHTML = ''; 
+                elements.modalLoading.style.display = 'flex'; 
+                elements.geminiModal.classList.remove('hidden'); 
+                setTimeout(() => { elements.modalContentBox.classList.remove('scale-95', 'opacity-0'); }, 10); 
+            }
+            function closeModal() { 
+                elements.modalContentBox.classList.add('scale-95', 'opacity-0'); 
+                setTimeout(() => { elements.geminiModal.classList.add('hidden'); }, 300); 
+            }
+            function convertMarkdownToHtml(md) { 
+                md = md.replace(/^### (.*$)/gim, '<h3 class="text-lg font-semibold mb-2 mt-4">$1</h3>')
+                       .replace(/^## (.*$)/gim, '<h2 class="text-xl font-bold mb-3 mt-5">$1</h2>')
+                       .replace(/^\* (.*$)/gim, '<li class="ml-4 mb-1">$1</li>')
+                       .replace(/\*\*(.*)\*\*/g, '<strong>$1</strong>')
+                       .replace(/\n/g, '<br>'); 
+                return md.replace(/<br><li/g, '<li').replace(/<\/strong><br>/g, '</strong> '); 
+            }
+
+            init();
+        });
+    </script>
+</body>
+</html>
+

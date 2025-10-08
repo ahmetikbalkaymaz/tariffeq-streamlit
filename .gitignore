@@ -1,0 +1,20 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# macOS system files
+.DS_Store
+
+# Streamlit secrets (ÖNEMLİ!)
+.streamlit/secrets.toml
+
+# Diğerleri (gelecekteki olası dosyalar için)
+.env
+build/
+dist/
+*.egg-info/
