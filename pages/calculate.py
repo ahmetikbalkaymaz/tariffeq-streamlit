@@ -779,14 +779,14 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
                     limited_policy_limit=limited_policy_limit,
                     fx_info=fx_info_fire # YENİ: Kur bilgi metnini ekle
                 )
-                st.download_button(
-                    label="📄 " + tr("download_pdf_button"),
-                    data=pdf_bytes,
-                    file_name=f"TariffEQ_Fire_Report_{datetime.now().strftime('%Y%m%d')}.pdf",
-                    mime="application/pdf",
-                    use_container_width=True,
-                    key="download_pdf"
-                )
+                # st.download_button(
+                #     label="📄 " + tr("download_pdf_button"),
+                #     data=pdf_bytes,
+                #     file_name=f"TariffEQ_Fire_Report_{datetime.now().strftime('%Y%m%d')}.pdf",
+                #     mime="application/pdf",
+                #     use_container_width=True,
+                #     key="download_pdf"
+                # )
 
         with col2:
             if 'export_data' in st.session_state:
