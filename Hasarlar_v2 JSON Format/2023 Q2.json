@@ -1,0 +1,1106 @@
+[
+    {
+        "id": 1,
+        "tarih": "06.04.2023",
+        "il": "Ankara",
+        "ilce": "Sincan",
+        "konum": "ASO 1. OSB",
+        "tesisAdi": "TUSAŞ - Türk Havacılık ve Uzay Sanayii A.Ş.",
+        "sektor": "Savunma Sanayii / Havacılık",
+        "olayTuru": "İş Kazası",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 100,
+        "lat": 40.0883,
+        "lng": 32.5358,
+        "ozet": "TUSAŞ yerleşkesinde bir çalışan, üretim alanında bulunan 'master table' olarak adlandırılan otomatik işleme makinesine sıkışarak hayatını kaybetti.",
+        "etki": "Üretim hattında duruş, can kaybı tazminatı",
+        "haberler": [
+            "AA: 'Türk Havacılık ve Uzay Sanayii (TUSAŞ) Kahramankazan yerleşkesinde bir çalışan, yaşanan iş kazası sonucu hayatını kaybetti.'",
+            "DHA: '...üretim alanında bulunan 'master table' olarak adlandırılan makineye sıkıştı.'"
+        ],
+        "kaynaklar": {
+            "AA": "https://www.google.com/search?q=AA+TUSA%C5%9E+i%C5%9F+kazas%C4%B1+Nisan+2023",
+            "DHA": "https://www.google.com/search?q=DHA+TUSA%C5%9E+master+table+makine+kazas%C4%B1"
+        }
+    },
+    {
+        "id": 2,
+        "tarih": "10.04.2023",
+        "il": "Kocaeli",
+        "ilce": "Dilovası",
+        "konum": "GEBKİM OSB",
+        "tesisAdi": "GEBKİM OSB Atıksu Arıtma Tesisi",
+        "sektor": "Atık Yönetimi",
+        "olayTuru": "İş Kazası",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 99,
+        "lat": 40.8000,
+        "lng": 29.5600,
+        "ozet": "GEBKİM OSB'nin atık su arıtma tesisinde bir işçi, kimyasal tankına/havuzuna düşerek hayatını kaybetti.",
+        "etki": "Tesis operasyonlarında aksama, can kaybı tazminatı",
+        "haberler": [
+            "DHA: 'Olay, Kocaeli Gebze Kimya İhtisas Organize Sanayi Bölgesi'nin (GEBKİM) atık su arıtma tesisinde meydana geldi.'",
+            "İHA: '...GEBKİM arıtma tesisinde...'"
+        ],
+        "kaynaklar": {
+            "DHA": "https://www.google.com/search?q=DHA+GEBK%C4%B0M+at%C4%B1ksu+tesisi+i%C5%9F%C3%A7i+%C3%B6l%C3%BCm%C3%BC+Nisan+2023",
+            "İHA": "https://www.google.com/search?q=%C4%B0HA+GEBK%C4%B0M+kimyasal+havuz+kaza"
+        }
+    },
+    {
+        "id": 3,
+        "tarih": "13.04.2023",
+        "il": "Eskişehir",
+        "ilce": "Odunpazarı",
+        "konum": "Eskişehir OSB",
+        "tesisAdi": "Ortak Geri Dönüşüm",
+        "sektor": "Geri Dönüşüm / Atık",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 92,
+        "lat": 39.7397,
+        "lng": 30.5835,
+        "ozet": "Eskişehir OSB'de bulunan Ortak Geri Dönüşüm adlı tesiste elektriksel arıza nedeniyle yangın çıktı.",
+        "etki": "Atık ayrıştırma tesisinde çıkan yangın büyük çaplı maddi hasara yol açtı.",
+        "haberler": [
+            "Sakarya Gazetesi: 'Eskişehir OSB'de bulunan Ortak Geri Dönüşüm adlı tesiste yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Sakarya Gazetesi": "https://www.google.com/search?q=Sakarya+Gazetesi+Eski%C5%9Fehir+OSB+Ortak+Geri+D%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 4,
+        "tarih": "24.04.2023",
+        "il": "Çankırı",
+        "ilce": "Merkez",
+        "konum": "Küçük Sanayi Sitesi",
+        "tesisAdi": "Med-Mar Tuz Fabrikası",
+        "sektor": "Gıda / Tuz",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 40.6000,
+        "lng": 33.6167,
+        "ozet": "Tuz fabrikasının soğutma ünitesinde teknik arıza nedeniyle çıkan yangın maddi hasara yol açtı.",
+        "etki": "Tuz fabrikasının soğutma ünitesinde çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "Çankırı Postası: 'Tuz fabrikasının soğutma ünitesinde yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Çankırı Postası": "https://www.google.com/search?q=%C3%87ank%C4%B1r%C4%B1+Postas%C4%B1+Med-Mar+Tuz+Fabrikas%C4%B1+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 5,
+        "tarih": "24.04.2023",
+        "il": "İzmir",
+        "ilce": "Menemen",
+        "konum": "Ulukent Sanayi Bölgesi",
+        "tesisAdi": "KFC (İşleme Tesisi)",
+        "sektor": "Gıda / Tavuk İşleme",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 38.5667,
+        "lng": 27.0667,
+        "ozet": "KFC'ye ait tavuk işleme tesisinde kimyasal reaksiyon sonucu yangın çıktı.",
+        "etki": "Tavuk işleme tesisinde çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "Yerel Basın"
+        ],
+        "kaynaklar": {
+            "Yerel Basın": "https://www.google.com/search?q=%C4%B0zmir+Menemen+KFC+i%C5%9Fleme+tesisi+yang%C4%B1n+Nisan+2023"
+        }
+    },
+    {
+        "id": 6,
+        "tarih": "25.04.2023",
+        "il": "İzmir",
+        "ilce": "Aliağa",
+        "konum": "Aliağa Limanlar Bölgesi",
+        "tesisAdi": "Ege Gübre Sanayii A.Ş. Limanı",
+        "sektor": "Liman İşletmeciliği / Lojistik",
+        "olayTuru": "İş Kazası",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 98,
+        "lat": 38.8033,
+        "lng": 26.9602,
+        "ozet": "Ege Gübre Limanı'nda bir işçi, vinç ile gemi arasına sıkışarak hayatını kaybetti.",
+        "etki": "Liman operasyonlarında kısmi duruş, can kaybı tazminatı",
+        "haberler": [
+            "DHA: 'Olay, Aliağa ilçesindeki Ege Gübre Limanı'nda meydana geldi.'",
+            "Deniz Haber Ajansı: 'Aliağa’da faaliyet gösteren Ege Gübre Limanı’nda...'"
+        ],
+        "kaynaklar": {
+            "DHA": "https://www.google.com/search?q=DHA+Alia%C4%9Fa+Ege+G%C3%BCbre+Liman%C4%B1+i%C5%9F+kazas%C4%B1",
+            "Deniz Haber Ajansı": "https://www.google.com/search?q=Deniz+Haber+Ajans%C4%B1+Ege+G%C3%BCbre+Liman%C4%B1+kaza"
+        }
+    },
+    {
+        "id": 7,
+        "tarih": "29.04.2023",
+        "il": "Kırklareli",
+        "ilce": "Lüleburgaz",
+        "konum": "Evrensekiz Beldesi",
+        "tesisAdi": "Aksüs Geri Dönüşüm",
+        "sektor": "Petrokimya, Yağ / Atık Yağ",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 93,
+        "lat": 41.3335,
+        "lng": 27.4243,
+        "ozet": "Atık yağ geri dönüşüm tesisinin kapalı depolama alanında atıkların kendiliğinden yanması sonucu yangın çıktı.",
+        "etki": "Atık yağ geri dönüşüm tesisinde çıkan yangın, büyük çaplı maddi hasara ve çevre kirliliğine neden oldu.",
+        "haberler": [
+            "Lüleburgaz Görünüm: 'Evrensekiz’de atık yağ fabrikasında yangın!'"
+        ],
+        "kaynaklar": {
+            "Lüleburgaz Görünüm": "https://www.google.com/search?q=L%C3%BCleburgaz+G%C3%B6r%C3%BCn%C3%BCm+Aks%C3%BCs+Geri+D%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 8,
+        "tarih": "30.04.2023",
+        "il": "Aydın",
+        "ilce": "Germencik",
+        "konum": "Hıdırbeyli Mah. (OSB Dışı)",
+        "tesisAdi": "Soğuk Hava Deposu",
+        "sektor": "Gıda / Depo",
+        "olayTuru": "Patlama",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 96,
+        "lat": 37.8769,
+        "lng": 27.6000,
+        "ozet": "Soğuk hava deposunun soğutma ünitesinde amonyak kaçağı nedeniyle meydana gelen patlamada 2 işçi yaralandı.",
+        "etki": "Soğuk hava deposunun soğutma ünitesinde amonyak patlaması meydana geldi, 2 işçi yaralandı.",
+        "haberler": [
+            "AA: 'Aydın'ın Germencik ilçesinde bir soğuk hava deposunda meydana gelen amonyak patlamasında 2 kişi yaralandı.'"
+        ],
+        "kaynaklar": {
+            "AA": "https://www.google.com/search?q=AA+Ayd%C4%B1n+Germencik+so%C4%9Fuk+hava+deposu+patlama"
+        }
+    },
+    {
+        "id": 9,
+        "tarih": "04.05.2023",
+        "il": "Bursa",
+        "ilce": "Orhangazi",
+        "konum": "Orhangazi Sanayi",
+        "tesisAdi": "Cargill Gıda Sanayi ve Ticaret A.Ş.",
+        "sektor": "Gıda / Tarım",
+        "olayTuru": "Yapısal Olay",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 100,
+        "lat": 40.4953,
+        "lng": 29.3175,
+        "ozet": "Cargill fabrikasında bulunan bir mısır silosunda çökme/yırtılma meydana geldi. Olayda 10 işçi yaralandı.",
+        "etki": "Üretimin durması, ağır maddi hasar (bina, silo, stok), 10 yaralı",
+        "haberler": [
+            "AA: 'Orhangazi-Yalova kara yolu üzerindeki Cargill Gıda Sanayi ve Ticaret AŞ'ye ait fabrikada bulunan mısır silosunda...'",
+            "İHA: '...Cargill fabrikasında...'"
+        ],
+        "kaynaklar": {
+            "AA": "https://www.google.com/search?q=AA+Cargill+Orhangazi+silo+%C3%A7%C3%B6kmesi",
+            "İHA": "https://www.google.com/search?q=%C4%B0HA+Cargill+fabrikas%C4%B1nda+silo+patlamas%C4%B1"
+        }
+    },
+    {
+        "id": 10,
+        "tarih": "17.05.2023",
+        "il": "İzmir",
+        "ilce": "Menderes",
+        "konum": "Altıntepe Mah. (OSB Dışı)",
+        "tesisAdi": "Akkaya Geri Dönüşüm",
+        "sektor": "Ağaç, Kağıt, Mobilya / Kağıt G.D.",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 94,
+        "lat": 38.2561,
+        "lng": 27.1303,
+        "ozet": "Kağıt geri dönüşüm fabrikasının üretim bölümünde elektriksel arıza nedeniyle çıkan yangın, tesisi kullanılamaz hale getirdi.",
+        "etki": "Kağıt geri dönüşüm fabrikasında çıkan yangın, tesisi kullanılamaz hale getirdi.",
+        "haberler": [
+            "DHA: 'Menderes'te kağıt geri dönüşüm fabrikası alev alev yandı.'"
+        ],
+        "kaynaklar": {
+            "DHA": "https://www.google.com/search?q=DHA+Menderes+Akkaya+Geri+D%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 11,
+        "tarih": "17.05.2023",
+        "il": "İzmir",
+        "ilce": "Menemen",
+        "konum": "Ulukent Sanayi Bölgesi",
+        "tesisAdi": "Cesur Plastik",
+        "sektor": "Kauçuk, Plastik / Plastik",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 88,
+        "lat": 38.5667,
+        "lng": 27.0667,
+        "ozet": "Plastik fabrikasında aşırı ısınma nedeniyle çıkan yangın maddi hasara yol açtı.",
+        "etki": "Plastik fabrikasında çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "Yerel Basın"
+        ],
+        "kaynaklar": {
+            "Yerel Basın": "https://www.google.com/search?q=%C4%B0zmir+Menemen+Cesur+Plastik+yang%C4%B1n+May%C4%B1s+2023"
+        }
+    },
+    {
+        "id": 12,
+        "tarih": "17.05.2023",
+        "il": "İzmir",
+        "ilce": "Torbalı",
+        "konum": "Yazıbaşı Sanayi Bölgesi",
+        "tesisAdi": "İzole Kiremit",
+        "sektor": "Çimento, Cam, Seramik / Kiremit",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 38.2167,
+        "lng": 27.2000,
+        "ozet": "Kiremit fabrikasında elektriksel arıza nedeniyle çıkan yangın maddi hasara yol açtı.",
+        "etki": "Kiremit fabrikasında çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "Torbalı Güncel: 'Yazıbaşı Sanayi Bölgesi’nde faaliyet gösteren kiremit fabrikasında yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Torbalı Güncel": "https://www.google.com/search?q=Torbal%C4%B1+G%C3%BCncel+%C4%B0zole+Kiremit+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 13,
+        "tarih": "18.05.2023",
+        "il": "İzmir",
+        "ilce": "Çiğli",
+        "konum": "Atatürk OSB",
+        "tesisAdi": "Yakamoz Yağ Sanayi",
+        "sektor": "Gıda / Yağ",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 92,
+        "lat": 38.5167,
+        "lng": 27.0000,
+        "ozet": "Yağ fabrikasının üretim hattında aşırı ısınma nedeniyle çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "etki": "Yağ fabrikasında çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "haberler": [
+            "İAOSB (Bölge Md.) / İHA: 'Çiğli'de yağ fabrikasında yangın.'"
+        ],
+        "kaynaklar": {
+            "İAOSB": "https://www.google.com/search?q=%C4%B0AOSB+Yakamoz+Ya%C4%9F+Sanayi+yang%C4%B1n",
+            "İHA": "https://www.google.com/search?q=%C4%B0HA+%C3%87i%C4%9Fli+ya%C4%9F+fabrikas%C4%B1+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 14,
+        "tarih": "18.05.2023",
+        "il": "Mersin",
+        "ilce": "Akdeniz",
+        "konum": "Mersin Serbest Bölgesi",
+        "tesisAdi": "Baymar Kuruyemiş",
+        "sektor": "Gıda / Kuruyemiş",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 93,
+        "lat": 36.8000,
+        "lng": 34.6500,
+        "ozet": "Kuruyemiş fabrikasının deposunda çıkan yangın büyük çaplı emtea hasarına yol açtı.",
+        "etki": "Kuruyemiş fabrikasının deposunda çıkan yangın büyük çaplı emtea hasarına yol açtı.",
+        "haberler": [
+            "Mersin Haberci: 'Serbest Bölge'de bulunan kuruyemiş fabrikasının deposunda yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Mersin Haberci": "https://www.google.com/search?q=Mersin+Haberci+Baymar+Kuruyemi%C5%9F+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 15,
+        "tarih": "18.05.2023",
+        "il": "Samsun",
+        "ilce": "Tekkeköy",
+        "konum": "Tekkeköy Sanayi",
+        "tesisAdi": "Yeşilyurt Demir Çelik End. ve Liman İşl. Ltd. Şti.",
+        "sektor": "Metal / Demir-Çelik",
+        "olayTuru": "İş Kazası",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 97,
+        "lat": 41.2500,
+        "lng": 36.4167,
+        "ozet": "Yeşilyurt Demir Çelik Fabrikası'nda bir işçi, fabrika çatısından düşerek hayatını kaybetti.",
+        "etki": "Bakım/onarım faaliyetlerinde durma, can kaybı tazminatı",
+        "haberler": [
+            "DHA: 'Olay, Tekkeköy ilçesindeki Yeşilyurt Demir Çelik Fabrikası'nda meydana geldi.'",
+            "İHA: '...Yeşilyurt Demir Çelik Fabrikası'nda çatıdan düşen bir işçi...'"
+        ],
+        "kaynaklar": {
+            "DHA": "https://www.google.com/search?q=DHA+Ye%C5%9Filyurt+Demir+%C3%87elik+i%C5%9F+kazas%C4%B1",
+            "İHA": "https://www.google.com/search?q=%C4%B0HA+Ye%C5%9Filyurt+Demir+%C3%87elik+Fabrikas%C4%B1+%C3%A7at%C4%B1dan+d%C3%BC%C5%9Fme"
+        }
+    },
+    {
+        "id": 16,
+        "tarih": "20.05.2023",
+        "il": "İzmir",
+        "ilce": "Kemalpaşa",
+        "konum": "Kemalpaşa OSB",
+        "tesisAdi": "Krea Makine",
+        "sektor": "Metal / Makine Parçaları",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 38.4333,
+        "lng": 27.4167,
+        "ozet": "Makine parçaları fabrikasında mekanik kıvılcım nedeniyle çıkan yangın maddi hasara yol açtı.",
+        "etki": "Makine parçaları fabrikasında çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "KOSBİ (Bölge Md.)"
+        ],
+        "kaynaklar": {
+            "KOSBİ": "https://www.google.com/search?q=KOSB%C4%B0+Krea+Makine+yang%C4%B1n+May%C4%B1s+2023"
+        }
+    },
+    {
+        "id": 17,
+        "tarih": "22.05.2023",
+        "il": "Gaziantep",
+        "ilce": "Şehitkamil",
+        "konum": "Gaziantep 4. OSB",
+        "tesisAdi": "Mutlu Makarna",
+        "sektor": "Gıda / Makarna",
+        "olayTuru": "Patlama",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 100,
+        "lat": 37.1264,
+        "lng": 37.3116,
+        "ozet": "Makarna fabrikasının buhar kazanında basınç artışı nedeniyle meydana gelen patlamada 1 işçi hayatını kaybetti, 1 işçi yaralandı.",
+        "etki": "Makarna fabrikasının buhar kazanında meydana gelen patlamada 1 işçi hayatını kaybetti, 1 işçi yaralandı.",
+        "haberler": [
+            "AA: 'Gaziantep'te makarna fabrikasında buhar kazanı patlaması sonucu 1 işçi öldü, 1 işçi yaralandı.'"
+        ],
+        "kaynaklar": {
+            "AA": "https://www.google.com/search?q=AA+Gaziantep+Mutlu+Makarna+buhar+kazan%C4%B1+patlamas%C4%B1"
+        }
+    },
+    {
+        "id": 18,
+        "tarih": "24.05.2023",
+        "il": "İzmir",
+        "ilce": "Kemalpaşa",
+        "konum": "Kemalpaşa OSB",
+        "tesisAdi": "Levent Kağıt",
+        "sektor": "Ağaç, Kağıt, Mobilya / Kağıt",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 96,
+        "lat": 38.4333,
+        "lng": 27.4167,
+        "ozet": "Kağıt fabrikasının atık kağıtların depolandığı alanda kimyasal reaksiyon/kendiliğinden yanma sonucu çıkan yangın büyük çaplı emtea hasarına yol açtı.",
+        "etki": "Kağıt fabrikasının atık deposunda çıkan yangın büyük çaplı emtea hasarına yol açtı.",
+        "haberler": [
+            "AA: 'İzmir'in Kemalpaşa ilçesindeki bir kağıt fabrikasının atık deposunda çıkan yangın...'"
+        ],
+        "kaynaklar": {
+            "AA": "https://www.google.com/search?q=AA+%C4%B0zmir+Kemalpa%C5%9Fa+Levent+Ka%C4%9F%C4%B1t+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 19,
+        "tarih": "25.05.2023",
+        "il": "İzmir",
+        "ilce": "Menderes",
+        "konum": "Tekeli OSB",
+        "tesisAdi": "AP Altın Pelet",
+        "sektor": "Ağaç, Kağıt, Mobilya / Pelet",
+        "olayTuru": "Patlama",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 88,
+        "lat": 38.2386,
+        "lng": 27.2889,
+        "ozet": "Pelet fabrikasında pelet pres makinesinde sıkışma nedeniyle meydana gelen patlama maddi hasara yol açtı.",
+        "etki": "Pelet fabrikasında meydana gelen patlama maddi hasara yol açtı.",
+        "haberler": [
+            "Yerel Basın"
+        ],
+        "kaynaklar": {
+            "Yerel Basın": "https://www.google.com/search?q=%C4%B0zmir+Menderes+AP+Alt%C4%B1n+Pelet+patlama+May%C4%B1s+2023"
+        }
+    },
+    {
+        "id": 20,
+        "tarih": "27.05.2023",
+        "il": "Kocaeli",
+        "ilce": "İzmit",
+        "konum": "Alikahya OSB Mevkii",
+        "tesisAdi": "Hyundai Assan Otomotiv",
+        "sektor": "Metal / Otomotiv",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 98,
+        "lat": 40.7936,
+        "lng": 30.0039,
+        "ozet": "Hyundai fabrikasının boya kimyasallarının depolandığı alanda parlama sonucu meydana gelen yangında 8 işçi dumandan etkilendi.",
+        "etki": "Tesisin boya deposunda meydana gelen parlama ve yangında 8 işçi dumandan etkilendi.",
+        "haberler": [
+            "DHA: 'Hyundai fabrikasının boya deposunda parlama meydana geldi, 8 işçi dumandan etkilendi.'"
+        ],
+        "kaynaklar": {
+            "DHA": "https://www.google.com/search?q=DHA+Hyundai+Assan+boya+deposu+parlama"
+        }
+    },
+    {
+        "id": 21,
+        "tarih": "27.05.2023",
+        "il": "İzmir",
+        "ilce": "Urla",
+        "konum": "Kuşçular (OSB Dışı)",
+        "tesisAdi": "Babacan Olive (Zeytinyağı)",
+        "sektor": "Gıda / Yağ Fabrikası",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 92,
+        "lat": 38.3236,
+        "lng": 26.7656,
+        "ozet": "Zeytinyağı fabrikasında çıkan yangın, bitişikteki ormanlık alana sıçradı.",
+        "etki": "Zeytinyağı fabrikasında çıkan yangın, bitişikteki ormanlık alana sıçradı. Tesiste ve ormanda hasar oluştu.",
+        "haberler": [
+            "Ege'de Son Söz: 'Urla'da zeytinyağı fabrikasında başlayan yangın ormana sıçradı.'"
+        ],
+        "kaynaklar": {
+            "Ege'de Son Söz": "https://www.google.com/search?q=Ege%27de+Son+S%C3%B6z+Urla+Babacan+Olive+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 22,
+        "tarih": "29.05.2023",
+        "il": "Amasya",
+        "ilce": "Merzifon",
+        "konum": "Merzifon OSB",
+        "tesisAdi": "Türkoğlu Kerestecilik",
+        "sektor": "Ağaç, Kağıt, Mobilya / Kereste",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 40.8753,
+        "lng": 35.4664,
+        "ozet": "Kereste fabrikasının trafosunda elektriksel arıza nedeniyle çıkan yangın, tesisin enerjisiz kalmasına ve maddi hasara neden oldu.",
+        "etki": "Kereste fabrikasının trafosunda çıkan yangın, tesisin enerjisiz kalmasına ve maddi hasara neden oldu.",
+        "haberler": [
+            "Amasya Medya: 'Kereste fabrikasının trafosunda yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Amasya Medya": "https://www.google.com/search?q=Amasya+Medya+T%C3%BCrko%C4%9Flu+Kerestecilik+trafo+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 23,
+        "tarih": "30.05.2023",
+        "il": "Adana",
+        "ilce": "Ceyhan",
+        "konum": "Ceyhan OSB",
+        "tesisAdi": "(ad geçmedi)",
+        "sektor": "Enerji / Biyodizel",
+        "olayTuru": "İş Kazası",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "C",
+        "dogrulukOrani": 82,
+        "lat": 37.0267,
+        "lng": 35.8167,
+        "ozet": "Ceyhan OSB'de bulunan bir biyodizel fabrikasında bir işçi, yaklaşık 10 metreden düşerek hayatını kaybetti.",
+        "etki": "Üretim/montaj faaliyetlerinde durma, can kaybı tazminatı",
+        "haberler": [
+            "DHA: 'Olay, Ceyhan Organize Sanayi Bölgesi'nde (OSB) bulunan bir biyodizel fabrikasında meydana geldi.'",
+            "İHA: '...bir biyodizel fabrikasında yaklaşık 10 metreden düşen işçi...'"
+        ],
+        "kaynaklar": {
+            "DHA": "https://www.google.com/search?q=DHA+Ceyhan+OSB+biyodizel+fabrikas%C4%B1+i%C5%9F+kazas%C4%B1",
+            "İHA": "https://www.google.com/search?q=%C4%B0HA+Ceyhan+OSB+i%C5%9F%C3%A7i+d%C3%BC%C5%9Fme"
+        }
+    },
+    {
+        "id": 24,
+        "tarih": "01.06.2023",
+        "il": "Bursa",
+        "ilce": "Nilüfer",
+        "konum": "Bursa OSB",
+        "tesisAdi": "Starpark Lunapark Ekipmanları",
+        "sektor": "Kauçuk, Plastik / Kompozit",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 93,
+        "lat": 40.2458,
+        "lng": 28.8553,
+        "ozet": "Lunapark ekipmanları üreten fabrikada çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "etki": "Lunapark ekipmanları üreten fabrikada çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "haberler": [
+            "Bursa Hakimiyet: 'Bursa OSB'de lunapark malzemeleri üreten fabrikada yangın.'"
+        ],
+        "kaynaklar": {
+            "Bursa Hakimiyet": "https://www.google.com/search?q=Bursa+Hakimiyet+Starpark+Lunapark+Ekipmanlar%C4%B1+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 25,
+        "tarih": "01.06.2023",
+        "il": "İzmir",
+        "ilce": "Kemalpaşa",
+        "konum": "Kemalpaşa OSB",
+        "tesisAdi": "Euro Gıda",
+        "sektor": "Gıda / Konserve",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 38.4333,
+        "lng": 27.4167,
+        "ozet": "Konserve fabrikasında elektriksel arıza nedeniyle çıkan yangın maddi hasara yol açtı.",
+        "etki": "Konserve fabrikasında çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "KOSBİ (Bölge Md.)"
+        ],
+        "kaynaklar": {
+            "KOSBİ": "https://www.google.com/search?q=KOSB%C4%B0+Euro+G%C4%B1da+yang%C4%B1n+Haziran+2023"
+        }
+    },
+    {
+        "id": 26,
+        "tarih": "01.06.2023",
+        "il": "Kocaeli",
+        "ilce": "Gölcük",
+        "konum": "Yazlık Mevkii (OSB Dışı)",
+        "tesisAdi": "Baydar Çelik",
+        "sektor": "Metal / Çelik",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 88,
+        "lat": 40.7161,
+        "lng": 29.8319,
+        "ozet": "Çelik konstrüksiyon fabrikasında çıkan yangın maddi hasara yol açtı.",
+        "etki": "Çelik konstrüksiyon fabrikasında çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "Kocaeli Gazetesi: 'Gölcük'te çelik konstrüksiyon fabrikasında yangın.'"
+        ],
+        "kaynaklar": {
+            "Kocaeli Gazetesi": "https://www.google.com/search?q=Kocaeli+Gazetesi+Baydar+%C3%87elik+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 27,
+        "tarih": "03.06.2023",
+        "il": "İzmir",
+        "ilce": "Aliağa",
+        "konum": "Aliağa OSB (ALOSBİ)",
+        "tesisAdi": "Ravago Petrokimya",
+        "sektor": "Kauçuk, Plastik / Plastik",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Düşük",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 92,
+        "lat": 38.8100,
+        "lng": 26.9800,
+        "ozet": "Plastik fabrikasının mutfak bölümünde aşırı ısınma nedeniyle çıkan yangın büyümeden söndürüldü.",
+        "etki": "Plastik fabrikasının mutfak bölümünde çıkan yangın büyümeden söndürüldü.",
+        "haberler": [
+            "Aliağa Medya: 'Petrokimya devinin mutfağında yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Aliağa Medya": "https://www.google.com/search?q=Alia%C4%9Fa+Medya+Ravago+Petrokimya+mutfak+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 28,
+        "tarih": "03.06.2023",
+        "il": "Mersin",
+        "ilce": "Silifke",
+        "konum": "Silifke OSB",
+        "tesisAdi": "Alsemo Mobilya",
+        "sektor": "Ağaç, Kağıt, Mobilya / Mobilya",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 94,
+        "lat": 36.3769,
+        "lng": 33.9314,
+        "ozet": "Mobilya fabrikasının çatısında kaynak çalışması sırasında sıçrayan kıvılcımların izolasyon malzemelerini tutuşturmasıyla yangın çıktı.",
+        "etki": "Fabrikanın çatısında kaynak yapılırken çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "haberler": [
+            "Silifke Gündem: 'Çatıda yapılan kaynak sırasında izolasyon malzemelerinin tutuşmasıyla yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Silifke Gündem": "https://www.google.com/search?q=Silifke+G%C3%BCndem+Alsemo+Mobilya+%C3%A7at%C4%B1+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 29,
+        "tarih": "04.06.2023",
+        "il": "İzmir",
+        "ilce": "Bornova",
+        "konum": "Işıkkent Sanayi Sitesi",
+        "tesisAdi": "Cesa Kimya",
+        "sektor": "Kimya / Gıda Kimyasalları",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 38.4500,
+        "lng": 27.2333,
+        "ozet": "Gıda kimyasalları üreten tesiste çıkan yangın maddi hasara yol açtı.",
+        "etki": "Gıda kimyasalları üreten tesiste çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "Yerel Basın"
+        ],
+        "kaynaklar": {
+            "Yerel Basın": "https://www.google.com/search?q=%C4%B0zmir+Bornova+Cesa+Kimya+yang%C4%B1n+Haziran+2023"
+        }
+    },
+    {
+        "id": 30,
+        "tarih": "06.06.2023",
+        "il": "Ankara",
+        "ilce": "Kahramankazan",
+        "konum": "Bitik Mah. (OSB Dışı)",
+        "tesisAdi": "Bostan's Mobilya",
+        "sektor": "Ağaç, Kağıt, Mobilya / Mobilya",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 98,
+        "lat": 39.9922,
+        "lng": 32.6925,
+        "ozet": "Mobilya fabrikasında açık alev/dışarıdan sirayet nedeniyle çıkan yangında tesis tamamen yandı.",
+        "etki": "Mobilya fabrikası çıkan yangında tamamen yandı. Total hasar.",
+        "haberler": [
+            "AA: 'Ankara'da mobilya fabrikasında çıkan yangın, iş yerini kullanılamaz hale getirdi.'"
+        ],
+        "kaynaklar": {
+            "AA": "https://www.google.com/search?q=AA+Ankara+Bostan%27s+Mobilya+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 31,
+        "tarih": "08.06.2023",
+        "il": "Bursa",
+        "ilce": "Yıldırım",
+        "konum": "Sakarya Mah. (OSB Dışı)",
+        "tesisAdi": "Anadolu Tork Palet",
+        "sektor": "Ağaç, Kağıt, Mobilya / Palet",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 40.1833,
+        "lng": 29.0667,
+        "ozet": "Ahşap palet imalathanesinde elektrik hattındaki arıza nedeniyle çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "etki": "Ahşap palet imalathanesinde çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "haberler": [
+            "Bursa'da Bugün: 'Palet imalathanesinde çıkan yangın paniğe neden oldu.'"
+        ],
+        "kaynaklar": {
+            "Bursa'da Bugün": "https://www.google.com/search?q=Bursa%27da+Bug%C3%BCn+Anadolu+Tork+Palet+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 32,
+        "tarih": "08.06.2023",
+        "il": "Kırklareli",
+        "ilce": "Lüleburgaz",
+        "konum": "Lüleburgaz OSB",
+        "tesisAdi": "Zorluteks Tekstil Tic. ve San. A.Ş.",
+        "sektor": "Tekstil",
+        "olayTuru": "Kimyasal Sızıntı",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 99,
+        "lat": 41.4056,
+        "lng": 27.3583,
+        "ozet": "Zorluteks Fabrikası'nda meydana gelen hidroklorik asit sızıntısı nedeniyle tesis tahliye edildi ve 43 işçi hastaneye sevk edildi.",
+        "etki": "Tesisin tahliyesi, üretimin durması, 43 işçinin hastaneye sevki",
+        "haberler": [
+            "DHA: 'Lüleburgaz ilçesi Organize Sanayi Bölgesi'ndeki Zorluteks Fabrikası'nda, hidroklorik asit sızıntısı meydana geldi.'",
+            "İHA: '...Zorluteks fabrikasında kimyasal sızıntı...'"
+        ],
+        "kaynaklar": {
+            "DHA": "https://www.google.com/search?q=DHA+L%C3%BCleburgaz+Zorluteks+hidroklorik+asit+s%C4%B1z%C4%B1nt%C4%B1s%C4%B1",
+            "İHA": "https://www.google.com/search?q=%C4%B0HA+Zorluteks+fabrikas%C4%B1nda+kimyasal+s%C4%B1z%C4%B1nt%C4%B1"
+        }
+    },
+    {
+        "id": 33,
+        "tarih": "09.06.2023",
+        "il": "Tekirdağ",
+        "ilce": "Çorlu",
+        "konum": "Çorlu Deri OSB",
+        "tesisAdi": "Can Tekstil Entegre Tesisleri ve Tarım Ürünleri San. Tic. A.Ş.",
+        "sektor": "Tekstil",
+        "olayTuru": "İş Kazası",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 96,
+        "lat": 41.1594,
+        "lng": 27.8010,
+        "ozet": "Can Tekstil fabrikasında bir işçi, kumaş silindirine sıkışarak hayatını kaybetti.",
+        "etki": "Üretim hattında duruş, can kaybı tazminatı",
+        "haberler": [
+            "DHA: 'Olay, Çorlu Deri Organize Sanayi Bölgesi'nde bulunan Can Tekstil'de meydana geldi.'",
+            "İHA: '...Çorlu'da bir tekstil fabrikasında meydana gelen iş kazasında...'"
+        ],
+        "kaynaklar": {
+            "DHA": "https://www.google.com/search?q=DHA+%C3%87orlu+Deri+OSB+Can+Tekstil+i%C5%9F+kazas%C4%B1",
+            "İHA": "https://www.google.com/search?q=%C4%B0HA+%C3%87orlu+tekstil+fabrikas%C4%B1+i%C5%9F+kazas%C4%B1"
+        }
+    },
+    {
+        "id": 34,
+        "tarih": "10.06.2023",
+        "il": "Ankara",
+        "ilce": "Elmadağ",
+        "konum": "OSB Dışı",
+        "tesisAdi": "MKE Roket ve Patlayıcı Fab.",
+        "sektor": "Savunma Sanayii / Patlayıcı",
+        "olayTuru": "Patlama",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 100,
+        "lat": 39.9167,
+        "lng": 33.2167,
+        "ozet": "MKE Roket ve Patlayıcı Fabrikası'nın dinamit mikser atölyesinde kimyasal reaksiyon sonucu meydana gelen patlamada 5 işçi hayatını kaybetti.",
+        "etki": "Dinamit mikser atölyesinde meydana gelen patlamada 5 işçi hayatını kaybetti. Çok yüksek tutarlı İşveren Sorumluluk hasarı.",
+        "haberler": [
+            "Milli Savunma Bakanlığı (MSB): 'MKE Roket ve Patlayıcı Fabrikası'nda... bir patlama meydana gelmiş ve 5 işçimiz şehit olmuştur.'"
+        ],
+        "kaynaklar": {
+            "MSB": "https://www.google.com/search?q=Milli+Savunma+Bakanl%C4%B1%C4%9F%C4%B1+MKE+Roket+ve+Patlay%C4%B1c%C4%B1+Fabrikas%C4%B1+patlama"
+        }
+    },
+    {
+        "id": 35,
+        "tarih": "11.06.2023",
+        "il": "Kocaeli",
+        "ilce": "Kartepe",
+        "konum": "Arslanbey OSB",
+        "tesisAdi": "Hero Geri Dönüşüm",
+        "sektor": "Geri Dönüşüm / Atık",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 92,
+        "lat": 40.7100,
+        "lng": 30.0300,
+        "ozet": "Atık kağıt geri dönüşüm tesisinde çıkan yangın büyük çaplı maddi hasara yol açtı.",
+        "etki": "Atık kağıt geri dönüşüm tesisinde çıkan yangın büyük çaplı maddi hasara yol açtı.",
+        "haberler": [
+            "Kocaeli Denge: 'Kartepe Arslanbey OSB’de geri dönüşüm fabrikasında yangın.'"
+        ],
+        "kaynaklar": {
+            "Kocaeli Denge": "https://www.google.com/search?q=Kocaeli+Denge+Hero+Geri+D%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 36,
+        "tarih": "13.06.2023",
+        "il": "Adana",
+        "ilce": "Sarıçam",
+        "konum": "Hacı Sabancı OSB",
+        "tesisAdi": "Beyaz Kağıt (Peros, Asperox)",
+        "sektor": "Kimya / Temizlik Ürünleri",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 100,
+        "lat": 37.0833,
+        "lng": 35.4333,
+        "ozet": "Temizlik ürünleri fabrikasının hammadde deposunda çıkan yangın, tüm tesise yayılarak ağır maddi hasara (Total'e yakın) yol açtı.",
+        "etki": "Temizlik ürünleri fabrikasının hammadde deposunda çıkan yangın, tüm tesise yayılarak ağır maddi hasara (Total'e yakın) yol açtı.",
+        "haberler": [
+            "AA: 'Adana'da temizlik ürünleri fabrikasında çıkan yangın büyük hasara neden oldu.'"
+        ],
+        "kaynaklar": {
+            "AA": "https://www.google.com/search?q=AA+Adana+Beyaz+Ka%C4%9F%C4%B1t+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 37,
+        "tarih": "13.06.2023",
+        "il": "Gaziantep",
+        "ilce": "Şehitkamil",
+        "konum": "Gaziantep 4. OSB",
+        "tesisAdi": "Selçuk İplik San. ve Tic. A.Ş.",
+        "sektor": "Tekstil",
+        "olayTuru": "İş Kazası",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 92,
+        "lat": 37.1264,
+        "lng": 37.3116,
+        "ozet": "Selçuk İplik fabrikasında 18 yaşındaki bir işçi, iplik makinesine sıkışarak hayatını kaybetti.",
+        "etki": "Üretim hattında duruş, can kaybı tazminatı",
+        "haberler": [
+            "Gaziantep Olay: '4. Organize Sanayi Bölgesinde faaliyet gösteren Selçuk iplik fabrikasında...'",
+            "Telgraf: '...bir iplik fabrikasında yaşanan iş kazasında 18 yaşındaki genç hayatını kaybetti.'"
+        ],
+        "kaynaklar": {
+            "Gaziantep Olay": "https://www.google.com/search?q=Gaziantep+Olay+Sel%C3%A7uk+%C4%B0plik+i%C5%9F+kazas%C4%B1",
+            "Telgraf": "https://www.google.com/search?q=Telgraf+Gaziantep+iplik+fabrikas%C4%B1+i%C5%9F+kazas%C4%B1"
+        }
+    },
+    {
+        "id": 38,
+        "tarih": "16.06.2023",
+        "il": "Şanlıurfa",
+        "ilce": "Eyyübiye",
+        "konum": "Şanlıurfa 2. OSB",
+        "tesisAdi": "Meksan Trafo",
+        "sektor": "Enerji / Trafo",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 93,
+        "lat": 37.1436,
+        "lng": 38.7942,
+        "ozet": "Trafo fabrikasında çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "etki": "Trafo fabrikasında çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "haberler": [
+            "Urfa Değişim: '2. Organize Sanayi Bölgesi’nde bulunan trafo fabrikasında yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Urfa Değişim": "https://www.google.com/search?q=Urfa+De%C4%9Fi%C5%9Fim+Meksan+Trafo+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 39,
+        "tarih": "16.06.2023",
+        "il": "Zonguldak",
+        "ilce": "Devrek",
+        "konum": "Yeni Mah. (OSB Dışı)",
+        "tesisAdi": "Başoğlu Kereste",
+        "sektor": "Ağaç, Kağıt, Mobilya / Kereste",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 94,
+        "lat": 41.2189,
+        "lng": 31.9567,
+        "ozet": "Kereste fabrikasında çıkan yangında 4 kişi dumandan etkilendi. Tesiste ağır maddi hasar oluştu.",
+        "etki": "Kereste fabrikasında çıkan yangında 4 kişi dumandan etkilendi. Tesiste ağır maddi hasar oluştu.",
+        "haberler": [
+            "Zonguldak Pusula: 'Kereste fabrikasında çıkan yangında 4 kişi dumandan etkilendi.'"
+        ],
+        "kaynaklar": {
+            "Zonguldak Pusula": "https://www.google.com/search?q=Zonguldak+Pusula+Ba%C5%9Fo%C4%9Flu+Kereste+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 40,
+        "tarih": "19.06.2023",
+        "il": "Kocaeli",
+        "ilce": "Gebze",
+        "konum": "Dilovası OSB Mevkii",
+        "tesisAdi": "Çolakoğlu Metalurji A.Ş.",
+        "sektor": "Metal / Demir-Çelik",
+        "olayTuru": "İş Kazası",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 98,
+        "lat": 40.7833,
+        "lng": 29.5333,
+        "ozet": "Çolakoğlu Metalurji Fabrikası'nda bir işçi, üzerine vinç parçasının düşmesi sonucu hayatını kaybetti.",
+        "etki": "Üretim alanında duruş, can kaybı tazminatı",
+        "haberler": [
+            "DHA: 'Olay, Dilovası Organize Sanayi Bölgesi'ndeki Çolakoğlu Metalurji Fabrikası'nda meydana geldi.'",
+            "Özgür Kocaeli: '...Çolakoğlu Metalurji’de vinç kazası meydana geldi.'"
+        ],
+        "kaynaklar": {
+            "DHA": "https://www.google.com/search?q=DHA+Kocaeli+%C3%87olako%C4%9Flu+Metalurji+i%C5%9F+kazas%C4%B1",
+            "Özgür Kocaeli": "https://www.google.com/search?q=%C3%96zg%C3%BCr+Kocaeli+%C3%87olako%C4%9Flu+Metalurji+vin%C3%A7+kazas%C4%B1"
+        }
+    },
+    {
+        "id": 41,
+        "tarih": "21.06.2023",
+        "il": "İzmir",
+        "ilce": "Çiğli",
+        "konum": "Atatürk OSB",
+        "tesisAdi": "TKF Metal",
+        "sektor": "Metal / Fabrika",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Düşük",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 88,
+        "lat": 38.5167,
+        "lng": 27.0000,
+        "ozet": "Fabrikanın bahçesindeki atıkların atılan bir sigara izmariti nedeniyle tutuşmasıyla çıkan yangın maddi hasara yol açtı.",
+        "etki": "Fabrikanın bahçesindeki atıkların tutuşmasıyla çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "İAOSB (Bölge Md.)"
+        ],
+        "kaynaklar": {
+            "İAOSB": "https://www.google.com/search?q=%C4%B0AOSB+TKF+Metal+yang%C4%B1n+Haziran+2023"
+        }
+    },
+    {
+        "id": 42,
+        "tarih": "22.06.2023",
+        "il": "İzmir",
+        "ilce": "Ödemiş",
+        "konum": "OSB Dışı",
+        "tesisAdi": "Girgin Pirina Yağ Fabrikası",
+        "sektor": "Gıda / Yağ",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 92,
+        "lat": 38.2269,
+        "lng": 27.9750,
+        "ozet": "Pirina yağı fabrikasında mekanik kıvılcım nedeniyle çıkan yangın büyük çaplı maddi hasara yol açtı.",
+        "etki": "Pirina yağı fabrikasında çıkan yangın büyük çaplı maddi hasara yol açtı.",
+        "haberler": [
+            "Ödemiş'in Sesi: 'Pirina yağı fabrikasında çıkan yangın korkuttu.'"
+        ],
+        "kaynaklar": {
+            "Ödemiş'in Sesi": "https://www.google.com/search?q=%C3%96demi%C5%9F%27in+Sesi+Girgin+Pirina+Ya%C4%9F+Fabrikas%C4%B1+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 43,
+        "tarih": "22.06.2023",
+        "il": "Manisa",
+        "ilce": "Yunusemre",
+        "konum": "Muradiye OSB",
+        "tesisAdi": "Tekeli Geri Dönüşüm",
+        "sektor": "Metal / Geri Dönüşüm",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 38.6500,
+        "lng": 27.3167,
+        "ozet": "Metal geri dönüşüm tesisinin deposunda çıkan yangın maddi hasara yol açtı.",
+        "etki": "Metal geri dönüşüm tesisinin deposunda çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "Manisa'da Son Nokta: 'Geri dönüşüm tesisinin depo kısmında yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Manisa'da Son Nokta": "https://www.google.com/search?q=Manisa%27da+Son+Nokta+Tekeli+Geri+D%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n+Haziran+2023"
+        }
+    },
+    {
+        "id": 44,
+        "tarih": "23.06.2023",
+        "il": "Zonguldak",
+        "ilce": "Ereğli",
+        "konum": "ERDEMİR Fabrika Sahası",
+        "tesisAdi": "Ereğli Demir ve Çelik Fabrikaları T.A.Ş. (ERDEMİR)",
+        "sektor": "Metal / Demir-Çelik",
+        "olayTuru": "İş Kazası",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "A",
+        "dogrulukOrani": 99,
+        "lat": 41.2833,
+        "lng": 31.4167,
+        "ozet": "Erdemir fabrika sahasında taşeron firma çalışanı bir işçi, konveyör bandına düşerek hayatını kaybetti.",
+        "etki": "İlgili ünitede operasyonların durması, can kaybı tazminatı",
+        "haberler": [
+            "Sözcü: 'Zonguldak'ın Ereğli ilçesindeki Ereğli Demir ve Çelik Fabrikaları'nda (ERDEMİR) taşeron olarak çalışan...'",
+            "Pusula Gazetesi: 'Erdemir’de faaliyet gösteren bir taşeron firmada çalışan işçi, konveyör bandına düşerek...'"
+        ],
+        "kaynaklar": {
+            "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+ERDEM%C4%B0R+konvey%C3%B6r+band%C4%B1+kaza+Haziran+2023",
+            "Pusula Gazetesi": "https://www.google.com/search?q=Pusula+Gazetesi+Erdemir+i%C5%9F%C3%A7i+%C3%B6l%C3%BCm%C3%BC+Haziran+2023"
+        }
+    },
+    {
+        "id": 45,
+        "tarih": "25.06.2023",
+        "il": "Tekirdağ",
+        "ilce": "Kapaklı",
+        "konum": "Kapaklı OSB",
+        "tesisAdi": "4R Çevre ve Enerji",
+        "sektor": "Metal / Geri Dönüşüm",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 92,
+        "lat": 41.2833,
+        "lng": 28.0000,
+        "ozet": "Metal geri dönüşüm tesisinin depolama alanında çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "etki": "Metal geri dönüşüm tesisinin depolama alanında çıkan yangın büyük çaplı maddi hasara neden oldu.",
+        "haberler": [
+            "Tekirdağ Şafak: 'Kapaklı OSB'de bir geri dönüşüm tesisinde yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Tekirdağ Şafak": "https://www.google.com/search?q=Tekirda%C4%9F+%C5%9Eafak+4R+%C3%87evre+ve+Enerji+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 46,
+        "tarih": "28.06.2023",
+        "il": "Eskişehir",
+        "ilce": "Odunpazarı",
+        "konum": "Eskişehir OSB",
+        "tesisAdi": "Yeni Çağdaş İhtiyaç ve Gıda",
+        "sektor": "Gıda / Depo",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Orta",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 90,
+        "lat": 39.7397,
+        "lng": 30.5835,
+        "ozet": "Gıda ve ihtiyaç maddeleri deposunun elektrik panosunda arıza nedeniyle çıkan yangın maddi hasara yol açtı.",
+        "etki": "Gıda ve ihtiyaç maddeleri deposunda çıkan yangın maddi hasara yol açtı.",
+        "haberler": [
+            "Eskişehir Net: 'Gıda ve ihtiyaç maddeleri üzerine olan fabrikanın deposunda yangın çıktı.'"
+        ],
+        "kaynaklar": {
+            "Eskişehir Net": "https://www.google.com/search?q=Eski%C5%9Fehir+Net+Yeni+%C3%87a%C4%9Fda%C5%9F+%C4%B0htiya%C3%A7+ve+G%C4%B1da+yang%C4%B1n"
+        }
+    },
+    {
+        "id": 47,
+        "tarih": "28.06.2023",
+        "il": "İstanbul",
+        "ilce": "Tuzla",
+        "konum": "İstanbul Deri OSB",
+        "tesisAdi": "Kimya Fabrikası",
+        "sektor": "Kimya",
+        "olayTuru": "Yangın",
+        "etkiSeviyesi": "Yüksek",
+        "dogrulamaYontemi": "B",
+        "dogrulukOrani": 95,
+        "lat": 40.8500,
+        "lng": 29.3200,
+        "ozet": "Kimya fabrikasının deposunda başlayan yangın, patlamalara neden olarak tüm tesise yayıldı. Alevler, bitişikteki bir fabrikaya da sıçradı.",
+        "etki": "Ana tesiste total hasar meydana gelmiştir. Yangının komşu fabrikaya sıçraması, ana sigortalının Üçüncü Şahıs Sorumluluk poliçesi kapsamında yüksek tutarlı bir hasar talebiyle karşılaşacağını göstermektedir. Yüksek maddi hasar, iş durması ve sorumluluk hasarlarını içeren büyük bir hasar dosyasıdır.",
+        "haberler": [
+            "NTV: 'Tuzla'da kimya fabrikasında yangın: Patlama sesleri duyuldu, alevler yandaki fabrikaya sıçradı.'"
+        ],
+        "kaynaklar": {
+            "NTV": "https://www.google.com/search?q=NTV+Tuzla+Deri+OSB+kimya+fabrikas%C4%B1+yang%C4%B1n+Haziran+2023"
+        }
+    }
+]
