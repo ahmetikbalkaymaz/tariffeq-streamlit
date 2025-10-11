@@ -1,576 +1,956 @@
 [
   {
-    "Tarih": "12.01.2024",
-    "Il_Ilce": "Kütahya",
-    "OSB_Mevki": "Kütahya 1. OSB",
-    "Tesis_Adi": "Talay Porselen",
-    "Sektor_Tip": "Çimento, Cam, Seramik / Porselen",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Fırın ünitesinde aşırı ısınma.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Porselen fabrikasının fırın bölümünde çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 92,
-    "Kaynaklar_Alintilar": "Kütahya'nın Sesi - \"1. OSB’de faaliyet gösteren bir porselen fabrikasının fırın bölümünde yangın çıktı.\""
+    "id": 868,
+    "tarih": "09.01.2024",
+    "il": "Kocaeli",
+    "ilce": "Dilovası",
+    "konum": "Makine İhtisas OSB",
+    "tesisAdi": "Alışan Lojistik A.Ş. (Kaynak) / Petracap Ambalaj San. ve Tic. A.Ş. (Etkilenen)",
+    "sektor": "Lojistik / Ambalaj",
+    "olayTuru": "Yapısal Olay",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 100,
+    "lat": 40.81,
+    "lng": 29.54,
+    "ozet": "Makine İhtisas OSB'de Alışan Lojistik'e ait istinat duvarı, bitişiğindeki Petracap Ambalaj Fabrikası'nın üzerine devrildi. Fabrikada çok ağır hasar meydana geldi ve üretim tamamen durdu.",
+    "etki": "Bu olay, bir tesisin yapısal bir unsurunun komşu bir tesise zarar vermesiyle ortaya çıkan net bir Üçüncü Şahıs Sorumluluk hasarıdır. Petracap Ambalaj'da 'çok ağır bina ve makine hasarı' ve 'üretimin tamamen durması' ifadeleri, Alışan Lojistik'in poliçesi kapsamında çok yüksek tutarlı bir maddi hasar, makine kırılması ve kar kaybı tazminatı ödenmesini gerektirecektir.",
+    "haberler": [
+      "...Alışan Lojistik'e ait deponun istinat duvarı, Petracap Ambalaj Fabrikası'nın üzerine çöktü."
+    ],
+    "kaynaklar": {
+      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Al%C4%B1%C5%9Fan+Lojistik+Petracap+Ambalaj+duvar",
+      "DHA": "https://www.google.com/search?q=DHA+Al%C4%B1%C5%9Fan+Lojistik+istinat+duvar%C4%B1"
+    }
   },
   {
-    "Tarih": "12.01.2024",
-    "Il_Ilce": "Denizli/Acıpayam",
-    "OSB_Mevki": "OSB Dışı",
-    "Tesis_Adi": "Şenol Uğurlu Gıda Üretim",
-    "Sektor_Tip": "Gıda / Yufka-Ekmek",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Yufka ve ekmek üretim tesisinde çıkan yangın işyerini kullanılamaz hale getirdi. Total hasar.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "Denizli Metropol - \"Acıpayam'da bir yufka üretim imalathanesinde yangın çıktı.\""
+    "id": 869,
+    "tarih": "10.01.2024",
+    "il": "İzmir",
+    "ilce": "Aliağa",
+    "konum": "Aliağa Limanlar Bölgesi",
+    "tesisAdi": "TCEEGE Konteyner Terminal İşletmeleri A.Ş.",
+    "sektor": "Liman İşletmeciliği / Lojistik",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 98,
+    "lat": 38.8,
+    "lng": 26.96,
+    "ozet": "Aliağa'daki TCEEGE Konteyner Limanı'nda palamar botunda görevli bir işçi, gemiden denize düşerek hayatını kaybetti.",
+    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk ve Liman İşletmecisi Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
+    "haberler": [
+      "TCEEGE Konteyner Terminali'nde palamar botunda görevli..."
+    ],
+    "kaynaklar": {
+      "DHA": "https://www.google.com/search?q=DHA+TCEEGE+Konteyner+Liman%C4%B1+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC",
+      "Deniz Haber Ajansı": "https://www.google.com/search?q=Deniz+Haber+Ajans%C4%B1+TCEEGE+palamar+botu"
+    }
   },
   {
-    "Tarih": "13.01.2024",
-    "Il_Ilce": "Bursa/Gemlik",
-    "OSB_Mevki": "OSB Dışı (TOGG Yerleşkesi)",
-    "Tesis_Adi": "Siro Silk Road (TOGG Batarya Fab.)",
-    "Sektor_Tip": "Enerji / Batarya Fabrikası",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Test ünitesinde aşırı ısınma.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "İnşaat halindeki batarya fabrikasının test ünitesinde çıkan yangın büyümeden söndürüldü. Proje takviminde etki beklenmiyor.",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 98,
-    "Kaynaklar_Alintilar": "DHA - \"TOGG yerleşkesi içindeki SIRO'ya ait batarya fabrikası inşaatının test bölümünde yangın çıktı.\""
+    "id": 870,
+    "tarih": "12.01.2024",
+    "il": "Kütahya",
+    "ilce": "Merkez",
+    "konum": "Kütahya 1. OSB",
+    "tesisAdi": "Talay Porselen",
+    "sektor": "Çimento, Cam, Seramik / Porselen",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 92,
+    "lat": 39.46,
+    "lng": 29.87,
+    "ozet": "Bir porselen fabrikasının fırın bölümünde aşırı ısınma nedeniyle yangın çıktı.",
+    "etki": "Fırın, porselen üretim sürecinin kalbidir. Bu bölümde çıkan bir yangın, üretimi doğrudan durdurur ve hem makine hasarına (fırın) hem de buna bağlı ciddi bir iş durması kaybına yol açar. Etki 'Orta' seviyededir.",
+    "haberler": [
+      "1. OSB’de faaliyet gösteren bir porselen fabrikasının fırın bölümünde yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Kütahya'nın Sesi": "https://www.google.com/search?q=K%C3%BCtahya%27n%C4%B1n+Sesi+porselen+fabrikas%C4%B1+f%C4%B1r%C4%B1n+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "13.01.2024",
-    "Il_Ilce": "Tekirdağ/Ergene",
-    "OSB_Mevki": "Velimeşe OSB",
-    "Tesis_Adi": "Alil Alüminyum",
-    "Sektor_Tip": "Metal / Alüminyum",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Açık alev/dışarıdan sirayet.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Alüminyum fabrikasının bahçesindeki atıkların tutuşmasıyla çıkan yangın tesise sıçradı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "Tekirdağ Haber - \"Fabrikanın bahçesinde bulunan atıkların tutuşması sonucu yangın çıktı.\""
+    "id": 871,
+    "tarih": "12.01.2024",
+    "il": "Denizli",
+    "ilce": "Acıpayam",
+    "konum": "OSB Dışı",
+    "tesisAdi": "Şenol Uğurlu Gıda Üretim",
+    "sektor": "Gıda / Yufka-Ekmek",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 37.42,
+    "lng": 29.35,
+    "ozet": "Bir yufka ve ekmek üretim tesisinde çıkan yangın, işyerini tamamen kullanılamaz hale getirdi.",
+    "etki": "İşyerinin 'kullanılamaz hale gelmesi', total bir hasara işaret etmektedir. Tesisin yeniden kurulması gerekecektir. Bu durum, ciddi bir maddi hasarın (bina, emtea, makine) yanı sıra, en az 6-9 ay sürecek bir kar kaybı hasarını da beraberinde getirir.",
+    "haberler": [
+      "Acıpayam'da bir yufka üretim imalathanesinde yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Denizli Metropol": "https://www.google.com/search?q=Denizli+Metropol+Ac%C4%B1payam+yufka+%C3%BCretim+imalathanesi"
+    }
   },
   {
-    "Tarih": "14.01.2024",
-    "Il_Ilce": "Tekirdağ/Ergene",
-    "OSB_Mevki": "Velimeşe OSB",
-    "Tesis_Adi": "Teknik Alüminyum",
-    "Sektor_Tip": "Metal / Alüminyum",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Üretim hattında yapılan kaynak/kesme işlemi.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Alüminyum fabrikasında yapılan kaynak çalışması sırasında çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 92,
-    "Kaynaklar_Alintilar": "Çorlu TV - \"Fabrikada kaynak yapıldığı sırada yangın çıktı.\""
+    "id": 872,
+    "tarih": "13.01.2024",
+    "il": "Bursa",
+    "ilce": "Gemlik",
+    "konum": "OSB Dışı (TOGG Yerleşkesi)",
+    "tesisAdi": "Siro Silk Road (TOGG Batarya Fab.)",
+    "sektor": "Enerji / Batarya Fabrikası",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 98,
+    "lat": 40.42,
+    "lng": 29.15,
+    "ozet": "TOGG yerleşkesi içinde inşaatı devam eden Siro batarya fabrikasının test bölümünde çıkan yangın, büyümeden kontrol altına alındı.",
+    "etki": "Yangının inşaat aşamasında ve sadece bir test ünitesiyle sınırlı kalması, hasarın etkisini 'Düşük' seviyede tutmuştur. Proje takviminde önemli bir gecikme beklenmemektedir. Hasar, İnşaat All Risks (CAR) poliçesi kapsamında değerlendirilir.",
+    "haberler": [
+      "TOGG yerleşkesi içindeki SIRO'ya ait batarya fabrikası inşaatının test bölümünde yangın çıktı."
+    ],
+    "kaynaklar": {
+      "DHA": "https://www.google.com/search?q=DHA+TOGG+SIRO+batarya+fabrikas%C4%B1+in%C5%9Faat%C4%B1+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "17.01.2024",
-    "Il_Ilce": "Tekirdağ/Ergene",
-    "OSB_Mevki": "Ulaş OSB",
-    "Tesis_Adi": "Can Tekstil",
-    "Sektor_Tip": "Tekstil / Kumaş",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Baca bölümünde biriken yağ ve elyaf tozlarının tutuşması.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Kumaş fabrikasının baca bölümünde çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "Tekirdağ Şafak - \"Kumaş fabrikasının bacasında yangın çıktı.\""
+    "id": 873,
+    "tarih": "13.01.2024",
+    "il": "Tekirdağ",
+    "ilce": "Ergene",
+    "konum": "Velimeşe OSB",
+    "tesisAdi": "Alil Alüminyum",
+    "sektor": "Metal / Alüminyum",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 41.2,
+    "lng": 27.96,
+    "ozet": "Bir alüminyum fabrikasının bahçesindeki atıkların tutuşmasıyla başlayan yangın, rüzgarın etkisiyle ana tesise sıçradı.",
+    "etki": "Yangının üretim alanlarına sıçraması, olayın etkisini 'Düşük' seviyeden 'Orta' seviyeye taşır. Operasyonlarda aksama, maddi hasar ve buna bağlı iş durması kaybı beklenmelidir.",
+    "haberler": [
+      "Fabrikanın bahçesinde bulunan atıkların tutuşması sonucu yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Tekirdağ Haber": "https://www.google.com/search?q=Tekirda%C4%9F+Haber+Alil+Al%C3%BCminyum+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "17.01.2024",
-    "Il_Ilce": "Ankara/Sincan",
-    "OSB_Mevki": "ASO 1. OSB",
-    "Tesis_Adi": "Karel Elektronik",
-    "Sektor_Tip": "Elektronik / Telekomünikasyon",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Elektronik devre ve telekomünikasyon ürünleri fabrikasında çıkan yangın büyük çaplı maddi hasara yol açtı.",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 96,
-    "Kaynaklar_Alintilar": "AA - \"Sincan Organize Sanayi Bölgesi'ndeki bir elektronik fabrikasında yangın çıktı.\""
+    "id": 874,
+    "tarih": "14.01.2024",
+    "il": "Tekirdağ",
+    "ilce": "Ergene",
+    "konum": "Velimeşe OSB",
+    "tesisAdi": "Teknik Alüminyum",
+    "sektor": "Metal / Alüminyum",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 92,
+    "lat": 41.2,
+    "lng": 27.96,
+    "ozet": "Bir alüminyum fabrikasında, üretim hattında yapılan kaynak çalışması sırasında sıçrayan kıvılcımlar yangına neden oldu.",
+    "etki": "Sıcak çalışma (kaynak) kaynaklı yangınlar, genellikle ihmalden kaynaklanır. Yangının üretim hattında maddi hasara yol açması, operasyonları durdurarak orta seviyeli bir maddi hasar ve iş durması kaybına neden olur.",
+    "haberler": [
+      "Fabrikada kaynak yapıldığı sırada yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Çorlu TV": "https://www.google.com/search?q=%C3%87orlu+TV+Teknik+Al%C3%BCminyum+kaynak+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "18.01.2024",
-    "Il_Ilce": "İstanbul/Sultanbeyli",
-    "OSB_Mevki": "Akşemsettin Mahallesi",
-    "Tesis_Adi": "Belirtilmemiş - Mobilya Fabrikası",
-    "Sektor_Tip": "Ağaç, Kağıt, Mobilya / Mobilya",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Mobilya fabrikasının depo bölümünde çıkan yangın ağır maddi hasara neden oldu.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 93,
-    "Kaynaklar_Alintilar": "İHA - \"Sultanbeyli'de 4 katlı mobilya fabrikasının deposunda yangın çıktı.\""
+    "id": 875,
+    "tarih": "17.01.2024",
+    "il": "Tekirdağ",
+    "ilce": "Ergene",
+    "konum": "Ulaş OSB",
+    "tesisAdi": "Can Tekstil",
+    "sektor": "Tekstil / Kumaş",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 41.16,
+    "lng": 27.9,
+    "ozet": "Bir kumaş fabrikasının baca bölümünde biriken yağ ve elyaf tozlarının tutuşması sonucu yangın çıktı.",
+    "etki": "Baca yangınları genellikle üretim hattını doğrudan etkilemez ve hasar baca ile sınırlı kalır. Operasyonel etkisi düşüktür ve sadece kısa süreli bir temizlik/onarım gerektirir.",
+    "haberler": [
+      "Kumaş fabrikasının bacasında yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Tekirdağ Şafak": "https://www.google.com/search?q=Tekirda%C4%9F+%C5%9Eafak+Can+Tekstil+baca+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "18.01.2024",
-    "Il_Ilce": "Adana/Ceyhan",
-    "OSB_Mevki": "Ceyhan OSB",
-    "Tesis_Adi": "Özodçalar Çırçır Fabrikası",
-    "Sektor_Tip": "Tekstil / Çırçır",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Kurutma kazanında mekanik kıvılcım/sıkışma.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Çırçır fabrikasının pamuk kurutma kazanında çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "Yerel Basın"
+    "id": 876,
+    "tarih": "17.01.2024",
+    "il": "Ankara",
+    "ilce": "Sincan",
+    "konum": "ASO 1. OSB",
+    "tesisAdi": "Karel Elektronik",
+    "sektor": "Elektronik / Telekomünikasyon",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 96,
+    "lat": 39.99,
+    "lng": 32.58,
+    "ozet": "Sincan OSB'de bulunan Karel Elektronik fabrikasında çıkan yangın 'büyük çaplı' maddi hasara yol açtı.",
+    "etki": "Sektörün lider firmalarından birinin tesisinde 'büyük çaplı maddi hasar' oluşması, hem yüksek bir maddi hasara hem de pazar payını ve teknolojik üretim kapasitesini etkileyebilecek uzun süreli bir kar kaybına işaret eder.",
+    "haberler": [
+      "Sincan Organize Sanayi Bölgesi'ndeki bir elektronik fabrikasında yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Sincan+elektronik+fabrikas%C4%B1+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "18.01.2024",
-    "Il_Ilce": "İstanbul/Arnavutköy",
-    "OSB_Mevki": "Aralık Mahallesi (OSB Dışı)",
-    "Tesis_Adi": "Odak Kozmetik",
-    "Sektor_Tip": "Kozmetik, Temizlik / Parfüm",
-    "Olay_Turu": "Patlama",
-    "Olay_Cikis_Sekli": "Kapalı alanda alkol ve solvent buharlarının sıkışması/parlaması.",
-    "Etkilenen_Komsu_Tesisler": "Bitişikteki 2 fabrikaya sıçradı.",
-    "Maddi_Kar_Kaybi_Etkisi": "Parfüm ve deodorant fabrikasında meydana gelen patlama ve yangında 1 işçi hayatını kaybetti, 3 işçi yaralandı. Alevler yandaki 2 fabrikaya da sıçradı.",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 100,
-    "Kaynaklar_Alintilar": "AA - \"Arnavutköy'de bir parfüm fabrikasında meydana gelen patlamada 1 kişi hayatını kaybetti, 3 kişi yaralandı.\""
+    "id": 877,
+    "tarih": "18.01.2024",
+    "il": "İstanbul",
+    "ilce": "Sultanbeyli",
+    "konum": "Akşemsettin Mahallesi",
+    "tesisAdi": "Belirtilmemiş - Mobilya Fabrikası",
+    "sektor": "Ağaç, Kağıt, Mobilya / Mobilya",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 93,
+    "lat": 40.97,
+    "lng": 29.28,
+    "ozet": "Dört katlı bir mobilya fabrikasının depo bölümünde çıkan yangın, 'ağır maddi hasara' neden oldu.",
+    "etki": "Depo bölümünde 'ağır maddi hasar' meydana gelmesi, önemli bir emtea (stok) kaybına işaret eder. Bu durum, firmanın üretim ve sevkiyat kapasitesini durdurarak iş kaybına neden olur.",
+    "haberler": [
+      "Sultanbeyli'de 4 katlı mobilya fabrikasının deposunda yangın çıktı."
+    ],
+    "kaynaklar": {
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+Sultanbeyli+mobilya+fabrikas%C4%B1+depo+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "19.01.2024",
-    "Il_Ilce": "Ordu/Altınordu",
-    "OSB_Mevki": "Kocasinan Mahallesi",
-    "Tesis_Adi": "Aysan Yağ",
-    "Sektor_Tip": "Gıda / Yağ Fabrikası",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Bitişikteki bir binadan sirayet etmesi.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Yağ fabrikasının deposu, bitişikteki bir binada çıkan yangının sıçraması sonucu yandı. Büyük çaplı emtea hasarı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 94,
-    "Kaynaklar_Alintilar": "Ordu Gazete - \"Bitişikteki binada başlayan yangın yağ fabrikasının deposuna sıçradı.\""
+    "id": 878,
+    "tarih": "18.01.2024",
+    "il": "Adana",
+    "ilce": "Ceyhan",
+    "konum": "Ceyhan OSB",
+    "tesisAdi": "Özodçalar Çırçır Fabrikası",
+    "sektor": "Tekstil / Çırçır",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 37.02,
+    "lng": 35.81,
+    "ozet": "Bir çırçır fabrikasının pamuk kurutma kazanında mekanik sıkışma/kıvılcım nedeniyle yangın çıktı.",
+    "etki": "Hasarın üretim hattındaki tek bir makine (kazan) ile sınırlı kalması, operasyonel etkiyi düşürmektedir. Sadece ilgili makine ve çevresinde maddi hasar ve kısa süreli bir duruş beklenir.",
+    "haberler": [
+      "Çırçır fabrikasının pamuk kurutma kazanında çıkan yangın maddi hasara yol açtı."
+    ],
+    "kaynaklar": {
+      "Yerel Basın": "https://www.google.com/search?q=Ceyhan+Haber+%C3%96zod%C3%A7alar+%C3%87%C4%B1r%C3%A7%C4%B1r+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "19.01.2024",
-    "Il_Ilce": "Tekirdağ/Ergene",
-    "OSB_Mevki": "Velimeşe OSB",
-    "Tesis_Adi": "Ofhaline Ambalaj",
-    "Sektor_Tip": "Ağaç, Kağıt, Mobilya / Ambalaj",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Ambalaj fabrikasının depo bölümünde çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "Yerel Basın"
+    "id": 879,
+    "tarih": "18.01.2024",
+    "il": "İstanbul",
+    "ilce": "Arnavutköy",
+    "konum": "Aralık Mahallesi (OSB Dışı)",
+    "tesisAdi": "Odak Kozmetik",
+    "sektor": "Kozmetik, Temizlik / Parfüm",
+    "olayTuru": "Patlama",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 100,
+    "lat": 41.21,
+    "lng": 28.65,
+    "ozet": "Bir parfüm fabrikasında, alkol ve solvent buharlarının parlaması sonucu meydana gelen patlama ve yangında 1 işçi hayatını kaybetti, 3 işçi yaralandı. Alevler yandaki 2 fabrikaya da sıçradı.",
+    "etki": "1 can kaybı, 3 yaralanma ve yangının 2 komşu tesise sıçraması (domino etkisi), olayı katastrofik bir hasar haline getirir. Hem ana tesiste hem de komşu tesislerde çok büyük maddi hasar ve iş durması, ayrıca en yüksek seviyede sorumluluk hasarları söz konusudur.",
+    "haberler": [
+      "Arnavutköy'de bir parfüm fabrikasında meydana gelen patlamada 1 kişi hayatını kaybetti, 3 kişi yaralandı."
+    ],
+    "kaynaklar": {
+      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Arnavutk%C3%B6y+parf%C3%BCm+fabrikas%C4%B1+patlama"
+    }
   },
   {
-    "Tarih": "19.01.2024",
-    "Il_Ilce": "Bursa/İnegöl",
-    "OSB_Mevki": "İnegöl OSB",
-    "Tesis_Adi": "Çilek Mobilya",
-    "Sektor_Tip": "Ağaç, Kağıt, Mobilya / Mobilya",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Mobilya fabrikasında yalıtım malzemelerinin tutuşmasıyla çıkan yangın büyük çaplı maddi hasara neden oldu.",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 96,
-    "Kaynaklar_Alintilar": "AA - \"Bursa'nın İnegöl ilçesindeki bir mobilya fabrikasında çıkan yangın hasara yol açtı.\""
+    "id": 880,
+    "tarih": "19.01.2024",
+    "il": "Ordu",
+    "ilce": "Altınordu",
+    "konum": "Kocasinan Mahallesi",
+    "tesisAdi": "Aysan Yağ",
+    "sektor": "Gıda / Yağ Fabrikası",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 94,
+    "lat": 40.98,
+    "lng": 37.87,
+    "ozet": "Aysan Yağ fabrikasının deposu, bitişikteki bir binada çıkan yangının sıçraması sonucu yandı.",
+    "etki": "Hasarın üçüncü bir şahsın (komşu bina) kusurundan kaynaklanması (sirayet), sigorta şirketi için bir rücu hakkı doğurur. Depoda meydana gelen 'büyük çaplı emtea hasarı', hem hammadde/mamul kaybına hem de sevkiyatın durmasına neden olmuştur.",
+    "haberler": [
+      "Bitişikteki binada başlayan yangın yağ fabrikasının deposuna sıçradı."
+    ],
+    "kaynaklar": {
+      "Ordu Gazete": "https://www.google.com/search?q=Ordu+Gazete+Aysan+Ya%C4%9F+depo+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "22.01.2024",
-    "Il_Ilce": "İzmir/Kemalpaşa",
-    "OSB_Mevki": "Kemalpaşa OSB",
-    "Tesis_Adi": "Istanpak Ambalaj",
-    "Sektor_Tip": "Kauçuk, Plastik / Ambalaj",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Ambalaj fabrikasında çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "KOSBİ (Bölge Md.)"
+    "id": 881,
+    "tarih": "19.01.2024",
+    "il": "Tekirdağ",
+    "ilce": "Ergene",
+    "konum": "Velimeşe OSB",
+    "tesisAdi": "Ofhaline Ambalaj",
+    "sektor": "Ağaç, Kağıt, Mobilya / Ambalaj",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 41.2,
+    "lng": 27.96,
+    "ozet": "Bir ambalaj fabrikasının depo bölümünde çıkan yangın, lokal maddi hasara yol açtı.",
+    "etki": "Detaylar sınırlı olmakla birlikte, yangının depo ile sınırlı kalması ve büyük bir yayılım göstermemesi, hasarın 'Düşük' seviyede kaldığını düşündürmektedir.",
+    "haberler": [
+      "Ambalaj fabrikasının depo bölümünde çıkan yangın maddi hasara yol açtı."
+    ],
+    "kaynaklar": {
+      "Yerel Basın": "https://www.google.com/search?q=Velime%C5%9Fe+OSB+ambalaj+fabrikas%C4%B1+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "25.01.2024",
-    "Il_Ilce": "Tekirdağ/Muratlı",
-    "OSB_Mevki": "Kurtpınar Mahallesi",
-    "Tesis_Adi": "Soylu Tarım Ürünleri",
-    "Sektor_Tip": "Gıda / Yem Fabrikası",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Yem fabrikasında çıkan yangın büyük çaplı maddi hasara neden oldu.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 92,
-    "Kaynaklar_Alintilar": "Tekirdağ Şafak - \"Muratlı’da yem fabrikasında yangın.\""
+    "id": 882,
+    "tarih": "19.01.2024",
+    "il": "Bursa",
+    "ilce": "İnegöl",
+    "konum": "İnegöl OSB",
+    "tesisAdi": "Çilek Mobilya",
+    "sektor": "Ağaç, Kağıt, Mobilya / Mobilya",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 96,
+    "lat": 40.08,
+    "lng": 29.51,
+    "ozet": "Çilek Mobilya fabrikasında yalıtım malzemelerinin tutuşmasıyla çıkan yangın, 'büyük çaplı' maddi hasara neden oldu.",
+    "etki": "'Büyük çaplı maddi hasar' ifadesi, yangının sadece başlangıç noktasında kalmayıp yayıldığını ve tesisin önemli bir bölümüne zarar verdiğini gösterir. Bu, orta seviyeli bir maddi hasar ve iş durması kaybı demektir.",
+    "haberler": [
+      "Bursa'nın İnegöl ilçesindeki bir mobilya fabrikasında çıkan yangın hasara yol açtı."
+    ],
+    "kaynaklar": {
+      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Bursa+%C4%B0neg%C3%B6l+%C3%87ilek+Mobilya+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "26.01.2024",
-    "Il_Ilce": "Adana/Yüreğir",
-    "OSB_Mevki": "Yüreğir OSB",
-    "Tesis_Adi": "MG Demir Çelik",
-    "Sektor_Tip": "Metal / Demir Çelik",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Boyahane bölümünde parlama.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Demir çelik tesisinin boyahane bölümünde çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "Yerel Basın"
+    "id": 883,
+    "tarih": "22.01.2024",
+    "il": "İzmir",
+    "ilce": "Kemalpaşa",
+    "konum": "Kemalpaşa OSB",
+    "tesisAdi": "Istanpak Ambalaj",
+    "sektor": "Kauçuk, Plastik / Ambalaj",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 38.42,
+    "lng": 27.42,
+    "ozet": "Bir ambalaj fabrikasında çıkan yangın, lokal maddi hasara yol açtı.",
+    "etki": "Detaylar sınırlı olmakla birlikte, büyük bir yayılım veya can kaybı bildirilmemesi, hasarın kontrol altına alınmış, lokal bir olay olduğunu düşündürmektedir. Bu nedenle etki 'Düşük' olarak sınıflandırılmıştır.",
+    "haberler": [
+      "Ambalaj fabrikasında çıkan yangın maddi hasara yol açtı."
+    ],
+    "kaynaklar": {
+      "KOSBİ": "https://www.kosbi.org.tr/"
+    }
   },
   {
-    "Tarih": "26.01.2024",
-    "Il_Ilce": "Adana/Yüreğir",
-    "OSB_Mevki": "Güzelevler Mahallesi",
-    "Tesis_Adi": "Tolun Buga Sünger",
-    "Sektor_Tip": "Kauçuk, Plastik / Sünger",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Sünger fabrikasının üretim bölümünde çıkan yangın tesisi kullanılamaz hale getirdi.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 93,
-    "Kaynaklar_Alintilar": "İHA - \"Sünger fabrikasında çıkan yangın kısa sürede büyüdü.\""
+    "id": 884,
+    "tarih": "23.01.2024",
+    "il": "İstanbul",
+    "ilce": "Tuzla",
+    "konum": "Tuzla Tersaneler Bölgesi",
+    "tesisAdi": "Tersan Tersanecilik San. ve Tic. A.Ş.",
+    "sektor": "Gemi İnşa / Tersane",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 97,
+    "lat": 40.81,
+    "lng": 29.35,
+    "ozet": "Tuzla'daki Tersan Tersanesi'nde bir işçi, pres makinesine sıkışarak hayatını kaybetti.",
+    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
+    "haberler": [
+      "...Tersan Tersanesi'nde pres makinesine sıkışan bir işçi..."
+    ],
+    "kaynaklar": {
+      "DHA": "https://www.google.com/search?q=DHA+Tuzla+Tersan+Tersanesi+i%C5%9F%C3%A7i+%C3%B6l%C3%BCm%C3%BC",
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+Tersan+Tersanesi+pres+makinesi"
+    }
   },
   {
-    "Tarih": "27.01.2024",
-    "Il_Ilce": "Adana/Ceyhan",
-    "OSB_Mevki": "Küçük Sanayi Sitesi",
-    "Tesis_Adi": "Bedrettin Aras (Kayış Atölyesi)",
-    "Sektor_Tip": "Metal / Atölye",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Jeneratörün bakım sırasında alev alması.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Kayış imalatı yapılan atölyede jeneratörün alev alması sonucu yangın çıktı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 88,
-    "Kaynaklar_Alintilar": "Ceyhan Haber - \"İş yerinde bulunan jeneratörün alev almasıyla yangın çıktı.\""
+    "id": 885,
+    "tarih": "25.01.2024",
+    "il": "Tekirdağ",
+    "ilce": "Muratlı",
+    "konum": "Kurtpınar Mahallesi",
+    "tesisAdi": "Soylu Tarım Ürünleri",
+    "sektor": "Gıda / Yem Fabrikası",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 92,
+    "lat": 41.15,
+    "lng": 27.5,
+    "ozet": "Bir yem fabrikasında çıkan yangın 'büyük çaplı' maddi hasara neden oldu.",
+    "etki": "'Büyük çaplı maddi hasar' ifadesi, tesisin önemli bir bölümünün yandığını ve üretimin durduğunu gösterir. Makine, bina ve emtea hasarlarının yanı sıra ciddi bir iş durması ve kar kaybı hasarı beklenmelidir.",
+    "haberler": [
+      "Muratlı’da yem fabrikasında yangın."
+    ],
+    "kaynaklar": {
+      "Tekirdağ Şafak": "https://www.google.com/search?q=Tekirda%C4%9F+%C5%9Eafak+Soylu+Tar%C4%B1m+yem+fabrikas%C4%B1"
+    }
   },
   {
-    "Tarih": "28.01.2024",
-    "Il_Ilce": "İstanbul/Pendik",
-    "OSB_Mevki": "Velibaba Mahallesi",
-    "Tesis_Adi": "Draton Boya Fabrikası",
-    "Sektor_Tip": "Boya / Kimya",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Boya fabrikasında çıkan yangın, kimyasal maddeler nedeniyle sık sık patlamalara yol açtı. Ağır maddi hasar.",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 98,
-    "Kaynaklar_Alintilar": "DHA - \"Pendik'te 3 katlı boya fabrikasında yangın çıktı. Yangın sırasında patlamalar meydana geldi.\""
+    "id": 886,
+    "tarih": "26.01.2024",
+    "il": "Adana",
+    "ilce": "Yüreğir",
+    "konum": "Yüreğir OSB",
+    "tesisAdi": "MG Demir Çelik",
+    "sektor": "Metal / Demir Çelik",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 36.93,
+    "lng": 35.43,
+    "ozet": "Bir demir çelik tesisinin boyahane bölümünde meydana gelen parlama sonucu yangın çıktı.",
+    "etki": "Boyahane, üretim sürecinin kritik ünitelerinden biridir. Bu bölümde çıkan bir yangın, üretimi durdurarak orta seviyeli bir maddi hasar ve iş durması kaybına neden olur.",
+    "haberler": [
+      "Demir çelik tesisinin boyahane bölümünde çıkan yangın maddi hasara yol açtı."
+    ],
+    "kaynaklar": {
+      "Yerel Basın": "https://www.google.com/search?q=Adana+Y%C3%BCre%C4%9Fir+OSB+demir+%C3%A7elik+boyahane"
+    }
   },
   {
-    "Tarih": "29.01.2024",
-    "Il_Ilce": "Tekirdağ/Ergene",
-    "OSB_Mevki": "Velimeşe OSB",
-    "Tesis_Adi": "Senova Tekstil",
-    "Sektor_Tip": "Tekstil / Fabrika",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Bakım yapılan bacada biriken elyaf tozlarının tutuşması.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Tekstil fabrikasının bacasında çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "Çorlu Haber - \"Bakımı yapılan fabrikanın bacasında yangın çıktı.\""
+    "id": 887,
+    "tarih": "26.01.2024",
+    "il": "Adana",
+    "ilce": "Yüreğir",
+    "konum": "Güzelevler Mahallesi",
+    "tesisAdi": "Tolun Buga Sünger",
+    "sektor": "Kauçuk, Plastik / Sünger",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 93,
+    "lat": 36.98,
+    "lng": 35.37,
+    "ozet": "Bir sünger fabrikasının üretim bölümünde çıkan yangın, kısa sürede büyüyerek tesisi kullanılamaz hale getirdi.",
+    "etki": "Tesisin 'kullanılamaz hale gelmesi', total bir hasara işaret etmektedir. Tesisin yeniden kurulması gerekecektir. Bu durum, ciddi bir maddi hasarın yanı sıra, en az 6-9 ay sürecek bir kar kaybı hasarını da beraberinde getirir.",
+    "haberler": [
+      "Sünger fabrikasında çıkan yangın kısa sürede büyüdü."
+    ],
+    "kaynaklar": {
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+Adana+Tolun+Buga+S%C3%BCnger+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "31.01.2024",
-    "Il_Ilce": "Eskişehir/Odunpazarı",
-    "OSB_Mevki": "75. Yıl Mahallesi",
-    "Tesis_Adi": "Abkart Pres Makina San.",
-    "Sektor_Tip": "Metal / Pres",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Pres fabrikasında çıkan yangın tesiste büyük çaplı maddi hasara neden oldu.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 92,
-    "Kaynaklar_Alintilar": "Eskişehir Ekspres - \"Odunpazarı ilçesinde bir pres fabrikasında yangın çıktı.\""
+    "id": 888,
+    "tarih": "27.01.2024",
+    "il": "Adana",
+    "ilce": "Ceyhan",
+    "konum": "Küçük Sanayi Sitesi",
+    "tesisAdi": "Bedrettin Aras (Kayış Atölyesi)",
+    "sektor": "Metal / Atölye",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 88,
+    "lat": 37.02,
+    "lng": 35.81,
+    "ozet": "Bir kayış imalat atölyesinde, bakım yapılan bir jeneratörün alev alması sonucu yangın çıktı.",
+    "etki": "Hasarın jeneratör gibi tek bir ekipmanla sınırlı kalması, etkinin 'Düşük' olduğunu göstermektedir. Sadece lokal bir maddi hasar ve kısa süreli operasyonel aksama beklenir.",
+    "haberler": [
+      "İş yerinde bulunan jeneratörün alev almasıyla yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Ceyhan Haber": "https://www.google.com/search?q=Ceyhan+Haber+jenerat%C3%B6r+alev+ald%C4%B1"
+    }
   },
   {
-    "Tarih": "02.02.2024",
-    "Il_Ilce": "Antalya/Manavgat",
-    "OSB_Mevki": "Manavgat Sanayi Sitesi",
-    "Tesis_Adi": "Durak Karoser Ve Damper",
-    "Sektor_Tip": "Metal / Damper Fabrikası",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Damper fabrikası çıkan yangında tamamen yandı. Total hasar.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 94,
-    "Kaynaklar_Alintilar": "Antalya Son Haber - \"Sanayi sitesindeki damper fabrikası küle döndü.\""
+    "id": 889,
+    "tarih": "28.01.2024",
+    "il": "İstanbul",
+    "ilce": "Pendik",
+    "konum": "Velibaba Mahallesi",
+    "tesisAdi": "Draton Boya Fabrikası",
+    "sektor": "Boya / Kimya",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 98,
+    "lat": 40.92,
+    "lng": 29.28,
+    "ozet": "Pendik'te 3 katlı bir boya fabrikasında çıkan yangın, kimyasal maddeler nedeniyle sık sık patlamalara yol açtı. Tesiste ağır maddi hasar oluştu.",
+    "etki": "Kimyasal bir tesiste patlamaların yaşandığı ve 'ağır maddi hasar' oluşan bir yangın, 'Yüksek' etkili bir olaydır. Tesisin önemli bir bölümünün yandığı, uzun süreli bir iş durması ve yüksek kar kaybı yaşanacağı anlaşılmaktadır.",
+    "haberler": [
+      "Pendik'te 3 katlı boya fabrikasında yangın çıktı. Yangın sırasında patlamalar meydana geldi."
+    ],
+    "kaynaklar": {
+      "DHA": "https://www.google.com/search?q=DHA+Pendik+boya+fabrikas%C4%B1+patlama"
+    }
   },
   {
-    "Tarih": "03.02.2024",
-    "Il_Ilce": "Denizli/Merkezefendi",
-    "OSB_Mevki": "Bozburun Mahallesi",
-    "Tesis_Adi": "Çevik Kompresör",
-    "Sektor_Tip": "Metal / Kompresör",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Aşırı ısınma.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Kompresör fabrikasında çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "Denizli Metropol - \"Bozburun mahallesinde bulunan kompresör fabrikasında yangın çıktı.\""
+    "id": 890,
+    "tarih": "29.01.2024",
+    "il": "Tekirdağ",
+    "ilce": "Ergene",
+    "konum": "Velimeşe OSB",
+    "tesisAdi": "Senova Tekstil",
+    "sektor": "Tekstil / Fabrika",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 41.2,
+    "lng": 27.96,
+    "ozet": "Bir tekstil fabrikasının bakım yapılan bacasında biriken elyaf tozlarının tutuşması sonucu yangın çıktı.",
+    "etki": "Baca yangınları genellikle üretim hattını doğrudan etkilemez ve hasar baca ile sınırlı kalır. Bakım sırasında meydana gelmesi, operasyonel etkiyi daha da düşürür.",
+    "haberler": [
+      "Bakımı yapılan fabrikanın bacasında yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Çorlu Haber": "https://www.google.com/search?q=%C3%87orlu+Haber+Senova+Tekstil+baca+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "07.02.2024",
-    "Il_Ilce": "Sakarya/Ferizli",
-    "OSB_Mevki": "Ferizli OSB",
-    "Tesis_Adi": "Perawood Orman Ürünleri",
-    "Sektor_Tip": "Ağaç, Kağıt, Mobilya / Orman Ürün.",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Mekanik kıvılcım.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Orman ürünleri fabrikasının deposunda çıkan yangın büyük çaplı maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 93,
-    "Kaynaklar_Alintilar": "Sakarya Halk - \"Ferizli OSB'de bir fabrikanın deposunda yangın çıktı.\""
+    "id": 891,
+    "tarih": "30.01.2024",
+    "il": "Bursa",
+    "ilce": "İnegöl",
+    "konum": "İnegöl OSB",
+    "tesisAdi": "Çilek Mobilya A.Ş.",
+    "sektor": "Mobilya / Ağaç Ürünleri",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 98,
+    "lat": 40.08,
+    "lng": 29.51,
+    "ozet": "İnegöl OSB'de faaliyet gösteren Çilek Mobilya Fabrikası'nda bir işçi, ahşap pres makinesine sıkışarak hayatını kaybetti.",
+    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
+    "haberler": [
+      "...Çilek Mobilya A.Ş.'ye ait fabrikada..."
+    ],
+    "kaynaklar": {
+      "DHA": "https://www.google.com/search?q=DHA+%C3%87ilek+Mobilya+i%C5%9F+kazas%C4%B1",
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+%C3%87ilek+Mobilya+pres+makinesi"
+    }
   },
   {
-    "Tarih": "10.02.2024",
-    "Il_Ilce": "İstanbul/Sancaktepe",
-    "OSB_Mevki": "Samandıra (OSB Dışı)",
-    "Tesis_Adi": "Güngören Bims",
-    "Sektor_Tip": "Çimento, Cam, Seramik / Demir",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Demir doğrama atölyesinde çıkan yangın büyük çaplı maddi hasara neden oldu.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "İHA - \"Sancaktepe'de demir doğrama atölyesi alev alev yandı.\""
+    "id": 892,
+    "tarih": "31.01.2024",
+    "il": "Eskişehir",
+    "ilce": "Odunpazarı",
+    "konum": "75. Yıl Mahallesi",
+    "tesisAdi": "Abkart Pres Makina San.",
+    "sektor": "Metal / Pres",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 92,
+    "lat": 39.73,
+    "lng": 30.58,
+    "ozet": "Bir pres fabrikasında çıkan yangın, tesiste 'büyük çaplı' maddi hasara neden oldu.",
+    "etki": "'Büyük çaplı maddi hasar' ifadesi, tesisin önemli bir bölümünün yandığını ve üretimin durduğunu gösterir. Makine, bina ve emtea hasarlarının yanı sıra ciddi bir iş durması ve kar kaybı hasarı beklenmelidir.",
+    "haberler": [
+      "Odunpazarı ilçesinde bir pres fabrikasında yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Eskişehir Ekspres": "https://www.google.com/search?q=Eski%C5%9Fehir+Ekspres+Abkart+Pres+Makina+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "17.02.2024",
-    "Il_Ilce": "Adana/Seyhan",
-    "OSB_Mevki": "Hacı Sabancı OSB",
-    "Tesis_Adi": "Temsa Skoda Sabancı Ulaşım",
-    "Sektor_Tip": "Metal / Otomotiv",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Elektriksel arıza.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Otobüs fabrikasının boya atölyesinde çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 92,
-    "Kaynaklar_Alintilar": "Adana Bölge - \"Temsa'ya ait fabrikada yangın çıktı.\""
+    "id": 893,
+    "tarih": "02.02.2024",
+    "il": "Antalya",
+    "ilce": "Manavgat",
+    "konum": "Manavgat Sanayi Sitesi",
+    "tesisAdi": "Durak Karoser Ve Damper",
+    "sektor": "Metal / Damper Fabrikası",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 94,
+    "lat": 36.79,
+    "lng": 31.45,
+    "ozet": "Manavgat Sanayi Sitesi'ndeki bir damper fabrikası çıkan yangında tamamen yanarak küle döndü.",
+    "etki": "İşyerinin 'tamamen yanması' ve 'küle dönmesi', total bir hasara işaret etmektedir. Tesisin yeniden kurulması gerekecektir. Bu durum, ciddi bir maddi hasarın yanı sıra, en az 6-9 ay sürecek bir kar kaybı hasarını da beraberinde getirir.",
+    "haberler": [
+      "Sanayi sitesindeki damper fabrikası küle döndü."
+    ],
+    "kaynaklar": {
+      "Antalya Son Haber": "https://www.google.com/search?q=Antalya+Son+Haber+Durak+Karoser+damper+fabrikas%C4%B1"
+    }
   },
   {
-    "Tarih": "19.02.2024",
-    "Il_Ilce": "Kocaeli/Dilovası",
-    "OSB_Mevki": "Dilovası OSB",
-    "Tesis_Adi": "E-Servis Alüminyum",
-    "Sektor_Tip": "Metal / Alüminyum",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Alüminyum fabrikasında çıkan yangın büyük çaplı maddi hasara neden oldu.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 92,
-    "Kaynaklar_Alintilar": "Kocaeli Paraf - \"Dilovası OSB’de alüminyum fabrikasında yangın.\""
+    "id": 894,
+    "tarih": "03.02.2024",
+    "il": "Denizli",
+    "ilce": "Merkezefendi",
+    "konum": "Bozburun Mahallesi",
+    "tesisAdi": "Çevik Kompresör",
+    "sektor": "Metal / Kompresör",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 37.83,
+    "lng": 29.01,
+    "ozet": "Bir kompresör fabrikasında aşırı ısınma nedeniyle çıkan yangın, maddi hasara yol açtı.",
+    "etki": "Yangının üretim alanında meydana gelmesi, operasyonları durdurarak orta seviyeli bir maddi hasar ve iş durması kaybına neden olmuştur.",
+    "haberler": [
+      "Bozburun mahallesinde bulunan kompresör fabrikasında yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Denizli Metropol": "https://www.google.com/search?q=Denizli+Metropol+%C3%87evik+Kompres%C3%B6r+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "20.02.2024",
-    "Il_Ilce": "Tekirdağ/Ergene",
-    "OSB_Mevki": "Ulaş OSB",
-    "Tesis_Adi": "Kale Kayışları",
-    "Sektor_Tip": "Kauçuk, Plastik / Kayış Fab.",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Üretim hattında aşırı ısınma.",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Konveyör bant ve kayış fabrikasında çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 90,
-    "Kaynaklar_Alintilar": "Çorlu Haber - \"Ulaş OSB'de bulunan bir fabrikada yangın çıktı.\""
+    "id": 895,
+    "tarih": "05.02.2024",
+    "il": "Samsun",
+    "ilce": "Bafra",
+    "konum": "Bafra OSB",
+    "tesisAdi": "Bafra Karma Yem San. Tic. A.Ş.",
+    "sektor": "Gıda / Yem",
+    "olayTuru": "Yapısal Olay",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 100,
+    "lat": 41.56,
+    "lng": 35.9,
+    "ozet": "Bafra OSB'de faaliyet gösteren bir yem fabrikasında, yem silosunda yapısal yırtılma/çökme meydana geldi. Olayda 1 işçi yaralandı.",
+    "etki": "Silo gibi büyük bir yapının çökmesi, içindeki tonlarca yem stokunun kaybı, 1 işçinin yaralanması ve üretimin aksaması, olayı 'Yüksek' etkili bir hasar haline getirmektedir. Büyük bir maddi hasar (bina/ekipman, stok), İşveren Sorumluluk ve Kar Kaybı hasarları söz konusudur.",
+    "haberler": [
+      "...Bafra Karma Yem Fabrikası'nda..."
+    ],
+    "kaynaklar": {
+      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Bafra+yem+fabrikas%C4%B1+siloda+%C3%A7%C3%B6kme",
+      "DHA": "https://www.google.com/search?q=DHA+Bafra+Karma+Yem+Fabrikas%C4%B1"
+    }
   },
   {
-    "Tarih": "22.02.2024",
-    "Il_Ilce": "Tekirdağ/Kapaklı",
-    "OSB_Mevki": "Karaağaç OSB",
-    "Tesis_Adi": "Deva İlaç",
-    "Sektor_Tip": "İlaç / Fabrika",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "İlaç fabrikasının teknik biriminde çıkan yangın maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 94,
-    "Kaynaklar_Alintilar": "Çerkezköy Ekspres - \"Deva İlaç Fabrikası'nda yangın paniği.\""
+    "id": 896,
+    "tarih": "07.02.2024",
+    "il": "Sakarya",
+    "ilce": "Ferizli",
+    "konum": "Ferizli OSB",
+    "tesisAdi": "Perawood Orman Ürünleri",
+    "sektor": "Ağaç, Kağıt, Mobilya / Orman Ürün.",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 93,
+    "lat": 41.0,
+    "lng": 30.55,
+    "ozet": "Bir orman ürünleri fabrikasının deposunda mekanik kıvılcım nedeniyle çıkan yangın 'büyük çaplı' maddi hasara yol açtı.",
+    "etki": "Depo bölümünde 'büyük çaplı maddi hasar' meydana gelmesi, önemli bir emtea (stok) kaybına işaret eder. Bu durum, firmanın üretim ve sevkiyat kapasitesini durdurarak iş kaybına neden olur.",
+    "haberler": [
+      "Ferizli OSB'de bir fabrikanın deposunda yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Sakarya Halk": "https://www.google.com/search?q=Sakarya+Halk+Ferizli+OSB+Perawood"
+    }
   },
   {
-    "Tarih": "24.02.2024",
-    "Il_Ilce": "Bolu",
-    "OSB_Mevki": "Gerede OSB",
-    "Tesis_Adi": "Nova Orman Ürünleri",
-    "Sektor_Tip": "Ağaç, Kağıt, Mobilya / Orman Ürün.",
-    "Olay_Turu": "Yangın",
-    "Olay_Cikis_Sekli": "Belirtilmemiş",
-    "Etkilenen_Komsu_Tesisler": "Bildirilmedi",
-    "Maddi_Kar_Kaybi_Etkisi": "Orman ürünleri fabrikasının deposunda çıkan yangın büyük çaplı maddi hasara yol açtı.",
-    "Dogrulama": "B",
-    "Guven_Yuzdesi": 93,
-    "Kaynaklar_Alintilar": "Bolu Gündem - \"Gerede OSB'de bir fabrikanın deposunda yangın çıktı.\""
+    "id": 897,
+    "tarih": "10.02.2024",
+    "il": "İstanbul",
+    "ilce": "Sancaktepe",
+    "konum": "Samandıra (OSB Dışı)",
+    "tesisAdi": "Güngören Bims",
+    "sektor": "Çimento, Cam, Seramik / Demir",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 41.0,
+    "lng": 29.23,
+    "ozet": "Sancaktepe'de bir demir doğrama atölyesinde çıkan yangın, 'büyük çaplı' maddi hasara neden oldu.",
+    "etki": "'Büyük çaplı maddi hasar' ifadesi, atölyenin önemli bir bölümünün yandığını ve üretimin durduğunu gösterir. Makine, bina ve emtea hasarlarının yanı sıra ciddi bir iş durması ve kar kaybı hasarı beklenmelidir.",
+    "haberler": [
+      "Sancaktepe'de demir doğrama atölyesi alev alev yandı."
+    ],
+    "kaynaklar": {
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+Sancaktepe+demir+do%C4%9Frama+at%C3%B6lyesi"
+    }
   },
   {
-    "Tarih": "09.01.2024",
-    "Il_Ilce": "Kocaeli/Dilovası",
-    "OSB_Mevki": "Makine İhtisas OSB",
-    "Tesis_Adi": "Alışan Lojistik A.Ş. (Kaynak) / Petracap Ambalaj San. ve Tic. A.Ş. (Etkilenen)",
-    "Sektor_Tip": "Lojistik / Ambalaj",
-    "Olay_Turu": "Yapısal Olay",
-    "Olay_Cikis_Sekli": "İstinat duvarının komşu fabrikaya devrilmesi",
-    "Etkilenen_Komsu_Tesisler": "Petracap Ambalaj",
-    "Maddi_Kar_Kaybi_Etkisi": "Komşu tesiste çok ağır bina ve makine hasarı, üretimin tamamen durması",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 100,
-    "Kaynaklar_Alintilar": "AA: \"Makine İhtisas OSB'de Alışan Lojistik firmasına ait istinat duvarı, bitişiğindeki Petracap Ambalaj Fabrikası'nın üzerine devrildi.\", DHA: \"...Alışan Lojistik'e ait deponun istinat duvarı, Petracap Ambalaj Fabrikası'nın üzerine çöktü.\""
+    "id": 898,
+    "tarih": "13.02.2024",
+    "il": "Kırklareli",
+    "ilce": "Lüleburgaz",
+    "konum": "Lüleburgaz Sanayi",
+    "tesisAdi": "Şişecam Otomotiv A.Ş.",
+    "sektor": "Cam / Otomotiv",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 99,
+    "lat": 41.4,
+    "lng": 27.35,
+    "ozet": "Lüleburgaz'daki Şişecam Otomotiv Fabrikası'nda bir işçi, devrilen cam kasasının altında kalarak hayatını kaybetti.",
+    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
+    "haberler": [
+      "...Şişecam'a bağlı otomotiv camları fabrikasında..."
+    ],
+    "kaynaklar": {
+      "DHA": "https://www.google.com/search?q=DHA+L%C3%BCleburgaz+%C5%9Ei%C5%9Fecam+Otomotiv+Fabrikas%C4%B1",
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+%C5%9Ei%C5%9Fecam+cam+kasas%C4%B1"
+    }
   },
   {
-    "Tarih": "10.01.2024",
-    "Il_Ilce": "İzmir/Aliağa",
-    "OSB_Mevki": "Aliağa Limanlar Bölgesi",
-    "Tesis_Adi": "TCEEGE Konteyner Terminal İşletmeleri A.Ş.",
-    "Sektor_Tip": "Liman İşletmeciliği / Lojistik",
-    "Olay_Turu": "İş Kazası",
-    "Olay_Cikis_Sekli": "Gemiden denize düşme",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "Liman operasyonlarında kısmi duruş, can kaybı tazminatı",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 98,
-    "Kaynaklar_Alintilar": "DHA: \"Olay, Aliağa ilçesindeki TCEEGE Konteyner Limanı'nda meydana geldi.\", Deniz Haber Ajansı: \"TCEEGE Konteyner Terminali'nde palamar botunda görevli...\""
+    "id": 899,
+    "tarih": "17.02.2024",
+    "il": "Adana",
+    "ilce": "Seyhan",
+    "konum": "Hacı Sabancı OSB",
+    "tesisAdi": "Temsa Skoda Sabancı Ulaşım",
+    "sektor": "Metal / Otomotiv",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 92,
+    "lat": 37.05,
+    "lng": 35.5,
+    "ozet": "Temsa'ya ait otobüs fabrikasının boya atölyesinde elektriksel arıza nedeniyle yangın çıktı.",
+    "etki": "Boya atölyesi, üretim sürecinin kritik ve yanıcı kimyasallar içeren ünitelerinden biridir. Bu bölümde çıkan bir yangın, üretimi durdurarak orta seviyeli bir maddi hasar ve iş durması kaybına neden olur.",
+    "haberler": [
+      "Temsa'ya ait fabrikada yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Adana Bölge": "https://www.google.com/search?q=Adana+B%C3%B6lge+Temsa+fabrika+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "23.01.2024",
-    "Il_Ilce": "İstanbul/Tuzla",
-    "OSB_Mevki": "Tuzla Tersaneler Bölgesi",
-    "Tesis_Adi": "Tersan Tersanecilik San. ve Tic. A.Ş.",
-    "Sektor_Tip": "Gemi İnşa / Tersane",
-    "Olay_Turu": "İş Kazası",
-    "Olay_Cikis_Sekli": "Makineye sıkışma",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "Üretim/bakım alanında duruş, can kaybı tazminatı",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 97,
-    "Kaynaklar_Alintilar": "DHA: \"Olay, Tuzla'daki Tersan Tersanesi'nde meydana geldi.\", İHA: \"...Tersan Tersanesi'nde pres makinesine sıkışan bir işçi...\""
+    "id": 900,
+    "tarih": "18.02.2024",
+    "il": "Zonguldak",
+    "ilce": "Ereğli",
+    "konum": "ERDEMİR Fabrika Sahası",
+    "tesisAdi": "Ereğli Demir ve Çelik Fabrikaları T.A.Ş. (ERDEMİR)",
+    "sektor": "Metal / Demir-Çelik",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 99,
+    "lat": 41.26,
+    "lng": 31.41,
+    "ozet": "Erdemir liman sahasında görev yapan bir taşeron firma elemanı, vinç ile tır arasına sıkışarak hayatını kaybetti.",
+    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Ana işveren (Erdemir) ile alt işverenin (taşeron) müşterek sorumluluğu gündeme gelecektir.",
+    "haberler": [
+      "Erdemir Liman Direktörlüğü’nde görev yapan taşeron firma elemanı..."
+    ],
+    "kaynaklar": {
+      "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+ERDEM%C4%B0R+liman+sahas%C4%B1+i%C5%9F%C3%A7i+%C3%B6l%C3%BCm%C3%BC",
+      "Pusula Gazetesi": "https://www.google.com/search?q=Pusula+Gazetesi+Erdemir+vin%C3%A7+t%C4%B1r+aras%C4%B1"
+    }
   },
   {
-    "Tarih": "30.01.2024",
-    "Il_Ilce": "Bursa/İnegöl",
-    "OSB_Mevki": "İnegöl OSB",
-    "Tesis_Adi": "Çilek Mobilya A.Ş.",
-    "Sektor_Tip": "Mobilya / Ağaç Ürünleri",
-    "Olay_Turu": "İş Kazası",
-    "Olay_Cikis_Sekli": "Ahşap pres makinesine sıkışma",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "Üretim hattında duruş, can kaybı tazminatı",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 98,
-    "Kaynaklar_Alintilar": "DHA: \"Olay, İnegöl Organize Sanayi Bölgesi'nde faaliyet gösteren Çilek Mobilya Fabrikası'nda meydana geldi.\", İHA: \"...Çilek Mobilya A.Ş.'ye ait fabrikada...\""
+    "id": 901,
+    "tarih": "19.02.2024",
+    "il": "Kocaeli",
+    "ilce": "Dilovası",
+    "konum": "Dilovası OSB",
+    "tesisAdi": "E-Servis Alüminyum",
+    "sektor": "Metal / Alüminyum",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 92,
+    "lat": 40.78,
+    "lng": 29.54,
+    "ozet": "Dilovası OSB’de bir alüminyum fabrikasında çıkan yangın 'büyük çaplı' maddi hasara neden oldu.",
+    "etki": "'Büyük çaplı maddi hasar' ifadesi, tesisin önemli bir bölümünün yandığını ve üretimin durduğunu gösterir. Makine, bina ve stok hasarlarının yanı sıra ciddi bir iş durması ve kar kaybı hasarı beklenmelidir.",
+    "haberler": [
+      "Dilovası OSB’de alüminyum fabrikasında yangın."
+    ],
+    "kaynaklar": {
+      "Kocaeli Paraf": "https://www.google.com/search?q=Kocaeli+Paraf+E-Servis+Al%C3%BCminyum+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "05.02.2024",
-    "Il_Ilce": "Samsun/Bafra",
-    "OSB_Mevki": "Bafra OSB",
-    "Tesis_Adi": "Bafra Karma Yem San. Tic. A.Ş.",
-    "Sektor_Tip": "Gıda / Yem",
-    "Olay_Turu": "Yapısal Olay",
-    "Olay_Cikis_Sekli": "Yem silosunun çökmesi/patlaması (infilak değil)",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "Üretimde aksama, ağır maddi hasar (silo, stok), 1 yaralı",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 100,
-    "Kaynaklar_Alintilar": "AA: \"Bafra Organize Sanayi Bölgesi'nde (OSB) faaliyet gösteren bir yem fabrikasında siloda çökme meydana geldi.\", DHA: \"...Bafra Karma Yem Fabrikası'nda...\" (Not: Patlama olarak geçse de olay, silo cidarı yırtılmasıdır.)"
+    "id": 902,
+    "tarih": "20.02.2024",
+    "il": "Tekirdağ",
+    "ilce": "Ergene",
+    "konum": "Ulaş OSB",
+    "tesisAdi": "Kale Kayışları",
+    "sektor": "Kauçuk, Plastik / Kayış Fab.",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 90,
+    "lat": 41.16,
+    "lng": 27.9,
+    "ozet": "Konveyör bant ve kayış fabrikasının üretim hattında aşırı ısınma nedeniyle çıkan yangın, maddi hasara yol açtı.",
+    "etki": "Yangının üretimin kalbi olan bir hatta çıkması, operasyonları doğrudan durdurur. Bu durum, orta seviyeli bir maddi hasar ve iş durması kaybına işaret eder.",
+    "haberler": [
+      "Ulaş OSB'de bulunan bir fabrikada yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Çorlu Haber": "https://www.google.com/search?q=%C3%87orlu+Haber+Kale+Kay%C4%B1%C5%9Flar%C4%B1+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "13.02.2024",
-    "Il_Ilce": "Kırklareli/Lüleburgaz",
-    "OSB_Mevki": "Lüleburgaz Sanayi",
-    "Tesis_Adi": "Şişecam Otomotiv A.Ş.",
-    "Sektor_Tip": "Cam / Otomotiv",
-    "Olay_Turu": "İş Kazası",
-    "Olay_Cikis_Sekli": "Devrilen cam kasasının altında kalma",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "Sevkiyat/depo alanında duruş, can kaybı tazminatı",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 99,
-    "Kaynaklar_Alintilar": "DHA: \"Olay, Lüleburgaz ilçesindeki Şişecam Otomotiv Fabrikası'nda meydana geldi.\", İHA: \"...Şişecam'a bağlı otomotiv camları fabrikasında...\""
+    "id": 903,
+    "tarih": "22.02.2024",
+    "il": "Tekirdağ",
+    "ilce": "Kapaklı",
+    "konum": "Karaağaç OSB",
+    "tesisAdi": "Deva İlaç",
+    "sektor": "İlaç / Fabrika",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 94,
+    "lat": 41.25,
+    "lng": 28.05,
+    "ozet": "Bir ilaç fabrikasının teknik biriminde çıkan yangın, büyümeden söndürüldü.",
+    "etki": "Yangının teknik birim gibi yardımcı bir üniteyle sınırlı kalması, hasarın etkisini düşürmektedir. Sadece lokal bir maddi hasar ve kısa süreli operasyonel aksama beklenir.",
+    "haberler": [
+      "Deva İlaç Fabrikası'nda yangın paniği."
+    ],
+    "kaynaklar": {
+      "Çerkezköy Ekspres": "https://www.google.com/search?q=%C3%87erkezk%C3%B6y+Ekspres+Deva+%C4%B0la%C3%A7+Fabrikas%C4%B1"
+    }
   },
   {
-    "Tarih": "18.02.2024",
-    "Il_Ilce": "Zonguldak/Ereğli",
-    "OSB_Mevki": "ERDEMİR Fabrika Sahası",
-    "Tesis_Adi": "Ereğli Demir ve Çelik Fabrikaları T.A.Ş. (ERDEMİR)",
-    "Sektor_Tip": "Metal / Demir-Çelik",
-    "Olay_Turu": "İş Kazası",
-    "Olay_Cikis_Sekli": "Vinç ile tır arasına sıkışma",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "Sevkiyat/liman alanında aksama, can kaybı tazminatı",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 99,
-    "Kaynaklar_Alintilar": "Sözcü: \"Zonguldak'ın Ereğli ilçesindeki Ereğli Demir ve Çelik Fabrikaları'nda (ERDEMİR) liman sahasında...\", Pusula Gazetesi: \"Erdemir Liman Direktörlüğü’nde görev yapan taşeron firma elemanı...\""
+    "id": 904,
+    "tarih": "24.02.2024",
+    "il": "Bolu",
+    "ilce": "Gerede",
+    "konum": "Gerede OSB",
+    "tesisAdi": "Nova Orman Ürünleri",
+    "sektor": "Ağaç, Kağıt, Mobilya / Orman Ürün.",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 93,
+    "lat": 40.8,
+    "lng": 32.2,
+    "ozet": "Gerede OSB'de bir orman ürünleri fabrikasının deposunda çıkan yangın 'büyük çaplı' maddi hasara yol açtı.",
+    "etki": "Depo bölümünde 'büyük çaplı maddi hasar' meydana gelmesi, önemli bir emtea (stok) kaybına işaret eder. Bu durum, firmanın üretim ve sevkiyat kapasitesini durdurarak iş kaybına neden olur.",
+    "haberler": [
+      "Gerede OSB'de bir fabrikanın deposunda yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Bolu Gündem": "https://www.google.com/search?q=Bolu+G%C3%BCndem+Gerede+OSB+depo+yang%C4%B1n"
+    }
   },
   {
-    "Tarih": "27.02.2024",
-    "Il_Ilce": "Konya/Selçuklu",
-    "OSB_Mevki": "Konya OSB",
-    "Tesis_Adi": "Enka Civata İmalat ve San. Mam. Paz. A.Ş.",
-    "Sektor_Tip": "Metal / Hırdavat",
-    "Olay_Turu": "İş Kazası",
-    "Olay_Cikis_Sekli": "Makine parçasının devrilmesi",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "Üretim hattında duruş, can kaybı tazminatı",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 96,
-    "Kaynaklar_Alintilar": "DHA: \"Olay, Organize Sanayi Bölgesi'ndeki Enka Cıvata Fabrikası'nda meydana geldi.\", İHA: \"...bir cıvata fabrikasında makine parçasının devrilmesiyle...\""
+    "id": 905,
+    "tarih": "27.02.2024",
+    "il": "Konya",
+    "ilce": "Selçuklu",
+    "konum": "Konya OSB",
+    "tesisAdi": "Enka Civata İmalat ve San. Mam. Paz. A.Ş.",
+    "sektor": "Metal / Hırdavat",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 96,
+    "lat": 37.96,
+    "lng": 32.56,
+    "ozet": "Konya OSB'deki Enka Cıvata Fabrikası'nda bir işçi, üzerine devrilen makine parçasının altında kalarak hayatını kaybetti.",
+    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
+    "haberler": [
+      "...bir cıvata fabrikasında makine parçasının devrilmesiyle..."
+    ],
+    "kaynaklar": {
+      "DHA": "https://www.google.com/search?q=DHA+Enka+C%C4%B1vata+Fabrikas%C4%B1+kaza",
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+c%C4%B1vata+fabrikas%C4%B1+makine+par%C3%A7as%C4%B1"
+    }
   },
   {
-    "Tarih": "01.03.2024",
-    "Il_Ilce": "Denizli/Honaz",
-    "OSB_Mevki": "Kocabaş Mevkii",
-    "Tesis_Adi": "(ad geçmedi)",
-    "Sektor_Tip": "Tekstil",
-    "Olay_Turu": "İş Kazası",
-    "Olay_Cikis_Sekli": "Forkliftin altında kalma",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "Sevkiyat/depo alanında duruş, can kaybı tazminatı",
-    "Dogrulama": "C",
-    "Guven_Yuzdesi": 84,
-    "Kaynaklar_Alintilar": "DHA: \"Olay, saat 01.30 sıralarında Kocabaş Mahallesi'ndeki bir tekstil fabrikasında meydana geldi.\", Pamukkale Haber: \"...bir tekstil fabrikasının deposunda forkliftin altında kalan işçi...\" Ad-kanıtı: Olay doğrulanmış ancak haber kaynakları spesifik bir tesis adı belirtmemiştir."
+    "id": 906,
+    "tarih": "01.03.2024",
+    "il": "Denizli",
+    "ilce": "Honaz",
+    "konum": "Kocabaş Mevkii",
+    "tesisAdi": "(ad geçmedi)",
+    "sektor": "Tekstil",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "C",
+    "dogrulukOrani": 84,
+    "lat": 37.78,
+    "lng": 29.25,
+    "ozet": "Honaz Kocabaş Mahallesi'ndeki bir tekstil fabrikasının deposunda forkliftin altında kalan işçi hayatını kaybetti.",
+    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
+    "haberler": [
+      "...bir tekstil fabrikasının deposunda forkliftin altında kalan işçi..."
+    ],
+    "kaynaklar": {
+      "DHA": "https://www.google.com/search?q=DHA+Denizli+Kocaba%C5%9F+tekstil+fabrikas%C4%B1",
+      "Pamukkale Haber": "https://www.google.com/search?q=Pamukkale+Haber+tekstil+fabrikas%C4%B1+forklift"
+    }
   },
   {
-    "Tarih": "12.03.2024",
-    "Il_Ilce": "Mersin/Tarsus",
-    "OSB_Mevki": "Tarsus OSB",
-    "Tesis_Adi": "Şişecam (Yeni Fabrika İnşaatı)",
-    "Sektor_Tip": "İnşaat / Cam",
-    "Olay_Turu": "İş Kazası",
-    "Olay_Cikis_Sekli": "İnşaat çatısından düşme",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "İnşaat faaliyetlerinde durma, can kaybı tazminatı",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 98,
-    "Kaynaklar_Alintilar": "AA: \"Tarsus Organize Sanayi Bölgesi'nde (OSB) yapımı süren Şişecam'a ait fabrikanın inşaatında...\", DHA: \"...Şişecam Fabrikası'nın inşaatında çatı montajı yapan işçi...\""
+    "id": 907,
+    "tarih": "12.03.2024",
+    "il": "Mersin",
+    "ilce": "Tarsus",
+    "konum": "Tarsus OSB",
+    "tesisAdi": "Şişecam (Yeni Fabrika İnşaatı)",
+    "sektor": "İnşaat / Cam",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 98,
+    "lat": 36.91,
+    "lng": 34.88,
+    "ozet": "Tarsus OSB'de yapımı süren Şişecam'a ait fabrika inşaatında çatı montajı yapan bir işçi, yüksekten düşerek hayatını kaybetti.",
+    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. İnşaat projesi durdurulacak ve olay soruşturulacaktır. Bu durum, projenin tamamlanmasında gecikmelere yol açar.",
+    "haberler": [
+      "...Şişecam Fabrikası'nın inşaatında çatı montajı yapan işçi..."
+    ],
+    "kaynaklar": {
+      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Tarsus+OSB+%C5%9Ei%C5%9Fecam+in%C5%9Faat+kaza",
+      "DHA": "https://www.google.com/search?q=DHA+%C5%9Ei%C5%9Fecam+Fabrikas%C4%B1+in%C5%9Faat%C4%B1+%C3%A7at%C4%B1"
+    }
   },
   {
-    "Tarih": "27.03.2024",
-    "Il_Ilce": "Adana/Sarıçam",
-    "OSB_Mevki": "Adana Hacı Sabancı OSB",
-    "Tesis_Adi": "Sasa Polyester Sanayi A.Ş.",
-    "Sektor_Tip": "Kimya / Tekstil",
-    "Olay_Turu": "İş Kazası",
-    "Olay_Cikis_Sekli": "Makineye kolun sıkışması (kopma)",
-    "Etkilenen_Komsu_Tesisler": "—",
-    "Maddi_Kar_Kaybi_Etkisi": "Üretim hattında kısmi duruş, ağır yaralanma",
-    "Dogrulama": "A",
-    "Guven_Yuzdesi": 99,
-    "Kaynaklar_Alintilar": "İHA: \"Hacı Sabancı Organize Sanayi Bölgesi'nde bulunan Sasa fabrikasında meydana gelen olayda...\", Sözcü: \"...Sasa fabrikasında yaşanan iş kazasında bir işçinin kolu koptu.\""
+    "id": 908,
+    "tarih": "27.03.2024",
+    "il": "Adana",
+    "ilce": "Sarıçam",
+    "konum": "Adana Hacı Sabancı OSB",
+    "tesisAdi": "Sasa Polyester Sanayi A.Ş.",
+    "sektor": "Kimya / Tekstil",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 99,
+    "lat": 37.05,
+    "lng": 35.5,
+    "ozet": "Hacı Sabancı OSB'de bulunan Sasa fabrikasında bir işçinin kolu, makineye sıkışması sonucu koptu.",
+    "etki": "Uzuv kaybı gibi ağır bir yaralanma, kalıcı maluliyet durumu yaratacağından çok yüksek tutarlı bir İşveren Sorumluluk tazminatını gündeme getirir. Olay, 'Yüksek' etkili bir hasar olarak sınıflandırılır.",
+    "haberler": [
+      "...Sasa fabrikasında yaşanan iş kazasında bir işçinin kolu koptu."
+    ],
+    "kaynaklar": {
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+Sasa+fabrikas%C4%B1+i%C5%9F+kazas%C4%B1+kol+kopmas%C4%B1",
+      "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+Sasa+fabrikas%C4%B1+kolu+koptu"
+    }
   }
 ]

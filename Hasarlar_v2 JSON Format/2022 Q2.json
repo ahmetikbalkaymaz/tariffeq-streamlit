@@ -172,7 +172,7 @@
   },
   {
     "id": 527,
-    "tarih": "11.04.2022",
+    "tarih": "12.04.2022",
     "il": "Tekirdağ",
     "ilce": "Ergene",
     "konum": "Ergene 1. OSB",
@@ -191,7 +191,7 @@
   },
   {
     "id": 528,
-    "tarih": "14.04.2022",
+    "tarih": "13.04.2022",
     "il": "Gaziantep",
     "ilce": "Şehitkamil",
     "konum": "Gaziantep 2. OSB",
@@ -210,7 +210,7 @@
   },
   {
     "id": 529,
-    "tarih": "18.04.2022",
+    "tarih": "14.04.2022",
     "il": "Kayseri",
     "ilce": "Melikgazi",
     "konum": "Kayseri OSB",
@@ -229,7 +229,7 @@
   },
   {
     "id": 530,
-    "tarih": "21.04.2022",
+    "tarih": "22.04.2022",
     "il": "Kocaeli",
     "ilce": "Gebze",
     "konum": "Gebze OSB",
@@ -248,7 +248,7 @@
   },
   {
     "id": 531,
-    "tarih": "26.04.2022",
+    "tarih": "24.04.2022",
     "il": "Yalova",
     "ilce": "Altınova",
     "konum": "Kaytazdere",
@@ -267,7 +267,7 @@
   },
   {
     "id": 532,
-    "tarih": "27.04.2022",
+    "tarih": "25.04.2022",
     "il": "İzmir",
     "ilce": "Tire",
     "konum": "Tire OSB",
@@ -286,7 +286,7 @@
   },
   {
     "id": 533,
-    "tarih": "27.04.2022",
+    "tarih": "26.04.2022",
     "il": "İzmir",
     "ilce": "Torbalı",
     "konum": "Yedi Eylül Mah. (OSB Dışı)",
@@ -305,7 +305,7 @@
   },
   {
     "id": 534,
-    "tarih": "28.04.2022",
+    "tarih": "29.04.2022",
     "il": "İstanbul",
     "ilce": "Tuzla",
     "konum": "Boya ve Vernikçiler OSB",
@@ -402,7 +402,7 @@
   },
   {
     "id": 539,
-    "tarih": "11.05.2022",
+    "tarih": "15.05.2022",
     "il": "İzmir",
     "ilce": "Buca",
     "konum": "Seyhan Mah. (OSB Dışı)",
@@ -417,11 +417,11 @@
     "ozet": "Bir kapı fabrikasının bahçesindeki ahşap atıkların, atılan bir sigara izmariti nedeniyle tutuşmasıyla başlayan yangın, ana fabrika binasına sıçradı.",
     "etki": "Hasarın üçüncü bir şahsın kusurundan (sigara izmariti) kaynaklanması ve bahçeden başlayıp ana binaya sıçraması, hem rücu potansiyeli taşır hem de hasarın boyutunu artırır. Fabrika binasının etkilenmesi, olayı 'Orta' seviyeye taşır.",
     "haberler": ["Atılan sigara izmaritinin neden olduğu öne sürülen yangın..."],
-    "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Buca+Eve+Kap%C4%B1+sigara+izmariti" }
+    "kaynaklar": { "Demirören Haber Ajansı": "https://www.google.com/search?q=DHA+Buca+Eve+Kap%C4%B1+sigara+izmariti" }
   },
   {
     "id": 540,
-    "tarih": "11.05.2022",
+    "tarih": "17.05.2022",
     "il": "İzmir",
     "ilce": "Kemalpaşa",
     "konum": "Atatürk Mah. (OSB Dışı)",
@@ -440,11 +440,11 @@
   },
   {
     "id": 541,
-    "tarih": "12.05.2022",
+    "tarih": "18.05.2022",
     "il": "Konya",
     "ilce": "Selçuklu",
     "konum": "Konya 1. OSB",
-    "tesisAdi": "Tümosan Döküm Fabrikası",
+    "tesisAdi": "Tümosan Motor ve Traktör Sanayi A.Ş. (Döküm Fabrikası)",
     "sektor": "Otomotiv / Döküm",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Yüksek",
@@ -459,7 +459,7 @@
   },
   {
     "id": 542,
-    "tarih": "13.05.2022",
+    "tarih": "19.05.2022",
     "il": "İzmir",
     "ilce": "Torbalı",
     "konum": "Çapak Mah. (OSB Dışı)",
@@ -478,7 +478,7 @@
   },
   {
     "id": 543,
-    "tarih": "16.05.2022",
+    "tarih": "19.05.2022",
     "il": "Kayseri",
     "ilce": "Melikgazi",
     "konum": "Kayseri OSB",
@@ -497,7 +497,7 @@
   },
   {
     "id": 544,
-    "tarih": "16.05.2022",
+    "tarih": "20.05.2022",
     "il": "İzmir",
     "ilce": "Kemalpaşa",
     "konum": "Kemalpaşa OSB",
@@ -516,11 +516,11 @@
   },
   {
     "id": 545,
-    "tarih": "17.05.2022",
+    "tarih": "20.05.2022",
     "il": "Denizli",
     "ilce": "Merkezefendi",
     "konum": "Denizli Sanayi",
-    "tesisAdi": "Gamasteks Tekstil",
+    "tesisAdi": "Gamasteks Tekstil San. ve Tic. A.Ş.",
     "sektor": "Tekstil",
     "olayTuru": "Zehirlenme",
     "etkiSeviyesi": "Yüksek",
@@ -535,11 +535,11 @@
   },
   {
     "id": 546,
-    "tarih": "18.05.2022",
+    "tarih": "24.05.2022",
     "il": "Şanlıurfa",
     "ilce": "Eyyübiye",
     "konum": "Şanlıurfa OSB",
-    "tesisAdi": "Punto Emprime Tekstil",
+    "tesisAdi": "Punto Emprime Tekstil San. ve Tic. A.Ş.",
     "sektor": "Tekstil",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Yüksek",
@@ -573,7 +573,7 @@
   },
   {
     "id": 548,
-    "tarih": "31.05.2022",
+    "tarih": "30.05.2022",
     "il": "İzmir",
     "ilce": "Torbalı",
     "konum": "İnönü Mah. (OSB Dışı)",
@@ -634,7 +634,7 @@
     "il": "Bartın",
     "ilce": "Amasra",
     "konum": "Amasra Maden Sahası",
-    "tesisAdi": "TTK Amasra Müessese Müdürlüğü",
+    "tesisAdi": "Türkiye Taşkömürü Kurumu (TTK) Amasra Müessese Müdürlüğü",
     "sektor": "Madencilik / Kömür İşleme",
     "olayTuru": "Yapısal Olay",
     "etkiSeviyesi": "Yüksek",
@@ -691,7 +691,7 @@
     "il": "Zonguldak",
     "ilce": "Ereğli",
     "konum": "ERDEMİR Fabrika Sahası",
-    "tesisAdi": "Ereğli Demir ve Çelik Fabrikaları (ERDEMİR)",
+    "tesisAdi": "Ereğli Demir ve Çelik Fabrikaları T.A.Ş. (ERDEMİR)",
     "sektor": "Metal / Demir-Çelik",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Yüksek",
@@ -763,7 +763,7 @@
   },
   {
     "id": 558,
-    "tarih": "12.06.2022",
+    "tarih": "10.06.2022",
     "il": "İzmir",
     "ilce": "Menemen",
     "konum": "İzmir Serbest Bölgesi (İZBAŞ)",
@@ -820,7 +820,7 @@
   },
   {
     "id": 561,
-    "tarih": "15.06.2022",
+    "tarih": "14.06.2022",
     "il": "İzmir",
     "ilce": "Bornova",
     "konum": "Yunus Emre Mah. (OSB Dışı)",
@@ -839,7 +839,7 @@
   },
   {
     "id": 562,
-    "tarih": "16.06.2022",
+    "tarih": "15.06.2022",
     "il": "İzmir",
     "ilce": "Gaziemir",
     "konum": "Ege Serbest Bölgesi (ESBAŞ)",
@@ -858,11 +858,11 @@
   },
   {
     "id": 563,
-    "tarih": "20.06.2022",
+    "tarih": "15.06.2022",
     "il": "Kırklareli",
     "ilce": "Lüleburgaz",
     "konum": "Lüleburgaz Sanayi",
-    "tesisAdi": "Danone Tikveşli Gıda",
+    "tesisAdi": "Danone Tikveşli Gıda ve İçecek San. ve Tic. A.Ş.",
     "sektor": "Gıda / Süt Ürünleri",
     "olayTuru": "Gaz Sızıntısı",
     "etkiSeviyesi": "Yüksek",
@@ -873,11 +873,11 @@
     "ozet": "Lüleburgaz'daki Danone süt ürünleri fabrikasının soğutma sisteminden amonyak sızıntısı meydana geldi. Tesis tahliye edildi ve 25 işçi hastaneye kaldırıldı.",
     "etki": "25 işçinin hastaneye kaldırılması gibi kitlesel bir etkilenim, olayı ciddi bir İşveren Sorumluluk hasarı haline getirir. Tesisin tamamen tahliye edilmesi ve üretimin durması da önemli bir iş durması kaybına yol açar.",
     "haberler": ["Lüleburgaz ilçesindeki Danone Fabrikası'nda amonyak gazı sızıntısı meydana geldi."],
-    "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+L%C3%BCleburgaz+Danone+amonyak", "Anadolu Ajansı": "https://www.google.com/search?q=AA+L%C3%BCleburgaz+s%C3%BCt+fabrikas%C4%B1+s%C4%B1z%C4%B1nt%C4%B1" }
+    "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+L%C3%BCleburgaz+Danone+amonyak", "AA": "https://www.google.com/search?q=AA+L%C3%BCleburgaz+s%C3%BCt+fabrikas%C4%B1+s%C4%B1z%C4%B1nt%C4%B1" }
   },
   {
     "id": 564,
-    "tarih": "20.06.2022",
+    "tarih": "17.06.2022",
     "il": "Kayseri",
     "ilce": "Hacılar",
     "konum": "Hacılar Sanayi Bölgesi",
@@ -896,7 +896,7 @@
   },
   {
     "id": 565,
-    "tarih": "22.06.2022",
+    "tarih": "19.06.2022",
     "il": "İzmir",
     "ilce": "Aliağa",
     "konum": "Aliağa OSB (ALOSBİ)",
@@ -915,7 +915,7 @@
   },
   {
     "id": 566,
-    "tarih": "22.06.2022",
+    "tarih": "19.06.2022",
     "il": "İstanbul",
     "ilce": "Tuzla",
     "konum": "OSB Dışı",
@@ -934,7 +934,7 @@
   },
   {
     "id": 567,
-    "tarih": "23.06.2022",
+    "tarih": "21.06.2022",
     "il": "Ankara",
     "ilce": "Etimesgut",
     "konum": "OSB Dışı",
@@ -953,7 +953,7 @@
   },
   {
     "id": 568,
-    "tarih": "24.06.2022",
+    "tarih": "21.06.2022",
     "il": "İzmir",
     "ilce": "Bornova",
     "konum": "Naldöken Mah. (OSB Dışı)",
@@ -972,7 +972,7 @@
   },
   {
     "id": 569,
-    "tarih": "29.05.2022",
+    "tarih": "21.06.2022",
     "il": "İzmir",
     "ilce": "Çiğli",
     "konum": "Atatürk OSB",
@@ -984,14 +984,14 @@
     "dogrulukOrani": 92,
     "lat": 38.49,
     "lng": 27.06,
-    "ozet": "Otomotiv parçası üreten bir fabrikada, üretim hattındaki aşırı ısınma nedeniyle yangın çıktı. Bu, aynı firmada bir yıl içinde yaşanan ikinci yangındı.",
+    "ozet": "Otomotiv parçası üreten bir fabrikada, üretim hattındaki aşırı ısınma nedeniyle yangın çıktı. Bu, aynı firmada bir ay içinde yaşanan ikinci yangındı.",
     "etki": "Aynı tesiste kısa aralıklarla tekrarlayan yangınlar, tesisteki bakım-onarım veya risk yönetimi süreçlerinde bir zafiyet olabileceğine işaret eder. Tekrarlayan hasar frekansı nedeniyle etki 'Orta' olarak değerlendirilmiştir.",
     "haberler": ["Otomotiv parçası üreten fabrikada çıkan yangın maddi hasara yol açtı."],
     "kaynaklar": { "İAOSB": "https://www.iaosb.org.tr/" }
   },
   {
     "id": 570,
-    "tarih": "29.05.2022",
+    "tarih": "22.06.2022",
     "il": "İzmir",
     "ilce": "Torbalı",
     "konum": "Yazıbaşı Sanayi Bölgesi",
@@ -1010,11 +1010,11 @@
   },
   {
     "id": 571,
-    "tarih": "30.05.2022",
+    "tarih": "23.06.2022",
     "il": "İstanbul",
     "ilce": "Silivri",
     "konum": "Kavaklı Sanayi",
-    "tesisAdi": "Kale Kilit (Kaynak) / Sarten Ambalaj (Etkilenen)",
+    "tesisAdi": "Kale Kilit ve Kalıp San. A.Ş. (Kaynak) / Sarten Ambalaj San. ve Tic. A.Ş. (Etkilenen)",
     "sektor": "Metal / Ambalaj",
     "olayTuru": "Yapısal Olay",
     "etkiSeviyesi": "Yüksek",
@@ -1029,7 +1029,7 @@
   },
   {
     "id": 572,
-    "tarih": "31.05.2022",
+    "tarih": "25.06.2022",
     "il": "İzmir",
     "ilce": "Menemen",
     "konum": "Ulukent Sanayi Bölgesi",
@@ -1048,7 +1048,7 @@
   },
   {
     "id": 573,
-    "tarih": "31.05.2022",
+    "tarih": "27.06.2022",
     "il": "Karaman",
     "ilce": "Merkez",
     "konum": "Karaman OSB",
@@ -1067,7 +1067,7 @@
   },
   {
     "id": 574,
-    "tarih": "31.05.2022",
+    "tarih": "29.06.2022",
     "il": "İzmir",
     "ilce": "Bornova",
     "konum": "Egemenlik Mah. (OSB Dışı)",
@@ -1086,7 +1086,7 @@
   },
   {
     "id": 575,
-    "tarih": "31.05.2022",
+    "tarih": "30.06.2022",
     "il": "İzmir",
     "ilce": "Bornova",
     "konum": "Pınarbaşı Sanayi Sitesi",

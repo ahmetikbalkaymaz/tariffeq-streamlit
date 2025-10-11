@@ -1,6 +1,6 @@
 [
   {
-    "id": 243,
+    "id": 271,
     "tarih": "07.10.2020",
     "il": "Konya",
     "ilce": "Çumra",
@@ -19,7 +19,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Konya+%C5%9Feker+fabrikas%C4%B1+k%C3%BCspe+deposu+yang%C4%B1n" }
   },
   {
-    "id": 244,
+    "id": 272,
     "tarih": "11.10.2020",
     "il": "İzmir",
     "ilce": "Aliağa",
@@ -38,7 +38,7 @@
     "kaynaklar": { "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+%C4%B0zmir+Alia%C4%9Fa+demir+%C3%A7elik+patlama+1+%C3%B6l%C3%BC" }
   },
   {
-    "id": 245,
+    "id": 273,
     "tarih": "13.10.2020",
     "il": "Tekirdağ",
     "ilce": "Çerkezköy",
@@ -57,7 +57,7 @@
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Tekirda%C4%9F+Teverpan+patlama+3+yaral%C4%B1" }
   },
   {
-    "id": 246,
+    "id": 274,
     "tarih": "14.10.2020",
     "il": "Kocaeli",
     "ilce": "Dilovası",
@@ -76,7 +76,7 @@
     "kaynaklar": { "CNN Türk": "https://www.google.com/search?q=CNN+T%C3%BCrk+Dilovas%C4%B1+dere+kimyasal", "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+Dilovas%C4%B1+kimyasal+at%C4%B1k" }
   },
   {
-    "id": 247,
+    "id": 275,
     "tarih": "16.10.2020",
     "il": "Muğla",
     "ilce": "Milas",
@@ -95,7 +95,7 @@
     "kaynaklar": { "Milas Önder Gazetesi": "https://www.google.com/search?q=Milas+%C3%96nder+Gazetesi+mobilya+at%C3%B6lyesi+yand%C4%B1" }
   },
   {
-    "id": 248,
+    "id": 276,
     "tarih": "19.10.2020",
     "il": "Erzincan",
     "ilce": "Merkez",
@@ -114,7 +114,7 @@
     "kaynaklar": { "NTV Haber": "https://www.google.com/search?q=NTV+Haber+Erzincan+%C5%9Eeker+Fabrikas%C4%B1+patlama" }
   },
   {
-    "id": 249,
+    "id": 277,
     "tarih": "19.10.2020",
     "il": "Sakarya",
     "ilce": "Serdivan",
@@ -133,12 +133,12 @@
     "kaynaklar": { "Sakarya Yerel Haber": "https://www.google.com/search?q=Sakarya+Yerel+Haber+Serdivan+kau%C3%A7uk+fabrikas%C4%B1" }
   },
   {
-    "id": 250,
+    "id": 278,
     "tarih": "23.10.2020",
     "il": "Çorum",
     "ilce": "Merkez",
     "konum": "Çorum OSB",
-    "tesisAdi": "Er-Sa Mermer Madencilik",
+    "tesisAdi": "Er-Sa Mermer Madencilik San. ve Tic. Ltd. Şti.",
     "sektor": "Madencilik / Mermer",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Yüksek",
@@ -148,11 +148,11 @@
     "lng": 34.87,
     "ozet": "Çorum OSB'deki Er-Sa Mermer fabrikasında, devrilen mermer bloklarının altında kalan bir işçi hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, Organize Sanayi Bölgesi’nde faaliyet gösteren Er-Sa Mermer’de meydana geldi."],
+    "haberler": ["Olay, Organize Sanayi Bölgesi’nde faaliyet gösteren Er-Sa Mermer’de meydana geldi.", "...bir mermer fabrikasında..."],
     "kaynaklar": { "İHA": "https://www.google.com/search?q=%C4%B0HA+%C3%87orum+Er-Sa+Mermer+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "Habertürk": "https://www.google.com/search?q=Habert%C3%BCrk+%C3%87orum+mermer+fabrikas%C4%B1+kaza" }
   },
   {
-    "id": 251,
+    "id": 279,
     "tarih": "27.10.2020",
     "il": "İzmir",
     "ilce": "Aliağa",
@@ -171,7 +171,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+PETK%C4%B0M+parlama+1+%C3%B6l%C3%BC+2+yaral%C4%B1" }
   },
   {
-    "id": 252,
+    "id": 280,
     "tarih": "30.10.2020",
     "il": "Şanlıurfa",
     "ilce": "Eyyübiye",
@@ -190,7 +190,7 @@
     "kaynaklar": { "Urfa Pusula": "https://www.google.com/search?q=Urfa+Pusula+OSB+tekstil+fabrikas%C4%B1+yang%C4%B1n" }
   },
   {
-    "id": 253,
+    "id": 281,
     "tarih": "02.11.2020",
     "il": "Yalova",
     "ilce": "Altınova",
@@ -209,7 +209,7 @@
     "kaynaklar": { "Hürriyet": "https://www.google.com/search?q=H%C3%BCrriyet+Yalova+Sefine+tersanesi+patlama+7+yaral%C4%B1" }
   },
   {
-    "id": 254,
+    "id": 282,
     "tarih": "03.11.2020",
     "il": "Kocaeli",
     "ilce": "Körfez",
@@ -228,7 +228,7 @@
     "kaynaklar": { "TRT Haber": "https://www.google.com/search?q=TRT+Haber+T%C3%9CPRA%C5%9E+%C4%B0zmit+Rafinerisi+yang%C4%B1n" }
   },
   {
-    "id": 255,
+    "id": 283,
     "tarih": "03.11.2020",
     "il": "Sakarya",
     "ilce": "Arifiye",
@@ -247,7 +247,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Sakarya+Otokar+boyahane+yang%C4%B1n" }
   },
   {
-    "id": 256,
+    "id": 284,
     "tarih": "04.11.2020",
     "il": "Şanlıurfa",
     "ilce": "Eyyübiye",
@@ -262,11 +262,11 @@
     "lng": 38.84,
     "ozet": "Eyyübiye Besi OSB'nin inşaat sahasında bir işçi, iskeleden düşerek yaralandı.",
     "etki": "Olay, henüz faaliyete geçmemiş bir OSB'nin inşaat sahasında meydana gelmiştir. Bu durum, bir İnşaat All Risks ve İşveren Sorumluluk hasarıdır. Operasyonel bir tesiste olmadığı için etki 'Düşük' olarak sınıflandırılmıştır.",
-    "haberler": ["İnşaatta çalıştığı esnada..."],
+    "haberler": ["Olay, Eyyübiye ilçesinde bulunan Besi Organize Sanayi Bölgesinde meydana geldi.", "İnşaatta çalıştığı esnada..."],
     "kaynaklar": { "Urfanatik": "https://www.google.com/search?q=Urfanatik+Eyy%C3%BCbiye+Besi+Organize+Sanayi", "İHA": "https://www.google.com/search?q=%C4%B0HA+%C5%9Eanl%C4%B1urfa+in%C5%9Faat+iskele+d%C3%BC%C5%9Fme" }
   },
   {
-    "id": 257,
+    "id": 285,
     "tarih": "06.11.2020",
     "il": "Balıkesir",
     "ilce": "Gönen",
@@ -285,7 +285,7 @@
     "kaynaklar": { "Gönen Postası": "https://www.google.com/search?q=G%C3%B6nen+Postas%C4%B1+OSB+kau%C3%A7uk+fabrikas%C4%B1" }
   },
   {
-    "id": 258,
+    "id": 286,
     "tarih": "06.11.2020",
     "il": "Karaman",
     "ilce": "Merkez",
@@ -300,11 +300,11 @@
     "lng": 33.26,
     "ozet": "Karaman OSB'deki Anı Bisküvi fabrikasında, bisküvi hamuru hazırlanan kazana malzeme döktüğü sırada dengesini kaybeden bir işçi, kazanın içine düşerek hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["...bisküvi hamuru hazırlanan kazana malzeme döktüğü sırada..."],
+    "haberler": ["Olay Organize Sanayi Bölgesinde bulunan Anı Bisküvi fabrikasında meydana geldi.", "...bisküvi hamuru hazırlanan kazana malzeme döktüğü sırada..."],
     "kaynaklar": { "Karaman Gündem": "https://www.google.com/search?q=Karaman+G%C3%BCndem+An%C4%B1+Bisk%C3%BCvi+kaza", "Haberler.com": "https://www.google.com/search?q=Haberler.com+An%C4%B1+Bisk%C3%BCvi+kazana+d%C3%BC%C5%9Ft%C3%BC" }
   },
   {
-    "id": 259,
+    "id": 287,
     "tarih": "17.11.2020",
     "il": "Kastamonu",
     "ilce": "Merkez",
@@ -323,12 +323,12 @@
     "kaynaklar": { "İHA": "https://www.google.com/search?q=%C4%B0HA+Kastamonu+Entegre+tala%C5%9F+silosu+yang%C4%B1n" }
   },
   {
-    "id": 260,
+    "id": 288,
     "tarih": "17.11.2020",
     "il": "Kahramanmaraş",
     "ilce": "Türkoğlu",
     "konum": "Türkoğlu OSB",
-    "tesisAdi": "Kipaş Mensucat İşletmeleri A.Ş.",
+    "tesisAdi": "Kipaş Mensucat İşletmeleri A.Ş. (İplik Fabrikası)",
     "sektor": "Tekstil",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Yüksek",
@@ -338,11 +338,11 @@
     "lng": 36.75,
     "ozet": "Türkoğlu OSB'de faaliyet gösteren bir iplik fabrikasında, bir işçi üzerine devrilen pamuk balyalarının altında kalarak hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["...üzerine devrilen pamuk balyalarının altında kalarak..."],
+    "haberler": ["Türkoğlu Organize Sanayi Bölgesi'nde faaliyet gösteren bir iplik fabrikasında...", "...üzerine devrilen pamuk balyalarının altında kalarak..."],
     "kaynaklar": { "Haber 46": "https://www.google.com/search?q=Haber+46+T%C3%BCrko%C4%9Flu+iplik+fabrikas%C4%B1+kaza", "Maraş Gündem": "https://www.google.com/search?q=Mara%C5%9F+G%C3%BCndem+pamuk+balyalar%C4%B1+devrildi" }
   },
   {
-    "id": 261,
+    "id": 289,
     "tarih": "19.11.2020",
     "il": "Mersin",
     "ilce": "Tarsus",
@@ -361,12 +361,12 @@
     "kaynaklar": { "Tarsus Akdeniz Gazetesi": "https://www.google.com/search?q=Tarsus+Akdeniz+Gazetesi+%C3%A7%C4%B1r%C3%A7%C4%B1r+fabrikas%C4%B1+yang%C4%B1n" }
   },
   {
-    "id": 262,
+    "id": 290,
     "tarih": "20.11.2020",
     "il": "İzmir",
     "ilce": "Aliağa",
     "konum": "HABAŞ Limanı",
-    "tesisAdi": "HABAŞ Sınai ve Tıbbi Gazlar",
+    "tesisAdi": "HABAŞ Sınai ve Tıbbi Gazlar İstihsal Endüstrisi A.Ş.",
     "sektor": "Liman İşletmeciliği / Lojistik",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Yüksek",
@@ -376,11 +376,11 @@
     "lng": 26.96,
     "ozet": "Aliağa'daki HABAŞ Limanı'na bağlı bir gemide çalışan bir işçi, dengesini kaybederek denize düşüp hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Aliağa'da demirli HABAŞ Limanına bağlı gemide çalışan Mehmet Kılıç..."],
+    "haberler": ["Olay, saat 16.00 sıralarında, HABAŞ Limanı'nda meydana geldi.", "Aliağa'da demirli HABAŞ Limanına bağlı gemide çalışan Mehmet Kılıç..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+HABA%C5%9E+Liman%C4%B1+denize+d%C3%BC%C5%9Ft%C3%BC", "Deniz Haber Ajansı": "https://www.google.com/search?q=Deniz+Haber+Ajans%C4%B1+HABA%C5%9E+Mehmet+K%C4%B1l%C4%B1%C3%A7" }
   },
   {
-    "id": 263,
+    "id": 291,
     "tarih": "24.11.2020",
     "il": "Tekirdağ",
     "ilce": "Çerkezköy",
@@ -399,7 +399,7 @@
     "kaynaklar": { "Çerkezköy Haber": "https://www.google.com/search?q=%C3%87erkezk%C3%B6y+Haber+%C3%96zer+Metal+idari+bina" }
   },
   {
-    "id": 264,
+    "id": 292,
     "tarih": "25.11.2020",
     "il": "İstanbul",
     "ilce": "Tuzla",
@@ -418,7 +418,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Tuzla+s%C3%BCnger+fabrikas%C4%B1+yang%C4%B1n" }
   },
   {
-    "id": 265,
+    "id": 293,
     "tarih": "27.11.2020",
     "il": "Balıkesir",
     "ilce": "Sındırgı",
@@ -437,7 +437,7 @@
     "kaynaklar": { "Balıkesir Son Dakika": "https://www.google.com/search?q=Bal%C4%B1kesir+Son+Dakika+S%C4%B1nd%C4%B1rg%C4%B1+tur%C5%9Fu+fabrikas%C4%B1" }
   },
   {
-    "id": 266,
+    "id": 294,
     "tarih": "30.11.2020",
     "il": "Balıkesir",
     "ilce": "Sındırgı",
@@ -456,7 +456,7 @@
     "kaynaklar": { "Haberler.com": "https://www.google.com/search?q=Haberler.com+Bal%C4%B1kesir+3+g%C3%BCn+%C3%B6nce+yanan+fabrika" }
   },
   {
-    "id": 267,
+    "id": 295,
     "tarih": "01.12.2020",
     "il": "İzmir",
     "ilce": "Çiğli",
@@ -475,7 +475,7 @@
     "kaynaklar": { "Ege'de Son Söz": "https://www.google.com/search?q=Ege%27de+Son+S%C3%B6z+%C3%87i%C4%9Fli+plastik+fabrikas%C4%B1nda+yang%C4%B1n" }
   },
   {
-    "id": 268,
+    "id": 296,
     "tarih": "01.12.2020",
     "il": "Şanlıurfa",
     "ilce": "Eyyübiye",
@@ -494,7 +494,7 @@
     "kaynaklar": { "Şanlıurfa 63 Haber": "https://www.google.com/search?q=%C5%9Eanl%C4%B1urfa+63+Haber+OSB+iplik+fabrikas%C4%B1" }
   },
   {
-    "id": 269,
+    "id": 297,
     "tarih": "02.12.2020",
     "il": "Trabzon",
     "ilce": "Beşikdüzü",
@@ -513,7 +513,7 @@
     "kaynaklar": { "61 Saat Haber": "https://www.google.com/search?q=61+Saat+Haber+Be%C5%9Fikd%C3%BCz%C3%BC+OSB+yang%C4%B1n" }
   },
   {
-    "id": 270,
+    "id": 298,
     "tarih": "07.12.2020",
     "il": "Şanlıurfa",
     "ilce": "Harran",
@@ -532,7 +532,7 @@
     "kaynaklar": { "Ruha Ajans": "https://www.google.com/search?q=Ruha+Ajans+Harran+%C3%A7%C4%B1r%C3%A7%C4%B1r+fabrikas%C4%B1+500+ton" }
   },
   {
-    "id": 271,
+    "id": 299,
     "tarih": "08.12.2020",
     "il": "Manisa",
     "ilce": "Merkez",
@@ -551,7 +551,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Manisa+Tirsan+Kardan+boyahane+yang%C4%B1n" }
   },
   {
-    "id": 272,
+    "id": 300,
     "tarih": "08.12.2020",
     "il": "Bolu",
     "ilce": "Gerede",
@@ -566,11 +566,11 @@
     "lng": 32.2,
     "ozet": "Gerede Karma OSB'de faaliyet gösteren bir deri fabrikasında, 3 metrelik yükseklikten düşen bir işçi hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["...çalıştığı deri fabrikasında, çıktığı 3 metrelik yükseklikten..."],
+    "haberler": ["Gerede Karma Organize Sanayi Bölgesi'nde bulunan bir deri fabrikasında meydana geldi.", "...çalıştığı deri fabrikasında, çıktığı 3 metrelik yükseklikten..."],
     "kaynaklar": { "Bolu Gündem": "https://www.google.com/search?q=Bolu+G%C3%BCndem+Gerede+deri+fabrikas%C4%B1+d%C3%BC%C5%9Fme", "Köroğlu Gazetesi": "https://www.google.com/search?q=K%C3%B6ro%C4%9Flu+Gazetesi+Gerede+deri" }
   },
   {
-    "id": 273,
+    "id": 301,
     "tarih": "09.12.2020",
     "il": "Bursa",
     "ilce": "Yenişehir",
@@ -589,7 +589,7 @@
     "kaynaklar": { "Bursa Hakimiyet": "https://www.google.com/search?q=Bursa+Hakimiyet+k%C3%B6p%C3%BCk+tabak+fabrikas%C4%B1" }
   },
   {
-    "id": 274,
+    "id": 302,
     "tarih": "14.12.2020",
     "il": "Ankara",
     "ilce": "Yenimahalle",
@@ -604,16 +604,16 @@
     "lng": 32.75,
     "ozet": "Ostim OSB'de bulunan bir matbaada, bir işçinin başının baskı makinesine sıkışması sonucu ölümle sonuçlanan bir iş kazası meydana geldi.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["...Abdulkadir K.'nin (40) başı, çalıştığı sırada baskı makinesine sıkıştı."],
+    "haberler": ["Olay, Yenimahalle ilçesi OSTİM Organize Sanayi Bölgesi'nde (OSB) bulunan bir matbaada meydana geldi.", "...Abdulkadir K.'nin (40) başı, çalıştığı sırada baskı makinesine sıkıştı."],
     "kaynaklar": { "İHA": "https://www.google.com/search?q=%C4%B0HA+Ostim+matbaa+bask%C4%B1+makinesi+s%C4%B1k%C4%B1%C5%9Ft%C4%B1", "Milliyet": "https://www.google.com/search?q=Milliyet+Ostim+bask%C4%B1+makinesi+kaza" }
   },
   {
-    "id": 275,
+    "id": 303,
     "tarih": "15.12.2020",
     "il": "Düzce",
     "ilce": "Gümüşova",
     "konum": "Gümüşova OSB",
-    "tesisAdi": "Standard Profil Otomotiv",
+    "tesisAdi": "Standard Profil Otomotiv San. ve Tic. A.Ş.",
     "sektor": "Otomotiv Yan Sanayi",
     "olayTuru": "Kimyasal Olay",
     "etkiSeviyesi": "Yüksek",
@@ -623,11 +623,11 @@
     "lng": 31.0,
     "ozet": "Gümüşova OSB'deki Standard Profil fabrikasında iki kimyasal maddenin yanlışlıkla karıştırılması sonucu zehirli gaz çıkışı meydana geldi. Tesis tahliye edildi, 38 işçi hastaneye kaldırıldı.",
     "etki": "38 işçinin hastaneye kaldırılması gibi kitlesel bir etkilenim, olayı çok ciddi bir İşveren Sorumluluk hasarı haline getirir. Tesisin tamamen tahliye edilmesi ve üretimin durması da önemli bir iş durması kaybına yol açar. Bu nedenle etki 'Yüksek'tir.",
-    "haberler": ["...Standard Profil firmasında iki kimyasal maddenin karıştırılması sonucu..."],
+    "haberler": ["Gümüşova Organize Sanayi Bölgesi'ndeki Standard Profil firmasında iki kimyasal maddenin karıştırılması sonucu...", "Standard Profil adlı otomobil yedek parçası üretimi yapan fabrikada..."],
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+G%C3%BCm%C3%BC%C5%9Fova+Standard+Profil+kimyasal", "DHA": "https://www.google.com/search?q=DHA+Standard+Profil+38+i%C5%9F%C3%A7i" }
   },
   {
-    "id": 276,
+    "id": 304,
     "tarih": "25.12.2020",
     "il": "Kayseri",
     "ilce": "Melikgazi",
@@ -646,7 +646,7 @@
     "kaynaklar": { "Kayseri Olay Haber": "https://www.google.com/search?q=Kayseri+Olay+Haber+BRN+Yatak+yang%C4%B1n" }
   },
   {
-    "id": 277,
+    "id": 305,
     "tarih": "28.12.2020",
     "il": "Bursa",
     "ilce": "Gürsu",
@@ -661,11 +661,11 @@
     "lng": 29.2,
     "ozet": "Gürsu OSB'deki Harput Tekstil fabrikasının boyahane bölümünde bir işçi, kumaş sarma makinesine sıkışarak hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, Gürsu ilçesi Organize Sanayi Bölgesi'ndeki Harput Tekstil'de meydana geldi."],
+    "haberler": ["Olay, Gürsu ilçesi Organize Sanayi Bölgesi'ndeki Harput Tekstil'de meydana geldi.", "...bir tekstil fabrikasının boyahane bölümünde..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+G%C3%BCrsu+Harput+Tekstil+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "İHA": "https://www.google.com/search?q=%C4%B0HA+Harput+Tekstil+boyahane+kaza" }
   },
   {
-    "id": 278,
+    "id": 306,
     "tarih": "30.12.2020",
     "il": "Muğla",
     "ilce": "Bodrum",
@@ -681,7 +681,6 @@
     "ozet": "Bodrum Konacık Sanayi Sitesi'ndeki bir kereste atölyesinde çıkan yangın, bitişikteki 2 dükkana daha sıçradı. Olayda 3 işçi dumandan etkilendi.",
     "etki": "Yangının komşu tesislere sıçraması (sirayet), 3 işçinin yaralanması ve büyük çapta maddi hasar oluşması, olayı 'Yüksek' etkili bir hasar haline getirir. Hem İşveren Sorumluluk hem de çok sayıda Üçüncü Şahıs Sorumluluk hasarı mevcuttur.",
     "haberler": ["Sanayi sitesinde alevler 3 dükkana yayıldı"],
-    "kaynaklar": { "Bodrum Kent TV": "https://www.google.com/search?q=Bodrum+Kent+TV+Konac%C4%B1k+Sanayi+yang%C4%B1n+3+d%C3%BCkkan" },
-    "etkilenenTesis": { "ad": "Bitişikteki 2 Dükkan", "lat": 37.0502, "lng": 27.3902 }
+    "kaynaklar": { "Bodrum Kent TV": "https://www.google.com/search?q=Bodrum+Kent+TV+Konac%C4%B1k+Sanayi+yang%C4%B1n+3+d%C3%BCkkan" }
   }
 ]

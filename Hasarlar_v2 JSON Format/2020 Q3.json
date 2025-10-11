@@ -1,6 +1,6 @@
 [
   {
-    "id": 197,
+    "id": 235,
     "tarih": "03.07.2020",
     "il": "Sakarya",
     "ilce": "Hendek",
@@ -19,7 +19,7 @@
     "kaynaklar": { "TMMOB Raporu": "https://www.google.com/search?q=TMMOB+Hendek+patlamas%C4%B1+raporu", "Anadolu Ajansı": "https://www.google.com/search?q=AA+Hendek+havai+fi%C5%9Fek+7+%C3%B6l%C3%BC" }
   },
   {
-    "id": 198,
+    "id": 236,
     "tarih": "08.07.2020",
     "il": "Kocaeli",
     "ilce": "İzmit",
@@ -38,7 +38,7 @@
     "kaynaklar": { "Kocaeli Gazetesi": "https://www.google.com/search?q=Kocaeli+Gazetesi+Palazo%C4%9Flu+Tar%C4%B1m+Aletleri+yang%C4%B1n" }
   },
   {
-    "id": 199,
+    "id": 237,
     "tarih": "08.07.2020",
     "il": "Kocaeli",
     "ilce": "Dilovası",
@@ -53,30 +53,11 @@
     "lng": 29.54,
     "ozet": "Dilovası OSB'deki Gentaş Kimya fabrikasında, bir tankerden kimyasal madde boşaltımı sırasında aşırı ısınma ve reaksiyon meydana geldi. Tesis tahliye edildi.",
     "etki": "Tehlikeli bir kimyasal reaksiyonun meydana gelmesi, tesisin tahliyesi, üretimin durdurulması ve AFAD müdahalesi gerektirmesi, olayı 'Orta' etkili bir hasar haline getirir. Potansiyel çevresel etki ve iş durması kaybı söz konusudur.",
-    "haberler": ["Olay, Dilovası Organize Sanayi Bölgesi'nde bulunan Gentaş Kimya Fabrikası'nda meydana geldi."],
+    "haberler": ["Olay, Dilovası Organize Sanayi Bölgesi'nde bulunan Gentaş Kimya Fabrikası'nda meydana geldi.", "Tankerden boşaltım yapıldığı esnada kimyasal maddelerin aşırı ısınması..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Genta%C5%9F+Kimya+tanker", "İHA": "https://www.google.com/search?q=%C4%B0HA+Genta%C5%9F+Kimya+a%C5%9F%C4%B1r%C4%B1+%C4%B1s%C4%B1nma" }
   },
   {
-    "id": 200,
-    "tarih": "08.07.2020",
-    "il": "Kocaeli",
-    "ilce": "Dilovası",
-    "konum": "Dilovası OSB",
-    "tesisAdi": "Gentaş Kimya Sanayi Pazarlama A.Ş.",
-    "sektor": "Kimya",
-    "olayTuru": "Kimyasal Olay",
-    "etkiSeviyesi": "Orta",
-    "dogrulamaYontemi": "A",
-    "dogrulukOrani": 98,
-    "lat": 40.79,
-    "lng": 29.54,
-    "ozet": "Dilovası OSB'deki Gentaş Kimya fabrikasında, bir tankerden kimyasal madde boşaltımı sırasında aşırı ısınma ve reaksiyon meydana geldi. Tesis tahliye edildi.",
-    "etki": "Tehlikeli bir kimyasal reaksiyonun meydana gelmesi, tesisin tahliyesi, üretimin durdurulması ve AFAD müdahalesi gerektirmesi, olayı 'Orta' etkili bir hasar haline getirir. Potansiyel çevresel etki ve iş durması kaybı söz konusudur.",
-    "haberler": ["Olay, Dilovası Organize Sanayi Bölgesi'nde bulunan Gentaş Kimya Fabrikası'nda meydana geldi."],
-    "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Genta%C5%9F+Kimya+tanker", "İHA": "https://www.google.com/search?q=%C4%B0HA+Genta%C5%9F+Kimya+a%C5%9F%C4%B1r%C4%B1+%C4%B1s%C4%B1nma" }
-  },
-  {
-    "id": 201,
+    "id": 238,
     "tarih": "10.07.2020",
     "il": "Manisa",
     "ilce": "Turgutlu",
@@ -95,7 +76,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Manisa+tavuk+fabrikas%C4%B1+%C3%A7at%C4%B1+kaynak+yang%C4%B1n" }
   },
   {
-    "id": 202,
+    "id": 239,
     "tarih": "21.07.2020",
     "il": "Tekirdağ",
     "ilce": "Çorlu",
@@ -114,7 +95,7 @@
     "kaynaklar": { "Çorlu Devrim": "https://www.google.com/search?q=%C3%87orlu+Devrim+T%C3%BCrkg%C3%BCc%C3%BC+OSB+baca+yang%C4%B1n" }
   },
   {
-    "id": 203,
+    "id": 240,
     "tarih": "22.07.2020",
     "il": "Çorum",
     "ilce": "Sungurlu",
@@ -129,30 +110,11 @@
     "lng": 34.6,
     "ozet": "Sungurlu OSB'deki et entegre tesisinin sahibi, tesis içinde yüksekten düşerek hayatını kaybetti.",
     "etki": "Tesis sahibinin vefatı, hukuki ve operasyonel olarak büyük bir belirsizlik yaratır. İşveren Sorumluluk poliçesi kapsamında olmasa da, firmanın geleceği ve operasyonların devamlılığı açısından 'Yüksek' etkili bir olaydır.",
-    "haberler": ["İş adamı Ahmet Susuz, Organize Sanayi Bölgesi'nde bulunan kendisine ait et entegre tesisinde..."],
+    "haberler": ["Olay, Sungurlu Organize Sanayi Bölgesi'ndeki (OSB), Susuzlar Et Entegre Tesisi'nde meydana geldi.", "İş adamı Ahmet Susuz, Organize Sanayi Bölgesi'nde bulunan kendisine ait et entegre tesisinde..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Susuzlar+Et+Entegre+Tesisi", "İHA": "https://www.google.com/search?q=%C4%B0HA+Ahmet+Susuz+et+entegre" }
   },
   {
-    "id": 204,
-    "tarih": "22.07.2020",
-    "il": "Çorum",
-    "ilce": "Sungurlu",
-    "konum": "Sungurlu OSB",
-    "tesisAdi": "Susuzlar Et Entegre Tesisi",
-    "sektor": "Gıda / Et İşleme",
-    "olayTuru": "İş Kazası",
-    "etkiSeviyesi": "Yüksek",
-    "dogrulamaYontemi": "A",
-    "dogrulukOrani": 96,
-    "lat": 40.17,
-    "lng": 34.6,
-    "ozet": "Sungurlu OSB'deki et entegre tesisinin sahibi, tesis içinde yüksekten düşerek hayatını kaybetti.",
-    "etki": "Tesis sahibinin vefatı, hukuki ve operasyonel olarak büyük bir belirsizlik yaratır. İşveren Sorumluluk poliçesi kapsamında olmasa da, firmanın geleceği ve operasyonların devamlılığı açısından 'Yüksek' etkili bir olaydır.",
-    "haberler": ["İş adamı Ahmet Susuz, Organize Sanayi Bölgesi'nde bulunan kendisine ait et entegre tesisinde..."],
-    "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Susuzlar+Et+Entegre+Tesisi", "İHA": "https://www.google.com/search?q=%C4%B0HA+Ahmet+Susuz+et+entegre" }
-  },
-  {
-    "id": 205,
+    "id": 241,
     "tarih": "23.07.2020",
     "il": "Kastamonu",
     "ilce": "Merkez",
@@ -171,7 +133,7 @@
     "kaynaklar": { "Kastamonu İlk Haber": "https://www.google.com/search?q=Kastamonu+%C4%B0lk+Haber+Kronospan+kazan+dairesi" }
   },
   {
-    "id": 206,
+    "id": 242,
     "tarih": "25.07.2020",
     "il": "Diyarbakır",
     "ilce": "Yenişehir",
@@ -190,7 +152,7 @@
     "kaynaklar": { "Diyarbakır Söz": "https://www.google.com/search?q=Diyarbak%C4%B1r+S%C3%B6z+Dizayn+Mobilya+yang%C4%B1n" }
   },
   {
-    "id": 207,
+    "id": 243,
     "tarih": "28.07.2020",
     "il": "Sakarya",
     "ilce": "Erenler",
@@ -209,7 +171,7 @@
     "kaynaklar": { "Bizim Sakarya": "https://www.google.com/search?q=Bizim+Sakarya+Alnak+Elektromekanik+yang%C4%B1n" }
   },
   {
-    "id": 208,
+    "id": 244,
     "tarih": "29.07.2020",
     "il": "İzmir",
     "ilce": "Kemalpaşa",
@@ -224,30 +186,11 @@
     "lng": 27.42,
     "ozet": "Kemalpaşa'daki Lezita beyaz et fabrikasında soğutma sisteminden amonyak sızıntısı meydana geldi. Tesis tahliye edildi, 35 işçi hastaneye kaldırıldı.",
     "etki": "35 işçinin hastaneye kaldırılması gibi kitlesel bir etkilenim, olayı çok ciddi bir İşveren Sorumluluk hasarı haline getirir. Tesisin tamamen tahliye edilmesi ve üretimin durması da önemli bir iş durması kaybına yol açar. Bu nedenle etki 'Yüksek'tir.",
-    "haberler": ["Kemalpaşa ilçesinde, Lezita adlı beyaz et fabrikasında amonyak sızıntısı meydana geldi."],
+    "haberler": ["Kemalpaşa ilçesinde, Lezita adlı beyaz et fabrikasında amonyak sızıntısı meydana geldi.", "...Lezita'ya ait tavuk fabrikasında..."],
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Lezita+amonyak+s%C4%B1z%C4%B1nt%C4%B1s%C4%B1", "DHA": "https://www.google.com/search?q=DHA+Lezita+35+i%C5%9F%C3%A7i" }
   },
   {
-    "id": 209,
-    "tarih": "29.07.2020",
-    "il": "İzmir",
-    "ilce": "Kemalpaşa",
-    "konum": "Kemalpaşa Sanayi",
-    "tesisAdi": "Abalıoğlu Lezita Gıda Sanayi A.Ş. (Lezita)",
-    "sektor": "Gıda / Beyaz Et",
-    "olayTuru": "Gaz Sızıntısı",
-    "etkiSeviyesi": "Yüksek",
-    "dogrulamaYontemi": "A",
-    "dogrulukOrani": 99,
-    "lat": 38.42,
-    "lng": 27.42,
-    "ozet": "Kemalpaşa'daki Lezita beyaz et fabrikasında soğutma sisteminden amonyak sızıntısı meydana geldi. Tesis tahliye edildi, 35 işçi hastaneye kaldırıldı.",
-    "etki": "35 işçinin hastaneye kaldırılması gibi kitlesel bir etkilenim, olayı çok ciddi bir İşveren Sorumluluk hasarı haline getirir. Tesisin tamamen tahliye edilmesi ve üretimin durması da önemli bir iş durması kaybına yol açar. Bu nedenle etki 'Yüksek'tir.",
-    "haberler": ["Kemalpaşa ilçesinde, Lezita adlı beyaz et fabrikasında amonyak sızıntısı meydana geldi."],
-    "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Lezita+amonyak+s%C4%B1z%C4%B1nt%C4%B1s%C4%B1", "DHA": "https://www.google.com/search?q=DHA+Lezita+35+i%C5%9F%C3%A7i" }
-  },
-  {
-    "id": 210,
+    "id": 245,
     "tarih": "03.08.2020",
     "il": "Sakarya",
     "ilce": "Arifiye",
@@ -266,7 +209,7 @@
     "kaynaklar": { "TV264": "https://www.google.com/search?q=TV264+Goodyear+lastik+pi%C5%9Firme+yang%C4%B1n" }
   },
   {
-    "id": 211,
+    "id": 246,
     "tarih": "05.08.2020",
     "il": "Bursa",
     "ilce": "Mustafakemalpaşa",
@@ -281,30 +224,11 @@
     "lng": 28.4,
     "ozet": "Mustafakemalpaşa'daki Yörsan süt ürünleri fabrikasında bir işçi, peynir altı suyu tankına düşerek hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, Mustafakemalpaşa ilçesindeki Yörsan fabrikasında meydana geldi."],
+    "haberler": ["Olay, Mustafakemalpaşa ilçesindeki Yörsan fabrikasında meydana geldi.", "...Yörsan'a ait süt ürünleri fabrikasında..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Y%C3%B6rsan+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "İHA": "https://www.google.com/search?q=%C4%B0HA+Y%C3%B6rsan+peynir+alt%C4%B1+suyu+tank%C4%B1" }
   },
   {
-    "id": 212,
-    "tarih": "05.08.2020",
-    "il": "Bursa",
-    "ilce": "Mustafakemalpaşa",
-    "konum": "Mustafakemalpaşa Sanayi",
-    "tesisAdi": "Yörsan Gıda Mamülleri San. ve Tic. A.Ş.",
-    "sektor": "Gıda / Süt Ürünleri",
-    "olayTuru": "İş Kazası",
-    "etkiSeviyesi": "Yüksek",
-    "dogrulamaYontemi": "A",
-    "dogrulukOrani": 97,
-    "lat": 40.05,
-    "lng": 28.4,
-    "ozet": "Mustafakemalpaşa'daki Yörsan süt ürünleri fabrikasında bir işçi, peynir altı suyu tankına düşerek hayatını kaybetti.",
-    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, Mustafakemalpaşa ilçesindeki Yörsan fabrikasında meydana geldi."],
-    "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Y%C3%B6rsan+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "İHA": "https://www.google.com/search?q=%C4%B0HA+Y%C3%B6rsan+peynir+alt%C4%B1+suyu+tank%C4%B1" }
-  },
-  {
-    "id": 213,
+    "id": 247,
     "tarih": "08.08.2020",
     "il": "Manisa",
     "ilce": "Şehzadeler",
@@ -323,7 +247,7 @@
     "kaynaklar": { "Manisa Kulis Haber": "https://www.google.com/search?q=Manisa+Kulis+Haber+I%C5%9F%C4%B1kal+Mobilya" }
   },
   {
-    "id": 214,
+    "id": 248,
     "tarih": "08.08.2020",
     "il": "Sakarya",
     "ilce": "Arifiye",
@@ -342,7 +266,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Toyota+Sakarya+boyahane+yang%C4%B1n+2+yaral%C4%B1" }
   },
   {
-    "id": 215,
+    "id": 249,
     "tarih": "11.08.2020",
     "il": "Zonguldak",
     "ilce": "Ereğli",
@@ -357,30 +281,11 @@
     "lng": 31.41,
     "ozet": "Erdemir fabrika sahasında, bir taşeron firma işçisi, üzerine çelik rulo düşmesi sonucu hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Ana işveren (Erdemir) ile alt işverenin (taşeron) müşterek sorumluluğu gündeme gelecektir.",
-    "haberler": ["Erdemir Soğuk Haddehaneler Müdürlüğü'nde çalışan bir taşeron firma işçisi, üzerine rulo düşmesi sonucu yaşamını yitirdi."],
+    "haberler": ["Erdemir Soğuk Haddehaneler Müdürlüğü'nde çalışan bir taşeron firma işçisi, üzerine rulo düşmesi sonucu yaşamını yitirdi.", "...Ereğli Demir ve Çelik Fabrikaları'nda (ERDEMİR) meydana geldi."],
     "kaynaklar": { "Pusula Gazetesi": "https://www.google.com/search?q=Pusula+Gazetesi+Erdemir+rulo+d%C3%BC%C5%9Fmesi", "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+ERDEM%C4%B0R+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC" }
   },
   {
-    "id": 216,
-    "tarih": "11.08.2020",
-    "il": "Zonguldak",
-    "ilce": "Ereğli",
-    "konum": "ERDEMİR Fabrika Sahası",
-    "tesisAdi": "Ereğli Demir ve Çelik Fabrikaları T.A.Ş. (ERDEMİR)",
-    "sektor": "Metal / Demir-Çelik",
-    "olayTuru": "İş Kazası",
-    "etkiSeviyesi": "Yüksek",
-    "dogrulamaYontemi": "A",
-    "dogrulukOrani": 99,
-    "lat": 41.26,
-    "lng": 31.41,
-    "ozet": "Erdemir fabrika sahasında, bir taşeron firma işçisi, üzerine çelik rulo düşmesi sonucu hayatını kaybetti.",
-    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Ana işveren (Erdemir) ile alt işverenin (taşeron) müşterek sorumluluğu gündeme gelecektir.",
-    "haberler": ["Erdemir Soğuk Haddehaneler Müdürlüğü'nde çalışan bir taşeron firma işçisi, üzerine rulo düşmesi sonucu yaşamını yitirdi."],
-    "kaynaklar": { "Pusula Gazetesi": "https://www.google.com/search?q=Pusula+Gazetesi+Erdemir+rulo+d%C3%BC%C5%9Fmesi", "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+ERDEM%C4%B0R+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC" }
-  },
-  {
-    "id": 217,
+    "id": 250,
     "tarih": "21.08.2020",
     "il": "Kocaeli",
     "ilce": "Gebze",
@@ -399,7 +304,7 @@
     "kaynaklar": { "Kocaeli Denge": "https://www.google.com/search?q=Kocaeli+Denge+Ferro+D%C3%B6k%C3%BCm+f%C4%B1r%C4%B1n+yang%C4%B1n" }
   },
   {
-    "id": 218,
+    "id": 251,
     "tarih": "22.08.2020",
     "il": "Kocaeli",
     "ilce": "İzmit",
@@ -418,7 +323,7 @@
     "kaynaklar": { "En Kocaeli": "https://www.google.com/search?q=En+Kocaeli+Federal+Mogul+Suadiye+%C3%BCretim+band%C4%B1" }
   },
   {
-    "id": 219,
+    "id": 252,
     "tarih": "24.08.2020",
     "il": "Sakarya",
     "ilce": "Serdivan",
@@ -437,7 +342,7 @@
     "kaynaklar": { "Medyabar": "https://www.google.com/search?q=Medyabar+Esen+Market+Deposu+yang%C4%B1n" }
   },
   {
-    "id": 220,
+    "id": 253,
     "tarih": "25.08.2020",
     "il": "İstanbul",
     "ilce": "Avcılar",
@@ -456,7 +361,7 @@
     "kaynaklar": { "İHA": "https://www.google.com/search?q=%C4%B0HA+Avc%C4%B1lar+mutfak+e%C5%9Fyalar%C4%B1+ambalaj+yang%C4%B1n" }
   },
   {
-    "id": 221,
+    "id": 254,
     "tarih": "25.08.2020",
     "il": "Denizli",
     "ilce": "Merkez",
@@ -471,30 +376,11 @@
     "lng": 29.18,
     "ozet": "Denizli OSB'deki Deniz Tekstil fabrikasında bir işçi, boya makinesine sıkışarak hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, Organize Sanayi Bölgesi'ndeki Deniz Tekstil'de meydana geldi."],
+    "haberler": ["Olay, Organize Sanayi Bölgesi'ndeki Deniz Tekstil'de meydana geldi.", "...bir tekstil fabrikasında meydana gelen olayda..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Deniz+Tekstil+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "Habertürk": "https://www.google.com/search?q=Habert%C3%BCrk+Deniz+Tekstil+kaza" }
   },
   {
-    "id": 222,
-    "tarih": "25.08.2020",
-    "il": "Denizli",
-    "ilce": "Merkez",
-    "konum": "Denizli OSB",
-    "tesisAdi": "Deniz Tekstil San. ve Tic. A.Ş.",
-    "sektor": "Tekstil",
-    "olayTuru": "İş Kazası",
-    "etkiSeviyesi": "Yüksek",
-    "dogrulamaYontemi": "A",
-    "dogrulukOrani": 96,
-    "lat": 37.74,
-    "lng": 29.18,
-    "ozet": "Denizli OSB'deki Deniz Tekstil fabrikasında bir işçi, boya makinesine sıkışarak hayatını kaybetti.",
-    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, Organize Sanayi Bölgesi'ndeki Deniz Tekstil'de meydana geldi."],
-    "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Deniz+Tekstil+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "Habertürk": "https://www.google.com/search?q=Habert%C3%BCrk+Deniz+Tekstil+kaza" }
-  },
-  {
-    "id": 223,
+    "id": 255,
     "tarih": "27.08.2020",
     "il": "Bartın",
     "ilce": "Merkez",
@@ -513,7 +399,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Bart%C4%B1n+ayakkab%C4%B1+fabrikas%C4%B1+kaynak+yang%C4%B1n" }
   },
   {
-    "id": 224,
+    "id": 256,
     "tarih": "28.08.2020",
     "il": "Gaziantep",
     "ilce": "Şehitkamil",
@@ -532,7 +418,7 @@
     "kaynaklar": { "Gaziantep Güneş": "https://www.google.com/search?q=Gaziantep+G%C3%BCne%C5%9F+gazetesi+GATEM+kaynak+yang%C4%B1n" }
   },
   {
-    "id": 225,
+    "id": 257,
     "tarih": "28.08.2020",
     "il": "Gaziantep",
     "ilce": "Şehitkamil",
@@ -547,16 +433,16 @@
     "lng": 37.29,
     "ozet": "Gaziantep 1. OSB'de bulunan plastik fabrikasında çıkan yangın, büyük çaplı maddi hasara yol açtı.",
     "etki": "Plastik gibi yanıcı ve toksik duman çıkaran malzemelerin bulunduğu bir tesiste 'büyük çaplı maddi hasar' meydana gelmesi, hem ciddi bir maddi kaybı hem de üretimin durmasını ifade eder. Etki 'Orta' seviyededir.",
-    "haberler": ["Plastik fabrikasında büyük çaplı maddi hasar."],
+    "haberler": ["Plastik fabrikasında çıkan yangın büyük çaplı maddi hasara yol açtı."],
     "kaynaklar": { "Yerel Basın": "https://www.google.com/search?q=Gaziantep+Dalbudak+Plastik+yang%C4%B1n" }
   },
   {
-    "id": 226,
+    "id": 258,
     "tarih": "02.09.2020",
     "il": "Şanlıurfa",
     "ilce": "Eyyübiye",
     "konum": "Şanlıurfa OSB",
-    "tesisAdi": "ÇİMSAN Çimento (Çuval Fabrikası)",
+    "tesisAdi": "ÇİMSAN Çimento Kireç San. ve Tic. A.Ş. (Çuval Fabrikası)",
     "sektor": "Ambalaj / Çuval",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Yüksek",
@@ -566,30 +452,11 @@
     "lng": 38.85,
     "ozet": "Şanlıurfa OSB'deki ÇİMSAN Çuval Fabrikası'nda bir işçinin kolu, pres makinesine sıkışarak koptu.",
     "etki": "Uzuv kaybı (kolun kopması) gibi ağır bir yaralanma, kalıcı maluliyet durumu yaratacağından çok yüksek tutarlı bir İşveren Sorumluluk tazminatını gündeme getirir. Olay, 'Yüksek' etkili bir hasar olarak sınıflandırılır.",
-    "haberler": ["Organize Sanayi Bölgesinde bulunan ÇİMSAN Çuval Fabrikasında iş kazası meydana geldi."],
+    "haberler": ["Organize Sanayi Bölgesinde bulunan ÇİMSAN Çuval Fabrikasında iş kazası meydana geldi.", "...OSB'de faaliyet gösteren bir çuval fabrikasında..."],
     "kaynaklar": { "RHA Ajans": "https://www.google.com/search?q=RHA+Ajans+%C3%87%C4%B0MSAN+%C3%87uval+Fabrikas%C4%B1+i%C5%9F+kazas%C4%B1", "Urfanatik": "https://www.google.com/search?q=Urfanatik+%C3%A7uval+fabrikas%C4%B1+kolu+koptu" }
   },
   {
-    "id": 227,
-    "tarih": "02.09.2020",
-    "il": "Şanlıurfa",
-    "ilce": "Eyyübiye",
-    "konum": "Şanlıurfa OSB",
-    "tesisAdi": "ÇİMSAN Çimento (Çuval Fabrikası)",
-    "sektor": "Ambalaj / Çuval",
-    "olayTuru": "İş Kazası",
-    "etkiSeviyesi": "Yüksek",
-    "dogrulamaYontemi": "B",
-    "dogrulukOrani": 92,
-    "lat": 37.07,
-    "lng": 38.85,
-    "ozet": "Şanlıurfa OSB'deki ÇİMSAN Çuval Fabrikası'nda bir işçinin kolu, pres makinesine sıkışarak koptu.",
-    "etki": "Uzuv kaybı (kolun kopması) gibi ağır bir yaralanma, kalıcı maluliyet durumu yaratacağından çok yüksek tutarlı bir İşveren Sorumluluk tazminatını gündeme getirir. Olay, 'Yüksek' etkili bir hasar olarak sınıflandırılır.",
-    "haberler": ["Organize Sanayi Bölgesinde bulunan ÇİMSAN Çuval Fabrikasında iş kazası meydana geldi."],
-    "kaynaklar": { "RHA Ajans": "https://www.google.com/search?q=RHA+Ajans+%C3%87%C4%B0MSAN+%C3%87uval+Fabrikas%C4%B1+i%C5%9F+kazas%C4%B1", "Urfanatik": "https://www.google.com/search?q=Urfanatik+%C3%A7uval+fabrikas%C4%B1+kolu+koptu" }
-  },
-  {
-    "id": 228,
+    "id": 259,
     "tarih": "07.09.2020",
     "il": "Kocaeli",
     "ilce": "İzmit",
@@ -608,7 +475,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Hayat+Kimya+ham+madde+tanklar%C4%B1" }
   },
   {
-    "id": 229,
+    "id": 260,
     "tarih": "09.09.2020",
     "il": "Kocaeli",
     "ilce": "Dilovası",
@@ -627,7 +494,7 @@
     "kaynaklar": { "En Kocaeli": "https://www.google.com/search?q=En+Kocaeli+Mobel+Boya+yang%C4%B1n" }
   },
   {
-    "id": 230,
+    "id": 261,
     "tarih": "09.09.2020",
     "il": "Kocaeli",
     "ilce": "Başiskele",
@@ -646,7 +513,7 @@
     "kaynaklar": { "Kocaeli Koz": "https://www.google.com/search?q=Kocaeli+Koz+f%C4%B1nd%C4%B1k+fabrika+baca" }
   },
   {
-    "id": 231,
+    "id": 262,
     "tarih": "09.09.2020",
     "il": "Adana",
     "ilce": "Sarıçam",
@@ -661,35 +528,16 @@
     "lng": 35.58,
     "ozet": "Adana Hacı Sabancı OSB'deki bir geri dönüşüm fabrikasında, devrilen forkliftin altında kalan sürücü hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["...geri dönüşüm fabrikasında devrilen forkliftin altında kalan sürücü..."],
+    "haberler": ["Kaza, Sarıçam ilçesindeki Hacı Sabancı Organize Sanayi Bölgesi'nde bulunan geri dönüşüm fabrikasında meydana geldi.", "...geri dönüşüm fabrikasında devrilen forkliftin altında kalan sürücü..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Adana+OSB+forklift+kazas%C4%B1", "İHA": "https://www.google.com/search?q=%C4%B0HA+Adana+OSB+forklift" }
   },
   {
-    "id": 232,
-    "tarih": "09.09.2020",
-    "il": "Adana",
-    "ilce": "Sarıçam",
-    "konum": "Adana Hacı Sabancı OSB",
-    "tesisAdi": "(Adı Belirtilmemiş Geri Dönüşüm Fab.)",
-    "sektor": "Geri Dönüşüm",
-    "olayTuru": "İş Kazası",
-    "etkiSeviyesi": "Yüksek",
-    "dogrulamaYontemi": "C",
-    "dogrulukOrani": 84,
-    "lat": 37.05,
-    "lng": 35.58,
-    "ozet": "Adana Hacı Sabancı OSB'deki bir geri dönüşüm fabrikasında, devrilen forkliftin altında kalan sürücü hayatını kaybetti.",
-    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["...geri dönüşüm fabrikasında devrilen forkliftin altında kalan sürücü..."],
-    "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Adana+OSB+forklift+kazas%C4%B1", "İHA": "https://www.google.com/search?q=%C4%B0HA+Adana+OSB+forklift" }
-  },
-  {
-    "id": 233,
+    "id": 263,
     "tarih": "11.09.2020",
     "il": "Kocaeli",
     "ilce": "Kartepe",
     "konum": "Suadiye Mevkii",
-    "tesisAdi": "İSU Arıtma Tesisi",
+    "tesisAdi": "Kocaeli Su ve Kanalizasyon İdaresi (İSU) Arıtma Tesisi",
     "sektor": "Kamu Hizmeti / Su Arıtma",
     "olayTuru": "Gaz Sızıntısı",
     "etkiSeviyesi": "Yüksek",
@@ -699,30 +547,11 @@
     "lng": 30.08,
     "ozet": "Kartepe'deki İSU'ya ait su arıtma tesisindeki bir klor tankında sızıntı meydana geldi. Sızıntıdan etkilenen 16 kişi hastaneye kaldırıldı.",
     "etki": "16 kişinin zehirlenerek hastaneye kaldırılması, kitlesel bir etkilenimdir ve olayı 'Yüksek' etkili bir Kamu Kurumu Sorumluluk hasarı haline getirir. Tesisin tahliyesi ve çevresel risk de hasarın boyutunu artırmaktadır.",
-    "haberler": ["Kartepe ilçesindeki İSU Arıtma Tesisi'ndeki klor tankında sızıntı meydana gelmesi üzerine..."],
+    "haberler": ["Kartepe ilçesindeki İSU Arıtma Tesisi'ndeki klor tankında sızıntı meydana gelmesi üzerine...", "İSU’ya ait Kartepe Su Arıtma Tesisi’nde bulunan klor tankında sızıntı meydana geldi."],
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Kartepe+%C4%B0SU+klor+s%C4%B1z%C4%B1nt%C4%B1s%C4%B1", "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+%C4%B0SU+Kartepe+klor" }
   },
   {
-    "id": 234,
-    "tarih": "11.09.2020",
-    "il": "Kocaeli",
-    "ilce": "Kartepe",
-    "konum": "Suadiye Mevkii",
-    "tesisAdi": "İSU Arıtma Tesisi",
-    "sektor": "Kamu Hizmeti / Su Arıtma",
-    "olayTuru": "Gaz Sızıntısı",
-    "etkiSeviyesi": "Yüksek",
-    "dogrulamaYontemi": "A",
-    "dogrulukOrani": 98,
-    "lat": 40.69,
-    "lng": 30.08,
-    "ozet": "Kartepe'deki İSU'ya ait su arıtma tesisindeki bir klor tankında sızıntı meydana geldi. Sızıntıdan etkilenen 16 kişi hastaneye kaldırıldı.",
-    "etki": "16 kişinin zehirlenerek hastaneye kaldırılması, kitlesel bir etkilenimdir ve olayı 'Yüksek' etkili bir Kamu Kurumu Sorumluluk hasarı haline getirir. Tesisin tahliyesi ve çevresel risk de hasarın boyutunu artırmaktadır.",
-    "haberler": ["Kartepe ilçesindeki İSU Arıtma Tesisi'ndeki klor tankında sızıntı meydana gelmesi üzerine..."],
-    "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Kartepe+%C4%B0SU+klor+s%C4%B1z%C4%B1nt%C4%B1s%C4%B1", "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+%C4%B0SU+Kartepe+klor" }
-  },
-  {
-    "id": 235,
+    "id": 264,
     "tarih": "13.09.2020",
     "il": "Kocaeli",
     "ilce": "Gebze",
@@ -741,7 +570,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Gebze+d%C3%B6k%C3%BCm+fabrikas%C4%B1+patlama+1+%C3%B6l%C3%BC" }
   },
   {
-    "id": 236,
+    "id": 265,
     "tarih": "13.09.2020",
     "il": "Kahramanmaraş",
     "ilce": "Türkoğlu",
@@ -760,7 +589,7 @@
     "kaynaklar": { "Maraş Gündem": "https://www.google.com/search?q=Mara%C5%9F+G%C3%BCndem+%C5%9Eirik%C3%A7io%C4%9Flu+Tekstil+tonlarca+pamuk" }
   },
   {
-    "id": 237,
+    "id": 266,
     "tarih": "18.09.2020",
     "il": "Bursa",
     "ilce": "Orhangazi",
@@ -779,7 +608,7 @@
     "kaynaklar": { "KAP Açıklaması": "https://www.kap.org.tr/tr/Bildirim/875571" }
   },
   {
-    "id": 238,
+    "id": 267,
     "tarih": "19.09.2020",
     "il": "İstanbul",
     "ilce": "Küçükçekmece",
@@ -798,12 +627,12 @@
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+K%C3%BC%C3%A7%C3%BCk%C3%A7ekmece+ila%C3%A7+fabrikas%C4%B1+3+yaral%C4%B1" }
   },
   {
-    "id": 239,
+    "id": 268,
     "tarih": "22.09.2020",
     "il": "Tekirdağ",
     "ilce": "Çorlu",
     "konum": "Çorlu Deri OSB",
-    "tesisAdi": "Trakya Boya Kimya Nakliyat San.",
+    "tesisAdi": "Trakya Boya Kimya Nakliyat San. ve Tic. Ltd. Şti.",
     "sektor": "Kimya / Tekstil",
     "olayTuru": "Kimyasal Olay",
     "etkiSeviyesi": "Yüksek",
@@ -813,30 +642,11 @@
     "lng": 27.91,
     "ozet": "Çorlu Deri OSB'deki bir kimya fabrikasında iki kimyasal maddenin yanlışlıkla karıştırılması sonucu zehirli gaz çıkışı meydana geldi. Olay nedeniyle 84 kişi hastaneye kaldırıldı.",
     "etki": "84 kişinin hastaneye kaldırılması gibi olağanüstü kitlesel bir etkilenim, olayı katastrofik bir İşveren ve Üçüncü Şahıs Sorumluluk hasarı haline getirir. OSB'nin kısmen tahliyesi ve üretimin durması da hasarın boyutunu artırmaktadır.",
-    "haberler": ["Çorlu Deri Organize Sanayi Bölgesi'ndeki bir kimya fabrikasında dün iki kimyasal maddenin karıştırılması sonucu..."],
+    "haberler": ["Çorlu Deri Organize Sanayi Bölgesi'ndeki bir kimya fabrikasında dün iki kimyasal maddenin karıştırılması sonucu...", "...Trakya Boya Kimya Nakliyat Sanayi Limited Şirketi'nde meydana geldi."],
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+%C3%87orlu+Deri+OSB+kimyasal+84+ki%C5%9Fi", "TRT Haber": "https://www.google.com/search?q=TRT+Haber+Trakya+Boya+Kimya" }
   },
   {
-    "id": 240,
-    "tarih": "22.09.2020",
-    "il": "Tekirdağ",
-    "ilce": "Çorlu",
-    "konum": "Çorlu Deri OSB",
-    "tesisAdi": "Trakya Boya Kimya Nakliyat San.",
-    "sektor": "Kimya / Tekstil",
-    "olayTuru": "Kimyasal Olay",
-    "etkiSeviyesi": "Yüksek",
-    "dogrulamaYontemi": "A",
-    "dogrulukOrani": 99,
-    "lat": 41.14,
-    "lng": 27.91,
-    "ozet": "Çorlu Deri OSB'deki bir kimya fabrikasında iki kimyasal maddenin yanlışlıkla karıştırılması sonucu zehirli gaz çıkışı meydana geldi. Olay nedeniyle 84 kişi hastaneye kaldırıldı.",
-    "etki": "84 kişinin hastaneye kaldırılması gibi olağanüstü kitlesel bir etkilenim, olayı katastrofik bir İşveren ve Üçüncü Şahıs Sorumluluk hasarı haline getirir. OSB'nin kısmen tahliyesi ve üretimin durması da hasarın boyutunu artırmaktadır.",
-    "haberler": ["Çorlu Deri Organize Sanayi Bölgesi'ndeki bir kimya fabrikasında dün iki kimyasal maddenin karıştırılması sonucu..."],
-    "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+%C3%87orlu+Deri+OSB+kimyasal+84+ki%C5%9Fi", "TRT Haber": "https://www.google.com/search?q=TRT+Haber+Trakya+Boya+Kimya" }
-  },
-  {
-    "id": 241,
+    "id": 269,
     "tarih": "24.09.2020",
     "il": "Diyarbakır",
     "ilce": "Bismil",
@@ -849,13 +659,13 @@
     "dogrulukOrani": 88,
     "lat": 37.84,
     "lng": 40.66,
-    "ozet": "Bismil'deki yağ ve küspe fabrikasının deposunda çıkan yangın maddi hasara yol açtı.",
+    "ozet": "Bismil'deki yağ ve küspe fabrikasının deposunda çıkan yangın maddi hasara neden oldu.",
     "etki": "Detaylar sınırlı olmakla birlikte, büyük bir yayılım veya can kaybı bildirilmemesi, hasarın depodaki malzemelerle sınırlı kaldığını ve etkinin 'Düşük' olduğunu düşündürmektedir.",
     "haberler": ["Bismil'de yağ ve küspe fabrikasında yangın."],
     "kaynaklar": { "Diyarbakır Yenigün": "https://www.google.com/search?q=Diyarbak%C4%B1r+Yenig%C3%BCn+Bismil+ya%C4%9F+k%C3%BCspe" }
   },
   {
-    "id": 242,
+    "id": 270,
     "tarih": "27.09.2020",
     "il": "Kocaeli",
     "ilce": "Kartepe",

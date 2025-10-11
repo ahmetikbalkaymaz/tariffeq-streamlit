@@ -1,6 +1,6 @@
 [
   {
-    "id": 316,
+    "id": 344,
     "tarih": "04.04.2021",
     "il": "İstanbul",
     "ilce": "Tuzla",
@@ -19,7 +19,7 @@
     "kaynaklar": { "İHA": "https://www.google.com/search?q=%C4%B0HA+Tuzla+Safari+Boya+varil+kesimi" }
   },
   {
-    "id": 317,
+    "id": 345,
     "tarih": "05.04.2021",
     "il": "Kastamonu",
     "ilce": "Merkez",
@@ -38,7 +38,7 @@
     "kaynaklar": { "Kastamonu Açıksöz": "https://www.google.com/search?q=Kastamonu+A%C3%A7%C4%B1ks%C3%B6z+NATA%C3%87+yap%C4%B1+malzemeleri" }
   },
   {
-    "id": 318,
+    "id": 346,
     "tarih": "09.04.2021",
     "il": "Bursa",
     "ilce": "İnegöl",
@@ -57,11 +57,11 @@
     "kaynaklar": { "İnegöl Online": "https://www.google.com/search?q=%C4%B0neg%C3%B6l+Online+Aser+Tekstil+buhar+kazan%C4%B1" }
   },
   {
-    "id": 319,
+    "id": 347,
     "tarih": "10.04.2021",
     "il": "Kastamonu",
     "ilce": "Taşköprü",
-    "konum": "Yukarı Çayırcık Köyü",
+    "konum": "Yukarı Çayırcık Köyü (OSB Dışı)",
     "tesisAdi": "Harun Özcan Kereste Fab.",
     "sektor": "Ağaç, Kağıt, Mobilya / Kereste",
     "olayTuru": "Yangın",
@@ -76,7 +76,7 @@
     "kaynaklar": { "Taşköprü Postası": "https://www.google.com/search?q=Ta%C5%9Fk%C3%B6pr%C3%BC+Postas%C4%B1+Harun+%C3%96zcan+tala%C5%9F+silosu" }
   },
   {
-    "id": 320,
+    "id": 348,
     "tarih": "13.04.2021",
     "il": "Adana",
     "ilce": "Sarıçam",
@@ -91,11 +91,11 @@
     "lng": 35.58,
     "ozet": "Adana Hacı Sabancı OSB'deki bir tekstil fabrikasının çatısında çalışan bir işçi, yüksekten düşerek hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["...çalıştığı tekstil fabrikasının çatısından..."],
+    "haberler": ["Olay, Sarıçam ilçesine bağlı Hacı Sabancı Organize Sanayi Bölgesi’ndeki bir tekstil fabrikasında meydana geldi.", "...çalıştığı tekstil fabrikasının çatısından..."],
     "kaynaklar": { "İHA": "https://www.google.com/search?q=%C4%B0HA+Adana+OSB+tekstil+%C3%A7at%C4%B1+d%C3%BC%C5%9Fme", "5 Ocak Gazetesi": "https://www.google.com/search?q=5+Ocak+Gazetesi+tekstil+%C3%A7at%C4%B1+kaza" }
   },
   {
-    "id": 321,
+    "id": 349,
     "tarih": "15.04.2021",
     "il": "Kocaeli",
     "ilce": "Körfez",
@@ -114,7 +114,7 @@
     "kaynaklar": { "Kocaeli Valiliği": "https://www.google.com/search?q=Kocaeli+Valili%C4%9Fi+Anadolu+D%C3%B6k%C3%BCm+patlama" }
   },
   {
-    "id": 322,
+    "id": 350,
     "tarih": "18.04.2021",
     "il": "Kayseri",
     "ilce": "Melikgazi",
@@ -133,7 +133,7 @@
     "kaynaklar": { "Kayseri Haber": "https://www.google.com/search?q=Kayseri+Haber+Akansu+Boru+kaynak+yang%C4%B1n" }
   },
   {
-    "id": 323,
+    "id": 351,
     "tarih": "19.04.2021",
     "il": "İstanbul",
     "ilce": "Pendik",
@@ -152,7 +152,7 @@
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Pendik+asans%C3%B6r+fabrikas%C4%B1+tiner+kazan%C4%B1" }
   },
   {
-    "id": 324,
+    "id": 352,
     "tarih": "22.04.2021",
     "il": "Kocaeli",
     "ilce": "Gebze",
@@ -167,11 +167,11 @@
     "lng": 29.4,
     "ozet": "GOSB'daki Frito-Lay cips fabrikasında, dezenfeksiyon sırasında kimyasalların reaksiyona girmesi sonucu 27 işçi zehirlenerek hastaneye kaldırıldı.",
     "etki": "27 işçinin hastaneye kaldırılması gibi kitlesel bir etkilenim, olayı çok ciddi bir İşveren Sorumluluk hasarı haline getirir. Tesisin tahliyesi ve üretimin durması da önemli bir iş durması kaybına yol açar.",
-    "haberler": ["Gebze'de bulunan dünyaca ünlü cips markasının fabrikasında..."],
+    "haberler": ["Olay, Gebze Organize Sanayi Bölgesi'ndeki Frito Lay cips fabrikasında meydana geldi.", "Gebze'de bulunan dünyaca ünlü cips markasının fabrikasında..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Gebze+Frito+Lay+27+i%C5%9F%C3%A7i", "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+Frito+Lay+zehirlenme" }
   },
   {
-    "id": 325,
+    "id": 353,
     "tarih": "23.04.2021",
     "il": "İstanbul",
     "ilce": "Bağcılar",
@@ -190,7 +190,7 @@
     "kaynaklar": { "Yerel Haberler": "https://www.google.com/search?q=Ba%C4%9Fc%C4%B1lar+pres+makinesi+patlama" }
   },
   {
-    "id": 326,
+    "id": 354,
     "tarih": "26.04.2021",
     "il": "İzmir",
     "ilce": "Aliağa",
@@ -209,7 +209,7 @@
     "kaynaklar": { "Aliağa Ekspres": "https://www.google.com/search?q=Alia%C4%9Fa+Ekspres+Delen+Petrol+%C3%BCr%C3%BCnleri+yang%C4%B1n" }
   },
   {
-    "id": 327,
+    "id": 355,
     "tarih": "26.04.2021",
     "il": "Osmaniye",
     "ilce": "Toprakkale",
@@ -228,7 +228,7 @@
     "kaynaklar": { "İHA": "https://www.google.com/search?q=%C4%B0HA+Osmaniye+Remaster+geri+d%C3%B6n%C3%BC%C5%9F%C3%BCm" }
   },
   {
-    "id": 328,
+    "id": 356,
     "tarih": "27.04.2021",
     "il": "İzmir",
     "ilce": "Menemen",
@@ -247,7 +247,7 @@
     "kaynaklar": { "Ege'de Son Söz": "https://www.google.com/search?q=Ege%27de+Son+S%C3%B6z+A%C4%9Fart%C4%B1o%C4%9Flu+Deri+z%C4%B1mpara" }
   },
   {
-    "id": 329,
+    "id": 357,
     "tarih": "28.04.2021",
     "il": "Kocaeli",
     "ilce": "Gebze",
@@ -266,7 +266,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Gebze+ReCo+Geri+D%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n" }
   },
   {
-    "id": 330,
+    "id": 358,
     "tarih": "28.04.2021",
     "il": "Bilecik",
     "ilce": "Merkez",
@@ -285,7 +285,7 @@
     "kaynaklar": { "Yarın Gazetesi": "https://www.google.com/search?q=Yar%C4%B1n+Gazetesi+Bilecik+Arslan+Al%C3%BCminyum+hurdal%C4%B1k" }
   },
   {
-    "id": 331,
+    "id": 359,
     "tarih": "28.04.2021",
     "il": "Bursa",
     "ilce": "Nilüfer",
@@ -300,11 +300,11 @@
     "lng": 28.8,
     "ozet": "Bursa Deri OSB'den yayıldığı iddia edilen ağır koku nedeniyle çevredeki yerleşim yerlerinde şikayetler oluştu ve resmi denetimler yapıldı.",
     "etki": "Bu olay, münferit bir tesisten ziyade bölgesel bir sorumluluk sorunudur. Geniş çaplı çevresel etki (koku) ve resmi denetim gerektirmesi, potansiyel idari para cezaları ve itibar riski nedeniyle 'Orta' etkili bir durumdur.",
-    "haberler": ["...geceleri ortaya çıkan ağır koku..."],
+    "haberler": ["Bursa'da Badırga ve Başköy mahalleleri sakinleri, Deri Organize Sanayi Bölgesi'nden yayıldığı iddia edilen koku nedeniyle...", "...geceleri ortaya çıkan ağır koku..."],
     "kaynaklar": { "Olay Gazetesi": "https://www.google.com/search?q=Olay+Gazetesi+Bad%C4%B1rga+Deri+OSB+koku", "Bursa Hakimiyet": "https://www.google.com/search?q=Bursa+Hakimiyet+Deri+OSB+koku" }
   },
   {
-    "id": 332,
+    "id": 360,
     "tarih": "30.04.2021",
     "il": "Aydın",
     "ilce": "Efeler",
@@ -323,7 +323,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+AST%C4%B0M+zift+fabrikas%C4%B1+yang%C4%B1n" }
   },
   {
-    "id": 333,
+    "id": 361,
     "tarih": "02.05.2021",
     "il": "İzmir",
     "ilce": "Bornova",
@@ -336,13 +336,13 @@
     "dogrulukOrani": 90,
     "lat": 38.44,
     "lng": 27.2,
-    "ozet": "Bornova'daki bir plastik fabrikasının deposunda çıkan yangın, tesiste büyük maddi hasara yol açtı.",
+    "ozet": "Bornova'daki bir plastik fabrikasının deposunda çıkan yangın, tesiste büyük maddi hasara neden oldu.",
     "etki": "Plastik malzemelerin bulunduğu bir depoda 'büyük maddi hasar' meydana gelmesi, önemli bir emtea (stok) kaybına ve tesisin sevkiyat/üretim kapasitesinde aksamaya neden olur.",
     "haberler": ["Bornova'da plastik fabrikasında yangın."],
     "kaynaklar": { "Hürriyet": "https://www.google.com/search?q=H%C3%BCrriyet+Bornova+plastik+fabrikas%C4%B1+yang%C4%B1n" }
   },
   {
-    "id": 334,
+    "id": 362,
     "tarih": "05.05.2021",
     "il": "Kocaeli",
     "ilce": "Gebze",
@@ -361,7 +361,7 @@
     "kaynaklar": { "Kocaeli Gündem": "https://www.google.com/search?q=Kocaeli+G%C3%BCndem+Akü+fabrikas%C4%B1nda+patlama" }
   },
   {
-    "id": 335,
+    "id": 363,
     "tarih": "08.05.2021",
     "il": "İzmir",
     "ilce": "Kemalpaşa",
@@ -376,11 +376,11 @@
     "lng": 27.42,
     "ozet": "Bir plastik fabrikasının üretim bölümündeki aydınlatma panosunda, elektriksel bir arıza nedeniyle yangın çıktı.",
     "etki": "Yangının bir aydınlatma panosu gibi küçük bir ekipmanla sınırlı kalması ve yayılmadan söndürülmesi, hasarın etkisinin 'Düşük' olduğunu göstermektedir. Sadece küçük çaplı maddi hasar ve kısa süreli duruş yaşanmıştır.",
-    "haberler": ["Üretim bölümündeki aydınlatma panosunda çıkan yangın maddi hasara yol açtı."],
-    "kaynaklar": { "KOSBİ": "https://www.kosbi.org.tr/" }
+    "haberler": ["Üretim bölümündeki aydınlatma panosunda elektriksel arıza."],
+    "kaynaklar": { "KOSBİ (Bölge Md.)": "https://www.kosbi.org.tr/" }
   },
   {
-    "id": 336,
+    "id": 364,
     "tarih": "10.05.2021",
     "il": "Kocaeli",
     "ilce": "Kartepe",
@@ -399,7 +399,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Pirelli+yemekhane+%C3%A7at%C4%B1s%C4%B1+yang%C4%B1n" }
   },
   {
-    "id": 337,
+    "id": 365,
     "tarih": "11.05.2021",
     "il": "İzmir",
     "ilce": "Torbalı",
@@ -418,7 +418,7 @@
     "kaynaklar": { "Torbalı Güncel": "https://www.google.com/search?q=Torbal%C4%B1+G%C3%BCncel+Ekoten+Tekstil+boyama+f%C4%B1r%C4%B1n" }
   },
   {
-    "id": 338,
+    "id": 366,
     "tarih": "15.05.2021",
     "il": "Düzce",
     "ilce": "Merkez",
@@ -437,7 +437,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+D%C3%BCzce+Kelebek+Mobilya+otopark+yang%C4%B1n" }
   },
   {
-    "id": 339,
+    "id": 367,
     "tarih": "17.05.2021",
     "il": "Kocaeli",
     "ilce": "Kartepe",
@@ -456,12 +456,12 @@
     "kaynaklar": { "Kocaeli Koz": "https://www.google.com/search?q=Kocaeli+Koz+Mutsan+%C3%87elik+hidrolik+ya%C4%9F" }
   },
   {
-    "id": 340,
+    "id": 368,
     "tarih": "19.05.2021",
     "il": "Denizli",
     "ilce": "Honaz",
     "konum": "Kocabaş Mevkii",
-    "tesisAdi": "Ece Mermer Granit San.",
+    "tesisAdi": "Ece Mermer Granit San. ve Tic. Ltd. Şti.",
     "sektor": "Madencilik / Mermer",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Yüksek",
@@ -471,11 +471,11 @@
     "lng": 29.25,
     "ozet": "Ece Mermer fabrikasında, bir mermer bloğunun devrilmesi sonucu altında kalan bir işçi hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, saat 16.00 sıralarında, Kocabaş Mahallesi'ndeki Ece Mermer firmasında meydana geldi."],
+    "haberler": ["Olay, saat 16.00 sıralarında, Kocabaş Mahallesi'ndeki Ece Mermer firmasında meydana geldi.", "...faaliyet gösteren mermer fabrikasında..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Kocaba%C5%9F+Ece+Mermer+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "İHA": "https://www.google.com/search?q=%C4%B0HA+Ece+Mermer+kaza" }
   },
   {
-    "id": 341,
+    "id": 369,
     "tarih": "27.05.2021",
     "il": "Bursa",
     "ilce": "İnegöl",
@@ -490,11 +490,11 @@
     "lng": 29.51,
     "ozet": "İnegöl OSB'deki Starwood sunta fabrikasında bir işçi, ağaç yontma makinesine sıkışarak hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, İnegöl Organize Sanayi Bölgesi'nde faaliyet gösteren Starwood adlı sunta fabrikasında meydana geldi."],
+    "haberler": ["Olay, İnegöl Organize Sanayi Bölgesi'nde faaliyet gösteren Starwood adlı sunta fabrikasında meydana geldi.", "...Organize Sanayi Bölgesi'ndeki bir fabrikada..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+%C4%B0neg%C3%B6l+Starwood+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "İHA": "https://www.google.com/search?q=%C4%B0HA+Starwood+kaza" }
   },
   {
-    "id": 342,
+    "id": 370,
     "tarih": "28.05.2021",
     "il": "Ankara",
     "ilce": "Kahramankazan",
@@ -513,7 +513,7 @@
     "kaynaklar": { "İHA": "https://www.google.com/search?q=%C4%B0HA+Ankara+Keresteciler+Sanayi+Sitesi+geri+d%C3%B6n%C3%BC%C5%9F%C3%BCm" }
   },
   {
-    "id": 343,
+    "id": 371,
     "tarih": "02.06.2021",
     "il": "Gaziantep",
     "ilce": "Şehitkamil",
@@ -528,11 +528,11 @@
     "lng": 37.3,
     "ozet": "Gaziantep 4. OSB'deki bir metal ve plastik fabrikasında, bir işçinin kolunu pres makinesine kaptırması sonucu yaralanma meydana geldi.",
     "etki": "Kolun pres makinesine sıkışması, genellikle uzuv kaybı gibi ağır ve kalıcı hasar bırakan bir yaralanmadır. Bu durum, İşveren Sorumluluk poliçesi kapsamında yüksek tutarlı bir tedavi ve potansiyel maluliyet tazminatını gündeme getirir.",
-    "haberler": ["...meydana gelen iş kazasında bir işçi, kolunu pres makinesine kaptırdı."],
+    "haberler": ["4. Organize Sanayi Bölgesi’nde faaliyet gösteren bir metal ve plastik fabrikasında...", "...meydana gelen iş kazasında bir işçi, kolunu pres makinesine kaptırdı."],
     "kaynaklar": { "Gaziantep Olay": "https://www.google.com/search?q=Gaziantep+Olay+4.+OSB+pres+makinesi", "Pusula": "https://www.google.com/search?q=Gaziantep+Pusula+pres+makinesi+kaza" }
   },
   {
-    "id": 344,
+    "id": 372,
     "tarih": "07.06.2021",
     "il": "Kayseri",
     "ilce": "Melikgazi",
@@ -547,11 +547,11 @@
     "lng": 35.38,
     "ozet": "Kayseri OSB'de yapımı süren bir AVM inşaatında, forkliftin çarpması sonucu bir işçi hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk ve İnşaat All Risks hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["...Organize Sanayi Bölgesi'ndeki Kumsmall AVM inşaatında meydana geldi."],
+    "haberler": ["Olay, saat 16.30 sıralarında, Melikgazi ilçesi Organize Sanayi Bölgesi'ndeki Kumsmall AVM inşaatında meydana geldi.", "...OSB'de yapımı süren bir inşaatta..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Kumsmall+AVM+in%C5%9Faat+kaza", "İHA": "https://www.google.com/search?q=%C4%B0HA+Kayseri+OSB+in%C5%9Faat+kaza" }
   },
   {
-    "id": 345,
+    "id": 373,
     "tarih": "10.06.2021",
     "il": "İzmir",
     "ilce": "Gaziemir",
@@ -570,12 +570,12 @@
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+%C4%B0zmir+kozmetik+fabrikas%C4%B1+yang%C4%B1n+1+i%C5%9F%C3%A7i" }
   },
   {
-    "id": 346,
+    "id": 374,
     "tarih": "10.06.2021",
     "il": "Sakarya",
     "ilce": "Hendek",
     "konum": "Hendek 2. OSB",
-    "tesisAdi": "Akova Süt ve Gıda Mamülleri",
+    "tesisAdi": "Akova Süt ve Gıda Mamülleri San. ve Tic. A.Ş.",
     "sektor": "Gıda / Süt Ürünleri",
     "olayTuru": "Gaz Sızıntısı",
     "etkiSeviyesi": "Yüksek",
@@ -585,11 +585,11 @@
     "lng": 30.7,
     "ozet": "Hendek 2. OSB'deki Akova Süt Fabrikası'nın soğutma ünitesinden amonyak sızıntısı meydana geldi. Tesis tahliye edildi, 11 işçi hastaneye kaldırıldı.",
     "etki": "11 işçinin hastaneye kaldırılması gibi kitlesel bir etkilenim, olayı ciddi bir İşveren Sorumluluk hasarı haline getirir. Tesisin tamamen tahliye edilmesi ve üretimin durması da önemli bir iş durması kaybına yol açar.",
-    "haberler": ["Hendek 2. Organize Sanayi Bölgesi'ndeki Akova Süt Fabrikası'nın soğutma ünitesinde..."],
+    "haberler": ["Hendek 2. Organize Sanayi Bölgesi'ndeki Akova Süt Fabrikası'nın soğutma ünitesinde...", "Hendek ilçesinde bulunan süt fabrikasında, soğutma sistemindeki amonyak gazı sızıntısı..."],
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Hendek+Akova+S%C3%BCt+amonyak", "DHA": "https://www.google.com/search?q=DHA+Akova+s%C3%BCt+fabrikas%C4%B1+s%C4%B1z%C4%B1nt%C4%B1" }
   },
   {
-    "id": 347,
+    "id": 375,
     "tarih": "13.06.2021",
     "il": "İzmir",
     "ilce": "Tire",
@@ -608,7 +608,7 @@
     "kaynaklar": { "Büyük Tire": "https://www.google.com/search?q=B%C3%BCy%C3%BCk+Tire+Gazetesi+yang%C4%B1n+imalathaneye+s%C4%B1%C3%A7rad%C4%B1" }
   },
   {
-    "id": 348,
+    "id": 376,
     "tarih": "14.06.2021",
     "il": "Antalya",
     "ilce": "Döşemealtı",
@@ -627,7 +627,7 @@
     "kaynaklar": { "Akdeniz Manşet": "https://www.google.com/search?q=Akdeniz+Man%C5%9Fet+OSB+kimya+asit+tank%C4%B1" }
   },
   {
-    "id": 349,
+    "id": 377,
     "tarih": "15.06.2021",
     "il": "Kocaeli",
     "ilce": "Dilovası",
@@ -642,11 +642,11 @@
     "lng": 29.54,
     "ozet": "İMES Dilovası OSB'de yapımı devam eden bir fabrika inşaatının yaklaşık 10 metre yüksekliğindeki istinat duvarı çöktü.",
     "etki": "Olay, henüz faaliyete geçmemiş bir tesisin inşaat sahasında meydana gelmiştir. Bu durum, bir İnşaat All Risks hasarıdır. Operasyonel bir tesiste olmadığı için etki 'Düşük' olarak sınıflandırılmıştır. Sadece maddi hasar ve projede gecikme söz konusudur.",
-    "haberler": ["...fabrika inşaatının yaklaşık 10 metre yüksekliğindeki istinat duvarı..."],
+    "haberler": ["Olay, Dilovası İMES Organize Sanayi Bölgesi’nde yapımı devam eden bir fabrikanın inşaatında meydana geldi.", "...fabrika inşaatının yaklaşık 10 metre yüksekliğindeki istinat duvarı..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Dilovas%C4%B1+%C4%B0MES+istinat+duvar%C4%B1", "İHA": "https://www.google.com/search?q=%C4%B0HA+Dilovas%C4%B1+istinat+duvar%C4%B1" }
   },
   {
-    "id": 350,
+    "id": 378,
     "tarih": "18.06.2021",
     "il": "Ankara",
     "ilce": "Sincan",
@@ -665,7 +665,7 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Ba%C5%9Fkent+OSB+plastik+fabrikas%C4%B1+8+i%C5%9F%C3%A7i" }
   },
   {
-    "id": 351,
+    "id": 379,
     "tarih": "22.06.2021",
     "il": "Osmaniye",
     "ilce": "Toprakkale",
@@ -684,12 +684,12 @@
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Osmaniye+kau%C3%A7uk+geri+d%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n" }
   },
   {
-    "id": 352,
+    "id": 380,
     "tarih": "22.06.2021",
     "il": "Kırklareli",
     "ilce": "Lüleburgaz",
     "konum": "Büyükkarıştıran Mevkii",
-    "tesisAdi": "Trakya Birlik Entegre Tesisleri",
+    "tesisAdi": "Trakya Birlik Entegre Tesisleri (Lisanslı Depo)",
     "sektor": "Gıda / Tarım Depoculuğu",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Yüksek",
@@ -699,11 +699,11 @@
     "lng": 27.42,
     "ozet": "Lüleburgaz'daki Trakya Birlik'e ait lisanslı depoda, bir işçi buğday silosuna düşerek hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır. Ayrıca, silodaki kurtarma çalışmaları nedeniyle depolama operasyonları aksamıştır.",
-    "haberler": ["...Trakya Birlik'e ait lisanlı depoda meydana geldi."],
+    "haberler": ["Olay, Lüleburgaz ilçesi Büyükkarıştıran beldesindeki Trakya Birlik'e ait lisanlı depoda meydana geldi.", "...Trakya Birlik Entegre Tesisleri'nde meydana gelen olayda..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+L%C3%BCleburgaz+Trakya+Birlik+bu%C4%9Fday+silosu", "İHA": "https://www.google.com/search?q=%C4%B0HA+Trakya+Birlik+Entegre+Tesisleri+kaza" }
   },
   {
-    "id": 353,
+    "id": 381,
     "tarih": "23.06.2021",
     "il": "İzmir",
     "ilce": "Torbalı",
@@ -722,7 +722,7 @@
     "kaynaklar": { "Torbalı Ayrancılar": "https://www.google.com/search?q=Torbal%C4%B1+Ayranc%C4%B1lar+Haber+Emel+Bal%C4%B1k+panosu" }
   },
   {
-    "id": 354,
+    "id": 382,
     "tarih": "24.06.2021",
     "il": "İzmir",
     "ilce": "Menemen",
@@ -741,7 +741,7 @@
     "kaynaklar": { "Menemen'in Sesi": "https://www.google.com/search?q=Menemen%27in+Sesi+Endo+Yap%C4%B1+sigara+izmariti" }
   },
   {
-    "id": 355,
+    "id": 383,
     "tarih": "25.06.2021",
     "il": "İzmir",
     "ilce": "Torbalı",
@@ -756,11 +756,11 @@
     "lng": 27.36,
     "ozet": "Bir cıvata fabrikasının ısıtma ünitesine ait bacada, biriken yağların tutuşması sonucu çıkan yangın büyümeden söndürüldü.",
     "etki": "Baca yangınları genellikle üretim hattını doğrudan etkilemez ve hasar baca ile sınırlı kalır. 'Sınırlı maddi hasar' oluşması ve yangının büyümemesi, etkisinin 'Düşük' olduğunu teyit eder.",
-    "haberler": ["Cıvata ısıtma ünitesinin bacasında çıkan yangın büyümeden söndürüldü."],
-    "kaynaklar": { "Yerel Haberler": "https://www.google.com/search?q=Torbal%C4%B1+SFS+Intec+baca+yang%C4%B1n" }
+    "haberler": ["Cıvata ısıtma ünitesi bacasında biriken yağların tutuşması."],
+    "kaynaklar": { "Yerel Haberler / OSB Raporu": "https://www.google.com/search?q=Torbal%C4%B1+SFS+Intec+baca+yang%C4%B1n" }
   },
   {
-    "id": 356,
+    "id": 384,
     "tarih": "25.06.2021",
     "il": "Muğla",
     "ilce": "Dalaman",
@@ -776,11 +776,10 @@
     "ozet": "MOPAK Kağıt Fabrikası'nın plastik atık depolama sahasında başlayan yangın, rüzgarın etkisiyle bitişikteki ormanlık alana sıçradı.",
     "etki": "Bir sanayi tesisi yangınının ormanlık alana sıçraması, çok ciddi bir Çevre Kirliliği ve Üçüncü Şahıs Sorumluluk hasarıdır. Tesisin kendi maddi hasarının yanı sıra, orman yangınının söndürme maliyetleri ve ekolojik zararlar için devasa tazminat talepleri gündeme gelir.",
     "haberler": ["Mopak Kağıt Fabrikası'nın atık sahasında başlayan yangın ormana sıçradı."],
-    "kaynaklar": { "Orman Genel Müdürlüğü": "https://www.google.com/search?q=OGM+Mopak+Ka%C4%9F%C4%B1t+Fabrikas%C4%B1+orman+yang%C4%B1n%C4%B1" },
-    "etkilenenTesis": { "ad": "Bitişikteki Ormanlık Alan", "lat": 36.751, "lng": 28.781 }
+    "kaynaklar": { "Orman Genel Müdürlüğü (OGM)": "https://www.google.com/search?q=OGM+Mopak+Ka%C4%9F%C4%B1t+Fabrikas%C4%B1+orman+yang%C4%B1n%C4%B1" }
   },
   {
-    "id": 357,
+    "id": 385,
     "tarih": "28.06.2021",
     "il": "İzmir",
     "ilce": "Bornova",

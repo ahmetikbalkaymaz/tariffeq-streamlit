@@ -43,7 +43,7 @@
     "il": "Kocaeli",
     "ilce": "Gebze",
     "konum": "Gebze Sanayi",
-    "tesisAdi": "Yücel Boru (Olay Yeri) / Ak-Kim Kimya (Tanker)",
+    "tesisAdi": "Yücel Boru ve Profil End. A.Ş. (Olay Yeri) / Ak-Kim Kimya (Tanker Sahibi)",
     "sektor": "Metal / Kimya",
     "olayTuru": "Kimyasal Sızıntı",
     "etkiSeviyesi": "Orta",
@@ -53,7 +53,7 @@
     "lng": 29.43,
     "ozet": "Yücel Boru fabrikası sahasında, Ak-Kim Kimya'ya ait bir tankerden hidroklorik asit sızıntısı meydana geldi. AFAD ekipleri müdahale etti.",
     "etki": "Tehlikeli bir kimyasalın sızması, AFAD gibi resmi kurumların müdahalesini gerektirmesi ve çevre riski yaratması olayı orta seviyeli bir hasar haline getirir. Üretimin kısmen durdurulması iş kaybına yol açmıştır. Hasar, tanker sahibi (Ak-Kim) için bir Nakliyeci Sorumluluk veya Tehlikeli Madde Sorumluluk hasarıdır.",
-    "haberler": ["Ak-Kim firmasına ait olduğu öğrenilen hidroklorik asit yüklü tankerden..."],
+    "haberler": ["Olay, Gebze'de bulunan Yücel Boru Fabrikası'nda meydana geldi. Ak-Kim firmasına ait olduğu öğrenilen hidroklorik asit yüklü tankerden..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Y%C3%BCcel+Boru+Ak-Kim+tanker+s%C4%B1z%C4%B1nt%C4%B1", "İHA": "https://www.google.com/search?q=%C4%B0HA+Y%C3%BCcel+Boru+asit" }
   },
   {
@@ -89,7 +89,7 @@
     "dogrulukOrani": 90,
     "lat": 41.0536,
     "lng": 39.3625,
-    "ozet": "Balık işleme tesisinin soğuk hava deposunda çıkan yangında ağır maddi hasar oluştu ve 1 kişi yaralandı.",
+    "ozet": "Balık işleme ve şoklama tesisinin soğuk hava deposunda 1 kişinin yaralandığı ve ağır maddi hasarın oluştuğu bir yangın çıktı.",
     "etki": "Bir kişinin yaralanması ve kritik bir ünite olan soğuk hava deposunda 'ağır maddi hasar' meydana gelmesi, hasarın etkisini 'Yüksek' seviyeye çıkarmaktadır. Hem İşveren Sorumluluk hem de büyük bir maddi hasar ve iş durması kaybı söz konusudur.",
     "haberler": ["Soğuk hava deposunda çıkan yangında büyük çapta maddi hasar meydana geldi."],
     "kaynaklar": { "61saat": "https://www.google.com/search?q=61saat+Trabzon+so%C4%9Fuk+hava+deposu+yang%C4%B1n" }
@@ -110,7 +110,7 @@
     "lng": 28.01,
     "ozet": "Çerkezköy OSB'deki sanayi tesislerinden Çorlu Deresi'ne arıtılmamış atık su deşarj edilmesi sonucu derede renk değişimi ve kirlilik oluştu.",
     "etki": "Bu olay, münferit bir tesisten ziyade bölgesel bir sorumluluk sorunudur. Geniş çaplı çevresel etki ve resmi soruşturma gerektirmesi, potansiyel idari para cezaları ve itibar riski nedeniyle 'Yüksek' etkili bir durumdur.",
-    "haberler": ["Çerkezköy Organize Sanayi Bölgesi içerisinden geçen Çorlu Deresi’nin rengi siyaha döndü."],
+    "haberler": ["Çerkezköy Organize Sanayi Bölgesi içerisinden geçen Çorlu Deresi’nin rengi siyaha döndü.", "...derenin organize sanayi bölgesindeki fabrikaların atıklarını boşaltmasıyla siyaha büründüğünü..."],
     "kaynaklar": { "Sözcü": "https://www.google.com/search?q=S%C3%B6zc%C3%BC+%C3%87erkezk%C3%B6y+OSB+%C3%87orlu+Deresi+kirlilik", "DHA": "https://www.google.com/search?q=DHA+%C3%87orlu+Deresi+siyah" }
   },
   {
@@ -262,7 +262,7 @@
     "lng": 28.1,
     "ozet": "Salihli OSB'deki bir konserve fabrikasında soğutma sisteminden amonyak sızıntısı meydana geldi. Tesis tahliye edildi ve 36 işçi hastaneye kaldırıldı.",
     "etki": "36 işçinin hastaneye kaldırılması gibi kitlesel bir etkilenim, olayı çok ciddi bir İşveren Sorumluluk hasarı haline getirir. Tesisin tamamen tahliye edilmesi ve üretimin durması da önemli bir iş durması kaybına yol açar. Bu nedenle etki 'Yüksek'tir.",
-    "haberler": ["Salihli Organize Sanayi Bölgesi'ndeki (OSB) bir konserve fabrikasında dün amonyak sızıntısı..."],
+    "haberler": ["Salihli Organize Sanayi Bölgesi'ndeki (OSB) bir konserve fabrikasında dün amonyak sızıntısı...", "...Sardes Gıda Konservecilik fabrikasında meydana geldi."],
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Salihli+konserve+fabrikas%C4%B1+amonyak", "DHA": "https://www.google.com/search?q=DHA+Sardes+G%C4%B1da+amonyak" }
   },
   {
@@ -300,7 +300,7 @@
     "lng": 29.06,
     "ozet": "Bursa'daki bir unlu mamüller imalathanesinde çıkan yangın maddi hasara yol açtı.",
     "etki": "Detaylar sınırlı olmakla birlikte, genellikle unlu mamül imalathanelerindeki yangınlar lokal kalma eğilimindedir. Hasarın küçük çaplı maddi hasar ve kısa süreli iş durması ile sınırlı olduğu varsayılmaktadır.",
-    "haberler": ["Unlu mamüller tesisinde yangın."],
+    "haberler": ["Tesiste çıkan yangın maddi hasara yol açtı."],
     "kaynaklar": { "Yerel Basın": "https://www.google.com/search?q=Bursa+Berkay+Unlu+Mam%C3%BCller+yang%C4%B1n" }
   },
   {
@@ -357,7 +357,7 @@
     "lng": 36.17,
     "ozet": "Osmaniye OSB'deki bir mobilya fabrikasında çıkan yangının kundaklama (sabotaj) sonucu çıktığı tespit edildi.",
     "etki": "Hasarın nedeninin 'kundaklama' olması, sigorta süreci açısından kritik bir bilgidir. Sigortalının kendisi veya çalışanları tarafından kasıtlı olarak çıkarıldığı ispatlanırsa, hasar teminat dışı kalır. Hasarın boyutu belirtilmemiş olsa da, kundaklama faktörü nedeniyle risk 'Orta' seviyede değerlendirilmiştir.",
-    "haberler": ["Yangının kundaklama sonucu çıktığı tespit edildi."],
+    "haberler": ["Mobilya fabrikasında çıkan yangının kundaklama sonucu çıktığı tespit edildi."],
     "kaynaklar": { "Yerel Basın": "https://www.google.com/search?q=Osmaniye+mobilya+fabrikas%C4%B1+kundaklama" }
   },
   {
@@ -376,7 +376,7 @@
     "lng": 35.16,
     "ozet": "İncesu OSB'deki Has Çelik Halat Fabrikası'nda bir işçi, makineye sıkışarak hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, İncesu OSB'de bulunan Has Çelik Halat Fabrikası'nda meydana geldi."],
+    "haberler": ["Olay, İncesu OSB'de bulunan Has Çelik Halat Fabrikası'nda meydana geldi.", "...İncesu Organize Sanayi Bölgesi'nde faaliyet gösteren bir çelik fabrikasında..."],
     "kaynaklar": { "İHA": "https://www.google.com/search?q=%C4%B0HA+Has+%C3%87elik+Halat+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "Kayseri Haber": "https://www.google.com/search?q=Kayseri+Haber+Has+%C3%87elik+kazas%C4%B1" }
   },
   {
@@ -471,7 +471,7 @@
     "lng": 30.7,
     "ozet": "Hendek 2. OSB'deki Gümüş Su fabrikasında, bir karbondioksit (CO2) tankından sızıntı meydana geldi. Olayda 1 işçi hayatını kaybetti, 6 işçi yaralandı.",
     "etki": "Bir çalışanın hayatını kaybetmesi ve 6 kişinin yaralanması, olayı katastrofik bir İşveren Sorumluluk hasarı haline getirir. Tesisin tahliyesi ve üretimin durması da ek kayıplardır. Etki seviyesi kesinlikle 'Yüksek'tir.",
-    "haberler": ["Olay, Hendek 2’nci Organize Sanayi Bölgesi’nde bulunan Gümüş Su Fabrikası’nda meydana geldi."],
+    "haberler": ["Olay, Hendek 2’nci Organize Sanayi Bölgesi’nde bulunan Gümüş Su Fabrikası’nda meydana geldi.", "...Gümüş Su isimli fabrikada..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Hendek+G%C3%BCm%C3%BC%C5%9F+Su+Fabrikas%C4%B1", "İHA": "https://www.google.com/search?q=%C4%B0HA+G%C3%BCm%C3%BC%C5%9F+Su+s%C4%B1z%C4%B1nt%C4%B1" }
   },
   {
@@ -509,7 +509,7 @@
     "lng": 27.42,
     "ozet": "Lüleburgaz'daki Zorluteks fabrikasında çalışan bir işçinin kolu, pres makinesine sıkışarak koptu.",
     "etki": "Uzuv kaybı (kolun kopması) gibi ağır bir yaralanma, maluliyet durumu yaratacağından çok yüksek tutarlı bir İşveren Sorumluluk tazminatını gündeme getirir. Olay, 'Yüksek' etkili bir hasar olarak sınıflandırılır.",
-    "haberler": ["...Lüleburgaz ilçesine bağlı Büyükkarıştıran beldesinde bulunan Zorluteks fabrikasında..."],
+    "haberler": ["Büyükkarıştıran beldesindeki bir tekstil fabrikasında çalışan S.K'nin (27) kolu pres makinesine sıkıştı.", "...Lüleburgaz ilçesine bağlı Büyükkarıştıran beldesinde bulunan Zorluteks fabrikasında..."],
     "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+B%C3%BCy%C3%BCkkar%C4%B1%C5%9Ft%C4%B1ran+tekstil+fabrikas%C4%B1+kolu+koptu", "DHA": "https://www.google.com/search?q=DHA+Zorluteks+kolu+koptu" }
   },
   {
@@ -566,7 +566,7 @@
     "lng": 32.09,
     "ozet": "Çaycuma OSB'deki Gersan fabrikasında, çatıdaki bir çalışanın düşmesi sonucu ölümle sonuçlanan bir iş kazası meydana geldi.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["...Gersan Fabrikası'nda çatıdan düşerek hayatını kaybetti."],
+    "haberler": ["Çaycuma Organize Sanayi Bölgesi’nde faaliyet gösteren Gersan A.Ş.’de meydana gelen olayda...", "...Gersan Fabrikası'nda çatıdan düşerek hayatını kaybetti."],
     "kaynaklar": { "Pusula Gazetesi": "https://www.google.com/search?q=Pusula+Gazetesi+%C3%87aycuma+Gersan", "Halkın Sesi": "https://www.google.com/search?q=Halk%C4%B1n+Sesi+Gersan+%C3%A7at%C4%B1dan+d%C3%BC%C5%9Fme" }
   },
   {
@@ -624,8 +624,7 @@
     "ozet": "Dilovası OSB'de bir suni çim fabrikasında çıkan yangın, kontrol altına alınamayarak bitişikteki bir başka fabrikaya da sıçradı.",
     "etki": "Bir yangının komşu tesise sıçraması (sirayet), hasarın boyutunu ve karmaşıklığını katlayarak artırır. Olay, hem yangının çıktığı tesis için büyük bir maddi hasar, hem de komşuya verdiği zarar nedeniyle çok yüksek bir Üçüncü Şahıs Sorumluluk hasarıdır. Bu nedenle etki 'Yüksek'tir.",
     "haberler": ["Kocaeli'de bir fabrikada çıkan yangın, yanındaki fabrikaya da sıçradı."],
-    "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Kocaeli+fabrika+yang%C4%B1n%C4%B1+s%C4%B1%C3%A7rad%C4%B1" },
-    "etkilenenTesis": { "ad": "Bitişikteki Tesis (Adı Belirtilmemiş)", "lat": 40.7905, "lng": 29.5405 }
+    "kaynaklar": { "Anadolu Ajansı": "https://www.google.com/search?q=AA+Kocaeli+fabrika+yang%C4%B1n%C4%B1+s%C4%B1%C3%A7rad%C4%B1" }
   },
   {
     "id": 230,
@@ -643,7 +642,7 @@
     "lng": 35.9,
     "ozet": "Ceyhan OSB'deki Toros Gübre Fabrikası'nda bir işçi, makineye sıkışarak hayatını kaybetti.",
     "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır.",
-    "haberler": ["Olay, Ceyhan Organize Sanayi Bölgesi'ndeki Toros Gübre Fabrikası'nda meydana geldi."],
+    "haberler": ["Olay, Ceyhan Organize Sanayi Bölgesi'ndeki Toros Gübre Fabrikası'nda meydana geldi.", "...Toros Gübre Fabrikası'nda makineye kafası sıkışan bir işçi..."],
     "kaynaklar": { "DHA": "https://www.google.com/search?q=DHA+Toros+G%C3%BCbre+Ceyhan+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC", "İHA": "https://www.google.com/search?q=%C4%B0HA+Toros+G%C3%BCbre+makineye+s%C4%B1k%C4%B1%C5%9Ft%C4%B1" }
   },
   {
@@ -662,7 +661,7 @@
     "lng": 37.26,
     "ozet": "Gaziantep 5. OSB'de faaliyet gösteren bir tekstil fabrikasında yaklaşık 5 metre yükseklikten düşen bir işçi yaralandı.",
     "etki": "Yüksekten düşme sonucu yaralanma, ciddi bir İşveren Sorumluluk hasarını gündeme getirir. Can kaybı olmaması nedeniyle etki 'Yüksek' değil, 'Orta' olarak sınıflandırılmıştır. Ancak tedavi masrafları ve potansiyel maluliyet tazminatı önemli olabilir.",
-    "haberler": ["...bir tekstil fabrikasında yaklaşık 5 metre yükseklikten düşen işçi..."],
+    "haberler": ["5. Organize Sanayi Bölgesi’nde faaliyet gösteren bir tekstil fabrikasında...", "...bir tekstil fabrikasında yaklaşık 5 metre yükseklikten düşen işçi..."],
     "kaynaklar": { "Gaziantep Olay": "https://www.google.com/search?q=Gaziantep+Olay+5.+OSB+tekstil+fabrikas%C4%B1+d%C3%BC%C5%9Fme", "İHA": "https://www.google.com/search?q=%C4%B0HA+Gaziantep+5+metreden+d%C3%BC%C5%9Fen+i%C5%9F%C3%A7i" }
   },
   {

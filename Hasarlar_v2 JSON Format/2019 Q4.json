@@ -1,0 +1,434 @@
+[
+  {
+    "id": 1,
+    "tarih": "04.10.2019",
+    "il": "Ankara",
+    "ilce": "Sincan",
+    "konum": "ASO 1. OSB",
+    "tesisAdi": "Döksan İndüksiyon Isıl İşlem",
+    "sektor": "Metal / Döküm",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 39.99,
+    "lng": 32.58,
+    "ozet": "Ankara Sincan OSB'deki döküm fabrikasının üretim bölümünde bulunan yağ havuzunda yangın çıktı. Olayda 1 işçi yaralandı.",
+    "etki": "Bir çalışanın yaralanması ve yangının üretimin kalbi olan bir bölümde (yağ havuzu) çıkması, olayı 'Yüksek' etkili bir hasar haline getirir. Hem İşveren Sorumluluk hasarı hem de üretim duruşuna bağlı kar kaybı beklenir.",
+    "haberler": [
+      "Döküm fabrikasının üretim bölümündeki yağ havuzunda yangın çıktı, 1 işçi yaralandı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=D%C3%B6ksan+%C4%B0nd%C3%BCksiyon+Sincan+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 2,
+    "tarih": "09.10.2019",
+    "il": "Ankara",
+    "ilce": "Kahramankazan",
+    "konum": "Saray Sanayi Bölgesi",
+    "tesisAdi": "Altınordu Treyler",
+    "sektor": "Metal / Treyler",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 40.126,
+    "lng": 32.709,
+    "ozet": "Treyler fabrikasının işçi koğuşunda, elektrikli ısıtıcıdan kaynaklandığı düşünülen bir yangın çıktı.",
+    "etki": "Yangının üretim alanları dışında, personelin konakladığı bir bölümde çıkması ve sınırlı kalması, operasyonel etkiyi ortadan kaldırır. Sadece bina ve eşya hasarı söz konusudur. Etki 'Düşük'tür.",
+    "haberler": [
+      "Treyler fabrikasının işçi koğuşunda elektrikli ısıtıcıdan yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Alt%C4%B1nordu+Treyler+Kazan+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 3,
+    "tarih": "09.10.2019",
+    "il": "Ankara",
+    "ilce": "Mamak",
+    "konum": "Geri Dönüşümcüler Sanayi Sitesi",
+    "tesisAdi": "Hitit Geri Dönüşüm",
+    "sektor": "Geri Dönüşüm / Kağıt",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 39.95,
+    "lng": 32.95,
+    "ozet": "Geri dönüşüm tesisinin üretim bölümünde, kaynak makinesinden sıçrayan kıvılcımların atıkları tutuşturması sonucu yangın çıktı.",
+    "etki": "Yangının üretim bölümünde çıkması, hem makine hasarını (kaynak makinesi) hem de hammadde (atık) kaybını beraberinde getirir. Üretimde kısa süreli bir duruş yaşanması muhtemeldir. Etki 'Orta' seviyededir.",
+    "haberler": [
+      "Geri dönüşüm tesisinde kaynak makinesinden sıçrayan kıvılcımlar yangına neden oldu."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Hitit+Geri+D%C3%B6n%C3%BC%C5%9F%C3%BCm+Mamak+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 4,
+    "tarih": "24.10.2019",
+    "il": "Ankara",
+    "ilce": "Kahramankazan",
+    "konum": "Saray Sanayi Bölgesi",
+    "tesisAdi": "Doğanlar Çelik Dövme",
+    "sektor": "Metal / Çelik",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 40.126,
+    "lng": 32.709,
+    "ozet": "Çelik dövme fabrikasının garaj bölümünde, bir yıkama makinesinden kaynaklanan elektriksel kıvılcım nedeniyle yangın çıktı.",
+    "etki": "Yangının ana üretim hatlarından uzakta, yardımcı bir bölüm olan garajda ve tek bir makinede sınırlı kalması, operasyonel etkiyi minimuma indirir. Etki 'Düşük'tür.",
+    "haberler": [
+      "Çelik fabrikasının garaj bölümündeki yıkama makinesinden yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Do%C4%9Fanlar+%C3%87elik+D%C3%B6vme+Kazan+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 5,
+    "tarih": "04.11.2019",
+    "il": "Ankara",
+    "ilce": "Sincan",
+    "konum": "ASO 1. OSB",
+    "tesisAdi": "Ozan Hazır Beton",
+    "sektor": "Beton",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 39.99,
+    "lng": 32.58,
+    "ozet": "Hazır beton tesisinin bakım-onarım bölümünde, bir aküden kaynaklanan elektriksel kıvılcım yangına neden oldu.",
+    "etki": "Yangının yardımcı bir bölümde çıkması ve küçük bir ekipmandan (akü) kaynaklanması, hasarın çok sınırlı olduğunu göstermektedir. Üretime etkisi ihmal edilebilir düzeydedir. Etki 'Düşük'tür.",
+    "haberler": [
+      "Hazır beton tesisinin bakım-onarım bölümünde akü kaynaklı yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Ozan+Haz%C4%B1r+Beton+Sincan+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 6,
+    "tarih": "10.11.2019",
+    "il": "Ankara",
+    "ilce": "Akyurt",
+    "konum": "Akyurt Sanayi Bölgesi",
+    "tesisAdi": "BAK Rubber",
+    "sektor": "Kauçuk",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 40.12,
+    "lng": 33.09,
+    "ozet": "Kauçuk fabrikasının işçi koğuşunda elektrik tesisatındaki arıza nedeniyle yangın çıktı.",
+    "etki": "Yangının üretim alanları dışında, personelin konakladığı bir bölümde çıkması ve sınırlı kalması, operasyonel etkiyi ortadan kaldırır. Sadece bina ve eşya hasarı söz konusudur. Etki 'Düşük'tür.",
+    "haberler": [
+      "Kauçuk fabrikasının işçi koğuşunda elektrik tesisatındaki arıza nedeniyle yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=BAK+Rubber+Akyurt+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 7,
+    "tarih": "11.11.2019",
+    "il": "İstanbul",
+    "ilce": "Tuzla",
+    "konum": "Birlik OSB",
+    "tesisAdi": "OMAS Kesici Metal",
+    "sektor": "Metal",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 40.87,
+    "lng": 29.35,
+    "ozet": "Tuzla Birlik OSB'de bulunan OMAS Kesici Metal fabrikasının ısıl işlem bölümündeki bir fırında yangın çıktı.",
+    "etki": "Isıl işlem fırını, metalürjide kritik bir üretim ekipmanıdır. Bu bölümde meydana gelen bir yangın, üretimi doğrudan durdurur ve ciddi bir makine hasarına yol açar. Etki 'Orta' seviyededir.",
+    "haberler": [
+      "Metal fabrikasının ısıl işlem bölümündeki fırında yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=OMAS+Kesici+Metal+Tuzla+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 8,
+    "tarih": "14.11.2019",
+    "il": "Osmaniye",
+    "ilce": "Kadirli",
+    "konum": "Kadirli OSB",
+    "tesisAdi": "JNR Kumaş Fabrikası",
+    "sektor": "Tekstil / Kumaş",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 37.37,
+    "lng": 36.14,
+    "ozet": "Kadirli OSB'deki JNR Kumaş Fabrikası'nın pamuk deposunda yangın çıktı.",
+    "etki": "Pamuk gibi yanıcı bir hammaddenin bulunduğu depoda çıkan yangın, ciddi bir stok (emtea) kaybına neden olur. Hammadde eksikliği, üretimin durmasına veya yavaşlamasına yol açar. Etki 'Orta' seviyededir.",
+    "haberler": [
+      "Kumaş fabrikasının pamuk deposunda yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=JNR+Kuma%C5%9F+Kadirli+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 9,
+    "tarih": "18.11.2019",
+    "il": "Burdur",
+    "ilce": "Merkez",
+    "konum": "OSB Dışı",
+    "tesisAdi": "Bur-Yem",
+    "sektor": "Gıda / Yem",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 37.72,
+    "lng": 30.29,
+    "ozet": "Burdur'daki Bur-Yem fabrikasının yem silosunda, aşırı ısınma sonucu yangın çıktı.",
+    "etki": "Bir silonun yanması, önemli miktarda hammadde veya mamul kaybı anlamına gelir. 'Aşırı ısınma' kaynaklı olması, kendi kendine yanma (self-combustion) riskini gösterir. Üretim ve sevkiyat kapasitesini etkiler. Etki 'Orta'dır.",
+    "haberler": [
+      "Yem fabrikasının silosunda aşırı ısınma nedeniyle yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Bur-Yem+Burdur+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 10,
+    "tarih": "20.11.2019",
+    "il": "Ankara",
+    "ilce": "Kahramankazan",
+    "konum": "Kazan Sanayi",
+    "tesisAdi": "Sığır Atık ve Bertaraf",
+    "sektor": "Geri Dönüşüm",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 40.19,
+    "lng": 32.67,
+    "ozet": "Atık bertaraf tesisinin üretim bölümünde, kaynak makinesinden sıçrayan kıvılcımlar yangına neden oldu.",
+    "etki": "Yangının üretim bölümünde çıkması, hem makine hasarını hem de işlenen atıkların kaybını beraberinde getirir. Üretimde kısa süreli bir duruş yaşanması muhtemeldir. Etki 'Orta' seviyededir.",
+    "haberler": [
+      "Atık bertaraf tesisinde kaynak makinesinden sıçrayan kıvılcımlar yangına neden oldu."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Kazan+at%C4%B1k+bertaraf+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 11,
+    "tarih": "03.12.2019",
+    "il": "Ankara",
+    "ilce": "Akyurt",
+    "konum": "Akyurt Sanayi Bölgesi",
+    "tesisAdi": "Solenne Mobilya",
+    "sektor": "Ağaç / Mobilya",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 40.12,
+    "lng": 33.09,
+    "ozet": "Solenne Mobilya fabrikasının üretim bölümündeki havalandırma sisteminde, mekanik bir kıvılcım nedeniyle yangın çıktı.",
+    "etki": "Havalandırma sistemi gibi tesisin geneline yayılan bir sistemde yangın çıkması, duman ve isin diğer makinelere de zarar verme potansiyeli taşır. Üretim bölümünün etkilenmesi, operasyonların durmasına neden olur. Etki 'Orta'dır.",
+    "haberler": [
+      "Mobilya fabrikasının üretim bölümündeki havalandırmada yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Solenne+Mobilya+Akyurt+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 12,
+    "tarih": "03.12.2019",
+    "il": "Ankara",
+    "ilce": "Akyurt",
+    "konum": "Akyurt Sanayi Bölgesi",
+    "tesisAdi": "Woodmont Ahşap",
+    "sektor": "Ağaç / Ahşap",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 40.12,
+    "lng": 33.09,
+    "ozet": "Ahşap fabrikasının üretim bölümündeki bir tezgahtan kaynaklanan mekanik kıvılcım, talaş ve ahşap tozlarını tutuşturarak yangına neden oldu.",
+    "etki": "Yangının bir üretim tezgahında başlaması, ilgili makinenin hasar görmesine ve üretim hattının durmasına yol açar. Ahşap tesislerindeki toz patlaması riski de göz önünde bulundurulmalıdır. Etki 'Orta' seviyededir.",
+    "haberler": [
+      "Ahşap fabrikasının üretim bölümündeki tezgahta yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Woodmont+Ah%C5%9Fap+Akyurt+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 13,
+    "tarih": "04.12.2019",
+    "il": "İzmir",
+    "ilce": "Aliağa",
+    "konum": "Aliağa OSB (ALOSBİ)",
+    "tesisAdi": "Kubilay Kimya ve Boya San.",
+    "sektor": "Boya / Kimya",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 38.82,
+    "lng": 27.05,
+    "ozet": "Aliağa OSB'deki Kubilay Kimya boya fabrikasının fırın bölümünde elektriksel bir kıvılcım nedeniyle yangın çıktı.",
+    "etki": "Boya üretiminde kritik bir aşama olan fırınlama bölümünde çıkan yangın, üretimi doğrudan durdurur. Ciddi bir makine hasarı ve buna bağlı iş durması beklenir. Etki 'Orta' seviyededir.",
+    "haberler": [
+      "Boya fabrikasının fırın bölümünde elektriksel kıvılcım nedeniyle yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Kubilay+Kimya+Alia%C4%9Fa+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 14,
+    "tarih": "09.12.2019",
+    "il": "İzmir",
+    "ilce": "Kemalpaşa",
+    "konum": "Kemalpaşa OSB (KOSBİ)",
+    "tesisAdi": "ALPAR Metal Enjeksiyon",
+    "sektor": "Metal / Kalıp",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 38.42,
+    "lng": 27.42,
+    "ozet": "Metal enjeksiyon fabrikasının bacasında dışarıdan sirayet eden bir yangın çıktı.",
+    "etki": "Hasarın sadece baca ile sınırlı kalması ve tesisin ana üretim alanlarına yayılmaması, operasyonel etkinin çok düşük olduğunu göstermektedir. Etki 'Düşük'tür.",
+    "haberler": [
+      "Metal enjeksiyon fabrikasının bacasında yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=ALPAR+Metal+Kemalpa%C5%9Fa+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 15,
+    "tarih": "14.12.2019",
+    "il": "Hatay",
+    "ilce": "İskenderun",
+    "konum": "İSDEMİR Fabrika Sahası",
+    "tesisAdi": "İSDEMİR",
+    "sektor": "Metal / Demir Çelik",
+    "olayTuru": "Patlama",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 36.71,
+    "lng": 36.19,
+    "ozet": "İsdemir demir çelik tesisindeki yüksek fırınlardan birinde, gaz kaçağı/sızıntısı nedeniyle patlama meydana geldi.",
+    "etki": "Yüksek fırın, bir demir-çelik tesisinin kalbidir. Bu ekipmanda meydana gelen bir patlama, üretimi aylarca durdurabilecek katastrofik bir hasara yol açar. Çok yüksek tutarlı bir makine kırılması ve kar kaybı hasarı kaçınılmazdır. Etki 'Yüksek'tir.",
+    "haberler": [
+      "Demir çelik tesisindeki yüksek fırında gaz kaçağı nedeniyle patlama meydana geldi."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Ulusal Basın": "https://www.google.com/search?q=%C4%B0SDEM%C4%B0R+patlama+2019"
+    }
+  },
+  {
+    "id": 16,
+    "tarih": "18.12.2019",
+    "il": "Ankara",
+    "ilce": "Sincan",
+    "konum": "ASO 1. OSB",
+    "tesisAdi": "Şahin Grup",
+    "sektor": "Metal",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 39.99,
+    "lng": 32.58,
+    "ozet": "Metal fabrikasının üretim bölümünde bulunan alüminyum eritme potasında yangın çıktı.",
+    "etki": "Eritme potası gibi yüksek sıcaklıkta çalışan bir ekipmanda çıkan yangın, üretimi doğrudan durdurur ve ciddi bir makine hasarına yol açar. Etki 'Orta' seviyededir.",
+    "haberler": [
+      "Metal fabrikasının üretim bölümündeki alüminyum eritme potasında yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=%C5%9Eahin+Grup+Sincan+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 17,
+    "tarih": "19.12.2019",
+    "il": "Aydın",
+    "ilce": "Söke",
+    "konum": "Söke OSB",
+    "tesisAdi": "Biomar Sagun",
+    "sektor": "Gıda / Yem",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Orta",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 37.69,
+    "lng": 27.35,
+    "ozet": "Söke OSB'deki Biomar Sagun yem fabrikasının silosunda aşırı ısınma nedeniyle yangın çıktı.",
+    "etki": "Bir silonun yanması, önemli miktarda hammadde veya mamul kaybı anlamına gelir. 'Aşırı ısınma' kaynaklı olması, kendi kendine yanma riskini gösterir. Üretim ve sevkiyat kapasitesini etkiler. Etki 'Orta'dır.",
+    "haberler": [
+      "Yem fabrikasının silosunda aşırı ısınma nedeniyle yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Biomar+Sagun+S%C3%B6ke+yang%C4%B1n+2019"
+    }
+  },
+  {
+    "id": 18,
+    "tarih": "30.12.2019",
+    "il": "Ankara",
+    "ilce": "Kahramankazan",
+    "konum": "Kazan Sanayi",
+    "tesisAdi": "Murat Nakliyat",
+    "sektor": "Lojistik / Depo",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 90,
+    "lat": 40.19,
+    "lng": 32.67,
+    "ozet": "Bir lojistik deposunun mutfak bölümünde, ocaktan kaynaklanan mekanik kıvılcım nedeniyle yangın çıktı.",
+    "etki": "Yangının operasyonel alanlar dışında, yardımcı bir bölüm olan mutfakta çıkması ve sınırlı kalması, hasarın etkisini 'Düşük' seviyede tutar.",
+    "haberler": [
+      "Lojistik deposunun mutfak bölümündeki ocakta yangın çıktı."
+    ],
+    "kaynaklar": {
+      "KMO 2019 Raporu": "https://www.google.com/search?q=KMO+2019+Sanayi+Yang%C4%B1nlar%C4%B1+Raporu",
+      "Yerel Basın": "https://www.google.com/search?q=Murat+Nakliyat+Kazan+yang%C4%B1n+2019"
+    }
+  }
+]
