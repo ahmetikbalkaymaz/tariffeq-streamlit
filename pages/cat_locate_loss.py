@@ -111,7 +111,7 @@ try:
     current_dir = os.path.dirname(__file__)
     parent_dir = os.path.dirname(current_dir)
     
-    json_folder = os.path.join(parent_dir, 'Hasarlar_v2 JSON FORMAT')
+    json_folder = os.path.join(parent_dir, 'Hasarlar_v2 JSON Format')
     html_file_path = os.path.join(current_dir, 'cat_loss.html')
     
     # JSON verilerini yükle
