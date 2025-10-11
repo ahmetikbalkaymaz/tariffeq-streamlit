@@ -16,5 +16,4 @@ __pycache__/
 # Diğerleri (gelecekteki olası dosyalar için)
 .env
 build/
-dist/
 *.egg-info/
