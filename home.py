@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import base64
 from utils.visitor_logger import track_page_visit, log_page_exit
+from pages.sidebar import sidebar
 
 
 # Sayfa Ayarları (en üstte olmalı)
@@ -247,41 +248,42 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+sidebar()
 
 # Kenar Çubuğu Navigasyonu
-with st.sidebar:
-    st.image("assets/logo.png", width=1000) # width=1000 logonuz büyükse küçültün, örneğin 200
-    st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
-    st.page_link("pages/calculate.py", label=T["calc_nav_label"][st.session_state.lang]) # "calc" yerine farklı bir anahtar kullanmak daha iyi olabilir
-    st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) # YENİ SAYFA LİNKİ
-    st.page_link("pages/information.py", label=T["information_page_nav"][st.session_state.lang]) # BİLGİLENDİRME SAYFASI LİNKİ
-    st.page_link("pages/roadmap.py", label=T["roadmap_page_nav"][st.session_state.lang], icon="🚀")
-    # st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") # Mevcut sayfa
-    st.markdown("---") # Ayırıcı
+# with st.sidebar:
+#     st.image("assets/logo.png", width=1000) # width=1000 logonuz büyükse küçültün, örneğin 200
+#     st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
+#     st.page_link("pages/calculate.py", label=T["calc_nav_label"][st.session_state.lang]) # "calc" yerine farklı bir anahtar kullanmak daha iyi olabilir
+#     st.page_link("pages/earthquake_zones.py", label=T["earthquake_zones_nav"][st.session_state.lang]) # YENİ SAYFA LİNKİ
+#     st.page_link("pages/information.py", label=T["information_page_nav"][st.session_state.lang]) # BİLGİLENDİRME SAYFASI LİNKİ
+#     st.page_link("pages/roadmap.py", label=T["roadmap_page_nav"][st.session_state.lang], icon="🚀")
+#     # st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") # Mevcut sayfa
+#     st.markdown("---") # Ayırıcı
 
-    # Dil seçimini kenar çubuğuna ekle
-    lang_options = ["TR", "EN"]
-    # st.session_state.lang'ın geçerli bir seçenek olduğundan emin olun
-    if st.session_state.lang not in lang_options:
-        st.session_state.lang = "TR" # Varsayılana sıfırla
-        # Değişikliğin hemen yansıması için rerun gerekebilir, ancak bir sonraki etkileşimde düzelecektir.
-        # İsterseniz st.rerun() satırını burada aktif edebilirsiniz.
+#     # Dil seçimini kenar çubuğuna ekle
+#     lang_options = ["TR", "EN"]
+#     # st.session_state.lang'ın geçerli bir seçenek olduğundan emin olun
+#     if st.session_state.lang not in lang_options:
+#         st.session_state.lang = "TR" # Varsayılana sıfırla
+#         # Değişikliğin hemen yansıması için rerun gerekebilir, ancak bir sonraki etkileşimde düzelecektir.
+#         # İsterseniz st.rerun() satırını burada aktif edebilirsiniz.
 
-    current_lang_index = lang_options.index(st.session_state.lang)
+#     current_lang_index = lang_options.index(st.session_state.lang)
     
-    selected_lang_sidebar = st.radio(
-        "Language / Dil", 
-        options=lang_options, 
-        index=current_lang_index, 
-        key="sidebar_language_selector" # Benzersiz bir anahtar
-    )
+#     selected_lang_sidebar = st.radio(
+#         "Language / Dil", 
+#         options=lang_options, 
+#         index=current_lang_index, 
+#         key="sidebar_language_selector" # Benzersiz bir anahtar
+#     )
 
-    if selected_lang_sidebar != st.session_state.lang:
-        st.session_state.lang = selected_lang_sidebar
-        st.rerun() # Dil değiştiğinde uygulamayı yeniden çalıştır
+#     if selected_lang_sidebar != st.session_state.lang:
+#         st.session_state.lang = selected_lang_sidebar
+#         st.rerun() # Dil değiştiğinde uygulamayı yeniden çalıştır
     
-    st.markdown("---") # Dil seçimi ile footer arasına bir ayırıcı daha eklenebilir (opsiyonel)
-    st.markdown(f"<div class='sidebar-footer footer'>{T['footer'][lang]}</div>", unsafe_allow_html=True) # Footer buraya eklendi, sınıf güncellendi
+#     st.markdown("---") # Dil seçimi ile footer arasına bir ayırıcı daha eklenebilir (opsiyonel)
+#     st.markdown(f"<div class='sidebar-footer footer'>{T['footer'][lang]}</div>", unsafe_allow_html=True) # Footer buraya eklendi, sınıf güncellendi
 
 title_html = """
 <span class="tariff-part">Tariff</span><span class="eq-part">EQ</span>

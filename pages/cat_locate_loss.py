@@ -8,6 +8,7 @@ st.set_page_config(layout="wide")
 
 sidebar()
 
+
 try:
     html_file_path = os.path.join(os.path.dirname(__file__), 'cat_loss.html')
 

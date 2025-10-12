@@ -1326,5 +1326,9 @@ T = {
     "loss_analysis_page_nav": {
         "TR": "Loss Analysis",
         "EN": "Loss Analysis"
+    },
+    "foresight_page_nav": {
+        "TR": "Foresight",
+        "EN": "Foresight"
     }
 }
