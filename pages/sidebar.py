@@ -137,7 +137,7 @@ def sidebar():
         st.page_link("pages/locate_loss.py", label=T["locate_loss_page_nav"][st.session_state.lang], icon="📍")
         st.page_link("pages/cat_locate_loss.py", label=T["cat_locate_loss_page_nav"][st.session_state.lang], icon="🔥")
         st.page_link("pages/loss_analysis.py", label=T["loss_analysis_page_nav"][st.session_state.lang], icon="🔥")
-        st.page_link("pages/foresight.py", label=T["foresight_page_nav"][st.session_state.lang], icon="🔮")
+        st.page_link("pages/foresight.py", label=T["foresight_page_nav"][st.session_state.lang], icon="🔥")
         # st.page_link("pages/scenario_calculator_page.py", label=T["scenario_page_title"][st.session_state.lang], icon="📉") 
         st.markdown("---") 
 
