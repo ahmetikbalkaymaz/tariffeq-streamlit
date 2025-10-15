@@ -127,7 +127,7 @@ def sidebar():
 """, unsafe_allow_html=True)
 
     if 'lang' not in st.session_state:
-        st.session_state.lang = 'tr'
+        st.session_state.lang = 'TR'
     with st.sidebar:
         st.image("assets/logo.png", width=1000) 
         st.page_link("home.py", label=T["home"][st.session_state.lang], icon="🏠")
