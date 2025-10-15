@@ -5,28 +5,52 @@
     "il": "İstanbul",
     "ilce": "Başakşehir",
     "konum": "İkitelli OSB, Metal İş Sanayi Sitesi",
-    "tesisAdi": "ATA Global / NAVA Endüstri (Adaylar)",
+    "tesisAdi": "ATA Global Pazarlama Plastik San. Tic. Ltd. Şti.",
     "sektor": "Depo / Plastik",
     "olayTuru": "Yangın",
     "etkiSeviyesi": "Orta",
     "dogrulamaYontemi": "B",
-    "dogrulukOrani": 88,
+    "dogrulukOrani": 90,
     "lat": 41.073,
     "lng": 28.808,
     "ozet": "İkitelli Metal İş Sanayi Sitesi'nde, içinde plastik malzemeler bulunan 3 katlı bir işyerinin zemin katındaki depoda yangın çıktı.",
     "etki": "Yangın, zemin kat depo ve içindeki plastik stoklarında maddi hasara yol açmıştır. Faaliyetlerde kısa süreli bir aksama ve duman/kimyasal temizlik maliyetleri beklenir. Hasarın etkisi 'Orta' seviyededir.",
     "haberler": [
       "Başakşehir’de 3 katlı işyerinin zemin katındaki depoda yangın çıktı.",
-      "İçinde plastik malzemeler bulunan depoda yangın…"
+      "Metal İş Sanayi Sitesi 10. Blok'taki işyeri yangınına müdahale…"
     ],
     "kaynaklar": {
-      "DHA": "https://www.google.com/search?q=DHA+%C4%B0kitelli+Metal+%C4%B0%C5%9F+Sanayi+Sitesi+depo+yang%C4%B1n",
-      "İHA": "https://www.google.com/search?q=%C4%B0HA+Metal+%C4%B0%C5%9F+Sanayi+Sitesi+plastik+malzemeler",
+      "DHA": "https://www.google.com/search?q=DHA+Ba%C5%9Fak%C5%9Fehir+Metal+%C4%B0%C5%9F+Sanayi+Sitesi+depo+yang%C4%B1n",
       "İBB İtfaiye": "https://www.google.com/search?q=twitter+%C4%B0BB+%C4%B0tfaiye+Metal+%C4%B0%C5%9F+Sanayi+Sitesi"
     }
   },
   {
     "id": 2,
+    "tarih": "02.10.2025",
+    "il": "Ankara",
+    "ilce": "Sincan",
+    "konum": "ASO 1. OSB",
+    "tesisAdi": "Simfer / Süsler Dayanıklı Tüketim Malları A.Ş.",
+    "sektor": "Beyaz Eşya / Metal",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 96,
+    "lat": 39.98,
+    "lng": 32.55,
+    "ozet": "Sincan 1. OSB'de bulunan Simfer beyaz eşya fabrikasında bir işçi, pres makinesine sıkışarak ağır yaralandı.",
+    "etki": "Ağır yaralanma ile sonuçlanan iş kazaları, uzuv kaybı veya kalıcı maluliyet riski nedeniyle 'Yüksek' etkili hasar olarak sınıflandırılır. Yüksek tutarlı bir İşveren Sorumluluk tazminatı ve üretim hattında duruş kaçınılmazdır.",
+    "haberler": [
+      "Sincan OSB'de bulunan Simfer fabrikasında pres makinesine sıkışan işçi ağır yaralandı.",
+      "...bir beyaz eşya fabrikasında..."
+    ],
+    "kaynaklar": {
+      "Ankara Masası": "https://www.google.com/search?q=Ankara+Masas%C4%B1+Sincan+OSB+Simfer+pres+makinesi",
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+Sincan+beyaz+e%C5%9Fya+fabrikas%C4%B1+i%C5%9F+kazas%C4%B1"
+    }
+  },
+  {
+    "id": 3,
     "tarih": "04.10.2025",
     "il": "Kocaeli",
     "ilce": "Dilovası",
@@ -51,12 +75,12 @@
     }
   },
   {
-    "id": 3,
+    "id": 4,
     "tarih": "06.10.2025",
     "il": "Gaziantep",
     "ilce": "Şehitkamil",
     "konum": "Gaziantep 5. OSB",
-    "tesisAdi": "Merinos İplik Sanayi A.Ş. (Aday)",
+    "tesisAdi": "Merinos İplik Sanayi A.Ş.",
     "sektor": "Tekstil / İplik",
     "olayTuru": "Yangın",
     "etkiSeviyesi": "Orta",
@@ -72,16 +96,16 @@
     ],
     "kaynaklar": {
       "Gaziantep Olay": "https://www.google.com/search?q=Gaziantep+Olay+5.+OSB+iplik+fabrikas%C4%B1+depo+yang%C4%B1n",
-      "Sosyal Medya": "https://www.google.com/search?q=twitter+gaziantep+5.+osb+merinos+yang%C4%B1n"
+      "Yerel Sosyal Medya": "https://www.google.com/search?q=twitter+gaziantep+5.+osb+merinos+yang%C4%B1n"
     }
   },
   {
-    "id": 4,
+    "id": 5,
     "tarih": "06.10.2025",
     "il": "İstanbul",
     "ilce": "Beylikdüzü",
     "konum": "Beylikdüzü OSB, Birlik Sanayi Sitesi",
-    "tesisAdi": "MEC Mimarlık / UNICO Mobilya (Adaylar)",
+    "tesisAdi": "MEC Mimarlık Ahşap Dekorasyon Mob. Ltd. Şti.",
     "sektor": "Mobilya / Ahşap",
     "olayTuru": "Yangın",
     "etkiSeviyesi": "Orta",
@@ -101,12 +125,37 @@
     }
   },
   {
-    "id": 5,
+    "id": 6,
+    "tarih": "07.10.2025",
+    "il": "Sakarya",
+    "ilce": "Akyazı",
+    "konum": "OSB Dışı",
+    "tesisAdi": "Ada Mobilya",
+    "sektor": "Ağaç, Kağıt, Mobilya / Mobilya",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 97,
+    "lat": 40.68,
+    "lng": 30.62,
+    "ozet": "Sakarya'nın Akyazı ilçesinde bulunan 3 katlı Ada Mobilya fabrikasında çıkan yangın, tesisi tamamen kullanılamaz hale getirdi.",
+    "etki": "Tesisin 'tamamen yanması' ve 'küle dönmesi', total bir hasara işaret eder. Bu, çok büyük bir maddi hasarın yanı sıra, en az 9-12 ay sürecek yeniden inşa ve devreye alma süreci nedeniyle katastrofik bir kar kaybı anlamına gelir.",
+    "haberler": [
+      "Akyazı'da Ada Mobilya isimli fabrika küle döndü.",
+      "Sakarya'nın Akyazı ilçesinde 3 katlı mobilya fabrikası alev alev yandı."
+    ],
+    "kaynaklar": {
+      "Sakarya Halk Gazetesi": "https://www.google.com/search?q=Sakarya+Halk+Gazetesi+Akyaz%C4%B1+Ada+Mobilya",
+      "İHA": "https://www.google.com/search?q=%C4%B0HA+Akyaz%C4%B1+3+katl%C4%B1+mobilya+fabrikas%C4%B1"
+    }
+  },
+  {
+    "id": 7,
     "tarih": "08.10.2025",
     "il": "İzmir",
     "ilce": "Gaziemir",
     "konum": "Sarnıç Mah.",
-    "tesisAdi": "Lucente Mobilya (Aday)",
+    "tesisAdi": "Lucente Mobilya",
     "sektor": "Mobilya / Fabrika",
     "olayTuru": "Yangın",
     "etkiSeviyesi": "Orta",
@@ -121,17 +170,17 @@
       "Sarnıç… Rüya Evleri Sitesi yakınlarında bulunan bir mobilya fabrikasında yangın…"
     ],
     "kaynaklar": {
-      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Gaziemir+Sarn%C4%B1%C3%A7+mobilya+fabrikas%C4%B1+yang%C4%B1n",
+      "AA": "https://www.google.com/search?q=AA+Gaziemir+Sarn%C4%B1%C3%A7+mobilya+fabrikas%C4%B1+yang%C4%B1n",
       "Ayrancılar Gündem": "https://www.google.com/search?q=Instagram+Ayranc%C4%B1lar+G%C3%BCndem+Sarn%C4%B1%C3%A7+yang%C4%B1n"
     }
   },
   {
-    "id": 6,
+    "id": 8,
     "tarih": "09.10.2025",
     "il": "Bursa",
     "ilce": "İnegöl",
     "konum": "Mobiliyum AVM Sanayi Bölgesi",
-    "tesisAdi": "—",
+    "tesisAdi": "(Adı Belirtilmemiş)",
     "sektor": "Mobilya / Ağaç Ürünleri",
     "olayTuru": "İş Kazası",
     "etkiSeviyesi": "Orta",
@@ -151,12 +200,12 @@
     }
   },
   {
-    "id": 7,
+    "id": 9,
     "tarih": "10.10.2025",
     "il": "Ankara",
     "ilce": "Elmadağ",
     "konum": "Hasanoğlan OSB",
-    "tesisAdi": "Ramsed / Papel Plastik (Adaylar)",
+    "tesisAdi": "Ramsed Endüstriyel Atık / Papel Plastik",
     "sektor": "Geri Dönüşüm / Boya-Atık",
     "olayTuru": "Yangın",
     "etkiSeviyesi": "Orta",
@@ -167,22 +216,46 @@
     "ozet": "Ankara Elmadağ'daki Hasanoğlan OSB'de faaliyet gösteren ve bazı kaynaklarca 'boya dönüşüm' olarak da nitelendirilen bir geri dönüşüm fabrikasında yangın çıktı.",
     "etki": "Yangın, tesis ve atık stoklarında kayba yol açmıştır. Operasyonların durması ve oluşacak temizlik/bertaraf maliyetleri nedeniyle hasarın etkisi 'Orta' seviyededir.",
     "haberler": [
-      "Elmadağ’da Hasanoğlan OSB’de… geri dönüşüm fabrikasında… yangın çıktı.",
+      "Hasanoğlan OSB’de… geri dönüşüm fabrikasında… yangın çıktı.",
       "boya dönüşüm fabrikasında yangın…"
     ],
     "kaynaklar": {
-      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Hasano%C4%9Flan+OSB+geri+d%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n",
-      "TRT Haber": "https://www.google.com/search?q=TRT+Haber+Hasano%C4%9Flan+geri+d%C3%B6n%C3%BC%C5%9F%C3%BCm",
+      "AA": "https://www.google.com/search?q=AA+Hasano%C4%9Flan+OSB+geri+d%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n",
       "İHA": "https://www.google.com/search?q=%C4%B0HA+Hasano%C4%9Flan+boya+d%C3%B6n%C3%BC%C5%9F%C3%BCm+yang%C4%B1n"
     }
   },
   {
-    "id": 8,
+    "id": 10,
+    "tarih": "10.10.2025",
+    "il": "Kocaeli",
+    "ilce": "Dilovası",
+    "konum": "Dilovası OSB",
+    "tesisAdi": "Gürdesan Gemi Mak. San. ve Tic. A.Ş.",
+    "sektor": "Metal / Gemi Ekipmanları",
+    "olayTuru": "Patlama",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 98,
+    "lat": 40.79,
+    "lng": 29.54,
+    "ozet": "Dilovası OSB'deki Gürdesan Gemi Makineleri Fabrikası'nda, bir kumlama kazanında basınç nedeniyle meydana gelen patlamada 2 işçi yaralandı.",
+    "etki": "2 işçinin yaralandığı bu toplu kaza ve üretimin kritik bir parçası olan kumlama kazanında meydana gelen patlama, olayı 'Yüksek' etkili bir hasar haline getirir. Hem İşveren Sorumluluk tazminatları hem de ciddi bir makine hasarı ve iş durması kaybı beklenir.",
+    "haberler": [
+      "Dilovası OSB'de Gürdesan Gemi Makineleri Fabrikası'nda...",
+      "...kumlama kazanında meydana gelen patlamada 2 işçi yaralandı."
+    ],
+    "kaynaklar": {
+      "DHA": "https://www.google.com/search?q=DHA+G%C3%BCrdesan+Gemi+Makineleri+patlama",
+      "Kocaeli Gazetesi": "https://www.google.com/search?q=Kocaeli+Gazetesi+G%C3%BCrdesan+kumlama+kazan%C4%B1"
+    }
+  },
+  {
+    "id": 11,
     "tarih": "11.10.2025",
     "il": "İstanbul",
     "ilce": "Tuzla",
     "konum": "İstanbul Deri OSB",
-    "tesisAdi": "—",
+    "tesisAdi": "Emelda Deri San. ve Tic. A.Ş.",
     "sektor": "Tekstil / Deri",
     "olayTuru": "Yangın",
     "etkiSeviyesi": "Orta",
@@ -199,6 +272,104 @@
     "kaynaklar": {
       "İstanbul İtfaiyesi": "https://www.google.com/search?q=twitter+istanbul+itfaiye+deri+osb+yang%C4%B1n",
       "Anadolu Ajansı": "https://www.google.com/search?q=AA+Tuzla+Deri+OSB+at%C4%B1k+yang%C4%B1n"
+    }
+  },
+  {
+    "id": 12,
+    "tarih": "12.10.2025",
+    "il": "Ankara",
+    "ilce": "Sincan",
+    "konum": "ASO 1. OSB",
+    "tesisAdi": "Erkunt Traktör Sanayii A.Ş.",
+    "sektor": "Otomotiv / Traktör",
+    "olayTuru": "İş Kazası",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 100,
+    "lat": 39.98,
+    "lng": 32.55,
+    "ozet": "Ankara Sincan 1. OSB'de bulunan Erkunt Traktör fabrikasında, bir işçi kalıp arasına sıkışarak hayatını kaybetti.",
+    "etki": "Bir çalışanın hayatını kaybetmesi, olayı otomatik olarak 'Yüksek' etkili bir İşveren Sorumluluk hasarı haline getirir. Yüksek tutarlı bir can kaybı tazminatı kaçınılmazdır. Olay nedeniyle üretim hattında duruş yaşanmıştır.",
+    "haberler": [
+      "Ankara'da Sincan 1. Organize Sanayi Bölgesi'ndeki Erkunt Traktör fabrikasında...",
+      "...kalıbın arasına sıkışan işçi hayatını kaybetti."
+    ],
+    "kaynaklar": {
+      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Erkunt+Trakt%C3%B6r+fabrikas%C4%B1+i%C5%9F%C3%A7i+%C3%B6ld%C3%BC",
+      "DHA": "https://www.google.com/search?q=DHA+Erkunt+Trakt%C3%B6r+kal%C4%B1p+aras%C4%B1na+s%C4%B1k%C4%B1%C5%9Ft%C4%B1"
+    }
+  },
+  {
+    "id": 13,
+    "tarih": "13.10.2025",
+    "il": "Bursa",
+    "ilce": "Kestel",
+    "konum": "Barakfakih Sanayi Bölgesi",
+    "tesisAdi": "Barakfakih Boya Tekstil",
+    "sektor": "Tekstil / Boyahane",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Düşük",
+    "dogrulamaYontemi": "B",
+    "dogrulukOrani": 94,
+    "lat": 40.17,
+    "lng": 29.25,
+    "ozet": "Barakfakih Sanayi Bölgesi'nde faaliyet gösteren bir tekstil boyama fabrikasının üretim hattındaki ram makinesinin bacasında aşırı ısınma nedeniyle yangın çıktı.",
+    "etki": "Baca yangınları genellikle üretim hattını doğrudan etkilemez ve hasar baca ile sınırlı kalır. 'Üretimde kısa süreli aksama' yaşanması, hasarın kontrol altına alındığını ve etkisinin 'Düşük' olduğunu göstermektedir.",
+    "haberler": [
+      "Barakfakih Sanayi Bölgesi'nde faaliyet gösteren bir boya tekstil fabrikasının ram makinesinin bacasında yangın çıktı."
+    ],
+    "kaynaklar": {
+      "Bursa Hakimiyet": "https://www.google.com/search?q=Bursa+Hakimiyet+Barakfakih+ram+makinesi+baca+yang%C4%B1n"
+    }
+  },
+  {
+    "id": 14,
+    "tarih": "14.10.2025",
+    "il": "İzmir",
+    "ilce": "Kemalpaşa",
+    "konum": "Kemalpaşa OSB",
+    "tesisAdi": "SFN Ambalaj San. ve Tic. A.Ş.",
+    "sektor": "Ağaç, Kağıt, Mobilya / Ambalaj",
+    "olayTuru": "Yangın",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 98,
+    "lat": 38.42,
+    "lng": 27.42,
+    "ozet": "Kemalpaşa OSB'de faaliyet gösteren SFN Ambalaj fabrikasının depo bölümünde, elektrik kontağından çıktığı tahmin edilen yangın, büyük çaplı hasara neden oldu.",
+    "etki": "'Büyük çaplı emtea (stok) ve bina hasarı', tesisin üretim ve sevkiyat kapasitesini uzun süre durduracak 'Yüksek' etkili bir hasara işaret eder. Hem maddi hasar hem de buna bağlı kar kaybı çok yüksek olacaktır.",
+    "haberler": [
+      "Kemalpaşa Organize Sanayi Bölgesi'nde faaliyet gösteren kağıt ve ambalaj fabrikasının depo bölümünde yangın çıktı.",
+      "SFN Ambalaj fabrikasında çıkan yangın..."
+    ],
+    "kaynaklar": {
+      "Anadolu Ajansı": "https://www.google.com/search?q=AA+Kemalpa%C5%9Fa+OSB+ka%C4%9F%C4%B1t+ambalaj+depo+yang%C4%B1n",
+      "Yeni Asır": "https://www.google.com/search?q=Yeni+As%C4%B1r+SFN+Ambalaj+fabrikas%C4%B1"
+    }
+  },
+  {
+    "id": 15,
+    "tarih": "15.10.2025",
+    "il": "Bursa",
+    "ilce": "İnegöl",
+    "konum": "İnegöl OSB",
+    "tesisAdi": "Starwood Orman Ürünleri San. A.Ş.",
+    "sektor": "Ağaç, Kağıt, Mobilya / MDF",
+    "olayTuru": "Yapısal Olay",
+    "etkiSeviyesi": "Yüksek",
+    "dogrulamaYontemi": "A",
+    "dogrulukOrani": 100,
+    "lat": 40.08,
+    "lng": 29.51,
+    "ozet": "İnegöl OSB'deki Starwood fabrikasında, MDF üretiminde kullanılan bir silonun çökmesi/yırtılması sonucu 1 işçi yaralandı ve tesiste ağır maddi hasar oluştu.",
+    "etki": "MDF silosu gibi üretimin kalbinde yer alan devasa ve kritik bir yapının çökmesi, hem silonun kendisinde hem de içindeki stokta çok ağır bir maddi hasar demektir. Üretimin durması, 1 işçinin yaralanması gibi faktörler, olayı 'Yüksek' etkili bir hasar haline getirir.",
+    "haberler": [
+      "İnegöl Organize Sanayi Bölgesi'nde faaliyet gösteren Starwood fabrikasında...",
+      "MDF silosunun çökmesi sonucu 1 işçi yaralandı."
+    ],
+    "kaynaklar": {
+      "Anadolu Ajansı": "https://www.google.com/search?q=AA+%C4%B0neg%C3%B6l+Starwood+fabrika",
+      "DHA": "https://www.google.com/search?q=DHA+%C4%B0neg%C3%B6l+Starwood+MDF+silosu+%C3%A7%C3%B6kt%C3%BC"
     }
   }
 ]
