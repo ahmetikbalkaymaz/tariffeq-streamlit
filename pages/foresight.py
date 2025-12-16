@@ -85,6 +85,88 @@
 #     st.error(f"HTML işlenirken bir hata oluştu: {e}")
 
 
+# import streamlit as st
+# import streamlit.components.v1 as components
+# import os
+# import json
+# import sqlite3
+# from pathlib import Path
+# from pages.sidebar import sidebar
+
+# st.set_page_config(layout="wide")
+# sidebar()
+
+# DB_FILE = Path(__file__).parent.parent / "fires.db"
+
+# # @st.cache_data decorator'ı ve get_data_from_db() fonksiyonu aynı kalıyor...
+# @st.cache_data
+# def get_data_from_db():
+#     """
+#     SQLite veritabanından tüm yangın verilerini çeker ve
+#     JavaScript'in beklediği 'features' listesi formatına dönüştürür.
+#     """
+#     if not DB_FILE.exists():
+#         st.error(f"❌ Veritabanı dosyası bulunamadı: {DB_FILE}")
+#         st.info("Lütfen önce `setup_db.py` scriptini çalıştırarak veritabanını oluşturun.")
+#         return None
+#     try:
+#         conn = sqlite3.connect(DB_FILE, check_same_thread=False)
+#         cursor = conn.cursor()
+#         cursor.execute("SELECT properties, geometry FROM fires")
+#         rows = cursor.fetchall()
+#         conn.close()
+#         features_list = []
+#         for row in rows:
+#             properties = json.loads(row[0])
+#             geometry = json.loads(row[1])
+#             feature = {
+#                 "type": "Feature",
+#                 "properties": properties,
+#                 "geometry": geometry
+#             }
+#             features_list.append(feature)
+#         return features_list
+#     except Exception as e:
+#         st.error(f"❌ Veritabanından veri okunurken bir hata oluştu: {e}")
+#         return None
+
+# # --- ANA UYGULAMA MANTIĞI ---
+
+# # 1. ADIM: VERİYİ VE API ANAHTARINI ALMA
+# all_features_data = get_data_from_db()
+
+# # Streamlit Secrets'tan Gemini API anahtarını al
+# try:
+#     gemini_api_key = st.secrets["GEMINI_API_KEY"]
+# except KeyError:
+#     st.error("🔑 Gemini API anahtarı bulunamadı. Lütfen Streamlit Cloud > Settings > Secrets bölümüne `GEMINI_API_KEY` olarak eklediğinizden emin olun.")
+#     st.stop() # Anahtar yoksa uygulamayı durdur
+
+# # Eğer veri ve anahtar başarıyla okunduysa devam et
+# if all_features_data and gemini_api_key:
+#     all_features_json_string = json.dumps(all_features_data)
+
+#     # 2. ADIM: HTML DOSYASINI OKUMA VE VERİLERİ İÇİNE YERLEŞTİRME
+#     try:
+#         html_file_path = os.path.join(os.path.dirname(__file__), 'foresight.html')
+#         with open(html_file_path, 'r', encoding='utf-8') as f:
+#             html_content = f.read()
+
+#         # 1. Değişiklik: Veri yer tutucusunu değiştir
+#         html_content = html_content.replace("'__VERI_BURAYA_GELECEK__'", all_features_json_string)  
+        
+#         # 2. Değişiklik: API anahtarı yer tutucusunu değiştir
+#         html_content = html_content.replace("__GEMINI_API_KEY__", gemini_api_key)
+
+#         components.html(html_content, height=900, scrolling=True)
+
+#     except FileNotFoundError:
+#         st.error("foresight.html dosyası bulunamadı. Lütfen 'foresight.py' ile aynı dizinde olduğundan emin olun.")
+#     except Exception as e:
+#         st.error(f"HTML işlenirken bir hata oluştu: {e}")
+
+
+
 import streamlit as st
 import streamlit.components.v1 as components
 import os
@@ -96,18 +178,14 @@ from pages.sidebar import sidebar
 st.set_page_config(layout="wide")
 sidebar()
 
+# Veritabanı Yolu
 DB_FILE = Path(__file__).parent.parent / "fires.db"
 
-# @st.cache_data decorator'ı ve get_data_from_db() fonksiyonu aynı kalıyor...
 @st.cache_data
 def get_data_from_db():
-    """
-    SQLite veritabanından tüm yangın verilerini çeker ve
-    JavaScript'in beklediği 'features' listesi formatına dönüştürür.
-    """
+    """SQLite veritabanından yangın verilerini çeker."""
     if not DB_FILE.exists():
-        st.error(f"❌ Veritabanı dosyası bulunamadı: {DB_FILE}")
-        st.info("Lütfen önce `setup_db.py` scriptini çalıştırarak veritabanını oluşturun.")
+        st.error(f"❌ Veritabanı bulunamadı: {DB_FILE}")
         return None
     try:
         conn = sqlite3.connect(DB_FILE, check_same_thread=False)
@@ -115,52 +193,63 @@ def get_data_from_db():
         cursor.execute("SELECT properties, geometry FROM fires")
         rows = cursor.fetchall()
         conn.close()
+        
         features_list = []
         for row in rows:
-            properties = json.loads(row[0])
-            geometry = json.loads(row[1])
-            feature = {
-                "type": "Feature",
-                "properties": properties,
-                "geometry": geometry
-            }
-            features_list.append(feature)
+            # Veritabanında string olarak saklanıyorsa JSON objesine çevir
+            try:
+                properties = json.loads(row[0]) if isinstance(row[0], str) else row[0]
+                geometry = json.loads(row[1]) if isinstance(row[1], str) else row[1]
+                
+                feature = {
+                    "type": "Feature",
+                    "properties": properties,
+                    "geometry": geometry
+                }
+                features_list.append(feature)
+            except Exception as parse_err:
+                print(f"Satır işleme hatası: {parse_err}")
+                continue
+                
         return features_list
     except Exception as e:
-        st.error(f"❌ Veritabanından veri okunurken bir hata oluştu: {e}")
+        st.error(f"❌ Veri okuma hatası: {e}")
         return None
 
-# --- ANA UYGULAMA MANTIĞI ---
+# --- İŞLEM ---
 
-# 1. ADIM: VERİYİ VE API ANAHTARINI ALMA
+# 1. Veriyi Al
 all_features_data = get_data_from_db()
 
-# Streamlit Secrets'tan Gemini API anahtarını al
+# 2. API Key Al
 try:
     gemini_api_key = st.secrets["GEMINI_API_KEY"]
 except KeyError:
-    st.error("🔑 Gemini API anahtarı bulunamadı. Lütfen Streamlit Cloud > Settings > Secrets bölümüne `GEMINI_API_KEY` olarak eklediğinizden emin olun.")
-    st.stop() # Anahtar yoksa uygulamayı durdur
+    st.error("Lütfen .streamlit/secrets.toml dosyasına GEMINI_API_KEY ekleyin.")
+    st.stop()
 
-# Eğer veri ve anahtar başarıyla okunduysa devam et
-if all_features_data and gemini_api_key:
+if all_features_data:
+    # Python Listesini -> JSON Stringine çevir
     all_features_json_string = json.dumps(all_features_data)
 
-    # 2. ADIM: HTML DOSYASINI OKUMA VE VERİLERİ İÇİNE YERLEŞTİRME
     try:
         html_file_path = os.path.join(os.path.dirname(__file__), 'foresight.html')
         with open(html_file_path, 'r', encoding='utf-8') as f:
             html_content = f.read()
 
-        # 1. Değişiklik: Veri yer tutucusunu değiştir
-        html_content = html_content.replace("'__VERI_BURAYA_GELECEK__'", all_features_json_string)  
+        # --- DÜZELTME NOKTASI ---
+        # HTML'de "const allFeatures = __VERI_BURAYA_GELECEK__;" dedik.
+        # Bu yüzden replace yaparken tırnak koymuyoruz.
+        html_content = html_content.replace("__VERI_BURAYA_GELECEK__", all_features_json_string)
         
-        # 2. Değişiklik: API anahtarı yer tutucusunu değiştir
+        # API Key yerleşimi
         html_content = html_content.replace("__GEMINI_API_KEY__", gemini_api_key)
 
         components.html(html_content, height=900, scrolling=True)
 
     except FileNotFoundError:
-        st.error("foresight.html dosyası bulunamadı. Lütfen 'foresight.py' ile aynı dizinde olduğundan emin olun.")
+        st.error("foresight.html dosyası bulunamadı.")
     except Exception as e:
-        st.error(f"HTML işlenirken bir hata oluştu: {e}")
+        st.error(f"HTML render hatası: {e}")
+else:
+    st.warning("Görüntülenecek veri bulunamadı.")
