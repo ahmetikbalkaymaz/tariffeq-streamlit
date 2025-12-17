@@ -758,35 +758,35 @@ if st.session_state.active_calc_module == CALC_MODULE_FIRE:
         col1, col2, col3 = st.columns(3)
 
 
-        with col1:
-            if 'export_data' in st.session_state:
-                pdf_bytes = pdf_generator.create_fire_pdf(
-                    locations_data=st.session_state.export_data['locations_data'],
-                    groups_determined=st.session_state.export_data['groups_determined'],
-                    num_locations=st.session_state.export_data['num_locations'],
-                    currency_fire=st.session_state.export_data['currency_fire'],
-                    koas=st.session_state.export_data['koas'],
-                    deduct=st.session_state.export_data['deduct'],
-                    inflation_rate=st.session_state.export_data['inflation_rate'],
-                    premium_results_by_group=st.session_state.export_data['premium_results_by_group'],
-                    total_premium_all_groups_try=st.session_state.export_data['total_premium_all_groups_try'],
-                    display_currency=st.session_state.export_data['display_currency'],
-                    display_fx_rate=st.session_state.export_data['display_fx_rate'],
-                    ui_helpers=ui,
-                    language=lang,
-                    scenario_data=st.session_state.get('scenario_data_for_page'),
-                    apply_limited_policy=apply_limited_policy,
-                    limited_policy_limit=limited_policy_limit,
-                    fx_info=fx_info_fire # YENİ: Kur bilgi metnini ekle
-                )
-                st.download_button(
-                    label="📄 " + tr("download_pdf_button"),
-                    data=pdf_bytes,
-                    file_name=f"TariffEQ_Fire_Report_{datetime.now().strftime('%Y%m%d')}.pdf",
-                    mime="application/pdf",
-                    use_container_width=True,
-                    key="download_pdf"
-                )
+        # with col1:
+        #     if 'export_data' in st.session_state:
+        #         pdf_bytes = pdf_generator.create_fire_pdf(
+        #             locations_data=st.session_state.export_data['locations_data'],
+        #             groups_determined=st.session_state.export_data['groups_determined'],
+        #             num_locations=st.session_state.export_data['num_locations'],
+        #             currency_fire=st.session_state.export_data['currency_fire'],
+        #             koas=st.session_state.export_data['koas'],
+        #             deduct=st.session_state.export_data['deduct'],
+        #             inflation_rate=st.session_state.export_data['inflation_rate'],
+        #             premium_results_by_group=st.session_state.export_data['premium_results_by_group'],
+        #             total_premium_all_groups_try=st.session_state.export_data['total_premium_all_groups_try'],
+        #             display_currency=st.session_state.export_data['display_currency'],
+        #             display_fx_rate=st.session_state.export_data['display_fx_rate'],
+        #             ui_helpers=ui,
+        #             language=lang,
+        #             scenario_data=st.session_state.get('scenario_data_for_page'),
+        #             apply_limited_policy=apply_limited_policy,
+        #             limited_policy_limit=limited_policy_limit,
+        #             fx_info=fx_info_fire # YENİ: Kur bilgi metnini ekle
+        #         )
+        #         st.download_button(
+        #             label="📄 " + tr("download_pdf_button"),
+        #             data=pdf_bytes,
+        #             file_name=f"TariffEQ_Fire_Report_{datetime.now().strftime('%Y%m%d')}.pdf",
+        #             mime="application/pdf",
+        #             use_container_width=True,
+        #             key="download_pdf"
+        #         )
 
         with col2:
             if 'export_data' in st.session_state:
