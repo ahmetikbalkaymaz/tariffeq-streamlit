@@ -1,4 +1,3 @@
-<!-- 
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -8,13 +7,11 @@
     <title>Yangın Verisi Haritası</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.10.0/proj4.js"
-        integrity="sha512-cC3hTM43fWUPvso650h0M0o521noA/9z26N1I3nYLLKdbFf2F4f3/RE2agJ2l9sN03/k+1tPqa+0g1+g6gV0Tw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+    <script src="https://unpkg.com/proj4@2.9.0/dist/proj4.js"></script>
 
     <style>
         html,
@@ -47,10 +44,6 @@
             overflow-y: auto;
         }
 
-        .leaflet-popup-content-wrapper {
-            border-radius: 8px;
-        }
-
         .loader {
             border: 4px solid #f3f3f3;
             border-top: 4px solid #4f46e5;
@@ -70,7 +63,6 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
 
 <body class="bg-gray-100">
@@ -79,36 +71,30 @@
         <aside id="sidebar" class="p-6 space-y-6">
             <header>
                 <h1 class="text-2xl font-bold text-gray-800">Orman Yangını Bilgi Sistemi</h1>
-                <p class="text-sm text-gray-500">EFFIS Veri Görselleştirme</p>
+                <p class="text-sm text-gray-500">Veritabanı Entegreli Görselleştirme</p>
             </header>
+
             <div class="space-y-2">
                 <label for="coord-search" class="block font-medium text-gray-700">Koordinat ile Ara</label>
                 <div class="flex space-x-2">
                     <input type="text" id="coord-search" placeholder="Örn: 38.42, 27.14"
                         class="block w-full px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+
                     <button id="search-btn"
                         class="p-2 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        title="Ara"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                clip-rule="evenodd" />
-                        </svg></button>
+                        title="Ara">🔍</button>
+
                     <button id="select-on-map-btn"
                         class="p-2 font-semibold text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                        title="Haritadan Konum Seç"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                clip-rule="evenodd" />
-                        </svg></button>
+                        title="Haritadan Konum Seç">📍</button>
                 </div>
                 <p class="text-xs text-gray-500">Enlem ve boylam arasına virgül koyarak arama yapınız.</p>
             </div>
+
             <div id="ai-analysis-section" class="space-y-4 pt-4 border-t">
                 <h2 class="text-lg font-semibold text-gray-800">✨ AI Destekli Risk Analizi</h2>
                 <div id="fire-details" class="bg-gray-50 p-4 rounded-lg text-sm text-gray-600">Analiz için haritadan bir
-                    yangın alanı seçin veya koordinat arayın.</div>
+                    yangın alanı seçin veya koordinat belirleyin.</div>
                 <div id="gemini-result"
                     class="text-sm text-gray-700 leading-relaxed p-4 border rounded-lg bg-white hidden"></div>
                 <div id="gemini-loader" class="flex items-center justify-center p-4 hidden">
@@ -116,144 +102,86 @@
                     <p class="ml-3 text-gray-600">Analiz oluşturuluyor...</p>
                 </div>
             </div>
-            <div class="space-y-4 pt-4 border-t">
-                <h2 class="text-lg font-semibold text-gray-800">EFFIS'in Çalışma Mantığı</h2>
-                <p class="text-sm text-gray-600 leading-relaxed">Avrupa Orman Yangını Bilgi Sistemi (EFFIS), AB ve komşu
-                    ülkelerdeki ormanları yangınlara karşı korumakla görevli hizmetleri destekler.</p>
-            </div>
-            <footer class="mt-auto pt-6 border-t">
-                <h3 class="text-md font-semibold text-gray-700">Kaynaklar</h3>
-                <p class="text-sm text-gray-500">Bu uygulama EFFIS verilerini kullanmaktadır.</p>
-                <div class="flex items-center space-x-4 mt-4">
-                    <a href="https://effis.jrc.ec.europa.eu/" target="_blank" title="EFFIS"><img
-                            src="https://effis.jrc.ec.europa.eu/apps/media/request?id=2148" alt="EFFIS Logo"
-                            class="h-12"></a>
-                    <a href="https://www.copernicus.eu/tr" target="_blank" title="Copernicus"><img
-                            src="https://www.copernicus.eu/themes/contrib/copernicus_theme/logo.svg"
-                            alt="Copernicus Logo" class="h-12"></a>
-                </div>
-            </footer>
         </aside>
         <main id="map"></main>
     </div>
 
     <script>
-        // --- UYGULAMA MANTIĞI ---
+        // --- UYGULAMA BAŞLANGICI ---
+
+        // Proj4 kontrolü (Hata önleyici)
+        if (typeof proj4 === 'undefined') {
+            alert("Harita kütüphanesi (Proj4) yüklenemedi. Lütfen internet bağlantınızı kontrol edin veya sayfayı yenileyin.");
+        }
+
         const map = L.map('map').setView([39.0, 35.0], 6);
         let allFireData = [];
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
+
         const fireDetailsContainer = document.getElementById('fire-details');
         const geminiResultContainer = document.getElementById('gemini-result');
         const geminiLoader = document.getElementById('gemini-loader');
 
-        // --- Veri Yükleme ve İşleme ---
-        async function loadAndProcessData() {
+        function loadAndProcessData() {
+            // Projeksiyon Tanımları
             const crs3035 = '+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs';
             const crs4326 = 'EPSG:4326';
 
-            // GitHub'dan veri yükleme
-            fireDetailsContainer.innerHTML = '<p class="text-blue-600">📡 Yangın verileri yükleniyor...</p>';
-
-            const dataUrls = [
-                'https://raw.githubusercontent.com/ubeytayvaz/Firost/refs/heads/main/yangin_verisi_part_1.json',
-                'https://raw.githubusercontent.com/ubeytayvaz/Firost/refs/heads/main/yangin_verisi_part_2.json',
-                'https://raw.githubusercontent.com/ubeytayvaz/Firost/refs/heads/main/yangin_verisi_part_3.json'
-            ];
+            // Veriyi al
+            const allFeatures = __VERI_BURAYA_GELECEK__;
 
             try {
-                // Tüm dosyaları paralel olarak yükle
-                const responses = await Promise.all(
-                    dataUrls.map(url => fetch(url))
-                );
-
-                // Tüm yanıtları JSON'a çevir
-                const dataFiles = await Promise.all(
-                    responses.map(response => {
-                        if (!response.ok) {
-                            throw new Error(`Veri yüklenemedi: ${response.status}`);
-                        }
-                        return response.json();
-                    })
-                );
-
-                // Tüm features'ları birleştir
-                let allFeatures = [];
-                dataFiles.forEach(data => {
-                    if (data.features && Array.isArray(data.features)) {
-                        allFeatures = allFeatures.concat(data.features);
-                    }
-                });
-
                 if (!allFeatures || allFeatures.length === 0) {
-                    throw new Error("Veri yüklenemedi veya boş.");
+                    throw new Error("Veri boş geldi.");
                 }
-
-                fireDetailsContainer.innerHTML = `<p class="text-green-600">✓ ${allFeatures.length} yangın alanı yüklendi!</p>`;
-
-                // Kısa bir gecikme sonrası varsayılan mesajı göster
-                setTimeout(() => {
-                    fireDetailsContainer.innerHTML = '<p class="text-gray-600">Analiz için haritadan bir yangın alanı seçin veya koordinat arayın.</p>';
-                }, 2000);
 
                 allFeatures.forEach(feature => {
                     const { properties, geometry } = feature;
                     const alan = properties.area_ha;
                     const initialDate = new Date(properties.initialdate);
-                    const formattedDate = initialDate.toLocaleDateString('tr-TR', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric'
-                    });
+                    const formattedDate = initialDate.toLocaleDateString('tr-TR');
 
                     if (geometry && geometry.type === "MultiPolygon" && alan > 0) {
                         const polygonCoords = geometry.coordinates[0][0];
+
                         const latLngs = polygonCoords.map(coord => {
                             const converted = proj4(crs3035, crs4326, coord);
                             return [converted[1], converted[0]];
                         });
 
                         const polygon = L.polygon(latLngs, {
-                            color: 'red',
-                            fillColor: '#f03',
-                            fillOpacity: 0.5,
-                            weight: 1
+                            color: 'red', fillColor: '#f03', fillOpacity: 0.5, weight: 1
                         }).addTo(map);
 
-                        polygon.bindPopup(`<b>Yangın Alanı</b><br>Bölge: ${properties.admlvl1 || 'Bilinmiyor'}<br>Alan: ${alan.toFixed(2)} hektar<br><b>Tarih:</b> ${formattedDate}`);
+                        polygon.bindPopup(`<b>Yangın Alanı</b><br>Bölge: ${properties.admlvl1 || 'Bilinmiyor'}<br>Alan: ${alan.toFixed(2)} ha<br>Tarih: ${formattedDate}`);
 
                         const center = polygon.getBounds().getCenter();
                         allFireData.push({ center: center, properties: properties });
 
                         polygon.on('click', () => {
-                            const lat = center.lat;
-                            const lon = center.lng;
                             geminiResultContainer.classList.add('hidden');
-                            geminiResultContainer.textContent = '';
-
                             fireDetailsContainer.innerHTML = `
-                                <p><strong>Seçilen Yangın Alanı</strong></p>
-                                <p><strong>Bölge:</strong> ${properties.admlvl1 || ''}</p>
-                                <p><strong>Yanan Alan:</strong> ${alan.toFixed(2)} hektar</p>
-                                <p><strong>Tarih:</strong> ${formattedDate}</p>
-                                <button id="analyze-btn" class="w-full mt-3 px-4 py-2 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
-                                    ✨ Bu Yangın İçin Risk Analizi Oluştur
-                                </button>
+                                <p><strong>Seçilen Yangın</strong></p>
+                                <p>Bölge: ${properties.admlvl1 || '-'}</p>
+                                <p>Alan: ${alan.toFixed(2)} ha</p>
+                                <p>Tarih: ${formattedDate}</p>
+                                <button id="analyze-btn" class="w-full mt-3 px-4 py-2 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700">✨ Analiz Et</button>
                             `;
                             document.getElementById('analyze-btn').addEventListener('click', () =>
-                                getAnalysis('polygon', { lat, lon, area: alan })
+                                getAnalysis('polygon', { lat: center.lat, lon: center.lng, area: alan })
                             );
                         });
                     }
                 });
             } catch (error) {
-                console.error("Veri dosyaları işlenirken hata oluştu:", error);
-                fireDetailsContainer.innerHTML = `<p class="text-red-600">❌ Yangın verileri yüklenemedi: ${error.message}</p>`;
+                console.error("Veri işleme hatası:", error);
+                fireDetailsContainer.innerHTML = `<p class="text-red-600">Veri hatası: ${error.message}</p>`;
             }
         }
 
-        // --- Geliştirilmiş Risk Skorlama ve Analiz ---
+        // --- Risk Skorlama ---
         function calculateRiskScore(lat, lon) {
             const point = L.latLng(lat, lon);
             let totalThreatScore = 0;
@@ -264,8 +192,7 @@
                 if (distanceKm < MAX_DISTANCE_KM) {
                     const area = fire.properties.area_ha || 1;
                     const effectiveDistance = Math.max(distanceKm, 0.1);
-                    const threat = area / (effectiveDistance * effectiveDistance);
-                    totalThreatScore += threat;
+                    totalThreatScore += (area / (effectiveDistance * effectiveDistance));
                 }
             });
             if (totalThreatScore > 200) return 5;
@@ -275,113 +202,112 @@
             return 1;
         }
 
+        // --- Gemini API ---
         async function getAnalysis(type, data) {
-            const buttonId = "analyze-btn";
-            const button = document.getElementById(buttonId);
+            const btn = document.getElementById("analyze-btn");
+            if (btn) { btn.disabled = true; btn.textContent = 'Analiz Yapılıyor...'; }
+
             geminiLoader.classList.remove('hidden');
             geminiResultContainer.classList.add('hidden');
-            if (button) {
-                button.disabled = true;
-                button.textContent = 'Analiz Oluşturuluyor...';
-            }
-            let systemPrompt, userQuery;
-            if (type === 'coordinate') {
-                const score = calculateRiskScore(data.lat, data.lon);
-                systemPrompt = `Sen, Türkiye coğrafyası konusunda uzmanlaşmış bir sigorta şirketi için çalışan uzman bir risk analistisin. Sağlanan koordinat ve risk skoruna dayanarak, belirtilen konuma bir tesis kurulmasıyla ilgili olarak TÜRKÇE, kısa ve öz (3-4 cümlelik) bir risk değerlendirmesi yap. Cevabın sadece tek bir akıcı paragraf olmalı, markdown veya liste kullanmamalısın.`;
-                userQuery = `Bir sigorta risk analisti olarak, enlemi ${data.lat.toFixed(4)} ve boylamı ${data.lon.toFixed(4)} olan bir konum için bir yangın riski değerlendirmesi yap. Bu konumun, geçmiş yangın alanlarına olan yakınlığına ve büyüklüğüne göre hesaplanan risk skoru 5 üzerinden ${score}. Bu skoru temel alarak, konuma inşa edilecek bir tesis için sigorta risklerini ve potansiyel etkilerini 3-4 cümleyle, Türkçe olarak açıkla.`;
-            } else {
-                systemPrompt = `Sen, Türkiye coğrafyası konusunda uzmanlaşmış bir sigorta şirketi için çalışan uzman bir risk analistisin. Sağlanan yangın verilerine dayanarak, belirtilen konuma bir tesis kurulmasıyla ilgili olarak TÜRKÇE, kısa ve öz (3-4 cümlelik) bir risk değerlendirmesi yap. Cevabın sadece tek bir akıcı paragraf olmalı, markdown veya liste kullanmamalısın.`;
-                userQuery = `Daha önce enlemi ${data.lat.toFixed(4)} ve boylamı ${data.lon.toFixed(4)} olan bir konumda ${data.area.toFixed(2)} hektarlık bir alanı yakan bir yangın meydana geldi. Bir risk analisti olarak, bu konuma sigortalanacak yeni bir tesis kurmayı düşünen bir sigorta şirketi için kısa (3-4 cümlelik) bir değerlendirme yap. Değerlendirmen, geçmişteki bu olaya dayanarak çevresel yangın riskini yorumlamalıdır.`;
-            }
-            const apiKey = "__GEMINI_API_KEY__"; // API Anahtarınızı buraya girin
-            // Ekran görüntüsündeki model kodu
+
+            const apiKey = "__GEMINI_API_KEY__";
+            // Model: gemini-2.5-flash-lite
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ parts: [{ text: userQuery }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] }
-            };
+
+            let prompt = type === 'coordinate'
+                ? `Konum (${data.lat.toFixed(4)}, ${data.lon.toFixed(4)}). Risk Skoru: ${calculateRiskScore(data.lat, data.lon)}/5. Yangın riskini 3 cümleyle özetle.`
+                : `Bu konumda (${data.lat.toFixed(4)}, ${data.lon.toFixed(4)}) daha önce ${data.area.toFixed(2)} hektar yandı. Gelecek riskini 3 cümleyle anlat.`;
+
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }]
+                    })
                 });
-                if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
+
+                if (response.status === 429) throw new Error("Çok fazla istek (429). Bekleyin.");
+                if (!response.ok) throw new Error(`API Hatası: ${response.status}`);
+
                 const result = await response.json();
-                geminiResultContainer.textContent = result.candidates?.[0]?.content?.parts?.[0]?.text || 'AI modelinden geçerli bir yanıt alınamadı.';
+                geminiResultContainer.textContent = result.candidates?.[0]?.content?.parts?.[0]?.text || 'Yanıt alınamadı.';
             } catch (error) {
-                console.error("Gemini API error:", error);
-                geminiResultContainer.textContent = 'Analiz alınırken bir hata oluştu. Lütfen tekrar deneyin.';
+                geminiResultContainer.textContent = 'Hata: ' + error.message;
             } finally {
                 geminiLoader.classList.add('hidden');
                 geminiResultContainer.classList.remove('hidden');
-                if (button) {
-                    button.disabled = false;
-                    button.innerHTML = '✨ Risk Analizi Oluştur';
-                }
+                if (btn) { btn.disabled = false; btn.textContent = '✨ Risk Analizi Oluştur'; }
             }
         }
 
-        // --- Koordinat Arama Fonksiyonları ---
+        // --- Arama ve Konum Seçme Fonksiyonları ---
+
+        // 1. Arama Mantığını Fonksiyona Çevirdik (Hem butondan hem haritadan tetiklenebilsin diye)
         let searchMarker = null;
-        function searchLocation() {
-            const coordInput = document.getElementById('coord-search').value;
-            if (!coordInput) return;
-            const parts = coordInput.split(',').map(part => parseFloat(part.trim()));
+        function performSearch() {
+            const val = document.getElementById('coord-search').value;
+            if (!val) return;
+            const parts = val.split(',').map(p => parseFloat(p.trim()));
             if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
                 const [lat, lon] = parts;
                 map.setView([lat, lon], 13);
+
                 if (searchMarker) map.removeLayer(searchMarker);
-                searchMarker = L.marker([lat, lon]).addTo(map).bindPopup(`<b>Aranan Konum</b><br>${lat.toFixed(4)}, ${lon.toFixed(4)}`).openPopup();
+                searchMarker = L.marker([lat, lon]).addTo(map).bindPopup("Seçilen Konum").openPopup();
+
                 geminiResultContainer.classList.add('hidden');
-                geminiResultContainer.textContent = '';
                 fireDetailsContainer.innerHTML = `
-                    <p><strong>Aranan Konum</strong></p>
-                    <p><strong>Koordinatlar:</strong> ${lat.toFixed(4)}, ${lon.toFixed(4)}</p>
-                    <button id="analyze-btn" class="w-full mt-3 px-4 py-2 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
-                        ✨ Bu Koordinat İçin Risk Analizi Oluştur
-                    </button>
+                    <p><strong>Seçilen Konum</strong></p>
+                    <p>${lat.toFixed(4)}, ${lon.toFixed(4)}</p>
+                    <button id="analyze-btn" class="w-full mt-3 px-4 py-2 bg-indigo-600 text-white rounded font-semibold hover:bg-indigo-700">✨ Analiz Et</button>
                 `;
-                document.getElementById('analyze-btn').addEventListener('click', () =>
-                    getAnalysis('coordinate', { lat, lon })
-                );
-            } else {
-                const inputEl = document.getElementById('coord-search');
-                inputEl.classList.add('border-red-500');
-                inputEl.placeholder = "Hatalı format! Örn: 38.42, 27.14";
-                setTimeout(() => {
-                    inputEl.classList.remove('border-red-500');
-                    inputEl.placeholder = "Örn: 38.42, 27.14";
-                }, 3000);
+                document.getElementById('analyze-btn').addEventListener('click', () => getAnalysis('coordinate', { lat, lon }));
             }
         }
-        document.getElementById('search-btn').addEventListener('click', searchLocation);
+
+        // 2. Arama Butonu Tıklaması
+        document.getElementById('search-btn').addEventListener('click', performSearch);
+
+        // 3. Enter Tuşu Desteği
         document.getElementById('coord-search').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') searchLocation();
+            if (e.key === 'Enter') performSearch();
         });
 
+        // 4. Haritadan Konum Seçme Özelliği (AKTARIILDI)
         const selectOnMapBtn = document.getElementById('select-on-map-btn');
         selectOnMapBtn.addEventListener('click', () => {
-            const mapContainer = map.getContainer();
+            const mapContainer = document.getElementById('map');
+
+            // Görsel Geri Bildirim
             mapContainer.style.cursor = 'crosshair';
             selectOnMapBtn.disabled = true;
             selectOnMapBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            // Tek seferlik tıklama dinleyicisi
             map.once('click', (e) => {
                 const { lat, lng } = e.latlng;
+
+                // Input'a yaz
                 document.getElementById('coord-search').value = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
-                searchLocation();
+
+                // Aramayı otomatik tetikle (Marker koyar, paneli günceller)
+                performSearch();
+
+                // Eski haline getir
                 mapContainer.style.cursor = '';
                 selectOnMapBtn.disabled = false;
                 selectOnMapBtn.classList.remove('opacity-50', 'cursor-not-allowed');
             });
         });
 
-
         loadAndProcessData();
     </script>
 </body>
 
-</html> -->
+</html>
+
+<!-- 
 
 <!DOCTYPE html>
 <html lang="tr">
@@ -640,4 +566,4 @@
     </script>
 </body>
 
-</html>
+</html> -->
